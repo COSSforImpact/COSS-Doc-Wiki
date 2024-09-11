@@ -1,54 +1,38 @@
-As part of user-org refactoring to suit manage learn use cases, from 3.8 release :  
+# SC-2190---Data-model-changes-to-organisation-schema-to-store-schools-as-organisations
 
+As part of user-org refactoring to suit manage learn use cases, from 3.8 release :
 
-* Schools as stored as organisations instead of suborgs. 
-
-
-* Changes are made to the schema to identify whether an organisation is a tenant or organisation type is a board/school/contentorg. 
-
-
-* Locations are currently stored as List<String> and this is going to change to reflect the type of location id, whether the given location id is of a state or district or block.
-
-
-* Classification of orgs - board/school/contentorg, based on org_type and isTenant flag.
+* Schools as stored as organisations instead of suborgs.
+* Changes are made to the schema to identify whether an organisation is a tenant or organisation type is a board/school/contentorg.
+* Locations are currently stored as List and this is going to change to reflect the type of location id, whether the given location id is of a state or district or block.
+*   Classification of orgs - board/school/contentorg, based on org\_type and isTenant flag.
 
     eg. cbse is a board + tenant=true, rj is board + tenant=true, khan - content org, tenant = false
-
-
 * Association to custodian should be descoped in future (Eventual future)
 
-
-
-
-## Problem statement 
+### Problem statement&#x20;
 
 * Schools are stored as sub-organisations and this restricts the school to be under a particular board.
-
-
 * There are parent/root orgs and sub orgs, but no way to identify the type of org or is the org is a tenant.
+* Org locations are stored as a location id list in user table, and this requires a lookup to location table to understand the type of location for each location id.
 
+### Solution
 
-* Org locations are stored as a location id list in user table, and this requires a lookup to location table to understand the type of location for each location id. 
-
-
-
-
-## Solution
 In release 3.8, to make the data storage more generic and usable below changes are proposed:
 
 Add istenant column to organisation table, and store the isrootorg column value in istenant column, in subsequent release remove the isrootorg column.
 
-
 ```
 istenant boolean
 ```
-Update the org locations in a  **json structure**  to a new  **text**  field, orglocation, instead of storing it in locationIds. In subsequent release, remove the locationIds column.
 
+Update the org locations in a **json structure** to a new **text** field, orglocation, instead of storing it in locationIds. In subsequent release, remove the locationIds column.
 
 ```
 orglocation text
 ```
-Remove the orgtype column  and add organisationType column , which will save int values corresponding to the organisation types like board/school/contentorg. The types will be represented with bit posotions: 
+
+Remove the orgtype column and add organisationType column , which will save int values corresponding to the organisation types like board/school/contentorg. The types will be represented with bit posotions:
 
 bit 0 isBoard
 
@@ -60,16 +44,15 @@ bit 3 isBoard
 
 So value in digit for board - 5, school - 2
 
-
 ```
 organisationType int
 ```
+
 Update the rootorgid column with values from id column.
 
+### Example
 
-## Example  
 Sample data for orgLocation in table and ES doc
-
 
 ```
 "orgLocation" : 
@@ -135,89 +118,38 @@ Sample data for orgLocation in table and ES doc
 )
 ```
 
-
- **Data Migration:** 
-
+**Data Migration:**
 
 * To update istenant flag for organisation which has organisationtype as ‘5’
-
-
 * To update organisationtype as board/school/contentorg with respective int values
-
-
 * To update rootorgid column with ‘id’ column data
-
-
 * To restructure location ids in organisation table and update to orglocation column
 
+**Impacted Areas:**
 
-
- **Impacted Areas:** 
-
- **APIs** 
-
+**APIs**
 
 1. /v1/org/create - organisationtype, orglocation, istenant, isrootorg, rootorgid update logic to be need to be changed.
+2. /v1/org/update - organisationtype, orglocation, istenant, isrootorg, rootorgid update logic to be need to be changed.
+3. /v1/org/read - organisationtype, orglocation, istenant, isrootorg, rootorgid read logic to be need to be changed.
+4. /v1/org/search - organisationtype, orglocation, istenant, isrootorg, rootorgid read logic to be need to be changed.
+5. /data/sync api changes to index the orglocation in ES
+6. /v3/user/read - api changes to return rootorg.rootorgid as organisation id for backward compatibility.
+7. /v1/org/upload - organisationtype, orglocation, istenant, isrootorg, rootorgid update logic to be need to be changed.
+8. Add member/remove member APIs to be removed.
+9. Last login update API should return 200 always
+10. Re-indexing the org index for better performance and new changes
+11. Removing below set of APIs
 
+\| /v1/org/type/create | | /v1/org/type/update | | /v1/org/type/list |
 
-1. /v1/org/update  - organisationtype, orglocation, istenant, isrootorg, rootorgid update logic to be need to be changed.
-
-
-1. /v1/org/read - organisationtype, orglocation, istenant, isrootorg, rootorgid  read logic to be need to be changed.
-
-
-1. /v1/org/search - organisationtype, orglocation, istenant, isrootorg, rootorgid  read logic to be need to be changed.
-
-
-1. /data/sync api changes to index the orglocation in ES
-
-
-1. /v3/user/read - api changes to return rootorg.rootorgid as organisation id for backward compatibility.
-
-
-1. /v1/org/upload - organisationtype, orglocation, istenant, isrootorg, rootorgid update logic to be need to be changed.
-
-
-1. Add member/remove member APIs to be removed.
-
-
-1. Last login update API should return 200 always
-
-
-1. Re-indexing the org index for better performance and new changes
-
-
-1. Removing below set of APIs
-
-
-
-
-
-| /v1/org/type/create | 
-| /v1/org/type/update | 
-| /v1/org/type/list | 
-
- **Analytics Reports**  - logic to pull organisationtype, organisation.locationids, istenant, isrootorg, rootorgid in reports need to be updated.
-
+**Analytics Reports** - logic to pull organisationtype, organisation.locationids, istenant, isrootorg, rootorgid in reports need to be updated.
 
 1. Self Declaration Report
+2. Progress Exhaust
+3. User Info Exhaust
+4. User Cache Updater
 
+***
 
-1. Progress Exhaust
-
-
-1. User Info Exhaust
-
-
-1. User Cache Updater
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

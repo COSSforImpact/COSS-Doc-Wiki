@@ -1,198 +1,119 @@
+# Programs-portal--Architecture
 
+Programs portal is to launch the programs using programs configuration.&#x20;
 
-Programs portal is to launch the programs using programs configuration. 
-
-
-
- **Programs Configuration:** 
+**Programs Configuration:**
 
 JSON stucture
 
-
-
- **Architecture diagram:** 
+**Architecture diagram:**
 
 [https://drive.google.com/file/d/1mZNG8UkX3IeEnVqLiKaSZbIUrnx8vGFn/view](https://drive.google.com/file/d/1mZNG8UkX3IeEnVqLiKaSZbIUrnx8vGFn/view)
 
-
-
-Each program can be configured with the below list of components specific to individual program. 
-
-
+Each program can be configured with the below list of components specific to individual program.&#x20;
 
 Design Discussion wiki page:
 
-[[[Design] Programs on Sunbird portal|[Design]-Programs-on-Sunbird-portal]]
+\[\[\[Design] Programs on Sunbird portal|\[Design]-Programs-on-Sunbird-portal]]
 
+### Components List
 
-## Components List
+\| Program Component | | OnBoarding Component | | Header Component | | Collection Component | | Chapter List Component | | Re-Order Component | | Content-Type Selection Component | | Upload Content Component | | Practice Question Set Component | | MCQ Questions Creation Component | | Ck-Editor Component | | Preview Component | | Dashboard Component |
 
+#### Program Component:
 
-| Program Component | 
-| OnBoarding Component | 
-| Header Component | 
-| Collection Component | 
-| Chapter List Component | 
-| Re-Order Component | 
-| Content-Type Selection Component | 
-| Upload Content Component | 
-| Practice Question Set Component | 
-| MCQ Questions Creation Component | 
-| Ck-Editor Component | 
-| Preview Component | 
-| Dashboard Component | 
-
-
-
-
-### Program Component:
 This is the base container which will read the program configuration & loads component specific to program specified in the configuration.
 
 JSON stucture
 
+#### OnBoarding Component:
 
-
-
-### OnBoarding Component:
 On boarding form configured for the program. If user has not defined any onBoarding configurtaion then it will not show to the user(when user visits first time).
 
 JSON stucture
 
+#### Header Component:
 
-
-
-
-
-### Header Component:
 List of header tabs configured for the programs. These tabs will be shown based of user role.
 
 JSON stucture
 
+#### Collection Component:
 
-
-
-
-
-### Collection Component:
 Dashboard page of the program.
 
 JSON stucture
 
+#### Chapter List Component:
 
-
-
-
-
-### Chapter List Component:
 This is the the detailed view of the collection content type(like Textbook, Course, Collection, Lesson plan etc..)
 
 JSON stucture
 
+#### Re-Order  Component:
 
-
-
-
-
-### Re-Order  Component:
 TBU
 
- **Configuration:** 
+**Configuration:**
 
 JSON stucture
 
+#### Content-Type Selection Component:
 
-
-
-
-
-
-
-### Content-Type Selection Component:
 TBU
 
- **Configuration:** 
+**Configuration:**
 
 JSON stucture
 
+#### Upload Content Component:
 
-
-
-
-
-### Upload Content Component:
 TBU
 
- **Configuration:** 
+**Configuration:**
 
 JSON stucture
 
+#### Practice Question-Set Component:
 
-
-
-
-
-### Practice Question-Set Component:
 TBU
 
- **Configuration:** 
+**Configuration:**
 
 JSON stucture
 
+#### MCQ Question-Set Component:
 
-
-
-
-
-### MCQ Question-Set Component:
 TBU
 
- **Configuration:** 
+**Configuration:**
 
 JSON stucture
 
+#### Ck-Editor Component:
 
-
-
-
-
-### Ck-Editor Component:
 TBU
 
- **Configuration:** 
+**Configuration:**
 
 JSON stucture
 
+#### Preview Component:
 
-
-
-
-
-### Preview Component:
 TBU
 
- **Configuration:** 
+**Configuration:**
 
 JSON stucture
 
+#### Dashboard Component:
 
-
-
-
-
-### Dashboard Component:
 TBU
 
- **Configuration:** 
+**Configuration:**
 
 JSON stucture
 
+***
 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

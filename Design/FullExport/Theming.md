@@ -1,8 +1,8 @@
+# Theming
+
 RedWork in progress
 
-Following variables are there as of now for theming stuff - 
-
-
+Following variables are there as of now for theming stuff -&#x20;
 
 $bg-body: #fdfdfd;
 
@@ -30,9 +30,6 @@ $progressbar-color: #d4e4e1;
 
 $progressbar-gradient: linear-gradient(to left, #2971a5, #0d9276);
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

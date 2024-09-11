@@ -1,10 +1,12 @@
- **Purpose :** 
+# \[Design]Experiment-Definition
+
+**Purpose :**
+
 * Design for Experiment API's to populate,list,delete the experiment definition
 * Design the experiment definition schema
-* Design Data product  to map  the users/devices to experiments
+* Design Data product  to map  the users/devices to experiments
 
- **Design Flow :** ![](images/storage/Experiment_Update.jpg) **Experiment API :**  **CREATE API  :**  **URL**  :  POST  /experiment/create **Input :**  **Sample User Criteria Input Request:** 
-
+**Design Flow :** ![](images/storage/Experiment\_Update.jpg) **Experiment API :** **CREATE API  :** **URL** :  POST  /experiment/create **Input :** **Sample User Criteria Input Request:**
 
 ```
   "request": {
@@ -27,9 +29,7 @@
   }
 ```
 
-
- **Device Criteria Input Request:** 
-
+**Device Criteria Input Request:**
 
 ```
   "request": {
@@ -67,27 +67,25 @@
     }
   }
 ```
-Device Filter Criteria  :
+
+Device Filter Criteria  :
 
 Output :
-
 
 * Process the request and save the request parameters to Experiment-Definition Cassandra Table with status " **SUBMITTED** "
 * Response : " **Experiment Submitted Sucessfully** "
 
- **Note :** 
+**Note :**
 
+* **All fields are mandatory**
+* **Same Experiment will not be allowed to submit again unless the status of the experiment is FAILED**
+* **If the experiment is submitted more than once , will send a response "Experiment already submitted"**
 
-*  **All fields are mandatory** 
-*  **Same Experiment will not be allowed to submit again unless the status of the experiment is FAILED** 
-*  **If the experiment is submitted more than once , will send a response "Experiment already submitted"** 
+\*\*GET API \*\* **URL** :  GET  /experiment/:idRequest Params :  ExperimentId
 
- **GET API **  **URL**  :  GET  /experiment/:idRequest Params :  ExperimentId
-
-Repsonse :  Experiment Details for the respective experiment Id
+Repsonse :  Experiment Details for the respective experiment Id
 
 Sample Response :
-
 
 ```
 {
@@ -120,9 +118,7 @@ Sample Response :
 }
 ```
 
-
- **GET LIST  API  :**  **URL**  :  GET  /experiment/listOutput :  List of all ExperimentsSample Response :
-
+**GET LIST  API  :** **URL** :  GET  /experiment/listOutput :  List of all ExperimentsSample Response :
 
 ```
 {
@@ -191,40 +187,36 @@ Sample Response :
 }
 ```
 
+**Experiment Definition Schema:**
 
- **Experiment Definition Schema:** 
+|    | Field           | type                | Description                                                                                                                                                                                                                                                                           |
+| -- | --------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1  | expId           | String              | unique id for experiment                                                                                                                                                                                                                                                              |
+| 2  | expName         | String              | name of the experiment                                                                                                                                                                                                                                                                |
+| 3  | expDescription  | String              | descirption of the experiment                                                                                                                                                                                                                                                         |
+|    | expData         | Map\<String,String> | <p>Experiment Data</p><ul><li>startDate  - start date of the experiment</li><li>endDate - end date of the experiment</li><li>key/url  -  key or url of the experiment</li><li>modulus - mod number of the experiment</li><li>client - Name of the client for the experiment</li></ul> |
+| 5  | createdBy       | String              | name of the user who created the experiment                                                                                                                                                                                                                                           |
+| 6  | updatedBy       | String              | name of product that last updated the experiment                                                                                                                                                                                                                                      |
+| 7  | udpatedOn       | Timestamp           | last udpated date by the source                                                                                                                                                                                                                                                       |
+| 8  | createdOn       | Timestamp           | created date for the experiment                                                                                                                                                                                                                                                       |
+| 9  | criteria        | Map\<String,String> | <p>criteria of the experiment</p><ul><li>type  - Type of Criteria (user/device)</li><li>filters - Array of Filters</li></ul>                                                                                                                                                          |
+| 10 | status          | String              | status of the experiment(SUBMITTED/PROCESSING/ACTIVE/FAILED/STOPPED/INACTIVE)                                                                                                                                                                                                         |
+| 11 | status\_message | String              | status description of the experiment                                                                                                                                                                                                                                                  |
+| 12 | stats           | Map\<String,Long>   | <p>Statistic Data</p><ul><li>usersMatched</li><li>devicesMatched</li></ul>                                                                                                                                                                                                            |
 
-|  | Field | type | Description | 
-|  --- |  --- |  --- |  --- | 
-| 1 | expId | String | unique id for experiment | 
-| 2 | expName | String | name of the experiment | 
-| 3 | expDescription | String | descirption of the experiment | 
-|  | expData | Map<String,String> | Experiment Data<ul><li>startDate  - start date of the experiment</li><li>endDate - end date of the experiment</li><li>key/url  -  key or url of the experiment</li><li>modulus - mod number of the experiment</li><li>client - Name of the client for the experiment</li></ul> | 
-| 5 | createdBy | String | name of the user who created the experiment | 
-| 6 | updatedBy | String | name of product that last updated the experiment | 
-| 7 | udpatedOn | Timestamp | last udpated date by the source | 
-| 8 | createdOn | Timestamp | created date for the experiment | 
-| 9 | criteria | Map<String,String> | criteria of the experiment<ul><li>type  - Type of Criteria (user/device)</li><li>filters - Array of Filters</li></ul> | 
-| 10 | status | String | status of the experiment(SUBMITTED/PROCESSING/ACTIVE/FAILED/STOPPED/INACTIVE) | 
-| 11 | status_message | String | status description of the experiment | 
-| 12 | stats | Map<String,Long> | Statistic Data<ul><li>usersMatched</li><li>devicesMatched</li></ul> | 
+**Experiment Data Product :**
 
-
-
- **Experiment Data Product :** 
-### Purpose
+#### Purpose
 
 * To compute the user/device experiment mapping based on the experiment criteria and save it to elastic search
 
- **Input:** 
+**Input:**
 
+* Experiment\_Definition Cassandra Table
 
-* Experiment_Definition Cassandra Table
+#### **Output** &#x20;
 
-
-###  **Output**  
-User experiment mapping  index to elastic search
-
+User experiment mapping  index to elastic search
 
 ```
 User Experiment :
@@ -265,14 +257,6 @@ Device Experiment :
 
 ```
 
+***
 
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

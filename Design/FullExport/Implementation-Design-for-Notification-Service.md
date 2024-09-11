@@ -1,84 +1,55 @@
+# Implementation-Design-for-Notification-Service
 
+\| 1.12.0 | | [SB-8955 System JIRA](https://browse/SB-8955) | | DRAFT | | Loganathan shanmugam
 
+\| | [Notification Service](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/654409823/Notification+Service) | |  Loganathan shanmugam  |
 
+| @QA                                           |
+| --------------------------------------------- |
+| ---                                           |
+| ---                                           |
+| ---                                           |
+| ---                                           |
+| ---                                           |
+| ---                                           |
+| 1.12.0                                        |
+| [SB-8955 System JIRA](https://browse/SB-8955) |
+| DRAFT                                         |
+| Loganathan shanmugam                          |
 
+\| | [Notification Service](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/654409823/Notification+Service) | |  Loganathan shanmugam  | | @QA |
 
+**Implementation Architecture**
 
+![](<images/storage/Notification-Service (5).png>)
 
+The above figure  illustrates the components of notification service.Notification Service should be implemented with the following technical stacks:
 
-| 1.12.0 | 
-| [SB-8955 System JIRA](https:///browse/SB-8955) | 
-| DRAFT | 
-| Loganathan shanmugam
-
- | 
-| [Notification Service](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/654409823/Notification+Service) | 
-|  Loganathan shanmugam  | 
-| @QA | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-| 1.12.0 | 
-| [SB-8955 System JIRA](https:///browse/SB-8955) | 
-| DRAFT | 
-| Loganathan shanmugam
-
- | 
-| [Notification Service](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/654409823/Notification+Service) | 
-|  Loganathan shanmugam  | 
-| @QA | 
-
-
-
-
-
- **Implementation Architecture** 
-
-
-
-
-
-![](images/storage/Notification-Service%20(5).png)
-
-
-
-
-
-The above figure  illustrates the components of notification service.Notification Service should be implemented with the following technical stacks:
-
-Nodejs-Express (Typescript) 
+Nodejs-Express (Typescript)&#x20;
 
 Kafka Scheduler
 
 Samza Processor
 
- **Sequence Diagram** 
+**Sequence Diagram**
 
-![](images/storage/Notifcation%20Scheduling%20&%20Delivery%20Sequence%20(6).png)
+![](<images/storage/Notifcation Scheduling & Delivery Sequence (6).png>)
 
-
-
- **Components Description** Notification Service contains the following blocks.
-
+**Components Description** Notification Service contains the following blocks.
 
 * Route Handler
 * Middle-ware
 * Service
-* Kafka Producer Adaptor 
+* Kafka Producer Adaptor&#x20;
 * Templates
 
 Route HandlerRoute handler receives the incoming request for a particular route and forwards it to service layer after validation.
 
-MiddlewareMiddleware is responsible for validating the authorisation and  request data and should throw the error response if the request is invalid.
+MiddlewareMiddleware is responsible for validating the authorisation and  request data and should throw the error response if the request is invalid.
 
- **Service** Service part of notification scheduler  is responsible for pushing the request data as notification messages into the Kafka queue(to specific topic based on priority) and responding the client with appropriate success message.
+**Service** Service part of notification scheduler  is responsible for pushing the request data as notification messages into the Kafka queue(to specific topic based on priority) and responding the client with appropriate success message.
 
- **Templates** Templates should be managed by Notification Service as local file or as the cloud file.Format of the template file should be json with following format:
-
+**Templates** Templates should be managed by Notification Service as local file or as the cloud file.Format of the template file should be json with following format:
 
 ```js
 [{
@@ -98,8 +69,8 @@ MiddlewareMiddleware is responsible for validating the authorisation and  reque
   }
 }
 ```
- **Response**  ** Success ** 
 
+**Response** \*\* Success \*\*
 
 ```js
 {
@@ -119,7 +90,9 @@ MiddlewareMiddleware is responsible for validating the authorisation and  reque
   }
 }
 ```
- ** Error  ** 
+
+\*\* Error  \*\*
+
 ```js
 {
   "id": "sunbird.notification.create",
@@ -136,16 +109,6 @@ MiddlewareMiddleware is responsible for validating the authorisation and  reque
 }
 ```
 
+***
 
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

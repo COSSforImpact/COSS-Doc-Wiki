@@ -1,45 +1,33 @@
-IntroductionThis story is to flatten the share event into multiple share events, so that slice and dice on various dimensions for the metric  **totalDownloads**  can be performed.
+# \[Design]-Flatten-the-share-events
+
+IntroductionThis story is to flatten the share event into multiple share events, so that slice and dice on various dimensions for the metric **totalDownloads** can be performed.
 
 Problem statementThe SHARE event captures all the contents downloaded on to a device. However, for a textbook download, the items object within the event captures all the resources downloaded. Since this is an array field, it is not denormalized and indexed into druid. Therefore we are not able to compute the total download metrics.
 
+### Solution -1: Events Flatten Samza job
 
+![](<images/storage/Screenshot 2019-12-26 at 12.33.28 PM.png>)
 
+Events Flatten job is responsible for flattening the share events into multiple share events so that  **totalDownloads** metrics can be computed.
 
-## Solution -1: Events Flatten Samza job
+**Job Responsibilities:**
 
+&#x20;1\. Flatten the share events to multiple share events.
 
-![](images/storage/Screenshot%202019-12-26%20at%2012.33.28%20PM.png)
+&#x20;2\. Generate always unique  **mid** for newly generated flatten events.
 
-
-
-Events Flatten job is responsible for flattening the share events into multiple share events so that  **totalDownloads** metrics can be computed.
-
- **Job Responsibilities:** 
-
- 1. Flatten the share events to multiple share events.
-
- 2. Generate always unique  **mid**  for newly generated flatten events.
-
-
-
- **Disadvantages:** 
+**Disadvantages:**
 
 1. The load will increase to Events Validator - We are flattening the single "SHARE" events into multiple "SHARE" Events, The Events Validator job should validate all newly generated share events.
-
 2. Need to allocate Extra resources for the Events flatten jobs.
 
+**Advantages:**
 
+&#x20;1 \*\*. \*\* During share events flattening process if any invalid events or duplicated events are generated then those events can be easily omitted from the Events validator and Events De-Dup samza job.
 
- **Advantages:** 
+&#x20;2\. The throughput of the remaining jobs will the same.
 
- 1 **. ** During share events flattening process if any invalid events or duplicated events are generated then those events can be easily omitted from the Events validator and Events De-Dup samza job.
-
- 2. The throughput of the remaining jobs will the same.
-
-
-
- **SHARE Event Structure** 
-
+**SHARE Event Structure**
 
 ```js
 {
@@ -133,16 +121,11 @@ Events Flatten job is responsible for flattening the share events into multiple 
 }
 ```
 
-
-Flattening the above share events to 3  **SHARE_ITEM**  Events.
-
+Flattening the above share events to 3 **SHARE\_ITEM** Events.
 
 1. If the Item list object has params.transfers = 0 then edata .type should be "download"
-1. If the Item list object has params.transfers = > 0 then edata .type should be "Import"
-1. If the share event has object then move the object data to rollup l1
-
-
-
+2. If the Item list object has params.transfers = > 0 then edata .type should be "Import"
+3. If the share event has object then move the object data to rollup l1
 
 ```js
 {
@@ -200,10 +183,6 @@ Flattening the above share events to 3  **SHARE_ITEM**  Events.
 }
 ```
 
-
-
-
-
 ```js
 {
   "ver": "3.0",
@@ -258,10 +237,6 @@ Flattening the above share events to 3  **SHARE_ITEM**  Events.
   "type": "events"
 }
 ```
-
-
-
-
 
 ```js
 {
@@ -318,10 +293,6 @@ Flattening the above share events to 3  **SHARE_ITEM**  Events.
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

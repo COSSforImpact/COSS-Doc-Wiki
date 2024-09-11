@@ -1,15 +1,13 @@
+# \[Design]---Making-Question-Set-Editor-and-QuML-Player-QuML-Compliant
+
 BackgroundWhile comparing the existing inQuiry question and question set metadata with QuML specs we found a few gaps. Below are the properties having some differences from the QuML specs:
 
- **Question metadata which has some differences from the QuML specs are:-** 
+**Question metadata which has some differences from the QuML specs are:-**
+
 * responseDeclaration
-
-
 * media
 
-
-
- **responseDeclaration** Currently, the responseDeclaration is stored in the below format but maxScore is not allowed in it and   outcomes  property is not allowed inside correctResponse
-
+**responseDeclaration** Currently, the responseDeclaration is stored in the below format but maxScore is not allowed in it and   outcomes property is not allowed inside correctResponse
 
 ```
 "responseDeclaration": {
@@ -28,9 +26,7 @@ BackgroundWhile comparing the existing inQuiry question and question set metadat
    }
 ```
 
-
- **Proposed Solution for responseDeclaration**  **Editor Changes:** Instead of keeping maxScore and outcomes in responseDeclaration we can store maxScore in outcomeDeclaration as below:
-
+**Proposed Solution for responseDeclaration** **Editor Changes:** Instead of keeping maxScore and outcomes in responseDeclaration we can store maxScore in outcomeDeclaration as below:
 
 ```
 "outcomeDeclaration": {
@@ -41,10 +37,10 @@ BackgroundWhile comparing the existing inQuiry question and question set metadat
     }
   },
 ```
+
 We will not store outcomes.score inside correctResponse because maxScore and outcomes.score holds the same value.
 
-For newly created single select MCQ question responseDecleration  and outcomeDeclaration will be stored in the below format:
-
+For newly created single select MCQ question responseDecleration and outcomeDeclaration will be stored in the below format:
 
 ```
 "responseDeclaration": {
@@ -70,8 +66,8 @@ For newly created single select MCQ question responseDecleration  and outcomeDec
     }
 }
 ```
-For multi-select MCQ,  responseDecleration  and outcomeDeclaration will be in the below format:
 
+For multi-select MCQ, responseDecleration and outcomeDeclaration will be in the below format:
 
 ```
 "responseDeclaration": {
@@ -101,45 +97,23 @@ For multi-select MCQ,  responseDecleration  and outcomeDeclaration will be in th
     }
   },
 ```
+
 We will store the maxScore inside the outcomeDeclaration property for new question creation using v2 API.
 
+* **No Data Migration (Recommended)**
+  * We will do these changes as part of the v2 API and will give the data in the above format.
+  * If a user edits the old question using v2 API, We will store maxScore inside the outcomeDeclaration and remove the maxScore from the responseDeclaration.
+* **Data Migration (Not Recommended)**
+  * We can do the data migration for the old questions and update the question metadata with the format mentioned above.
+  * This solution is not recommended because, with the migration of old questions, the old mobile app will break.
 
-*  **No Data Migration (Recommended)** 
+**Player Changes:**
 
-
-    * We will do these changes as part of the v2 API and will give the data in the above format.
-
-
-    * If a user edits the old question using v2 API, We will store maxScore inside the outcomeDeclaration and remove the maxScore from the responseDeclaration.
-
-
-
-    
-*  **Data Migration (Not Recommended)** 
-
-
-    * We can do the data migration for the old questions and update the question metadata with the format mentioned above. 
-
-
-    * This solution is not recommended because, with the migration of old questions, the old mobile app will break.
-
-
-
-    
-
- **Player Changes:** 
 * The player will check if the question is having the outcomeDeclaration in the metadata of the question and what’s the maxScore value present in it.
-
-
 * If the outcomeDeclaration property is found then the player will use it as is it.
-
-
 * If the question does not have the outcomeDeclaration property in the metadata then the player will look for the maxScore property in the responseDeclartion.
 
-
-
- **media** Currently, Question metadata contains media in the below format:
-
+**media** Currently, Question metadata contains media in the below format:
 
 ```
 "media": [{
@@ -157,10 +131,10 @@ We will store the maxScore inside the outcomeDeclaration property for new questi
    "warningTime": "60"
 }
 ```
+
 The use of maxTime is to show the timer on the QuML player and the use of warningTime is to indicate the time remaining to complete the question set.
 
-![](images/storage/maxTime.png)![](images/storage/warningTime.png)But as per the QuML schema, timeLimits` should be stored in the below format:
-
+![](images/storage/maxTime.png)![](images/storage/warningTime.png)But as per the QuML schema, timeLimits\` should be stored in the below format:
 
 ```json
 timeLimits:
@@ -177,9 +151,7 @@ timeLimits:
 }
 ```
 
-
- **Proposed Solution for timeLimits** We can set the timeLimits for the question set as:
-
+**Proposed Solution for timeLimits** We can set the timeLimits for the question set as:
 
 ```json
 timeLimits:
@@ -192,8 +164,8 @@ timeLimits:
    }
 }
 ```
-If we have a time limit for each of the questions we will store the timeLimits to the question set metadata as:
 
+If we have a time limit for each of the questions we will store the timeLimits to the question set metadata as:
 
 ```json
 timeLimits:
@@ -205,8 +177,8 @@ timeLimits:
    }
 }
 ```
-If we want to store max and warn value but don't want to store min value we can store the data in the below format:
 
+If we want to store max and warn value but don't want to store min value we can store the data in the below format:
 
 ```json
 timeLimits:
@@ -219,38 +191,19 @@ timeLimits:
    }
 }
 ```
+
 We will have to update the QuML spec so the warn time should be stored inside timeLimits
 
- **Editor Changes:** 
-*  **No Data Migration (Recommended)** 
+**Editor Changes:**
 
+* **No Data Migration (Recommended)**
+  * For the new question creation, we will store the timeLimits in a new format using v2 API.
+  * If the user edits the old question using V2 API, we will check for the timeLimits if it's present in the old format we will convert it to the new format on save.
+* **Data Migration (Not Recommended)**
+  * we can do the data migration for the old questions and update the question with the above-mentioned format.
 
-    * For the new question creation, we will store the timeLimits in a new format using v2 API.
+**Player Changes:** The player will first check if the question has timeLimits.questionset it will take the min and warn value from there, if timeLimits.questionset is undefined and timeLimits directly contains maxTime and warningTime it will take the value from there.
 
+***
 
-    * If the user edits the old question using V2 API, we will check for the timeLimits if it's present in the old format we will convert it to the new format on save.
-
-
-
-    
-
-
-*  **Data Migration (Not Recommended)** 
-
-
-    * we can do the data migration for the old questions and update the question with the above-mentioned format. 
-
-
-
-    
-
- **Player Changes:** The player will first check if the question has timeLimits.questionset it will take the min and warn value from there, if timeLimits.questionset is undefined and timeLimits directly contains maxTime and warningTime it will take the value from there.
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

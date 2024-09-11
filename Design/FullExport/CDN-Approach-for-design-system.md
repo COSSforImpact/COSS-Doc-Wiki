@@ -1,24 +1,23 @@
+# CDN-Approach-for-design-system
 
-## Problem Statement
+### Problem Statement
+
 Currently, each channel ( Portal, Editors, Players, Keycloak, Static site, Help center, etc ) has its own CSS codebase and therefore following challenges occur -
 
-
 * To keep design consistency across all the channels, the team has to do changes in all codebases.
-* Keeping all codebases in sync is difficult. 
+* Keeping all codebases in sync is difficult.&#x20;
 
+### Proposed Solutions
 
-## Proposed Solutions
-A CDN and package.json GitHub branch dependency of the design system created ( [https://sunbird-ed.github.io/sunbird-style-guide/dist/](https://sunbird-ed.github.io/sunbird-style-guide/dist/) ). 
+A CDN and package.json GitHub branch dependency of the design system created ( [https://sunbird-ed.github.io/sunbird-style-guide/dist/](https://sunbird-ed.github.io/sunbird-style-guide/dist/) ).&#x20;
 
+### Implementation
 
-## Implementation
 The CSS code will be maintained in the Design system repo only. It will follow the Sunbird's branching strategy. i.e. Each release will have its own branch. At the end of each release, the version tag will be created to do the code freeze.
 
+#### NPM&#x20;
 
-### NPM 
-
-* This design system repo branches will be used as the package.json dependency in all the channels. Eg - 
-
+* This design system repo branches will be used as the package.json dependency in all the channels. Eg -&#x20;
 
 ```js
 // package.json
@@ -31,46 +30,29 @@ The CSS code will be maintained in the Design system repo only. It will follow t
 ...
 ```
 
+* For each release, this branch reference ( **#2.2.0** in the above example ) will be updated in the package.json with the relevant version branch.
+* To pull the latest changes, will have to delete **node\_modules** folder and do the  **npm install** again.
+* For the Developers who are contributing to the Design system - they can use **npm link** ( [https://docs.npmjs.com/cli/link](https://docs.npmjs.com/cli/link) )  to make a symlink to see the real-time changes.
 
-
-
-
-* For each release, this branch reference (  **#2.2.0**  in the above example ) will be updated in the package.json with the relevant version branch.
-
-
-* To pull the latest changes, will have to delete  **node_modules**  folder and do the  **npm install**  again.
-
-
-* For the Developers who are contributing to the Design system - they can use  **npm link** ( [https://docs.npmjs.com/cli/link](https://docs.npmjs.com/cli/link) )  to make a symlink to see the real-time changes.
-
-Why GitHub branch as a dependency over NPM package publishing?NPM packages cannot be updated without version changing. Every time the change is made, a version (minor, medium, major ) jump will be there so 2 challenges -
-
+Why GitHub branch as a dependency over NPM package publishing?NPM packages cannot be updated without version changing. Every time the change is made, a version (minor, medium, major ) jump will be there so 2 challenges -
 
 * It will not be possible to keep the NPM package version number same as Sunbird release version.
-* Every time the package-lock.json needs to be updated.
+* Every time the package-lock.json needs to be updated.
 
+#### CDN
 
-### CDN
-
-* For each release, a versioned file will be there on the CDN server.  Eg - [https://cdn.sunbirded.org/2.2.0/styles.min.css](https://cdn.sunbirded.org/2.2.0/styles.min.css) or [https://cdn.sunbirded.org/3.2.0/styles.min.css](https://cdn.sunbirded.org/3.2.0/styles.min.css)
-* Each version will have its own folder in the name of version no. itself. Eg -  **<url>/2.2.0/styles.min.css or <url>/2.4.0/styles.min.css** 
+* For each release, a versioned file will be there on the CDN server.  Eg - [https://cdn.sunbirded.org/2.2.0/styles.min.css](https://cdn.sunbirded.org/2.2.0/styles.min.css) or [https://cdn.sunbirded.org/3.2.0/styles.min.css](https://cdn.sunbirded.org/3.2.0/styles.min.css)
+* Each version will have its own folder in the name of version no. itself. Eg - **/2.2.0/styles.min.css or /2.4.0/styles.min.css**
 * For each git commit, the CI build will be triggered from respective version branch and therefore respective dev CDN version will be updated. Upon approval, these version builds will be promoted to the staging, pre-prod and prod CDN servers.
-* These versioned CDN URLs can be directly used in any projects by simply adding in the HTML. Eg - 
-
+* These versioned CDN URLs can be directly used in any projects by simply adding in the HTML. Eg -&#x20;
 
 ```xml
 <link rel="stylesheet" type="text/css" href="https://cdn.sunbirded.org/3.2.0/styles.css">
 ```
 
+### What are the benefits, user will get from using these NPM dependencies and CDN's?
 
-
-
-
-
-
-## What are the benefits, user will get from using these NPM dependencies and CDN's?
-There might be some cases where entire CSS might not be required. It may require a few components or layouts or fonts only.  So here is the folder structure for CDN and NPM Dependency -
-
+There might be some cases where entire CSS might not be required. It may require a few components or layouts or fonts only.  So here is the folder structure for CDN and NPM Dependency -
 
 ```bash
 base.css	# Only contains the reusable utility classes. like margins, paddings, display, positions, typography, labels etc.
@@ -104,65 +86,38 @@ vendors/  # thirdparty plugins used
 vendors.css	# Concated code of above vendor folder css files
 ```
 
+### Usage
 
+#### CDN
 
-## Usage
-
-### CDN
-
-* If you would like to use the entire design system you can use by adding the following code in the head of the HTML. Eg- 
-
+* If you would like to use the entire design system you can use by adding the following code in the head of the HTML. Eg-&#x20;
 
 ```xml
 <link rel="stylesheet" type="text/css" href="https://cdn.sunbirded.org/3.2.0/styles.css">
 ```
 
-
-
-
-
-* If you would like to use certain components only and nothing else, you will require variables and those components CSS files. Eg - 
-
+* If you would like to use certain components only and nothing else, you will require variables and those components CSS files. Eg -&#x20;
 
 ```xml
 <link rel="stylesheet" type="text/css" href="https://cdn.sunbirded.org/3.2.0/variables.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.sunbirded.org/3.2.0/components/cards.css">
 ```
 
-
-
-
-
-* If you would like to use only Noto Sans (English) font, you can use - 
-
+* If you would like to use only Noto Sans (English) font, you can use -&#x20;
 
 ```xml
 <link rel="stylesheet" type="text/css" href="https://cdn.sunbirded.org/3.2.0/fonts/notosans.css">
 ```
 
-
-
-
-
-* If you would like to use concated Noto Sans fonts of all languages you can use - 
-
+* If you would like to use concated Noto Sans fonts of all languages you can use -&#x20;
 
 ```xml
 <link rel="stylesheet" type="text/css" href="https://cdn.sunbirded.org/3.2.0/fonts.css">
 ```
 
+#### NPM
 
-
-
-
-
-
-### NPM
-
-* Add the dependency in package.json file and do npm i - 
-
-
-
+* Add the dependency in package.json file and do npm i -&#x20;
 
 ```js
 // package.json
@@ -175,10 +130,7 @@ vendors.css	# Concated code of above vendor folder css files
 ...
 ```
 
-
-
-* Add stylesheet in angular.json file - 
-
+* Add stylesheet in angular.json file -&#x20;
 
 ```js
 // angular.json
@@ -191,22 +143,10 @@ vendors.css	# Concated code of above vendor folder css files
 ...
 ```
 
-
-
-
-
-
 falseRedIn Progress
 
-Related Jira Ticket - [SB-13649 System JIRA](https:///browse/SB-13649)
+Related Jira Ticket - [SB-13649 System JIRA](https://browse/SB-13649)
 
+***
 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

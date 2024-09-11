@@ -1,49 +1,41 @@
+# POC-with-headless-browser
 
-##   * [](#)
-  * [Solution :](#solution-:)
-  * [ itext calligraphy details can be found here ](# itext-calligraphy-details-can-be-found-here )
-  * [PhantomJs:](#phantomjs:)
-    * [Steps to use Phantom:](#steps-to-use-phantom:)
-    * [Install Phantomjs inside docker:](#install-phantomjs-inside-docker:)
-    * [Open issues:](#open-issues:)
-  * [Chrome headless browser:](#chrome-headless-browser:)
-    * [Installation Details:](#installation-details:)
-    * [Java code to generate html to pdf:](#java-code-to-generate-html-to-pdf:)
-    * [Open issues:](#open-issues:)
-    * [Open html to pdf:](#open-html-to-pdf:)
-Problem statement: 
-Conversion from html to pdf is not working as expected with Itext, if html having indic font. To over come this we explored following options.
+### \*
 
-
-* Need to purchase license for Itext calligraphy
+* [Solution :](POC-with-headless-browser.md#solution-:)
+* [ itext calligraphy details can be found here ](POC-with-headless-browser.md# itext-calligraphy-details-can-be-found-here )
+* [PhantomJs:](POC-with-headless-browser.md#phantomjs:)
+  * [Steps to use Phantom:](POC-with-headless-browser.md#steps-to-use-phantom:)
+  * [Install Phantomjs inside docker:](POC-with-headless-browser.md#install-phantomjs-inside-docker:)
+  * [Open issues:](POC-with-headless-browser.md#open-issues:)
+* [Chrome headless browser:](POC-with-headless-browser.md#chrome-headless-browser:)
+  * [Installation Details:](POC-with-headless-browser.md#installation-details:)
+  * [Java code to generate html to pdf:](POC-with-headless-browser.md#java-code-to-generate-html-to-pdf:)
+  * [Open issues:](POC-with-headless-browser.md#open-issues:)
+  * [Open html to pdf:](POC-with-headless-browser.md#open-html-to-pdf:) Problem statement:  Conversion from html to pdf is not working as expected with Itext, if html having indic font. To over come this we explored following options.
+* Need to purchase license for Itext calligraphy
 * Explore phantomJs to convert html to pdf
 * Explore chrome headless browser for html to pdf conversion.
 * Open html tp pdf
 
+### Solution :
 
+### &#x20;itext calligraphy details can be found here \[\[SC-1416 supporting different languages in certificate|SC-1416-supporting-different-languages-in-certificate]]
 
+&#x20; &#x20;
 
-## Solution :
+### PhantomJs:
 
-##  itext calligraphy details can be found here [[SC-1416 supporting different languages in certificate|SC-1416-supporting-different-languages-in-certificate]]
-   
+PhantomJs is a headless browser. This is used for selenium web testing. This can be used for html to pdf/png/jpeg conversion.&#x20;
 
+#### Steps to use Phantom:
 
-## PhantomJs:
-PhantomJs is a headless browser. This is used for selenium web testing. This can be used for html to pdf/png/jpeg conversion. 
+* &#x20;Install phantomjs ([https://phantomjs.org/download.html](https://phantomjs.org/download.html))
+* Change directory till phantomjs/examples and run command (phantomjs rasterize.js 'test.html' test.pdf)  test.html is input file and test.pdf is output file
 
+#### Install Phantomjs inside docker:
 
-### Steps to use Phantom:
-
-*  Install phantomjs ([https://phantomjs.org/download.html](https://phantomjs.org/download.html))
-* Change directory till phantomjs/examples and run command (phantomjs rasterize.js 'test.html' test.pdf)  test.html is input file and test.pdf is output file
-
-
-### Install Phantomjs inside docker:
-install phantomjs inside docker. To support indic fonts we need to install fonts as well. find attached docker file to install phantonjs and font 
-
-
-
+install phantomjs inside docker. To support indic fonts we need to install fonts as well. find attached docker file to install phantonjs and font&#x20;
 
 ```powershell
 FROM debian:stretch
@@ -210,45 +202,34 @@ public class PhantomTest {
 
 ```
 
+#### Open issues:
 
+1. &#x20;Phantomjs is not providing any custom configuration for pdf , some configuration are provided for images ([http://phantomjs.org/documentation/](http://phantomjs.org/documentation/))
+2. &#x20;Pdf generated from html is not exactly same , it has some css/style change
+3. By default render pdf zoom is very high.&#x20;
+4. For indic font we need to install indic font in system
 
-### Open issues:
+### Chrome headless browser:
 
-1.  Phantomjs is not providing any custom configuration for pdf , some configuration are provided for images ([http://phantomjs.org/documentation/](http://phantomjs.org/documentation/))
+This is another option to convert html to pdf. To do that we need to install chrome headless browser in system.&#x20;
 
+#### Installation Details:
 
-1.  Pdf generated from html is not exactly same , it has some css/style change
-1. By default render pdf zoom is very high. 
-1. For indic font we need to install indic font in system
-
-
-
-
-## Chrome headless browser:
-This is another option to convert html to pdf. To do that we need to install chrome headless browser in system. 
-
-
-### Installation Details:
 apt-get update
 
 sudo apt-get install -y libappindicator1 fonts-liberation
 
-wget [https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb](https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb)
+wget [https://dl.google.com/linux/direct/google-chrome-stable\_current\_amd64.deb](https://dl.google.com/linux/direct/google-chrome-stable\_current\_amd64.deb)
 
 sudo dpkg -i google-chrome\*.deb
 
-
-
 Command to generate html to pdf:
 
-   google-chrome --headless --disable-gpu --print-to-pdf={output_file_name} {path_to_html_file}
+&#x20;  google-chrome --headless --disable-gpu --print-to-pdf={output\_file\_name} {path\_to\_html\_file}
 
-   Note:  **--disable-gpu ** only required in windows OS
+&#x20;  Note:  \*\*--disable-gpu \*\* only required in windows OS
 
-
-### Java code to generate html to pdf:
-
-
+#### Java code to generate html to pdf:
 
 ```java
 package practice;
@@ -302,48 +283,32 @@ public class ExcCommand {
 }
 ```
 
+#### Open issues:
 
-
-### Open issues:
-
-*  Font and style render issues ( but better than phantomjs)
+* &#x20;Font and style render issues ( but better than phantomjs)
 * One extra blank page is appended
 * Need to install indic fonts
 
+#### Open html to pdf:
 
-### Open html to pdf:
- This is open source java project for converting html to pdf . [Ref](https://github.com/danfickle/openhtmltopdf/wiki/Integration-Guide)
+&#x20;This is open source java project for converting html to pdf . [Ref](https://github.com/danfickle/openhtmltopdf/wiki/Integration-Guide)
 
 If any of the html tag is not closed properly then it will throw error.
 
+|                        | PhantomJs                                        | Headless Chrome                                 | Itext | openhtmltopdf |
+| ---------------------- | ------------------------------------------------ | ----------------------------------------------- | ----- | ------------- |
+| Style                  | Y                                                | Y                                               | Y     | N             |
+| HTML 5 support         | N                                                | Y                                               | Y     |               |
+| Development support    | N(Stop since last 2 years)                       | Y                                               | Y     | Y             |
+| indic language support | Y (Need to install indic fonts)                  | Y                                               | Y     | N             |
+| PDF Correctness        | 80% (Need to add zoom attribute in html as 0.39) | 90% (Need to add zoom attribute in html as 98%) | 100%  | 70%           |
+| Configuration          | Two file need to be config                       |                                                 |       |               |
 
-
-
-
-|  | PhantomJs | Headless Chrome | Itext  | openhtmltopdf | 
-|  --- |  --- |  --- |  --- |  --- | 
-| Style | Y | Y | Y | N | 
-| HTML 5 support | N | Y | Y |  | 
-| Development support | N(Stop since last 2 years) | Y | Y | Y | 
-| indic language support | Y (Need to install indic fonts) | Y | Y | N | 
-| PDF Correctness | 80% (Need to add zoom attribute in html as 0.39) | 90% (Need to add zoom attribute in html as 98%) | 100% | 70% | 
-| Configuration | Two file need to be config 
 1. rasterize.js (this is used to convert html to pdf)
-1. phantomjs path
+2. phantomjs path
 
- | No Configuration required | Itext calligraphy |  | 
-| Setup | Need to install PhantomJs and indic fonts | Need to install headless chrome | No Installation required |  | 
-| Java code support | Y | Y | Y | Y | 
+\| No Configuration required | Itext calligraphy | | | Setup | Need to install PhantomJs and indic fonts | Need to install headless chrome | No Installation required | | | Java code support | Y | Y | Y | Y |
 
+***
 
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

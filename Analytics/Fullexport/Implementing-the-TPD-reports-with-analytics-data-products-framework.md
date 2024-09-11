@@ -1,92 +1,68 @@
- **Introduction:** The TPD reports are used to monitor the teacher program courses going on in various regions which includes course enrollment and course consumption reports for tenants. The course enrollments lists the Course name, Batch name, Batch status, Enrollments and Completions. The course consumption lists Course name, Batch name, Batch status and the total Time Spent (in mins).
+# Implementing-the-TPD-reports-with-analytics-data-products-framework
 
-JIRA LINK: [SB-16574 System JIRA](https:///browse/SB-16574)
+**Introduction:** The TPD reports are used to monitor the teacher program courses going on in various regions which includes course enrollment and course consumption reports for tenants. The course enrollments lists the Course name, Batch name, Batch status, Enrollments and Completions. The course consumption lists Course name, Batch name, Batch status and the total Time Spent (in mins).
 
+JIRA LINK: [SB-16574 System JIRA](https://browse/SB-16574)
 
+**Current Implementation:** The current reports are generated based on the scripts which pull data from druid, org search API as well as elastic search.
 
- **Current Implementation:** The current reports are generated based on the scripts which pull data from druid, org search API as well as elastic search.
+**Frequency:** Daily. **Reports:**
 
- **Frequency:** Daily.  **Reports:** 
+*   Course Enrollment:
 
+    &#x20;    \- Get Live Courses: List of all live courses (source - druid).
 
-* Course Enrollment:
+    &#x20;    \- Get Course Batch: (source - elastic search).
 
-         - Get Live Courses: List of all live courses (source - druid).
+    &#x20;    \- Join.
 
-         - Get Course Batch: (source - elastic search).
+    &#x20;    \- Get Tenant Information: List of all channel id (source - org search API).
 
-         - Join.
+    &#x20;    \- GroupBy channel.
 
-         - Get Tenant Information: List of all channel id (source - org search API).
+    **Output csv:**
 
-         - GroupBy channel.
+| **Course Name**                                                           | Batch Name  | Batch Status | Enrollment Count | Completion Count |
+| ------------------------------------------------------------------------- | ----------- | ------------ | ---------------- | ---------------- |
+| **Primary Teachers: NAS and SLAS results Dissemination**                  | Batch 2     | Expired      | 0                | 0                |
+| **Primary Teachers: NAS and SLAS results Dissemination**                  | Batch 1     | Expired      | 5364             | 584              |
+| **computer**                                                              | EndDateTest | Expired      | 1                | 0                |
+| **High School Non-Language Teachers: NAS and SLAS results Dissemination** | Batch 2     | Expired      | 97               | 8                |
+| **Andhra Pradesh: Dissemination of NAS and SLAS Results**                 | Test batch  | Ongoing      | 1                | 0                |
 
-     **Output csv:** 
+*   Course Consumption:
 
+    &#x20;    \- Get Play Time for courses (druid - summary-events).
 
+    &#x20;    \- Get Course Batch: (source - elastic search).
 
-|  **Course Name**  | Batch Name | Batch Status | Enrollment Count | Completion Count | 
-|  --- |  --- |  --- |  --- |  --- | 
-|  **Primary Teachers: NAS and SLAS results Dissemination**  | Batch 2 | Expired | 0 | 0 | 
-|  **Primary Teachers: NAS and SLAS results Dissemination**  | Batch 1 | Expired | 5364 | 584 | 
-|  **computer**  | EndDateTest | Expired | 1 | 0 | 
-|  **High School Non-Language Teachers: NAS and SLAS results Dissemination**  | Batch 2 | Expired | 97 | 8 | 
-|  **Andhra Pradesh: Dissemination of NAS and SLAS Results**  | Test batch | Ongoing | 1 | 0 | 
+    &#x20;    \- Join.
 
+    &#x20;    \- Get Tenant Information.
 
+    &#x20;    \- Get Live Courses.
 
+    **Output csv:**
 
+| **Date**       | **Course Name**                                                       | **Batch Name** | **Batch Status** | **Total Timespent (in mins)** |
+| -------------- | --------------------------------------------------------------------- | -------------- | ---------------- | ----------------------------- |
+| **2019-10-22** | Primary Teachers: NAS and SLAS results Dissemination                  | Batch 1        | Expired          | 39.8                          |
+| **2019-10-21** | Primary Teachers: NAS and SLAS results Dissemination                  | Batch 1        |                  | 14.14                         |
+| **2019-10-21** | High School Non-Language Teachers: NAS and SLAS results Dissemination | Batch 1        | Expired          | 1.59                          |
+| **2019-10-19** | Primary Teachers: NAS and SLAS results Dissemination                  | Batch 1        | Expired          | 34.87                         |
 
+**Proposed Design:** A new data product for producing the tpd reports can be implemented. There will be a BaseCourseMetrics which will contain data for course information, course batch and tenant information. The BaseCourseMetrics will be common for both the TPD reports. The output for BaseCourseMetrics will list fields such as Course Name, Batch Name, Batch Status, slug value, courseId and batchId.
 
-* Course Consumption:
-
-         - Get Play Time for courses (druid - summary-events).
-
-         - Get Course Batch: (source - elastic search).
-
-         - Join.
-
-         - Get Tenant Information.
-
-         - Get Live Courses.
-
-     **Output csv:** 
-
-
-
-|  **Date**  |  **Course Name**  |  **Batch Name**  |  **Batch Status**  |  **Total Timespent (in mins)**  | 
-|  --- |  --- |  --- |  --- |  --- | 
-|  **2019-10-22**  | Primary Teachers: NAS and SLAS results Dissemination | Batch 1 | Expired | 39.8 | 
-|  **2019-10-21**  | Primary Teachers: NAS and SLAS results Dissemination | Batch 1 |  | 14.14 | 
-|  **2019-10-21**  | High School Non-Language Teachers: NAS and SLAS results Dissemination | Batch 1 | Expired | 1.59 | 
-|  **2019-10-19**  | Primary Teachers: NAS and SLAS results Dissemination | Batch 1 | Expired | 34.87 | 
-
-
-
-
-
-
-
- **Proposed Design:** A new data product for producing the tpd reports can be implemented. There will be a BaseCourseMetrics which will contain data for course information, course batch and tenant information. The BaseCourseMetrics will be common for both the TPD reports. The output for BaseCourseMetrics will list fields such as Course Name, Batch Name, Batch Status, slug value, courseId and batchId.
-
-
-*  **Course Enrollment:** 
+*   **Course Enrollment:**
 
     The course enrollment job will take the courseId and batchId from the BaseCourseMetrics along with other metrics to query elastic search and get result for enrollment and completion count and generate the output csv grouping by slug.
-*  **Course Consumption:** 
+*   **Course Consumption:**
 
     The course consumption job will take the metrics from BaseCourseMetrics and query druid to get the total Timespent per course(in mins) and generate output csv grouping by slug.
 
-
-
-
-
 ![](images/storage/updated-TPD-design.png)
 
-
-
- **Queries:** 
-
+**Queries:**
 
 ```
 {
@@ -101,8 +77,6 @@ JIRA LINK: [SB-16574 System JIRA](https:///browse/SB-16574)
     }
 }
 ```
-
-
 
 ```
 {
@@ -174,8 +148,6 @@ JIRA LINK: [SB-16574 System JIRA](https:///browse/SB-16574)
 }
 ```
 
-
-
 ```
 {
   "query": {
@@ -192,12 +164,6 @@ JIRA LINK: [SB-16574 System JIRA](https:///browse/SB-16574)
 }
 ```
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,53 +1,45 @@
+# Design-for-automated-reports-from-Druid
 
-## Introduction:
+### Introduction:
+
 This document describes the design to generate the data for the portal dashboards from Druid OLAP data store and export the report data to cloud storage. This mainly consists of following modules
 
+1. **Configure Report API** - This API will be used to submit a request for configuration of a new report.
+2. **Job Scheduler Engine** - This Scheduler will submit the reports for execution based on execution frequency.
+3. **Disable Report API** - This API will mark an existing report as disabled and will be excluded from the list of reports to be executed.
+4. **Report Data Generator** - The report data generator will be a spark job which will generate report data file by executing the query configured in the report configuration against the druid data store. The report data file will then be exported to cloud storage to complete the report execution.
 
-1.  **Configure Report API**  - This API will be used to submit a request for configuration of a new report.
-1.  **Job Scheduler Engine**  - This Scheduler will submit the reports for execution based on execution frequency.
-1.  **Disable Report API**  - This API will mark an existing report as disabled and will be excluded from the list of reports to be executed.
-1.  **Report Data Generator**  - The report data generator will be a spark job which will generate report data file by executing the query configured in the report configuration against the druid data store. The report data file will then be exported to cloud storage to complete the report execution.
+![](images/storage/reports\_from\_druid\_architecture.png)
 
+### Configure Report API:
 
-
-![](images/storage/reports_from_druid_architecture.png)
-
-
-## Configure Report API:
 Input parameters
 
-| Parameter | Mandatory | Description | Comments | 
-|  --- |  --- |  --- |  --- | 
-| report_name | Yes | Name of the report |  | 
-| query_engine | Yes | Data Source | DRUID, CASSANDRA, ELASTICSEARCH | 
-| execution_frequency | Yes | Report generation frequency | DAILY, WEEKLY, MONTHLY | 
-| report_interval | Yes | Date range for queries | 
+| Parameter            | Mandatory | Description                 | Comments                        |
+| -------------------- | --------- | --------------------------- | ------------------------------- |
+| report\_name         | Yes       | Name of the report          |                                 |
+| query\_engine        | Yes       | Data Source                 | DRUID, CASSANDRA, ELASTICSEARCH |
+| execution\_frequency | Yes       | Report generation frequency | DAILY, WEEKLY, MONTHLY          |
+| report\_interval     | Yes       | Date range for queries      |                                 |
+
 1. YESTERDAY
-1. LAST_7_DAYS,
-1. LAST_WEEK,
-1. LAST_30_DAYS,
-1. LAST_MONTH,
-1. LAST_QUARTER,
-1. LAST_3_MONTHS,
-1. LAST_6_MONTHS
-1. LAST_YEAR
+2. LAST\_7\_DAYS,
+3. LAST\_WEEK,
+4. LAST\_30\_DAYS,
+5. LAST\_MONTH,
+6. LAST\_QUARTER,
+7. LAST\_3\_MONTHS,
+8. LAST\_6\_MONTHS
+9. LAST\_YEAR
 
- | 
-| query | Yes | Query to be executed |  | 
-| output_format | Yes | Output format of the report | json, csv | 
-| output_file_pattern | No | Report output filename pattern | report_id and end_date from the interval are used by default{report_id}-{end_date}.{output_format}Other Supported Placeholders are:
-1. report_name
-1. timestamp
+\| | query | Yes | Query to be executed | | | output\_format | Yes | Output format of the report | json, csv | | output\_file\_pattern | No | Report output filename pattern | report\_id and end\_date from the interval are used by default{report\_id}-{end\_date}.{output\_format}Other Supported Placeholders are:
 
- | 
-| output_field_names | Yes | Output field names used in report output |  | 
-| group_by_fields | No | Fields by which reports are grouped by | channel_id, device_id | 
+1. report\_name
+2. timestamp
 
+\| | output\_field\_names | Yes | Output field names used in report output | | | group\_by\_fields | No | Fields by which reports are grouped by | channel\_id, device\_id |
 
-
-
-*  **Request Object** 
-
+* **Request Object**
 
 ```
  {
@@ -105,14 +97,9 @@ Input parameters
  
 ```
 
-
-
-*  **Output:** 
+* **Output:**
 
 The individual report configurations can be saved to a Cassandra table. The druid query JSON will be saved to Azure blob storage and the following will be the fields in the report configuration table.
-
-
-
 
 ```
    # Schema of table
@@ -127,104 +114,80 @@ The individual report configurations can be saved to a Cassandra table. The drui
 
 ```
 
+### Job Scheduler Engine:
 
+![](<images/storage/druid\_reports\_job\_scheduler (1).png>)
 
-## Job Scheduler Engine:
+* **Input:**      - A list of reports in  **reports\_configuration** Cassandra table with the cron\_expression which falls within the current day of execution and with status as ENABLED.
+* **Algorithm:** \*\*              \*\*
 
+&#x20;               \- Data availability check has following 2 criteria:
 
-![](images/storage/druid_reports_job_scheduler%20(1).png)
+&#x20;                       1\. Kafka indexing lag: check for 0 lag in druid ingestion.
 
+&#x20;                       2\. Druid segments count: Segments should have been created for previous day.
 
+&#x20;               \- Reports based on telemetry-events will be submitted for execution upon satisfying both the criteria.
 
+&#x20;               \- Reports based on summary-events will be submitted for execution upon satisfying only 2nd criteria or check for files in azure.&#x20;
 
+&#x20;               \- If  **report\_last\_generated**  is not equals to previous day for a report, submits the same report for all the pending dates.
 
+* **Output:**
 
-*  **Input:**      - A list of reports in  **reports_configuration**  Cassandra table with the cron_expression which falls within the current day of execution and with status as ENABLED.
-*  **Algorithm:**  **              ** 
+\- The list of reports are submitted for execution into the  **platform\_db.job\_request** Cassandra table with the status= \*\*SUBMITTED \*\* and job\_name= **druid-reports-** .
 
-                - Data availability check has following 2 criteria:
+### Disable Report API:
 
-                        1. Kafka indexing lag: check for 0 lag in druid ingestion.
+* **Input:**
 
-                        2. Druid segments count: Segments should have been created for previous day.
+\- report-id
 
-                - Reports based on telemetry-events will be submitted for execution upon satisfying both the criteria.
+* **Output:**
 
-                - Reports based on summary-events will be submitted for execution upon satisfying only 2nd criteria or check for files in azure. 
+\- The report will be **DISABLED** in the **platform\_db.reports\_configuration**  Cassandra table
 
-                - If  **report_last_generated**  is not equals to previous day for a report, submits the same report for all the pending dates.
+### Report Data Generator Data Product:
 
+* **Input:**
 
-*  **Output:** 
+\- Set of Requests -  **i.e** All records in **platform\_db.job\_request** where status= **SUBMITTED** and job\_name starts with  **druid-reports**
 
-- The list of reports are submitted for execution into the  **platform_db.job_request**  Cassandra table with the status= **SUBMITTED ** and job_name= **druid-reports-<report-id>** .
+* **Output:**
 
+\-  Report data file will be saved in Azure with specified format
 
-## Disable Report API:
+\-  **platform\_db.job\_request** table will be updated with job status and output file details will be updated in **platform\_db.reports\_configuration**
 
-*  **Input:** 
+* **Output location and file format in Azure:**
 
-- report-id
-
-
-*  **Output:** 
-
-- The report will be  **DISABLED**  in the  **platform_db.reports_configuration**  Cassandra table
-
-
-## Report Data Generator Data Product:
-
-*  **Input:** 
-
-- Set of Requests -  **i.e**  All records in  **platform_db.job_request**  where status= **SUBMITTED**  and job_name starts with  **druid-reports** 
-
-
-*  **Output:** 
-
--  Report data file will be saved in Azure with specified format
-
--  **platform_db.job_request**  table will be updated with job status and output file details will be updated in  **platform_db.reports_configuration** 
-
-
-*  **Output location and file format in Azure:** 
-
-
-
-Once a request has been submitted and processing complete, the report data file with the name of the file being the report id suffixed with report_interval end-date saved under :
-
+Once a request has been submitted and processing complete, the report data file with the name of the file being the report id suffixed with report\_interval end-date saved under :
 
 ```
    /druid-reports/report_id-yyyy-mm-dd.csv
    /druid-reports/report_id-yyyy-mm-dd.json
 ```
 
-## Regenerate Report API:
+### Regenerate Report API:
 
-*  **Input:** 
+* **Input:**
 
-- report-list
+\- report-list
 
-- replay-interval
+\- replay-interval
 
+* **Algorithm:**
 
-*  **Algorithm:** 
+\- Loops through replay interval, find  **report\_output\_filename**  with each date and resubmits to job\_request table for execution.
 
-- Loops through replay interval, find  **report_output_filename**  with each date and resubmits to job_request table for execution.
+\- Backup and delete older report data files from azure.
 
-- Backup and delete older report data files from azure.
+\- report-list can be empty in case of regenerating all enabled reports.
 
-- report-list can be empty in case of regenerating all enabled reports.
+* **Output:**
 
+\- The list of reports are submitted for execution into the  **platform\_db.job\_request** Cassandra table with the status= \*\*SUBMITTED \*\* and job\_name= **druid-reports-** .
 
-*  **Output:** 
+***
 
-- The list of reports are submitted for execution into the  **platform_db.job_request**  Cassandra table with the status= **SUBMITTED ** and job_name= **druid-reports-<report-id>** .
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

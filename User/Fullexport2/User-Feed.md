@@ -1,36 +1,33 @@
-* [Problem statement ](#problem-statement )
-* [Solution:](#solution:)
-  * [APIs details:](#apis-details:)
-  * [Workflow from Consumption:](#workflow-from-consumption:)
-    * [Case 1: State user logs in](#case-1:-state-user-logs-in)
-    * [Case 2: Custodian user logs in](#case-2:-custodian-user-logs-in)
-  * [Deleting of user feed:](#deleting-of-user-feed:)
-* [Storing User message](#storing-user-message)
-  * [Approach:](#approach:)
+# User-Feed
 
+* [Problem statement ](User-Feed.md#problem-statement )
+* [Solution:](User-Feed.md#solution:)
+  * [APIs details:](User-Feed.md#apis-details:)
+  * [Workflow from Consumption:](User-Feed.md#workflow-from-consumption:)
+    * [Case 1: State user logs in](User-Feed.md#case-1:-state-user-logs-in)
+    * [Case 2: Custodian user logs in](User-Feed.md#case-2:-custodian-user-logs-in)
+  * [Deleting of user feed:](User-Feed.md#deleting-of-user-feed:)
+* [Storing User message](User-Feed.md#storing-user-message)
+  * [Approach:](User-Feed.md#approach:)
 
+## Problem statement&#x20;
 
-# Problem statement 
- User needs to validate his/her external id, to migrate from custodian org to non-Custodian org. This migration process required a sequence of the popups (Ref: [SC-1243](https://project-sunbird.atlassian.net/browse/SC-1243)). 
+&#x20;User needs to validate his/her external id, to migrate from custodian org to non-Custodian org. This migration process required a sequence of the popups (Ref: [SC-1243](https://project-sunbird.atlassian.net/browse/SC-1243)).&#x20;
 
-  Example: 
+&#x20; Example:&#x20;
 
-   1: "Are you a {{matched tenant object}} teacher"
+&#x20;  1: "Are you a \{{matched tenant object\}} teacher"
 
-   2: "Please enter your {{teacher id}}"
+&#x20;  2: "Please enter your \{{teacher id\}}"
 
+## Solution:
 
-# Solution:
-  The system will introduce the following APIs:
+&#x20; The system will introduce the following APIs:
 
+1. GET /user/v1/feed/{userId} :  ThisAPI will provide a list of user feeds.
+2. POST /user/v1/migrate : This API will be used when the user will click on reject or accept.
 
-1. GET /user/v1/feed/{userId} :  ThisAPI will provide a list of user feeds.
-1. POST /user/v1/migrate : This API will be used when the user will click on reject or accept.
-
-
-## APIs details:
-
-
+### APIs details:
 
 ```java
 URL: {BaseUrl}/api/user/v1/feed/{userId}
@@ -177,54 +174,50 @@ Response: 429 (if user try "N" number of incorrect attempt)
     }
 ```
 
+### Workflow from Consumption:
 
+#### Case 1: State user logs in
 
-## Workflow from Consumption:
+&#x20;          No workflow change required.
 
-### Case 1: State user logs in
-           No workflow change required.
+#### Case 2: Custodian user logs in
 
+Invoke GET /feed API → check response 200 and it has category value as " **OrgMigrationAction** " then read **data**  → inside data you will find " **prospectChannels** " key with value as channel list.
 
-### Case 2: Custodian user logs in
-Invoke GET /feed API → check response 200 and it has category value as " **OrgMigrationAction** " then read  **data**  → inside data you will find " **prospectChannels** " key with value as channel list.
+&#x20;         \*\* case a\*\* :  if response is 200 and userFeed is empty -> then NO need to show popup
 
-           ** case a** :  if response is 200 and userFeed is empty -> then NO need to show popup
+&#x20;           \*\*case b:  \*\* if response is 200 and userFeed has some data but category value is not " **OrgMigrationAction** " then no need to show popup.
 
-            **case b:  ** if response is 200 and userFeed has some data but category value is not " **OrgMigrationAction** " then no need to show popup.
-
-           ** case c**  : if response is 200 and userFeed has data and category is " **OrgMigrationAction** " then read  **data**  and extract  **prospectChannels**  key value.
-
-
+&#x20;         \*\* case c\*\*  : if response is 200 and userFeed has data and category is " **OrgMigrationAction** " then read **data** and extract  **prospectChannels** key value.
 
 Example :
 
-              1. User match with only one channel/state
+&#x20;             1\. User match with only one channel/state
 
-                ...  "data": { "prospectChannels": \["AP"]}  ...
+&#x20;               ...  "data": { "prospectChannels": \["AP"]}  ...
 
-             2. User match with multiple channel/state
+&#x20;            2\. User match with multiple channel/state
 
-               ...  "data": { "prospectChannels": \["AP","TN"]}
+&#x20;              ...  "data": { "prospectChannels": \["AP","TN"]}
 
+### Deleting of user feed:
 
+&#x20;User feed will be deleted in following scenarios:
 
+&#x20;         **case a:** If user reject migration , then we will delete user feed from cassandra and ES both , so that user won't get migration feed again
 
-## Deleting of user feed:
- User feed will be deleted in following scenarios:
+&#x20;       **case b:** If user try to do migrate and he exceed with max attempt count then we need to delete feed from cassandra and ES both
 
-          **case a:** If user reject migration , then we will delete user feed from cassandra and ES both , so that user won't get migration feed again
+&#x20;       \*\*case c: \*\* After successfull user migration , feed data need to be deleted from cassandra and ES both&#x20;
 
-         **case b:** If user try to do migrate and he exceed with max attempt count then we need to delete feed from cassandra and ES both
+## Storing User message
 
-         **case c: **  After successfull user migration , feed data need to be deleted from cassandra and ES both 
+### Approach:
 
+Message can be stored in a separate table as user\_feed. This table can be used for another notification purpose as well.
 
-# Storing User message
+Schema design to store notification data:&#x20;
 
-## Approach:
-Message can be stored in a separate table as user_feed. This table can be used for another notification purpose as well.
-
-Schema design to store notification data: 
 ```sql
 Table name : user_feed
  id (pk) - text auto generated
@@ -240,17 +233,11 @@ Table name : user_feed
  createdOn -  timestamp //"time stamp when this message was created"
       
 ```
+
 All attributes will not be used as of now.
 
 Same data will be stored inside ElasticSearch as well. Feed read will happen from ElasticSearch.
 
+***
 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

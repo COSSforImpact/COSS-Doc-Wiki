@@ -1,27 +1,22 @@
- **Overview:** User sign in to Sunbird/Diksha is handled by the portal.
+# Google-Sign-in-Flow-in-Portal
+
+**Overview:** User sign in to Sunbird/Diksha is handled by the portal.
 
 Currently, the portal uses Google plus API to fetch the user profile when the user tries to sign-in using google.
 
- **Problem statement:** Google has shut down Google Plus API from 7 March 2019. Google has also stopped new integration with google plus api.
+**Problem statement:** Google has shut down Google Plus API from 7 March 2019. Google has also stopped new integration with google plus api.
 
- **Approach :** Instead of using google plus API portal will be using google auth API to fetch the user details.
+**Approach :** Instead of using google plus API portal will be using google auth API to fetch the user details.
 
 Fetch the Code from google (once the user is authenticated by Google) using which call Oauth API to generate token.
 
 Using the token extract the information from the token decoding the token.
 
-Check if the user information is available in token proceed else call oath API to fetch user information. 
+Check if the user information is available in token proceed else call oath API to fetch user information.&#x20;
 
- **Flow Chart :** ![](images/storage/Google%20Sign%20Flow.jpg)
-
-
-
-
-
-
+**Flow Chart :** ![](<images/storage/Google Sign Flow.jpg>)
 
 Sample token fetched from google API
-
 
 ```
 {
@@ -55,34 +50,25 @@ Response sample received after fetching user profile from google oauth2 server([
 
 ```
 
-
-| {  "sub":"10769150350006150715113082367", "name": "Aaron Parecki", "given_name": "Aaron", "family_name": "Parecki", "picture": "[https://lh4.googleusercontent.com/-kw-iMg](https://lh4.googleusercontent.com/-kw-iMgD)j34/AAAAAAAAAAI/AAAAAAAAAAc/P1YY91tzesU/photo.jpg", "email": "aaron.parecki@okta.com", "email_verified": true, "locale": "en", "hd": "okta.com"} | 
-
+\| {  "sub":"10769150350006150715113082367", "name": "Aaron Parecki", "given\_name": "Aaron", "family\_name": "Parecki", "picture": "[https://lh4.googleusercontent.com/-kw-iMg](https://lh4.googleusercontent.com/-kw-iMgD)j34/AAAAAAAAAAI/AAAAAAAAAAc/P1YY91tzesU/photo.jpg", "email": "aaron.parecki@okta.com", "email\_verified": true, "locale": "en", "hd": "okta.com"} |
 
 ```
 
 
 Auth url google endpoint - https://accounts.google.com/o/oauth2/v2/auth.
 ```
-Oauth2 token generation endpoint - https://oauth2.googleapis.com/token
 
+Oauth2 token generation endpoint - https://oauth2.googleapis.com/token
 
 ```
 Oauth2 fetch user information endpoint - https://www.googleapis.com/oauth2/v2/userinfo
 ```
 
+References -&#x20;
 
-References - 
+* &#x20;[GooglePlus Api Shutdown](https://developers.google.com/+/mobile/android/api-deprecation)
+* &#x20;[Google Auth Setup](https://developers.google.com/identity/protocols/OAuth2)&#x20;
 
+***
 
-*  [GooglePlus Api Shutdown](https://developers.google.com/+/mobile/android/api-deprecation)
-*  [Google Auth Setup](https://developers.google.com/identity/protocols/OAuth2) 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

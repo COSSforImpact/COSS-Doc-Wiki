@@ -1,18 +1,18 @@
+# How-to--ECreds---SB-2.3.0-5
+
 SB introduced eCreds in v2.3.0/5 as an experiment with bare minimal UI support. Most of the activities, prerequisites are done in backend with help of implementation and devops team. It is advised that this is done in the supervision of engineering or implementation cum devops monitor engineering. Since certificate generation is not an automated thing, this can be done in a day-light at the request of PM.
 
-Refer to [PRD](https://project-sunbird.atlassian.net/wiki/spaces/PRD/pages/1063092344/eCreds) for details. The list of individual integration pieces are mentioned here and step\[s] associated to be executed on each item after. This is not a design document, but just a quick executive summary of solutioning we are envisioning.
+Refer to [PRD](https://project-sunbird.atlassian.net/wiki/spaces/PRD/pages/1063092344/eCreds) for details. The list of individual integration pieces are mentioned here and step\[s] associated to be executed on each item after. This is not a design document, but just a quick executive summary of solutioning we are envisioning.
 
-
-1. Identify the root org and note down org id. 
-1. Against the root org, identify a set of reserved keys from enc-service.
-1. Call update root org with the keys identified in step 2. 
-1. Identify the course and batch id to which we are interested to issue certificates.
-1. Get the HTML template zip from ticket - TBD and upload it the eCreds container (owned by cert-service). This html zip has some signature images that is good to keep as private/confidential.
-1. All the above information, along with the following will be attached to a course/batch metadata.
+1. Identify the root org and note down org id.&#x20;
+2. Against the root org, identify a set of reserved keys from enc-service.
+3. Call update root org with the keys identified in step 2.&#x20;
+4. Identify the course and batch id to which we are interested to issue certificates.
+5. Get the HTML template zip from ticket - TBD and upload it the eCreds container (owned by cert-service). This html zip has some signature images that is good to keep as private/confidential.
+6.  All the above information, along with the following will be attached to a course/batch metadata.
 
     "issuer" : {
 
-    
 ```
    "name": "Gujarat Council of Educational Research and Training",
 ```
@@ -24,26 +24,19 @@ Refer to [PRD](https://project-sunbird.atlassian.net/wiki/spaces/PRD/pages/10630
 ```
 
 1. Invoke /issue API
-    1. Triggers a certificate generate event to Kafka topic
-    1. The consumer of this topic will do the following:
-    1. Invoke /generate API against the cert-service
-    1. Invoke /certs/add API against the learner-service to deposit the certificates to the user-registry
-    1. Notify the user that the certificate is available to download.
+   1. Triggers a certificate generate event to Kafka topic
+   2. The consumer of this topic will do the following:
+   3. Invoke /generate API against the cert-service
+   4. Invoke /certs/add API against the learner-service to deposit the certificates to the user-registry
+   5. Notify the user that the certificate is available to download.
 
-    
+### Detailed steps
 
-    
-
-
-## Detailed steps
 Individual step procedures are to be documented here for reference.
 
+#### 1. Identify the root org id.
 
-### 1. Identify the root org id.
-  To identify root org used org search end point as follow:
-
-
-
+&#x20; To identify root org used org search end point as follow:
 
 ```js
 curl -X POST \
@@ -66,9 +59,7 @@ curl -X POST \
 }'
 ```
 
-
-   
-
+&#x20; &#x20;
 
 ```js
 curl -X POST \
@@ -92,22 +83,20 @@ curl -X POST \
 
 For more details refer api doc: http://docs.sunbird.org/latest/apis/orgapi/#operation/Organisation%20Search
 ```
-     
 
+&#x20;   &#x20;
 
-### 2. Against the root org, identify a set of reserved keys from enc-service.
+#### 2. Against the root org, identify a set of reserved keys from enc-service.
+
 The enc-service doesn't have an API to add/delete keys. The keys are pre-generated and the service is capable to add keys, on demand basis. This is by service design and one has to peep into the table for getting the keys. The implementation team selects keys in some orderly fashion and assigns it to the root org. I propose to maintain a table like this for internal references and prevent accidental re-use of keys.
 
+| rootOrgId | rootOrgName | key identifiers | comments | added by |
+| --------- | ----------- | --------------- | -------- | -------- |
+|           |             |                 |          |          |
 
+Refer to details here - \[\[Sunbird enc-service|Sunbird-enc-service]]
 
-| rootOrgId | rootOrgName | key identifiers | comments | added by | 
-|  --- |  --- |  --- |  --- |  --- | 
-|  |  |  |  |  | 
-
-Refer to details here - [[Sunbird enc-service|Sunbird-enc-service]]
-
-
-### 3. Call assign key api for root org with the keys identified in step 2.
+#### 3. Call assign key api for root org with the keys identified in step 2.
 
 ```js
 curl -X PATCH \
@@ -142,11 +131,11 @@ curl -X POST \
 ref: Ecreds - Phase3 and SB rollout
 ```
 
-### 4. Identify the course and batch id to which we are interested to issue certificates.
+#### 4. Identify the course and batch id to which we are interested to issue certificates.
 
-### 5. Get the HTML template zip from ticket - TBD and upload it the eCreds container (owned by cert-service). This html zip has some signature images that is good to keep as private/confidential.
+#### 5. Get the HTML template zip from ticket - TBD and upload it the eCreds container (owned by cert-service). This html zip has some signature images that is good to keep as private/confidential.
 
-### 6. Attach details to a course/batch metadata.
+#### 6. Attach details to a course/batch metadata.
 
 ```bash
 curl -X PATCH \
@@ -198,10 +187,10 @@ curl -X PATCH \
     }
 }
 ```
- **Note:** For release-2.3.5 the name of the certificate should be  **"100PercentCompletionCertificate"** 
 
+**Note:** For release-2.3.5 the name of the certificate should be **"100PercentCompletionCertificate"**
 
-### 7. Invoke /issue API
+#### 7. Invoke /issue API
 
 ```bash
 curl -X POST \
@@ -223,12 +212,6 @@ curl -X POST \
 }'
 ```
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

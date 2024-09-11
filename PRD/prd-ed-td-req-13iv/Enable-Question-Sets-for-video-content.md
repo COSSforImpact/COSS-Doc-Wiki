@@ -1,32 +1,25 @@
- **Introduction** 
+# Enable-Question-Sets-for-video-content
+
+**Introduction**
 
 Interactive Video is nothing but videos embedded with Question-sets. It is made to serve the purpose that the user will understand part of the video and answer the questions based on it. The following document explains the design and implementation to enable interactions in the video.
 
-[SB-30516 System JIRA](https:///browse/SB-30516)
+[SB-30516 System JIRA](https://browse/SB-30516)
 
- **Key Design Problems:** 
-
+**Key Design Problems:**
 
 1. How to show Question-Sets on top of the video ?
+2. Ensure proper view of the video and its functionalities along with the functionality of the Question-Sets.
 
+**Design:**
 
-1. Ensure proper view of the video and its functionalities along with the functionality of the Question-Sets.
-
-
-
- **Design:** 
-
-![](images/storage/Published%20Document.jpg) **Solution:** 
+![](<images/storage/Published Document.jpg>) **Solution:**
 
 We are using the existing [Quml-Player library](https://github.com/project-sunbird/sunbird-quml-player) to implement the Question-Sets on top of the Video along with the Video player library.
 
-primaryCategory:  ** Interactive Video Question Set** 
-
+primaryCategory: \*\* Interactive Video Question Set\*\*
 
 * In the API response there is ‘result’ , which has ‘content’ that contains ‘interceptionType’ and ‘interceptionPoints’. The ‘interceptionPoints’ contains ‘items’ which is an array of objects containing the Question-Set information. The number of objects is the number of Question-Sets.
-
-
-
 
 ```
 "content": {
@@ -50,25 +43,13 @@ primaryCategory:  ** Interactive Video Question Set**
 }
 ```
 
-* Each object in ‘items’ has ‘type’ as ‘QuestionSet’ , an ‘interceptionPoint’ in seconds at which it appears in the video and ‘identifier’ which is the do_id of the Question-Set.
+* Each object in ‘items’ has ‘type’ as ‘QuestionSet’ , an ‘interceptionPoint’ in seconds at which it appears in the video and ‘identifier’ which is the do\_id of the Question-Set.
 
-
-
-Sample config link is [sunbird-video-player/data.ts at release-5.0.0 · project-sunbird/sunbird-video-player ](https://github.com/project-sunbird/sunbird-video-player/blob/release-5.0.0/src/app/data.ts)
-
+Sample config link is [sunbird-video-player/data.ts at release-5.0.0 · project-sunbird/sunbird-video-player ](https://github.com/project-sunbird/sunbird-video-player/blob/release-5.0.0/src/app/data.ts)
 
 * When ‘interceptionPoints’ are not available i.e. no Question-Sets are configured or ‘interceptionPoints’ is an empty object there will be no Question-Set markers on the Progress Bar will be visible and it will be treated as a normal video content.
-
-
-*  **Default behavior(not enabling Question-Sets)** 
-
-
-    * In this case , there is no need to configure any Question-Sets; the player will just show the video without any Question-Sets. (‘interceptionPoints’ is an empty object)
-
-
-
-    
-
+* **Default behavior(not enabling Question-Sets)**
+  * In this case , there is no need to configure any Question-Sets; the player will just show the video without any Question-Sets. (‘interceptionPoints’ is an empty object)
 
 ```
 "content": {
@@ -78,15 +59,8 @@ Sample config link is [sunbird-video-player/data.ts at release-5.0.0 · project-
 }
 ```
 
-*  **Custom changes(enabling Question-Sets)** 
-
-
-    * Here the Question-Sets are configured through the creation portal and the ‘interceptionPoints’ contains the required data.
-
-
-
-    
-
+* **Custom changes(enabling Question-Sets)**
+  * Here the Question-Sets are configured through the creation portal and the ‘interceptionPoints’ contains the required data.
 
 ```
 "content": {
@@ -110,13 +84,11 @@ Sample config link is [sunbird-video-player/data.ts at release-5.0.0 · project-
 }
 ```
 
+\*\*Design Document \*\*
 
- **Design Document ** 
+[**Screenshots**](https://photos.app.goo.gl/KjVbRLVPxpg5mJZ48)
 
-[ **Screenshots** ](https://photos.app.goo.gl/KjVbRLVPxpg5mJZ48)
-
- **Player Events** 
-
+**Player Events**
 
 ```
 {
@@ -166,10 +138,10 @@ Sample config link is [sunbird-video-player/data.ts at release-5.0.0 · project-
     }
 }
 ```
- **Telemetry Events** 
+
+**Telemetry Events**
 
 Interact event:
-
 
 ```
 {
@@ -234,19 +206,15 @@ Interact event:
 	}
 }
 ```
-Impression Event:
 
+Impression Event:
 
 ```
 "edata":{"type":"workflow","subtype":"","pageid":"interactive-question-set","uri":""}}
 ```
 
-
 Watch video on how to create an Interactive Video content on Portal [here](https://photos.app.goo.gl/sQJa34MCLw8VLvZD8).
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

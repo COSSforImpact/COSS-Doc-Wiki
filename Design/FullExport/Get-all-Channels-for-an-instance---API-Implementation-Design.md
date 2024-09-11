@@ -1,11 +1,10 @@
-
+# Get-all-Channels-for-an-instance---API-Implementation-Design
 
 There should be an API available to get all the available channels of an instance which will be helpful for effective content filtering based on channels.
 
 The request structure of the api should be like below:
 
- **POST   **  _/v1/channel/list_ 
-
+\*\*POST   \*\* _/v1/channel/list_
 
 ```
 {
@@ -14,8 +13,8 @@ The request structure of the api should be like below:
  }
 }
 ```
-Api should return the response similar to following format 
 
+Api should return the response similar to following format&#x20;
 
 ```
 {
@@ -26,13 +25,11 @@ Api should return the response similar to following format 
 }
               
 ```
+
 Note:
 
 If the user needs only the active channels, he can set the 'status' value to 'active' in the request ,but it will impact on the content filtering scenarios.
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

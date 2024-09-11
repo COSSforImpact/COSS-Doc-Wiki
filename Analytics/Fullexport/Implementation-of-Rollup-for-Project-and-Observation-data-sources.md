@@ -1,8 +1,10 @@
- **INTRODUCTION:** 
+# Implementation-of-Rollup-for-Project-and-Observation-data-sources
+
+**INTRODUCTION:**
 
 The data related to projects and observations consumed by users are ingested into druid from a permanent data source( MongoDB ) using a batch processing cron job. Both these are non-transactional.
 
- **BACKGROUND:** 
+**BACKGROUND:**
 
 Upon each transaction, the data is written to MongoDB and Kafka. But in MongoDB, only the data with the latest status is made available. The same is ingested in druid also.
 
@@ -10,226 +12,198 @@ The data ingestion to druid is done using a job, which deletes the indices, re-c
 
 To avoid complete data restoration every day, the following design is proposed.
 
- **DESIGN:** 
-
+**DESIGN:**
 
 * On each transaction, ingest raw data into ingestion druid cluster and rollups into reporting cluster reading data from Kafka.
-
-
 * Since raw data is ingested separately, this can be used for further analysis.
-
-
 * Existing transactions are ingested from MongoDB as a one time execution.
 
+![](images/storage/druid\_changes\_updated.png)
 
+**Project Dimensions :**
 
-![](images/storage/druid_changes_updated.png)
+| **Dimensions in Druid**           | **Datatype** | **Field in Kafka Message**                                                 | **Description**                                                                              |
+| --------------------------------- | ------------ | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+|  project\_title                   |  String      | solutionInformation.name                                                   | Name of the Project                                                                          |
+|  project\_goal                    |  String      | metaInformation.goal                                                       | Goal of the Project created or mapped                                                        |
+|  project\_created\_date           |  Date        | createdAt                                                                  | Date of creation of the project                                                              |
+|  project\_last\_sync              |  String      | syncedAt                                                                   | Last sync date of the project                                                                |
+|  area\_of\_improvement            |  String      | categories\[].name                                                         | Category of the project created or assigned or imported                                      |
+|  status\_of\_project              |  String      | status                                                                     | Status of the Project created or mapped                                                      |
+|  tasks                            |  String      | tasks\[].name                                                              | Name of the Task attached to Project                                                         |
+|  tasks\_date                      |  Date        | tasks\[].syncedAt                                                          | Last sync date of the task                                                                   |
+|  tasks\_status                    |  String      | tasks\[].status                                                            | Status of the Task attached to project                                                       |
+|  sub\_task                        |  String      | task\[].children\[].name                                                   | Name of Sub task attached to the task                                                        |
+|  sub\_task\_status                |  String      | task\[].children\[].status                                                 | Status of Sub task attached to the task                                                      |
+|  sub\_task\_date                  |  String      | task\[].children\[].syncedAt                                               | Last sync date of the sub task                                                               |
+|  task\_start\_date                |  String      | tasks\[].startDate                                                         | Start date of Task attached to Project                                                       |
+|  task\_end\_date                  |  String      | tasks\[].endDate                                                           | End date of Task attached to Project                                                         |
+|  sub\_task\_start\_date           |  Date        | task\[].children\[].startDate                                              | Start date of Sub task attached to task                                                      |
+|  sub\_task\_end\_date             |  Date        | task\[].children\[].endDate                                                | End date of Sub task attached to task                                                        |
+| designation                       |  String      | userRoleInformation.role                                                   | Sub role of the user                                                                         |
+|  project\_deleted\_flag           |  String      | isDeleted                                                                  | Indicates True or False which tells whether the projects is deleted by the user from the app |
+|  task\_evidence                   |  String      | tasks\[].attachments\[].sourcePath                                         | Link of the attachment uploaded at the task level in a project                               |
+|  task\_evidence\_status           |  String      | tasks\[].attachments\[].sourcePath (Computation Required)                  | Indicates true or false of evidence attached or not at the task level                        |
+|  project\_id                      |  String      | \_id                                                                       | Unique identifier of the Project created or mapped                                           |
+|  task\_id                         |  String      | tasks\[].\_id                                                              | Unique identifier of Task attached to the Project                                            |
+|  sub\_task\_id                    |  String      | task\[].children\[].\_id                                                   | Unique identifier of Sub task attached to the task                                           |
+|  project\_created\_type           |  String      | projectTemplateId (Computation is required)                                | Type of the project either Imported from library (or) created by the user                    |
+|  task\_assigned\_to               |  String      | tasks\[].assignee                                                          | Provides the username or email to which user the task is assigned to                         |
+|  channel                          |  String      | userProfile.rootOrgId                                                      | Root organisation of user                                                                    |
+|  parent\_channel                  |  String      | Fill with this value “SHIKSHALOKAM“                                        | Column with constant value                                                                   |
+|  program\_id                      |  String      | programId                                                                  | Unique identifier of the program to which the project is mapped to                           |
+|  program\_name                    |  String      | programInformation.name                                                    | Name of the program to which the project is mapped to                                        |
+|  project\_updated\_date           |  Date        | updatedAt                                                                  | Project last updated date                                                                    |
+|  createdBy                        |  String      | userId                                                                     | User keycloak id on the sunbrid platform                                                     |
+|  project\_title\_editable         |  String      | title                                                                      | Edited name of the Project                                                                   |
+|  project\_duration                |  String      | metaInformation.duration                                                   | Duration of the project taken to complete                                                    |
+|  program\_externalId              |  String      | programExternalId                                                          | Unique identifier of the program to which the project is mapped to                           |
+|  private\_program                 |  String      | isAPrivateProgram                                                          | boolean value that defines program type                                                      |
+|  task\_deleted\_flag              |  Boolean     | tasks\[].isDeleted (Computation Required)                                  | Indicates True or False which tells whether the task is deleted by the user from the app     |
+|  sub\_task\_deleted\_flag         |  Boolean     | task\[].children\[].isDeleted                                              | Indicates True or False which tells whether the sub-task is deleted by the user from the app |
+|  project\_terms\_and\_condition   |  String      | hasAcceptedTAndC (Computation required)                                    | boolean value that defines terms and condition                                               |
+|  task\_remarks                    |  String      | tasks\[].remarks                                                           | Remarks of the task                                                                          |
+|  organisation\_name               |  String      | userProfile.organisations.orgName                                          | Organisation Name of the user belongs to                                                     |
+|  project\_description             |  String      | description                                                                | Summary of the project                                                                       |
+|  project\_completed\_date         |  String      | updatedAt//when status is submitted                                        | Date of completion of the project                                                            |
+|  solution\_id                     |  String      | solutionInformation.\_id                                                   | Unique identifier of the Solution in an Project generated by system                          |
+|  state\_externalId                |  String      | userRoleInformation.state                                                  | Unique identifier of the State                                                               |
+|  block\_externalId                |  String      | userRoleInformation.block                                                  | Unique identifier of the Block                                                               |
+|  district\_externalId             |  String      | userRoleInformation.district                                               | Unique identifier of the District mapped to the user                                         |
+|  cluster\_externalId              |  String      | userRoleInformation.cluster                                                | Unique identifier of the Cluster mapped to the user                                          |
+|  school\_externalId               |  String      | userRoleInformation.school                                                 | Unique identifier of the School mapped to the user                                           |
+|  state\_name                      |  String      | userProfile.userLocations.name//userProfile.userLocations.type is state    | Name of the State mapped to the user                                                         |
+|  block\_name                      |  String      | userProfile.userLocations.name//userProfile.userLocations.type is block    | Name of the Block mapped to the user                                                         |
+|  district\_name                   |  String      | userProfile.userLocations.name//userProfile.userLocations.type is district | Name of the District mapped to the user                                                      |
+|  cluster\_name                    |  String      | userProfile.userLocations.name//userProfile.userLocations.type is cluster  | Name of the Cluster mapped to the user                                                       |
+|  school\_name                     |  String      | userProfile.userLocations.name//userProfile.userLocations.type is school   | Name of the School declared by the User                                                      |
+|  board\_name                      |  String      | userProfile.framework.board                                                | Name of the board mapped to the user                                                         |
 
- **Project Dimensions :** 
+**Project Rollup Dimensions :**
 
+| **Dimensions in Druid**           | **Datatype** | **Field in Kafka Message**                                                 | **Description**                                                           |
+| --------------------------------- | ------------ | -------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+|  project\_title                   |  String      | solutionInformation.name                                                   | Name of the Project                                                       |
+|  status\_of\_project              |  String      | status                                                                     | Status of the Project created or mapped                                   |
+|  tasks                            |  String      | tasks\[].name                                                              | Name of the Task attached to Project                                      |
+|  tasks\_status                    |  String      | tasks\[].status                                                            | Status of the Task attached to project                                    |
+|  designation                      |  String      | userRoleInformation.role                                                   | Sub role of the user                                                      |
+|  project\_id                      |  String      | \_id                                                                       | Unique identifier of the Project created or mapped                        |
+|  task\_id                         |  String      | tasks\[].\_id                                                              | Unique identifier of Task attached to the Project                         |
+|  parent\_channel                  |  String      | Fill with this value “SHIKSHALOKAM“                                        | Column with constant value                                                |
+|  program\_id                      |  String      | programId                                                                  | Unique identifier of the program to which the project is mapped to        |
+|  program\_name                    |  String      | programInformation.name                                                    | Name of the program to which the project is mapped to                     |
+|  project\_updated\_date           |  Date        | updatedAt                                                                  | Project last updated date                                                 |
+|  createdBy                        |  String      | userId                                                                     | User keycloak id on the sunbrid platform                                  |
+|  program\_externalId              |  String      | programExternalId                                                          | Unique identifier of the program to which the project is mapped to        |
+|  private\_program                 |  String      | isAPrivateProgram                                                          | boolean value that defines program type                                   |
+|  project\_terms\_and\_condition   |  String      | hasAcceptedTAndC (Computation required)                                    | boolean value that defines terms and condition                            |
+| organisation\_id                  | String       | userProfile.organisations.organisationId                                   | Unique Identifier for the organisation                                    |
+|  organisation\_name               |  String      | userProfile.organisations.orgName                                          | Organisation Name of the user belongs to                                  |
+|  solution\_id                     |  String      | solutionInformation.\_id                                                   | Unique identifier of the Solution in an Project generated by system       |
+|  state\_externalId                |  String      | userRoleInformation.state                                                  | Unique identifier of the State                                            |
+|  block\_externalId                |  String      | userRoleInformation.block                                                  | Unique identifier of the Block mapped to the user                         |
+|  district\_externalId             |  String      | userRoleInformation.district                                               | Unique identifier of the District mapped to the user                      |
+|  cluster\_externalId              |  String      | userRoleInformation.cluster                                                | Unique identifier of the Cluster mapped to the user                       |
+|  school\_externalId               |  String      | userRoleInformation.school                                                 | Unique identifier of the School                                           |
+|  state\_name                      |  String      | userProfile.userLocations.name//userProfile.userLocations.type is state    | Name of the State mapped to the user                                      |
+|  block\_name                      |  String      | userProfile.userLocations.name//userProfile.userLocations.type is block    | Name of the Block mapped to the user                                      |
+|  district\_name                   |  String      | userProfile.userLocations.name//userProfile.userLocations.type is district | Name of the District mapped to the user                                   |
+|  cluster\_name                    |  String      | userProfile.userLocations.name//userProfile.userLocations.type is cluster  | Name of the Cluster mapped to the user                                    |
+|  school\_name                     |  String      | userProfile.userLocations.name//userProfile.userLocations.type is school   | Name of the School declared by the User                                   |
+| project\_created\_type            |   String     | projectTemplateId (Computation is required)                                | Type of the project either Imported from library (or) created by the user |
+| board\_name                       | String       | userProfile.framework.board                                                | Name of the board mapped to the user                                      |
+|  task\_evidence\_status           |  String      | tasks\[].attachments\[].sourcePath (Computation Required)                  | Indicates true or false of evidence attached or not at the task level     |
+| area\_of\_improvement             |  String      | categories\[].name                                                         | Category of the project created or assigned or imported                   |
 
+**Project Metrics** :
 
-|  **Dimensions in Druid**  |  **Datatype**  |  **Field in Kafka Message**  |  **Description**  | 
-|  --- |  --- |  --- |  --- | 
-|  project_title             |  String  | solutionInformation.name | Name of the Project | 
-|  project_goal              |  String  | metaInformation.goal | Goal of the Project created or mapped | 
-|  project_created_date      |  Date    | createdAt | Date of creation of the project | 
-|  project_last_sync         |  String  | syncedAt | Last sync date of the project | 
-|  area_of_improvement       |  String  | categories\[].name | Category of the project created or assigned or imported | 
-|  status_of_project         |  String  | status | Status of the Project created or mapped | 
-|  tasks                     |  String  | tasks\[].name | Name of the Task attached to Project | 
-|  tasks_date                |  Date    | tasks\[].syncedAt | Last sync date of the task | 
-|  tasks_status              |  String  | tasks\[].status | Status of the Task attached to project | 
-|  sub_task                  |  String  | task\[].children\[].name | Name of Sub task attached to the task | 
-|  sub_task_status           |  String  | task\[].children\[].status | Status of Sub task attached to the task | 
-|  sub_task_date             |  String  | task\[].children\[].syncedAt | Last sync date of the sub task | 
-|  task_start_date           |  String  | tasks\[].startDate | Start date of Task attached to Project | 
-|  task_end_date             |  String  | tasks\[].endDate | End date of Task attached to Project | 
-|  sub_task_start_date       |  Date    | task\[].children\[].startDate | Start date of Sub task attached to task | 
-|  sub_task_end_date         |  Date    | task\[].children\[].endDate | End date of Sub task attached to task | 
-| designation |  String  | userRoleInformation.role | Sub role of the user | 
-|  project_deleted_flag      |  String  | isDeleted | Indicates True or False which tells whether the projects is deleted by the user from the app | 
-|  task_evidence             |  String  | tasks\[].attachments\[].sourcePath | Link of the attachment uploaded at the task level in a project | 
-|  task_evidence_status      |  String  | tasks\[].attachments\[].sourcePath   (Computation Required) | Indicates true or false of evidence attached or not at the task level | 
-|  project_id                |  String  | _id | Unique identifier of the Project created or mapped | 
-|  task_id                   |  String  | tasks\[]._id | Unique identifier of Task attached to the Project | 
-|  sub_task_id               |  String  | task\[].children\[]._id | Unique identifier of Sub task attached to the task | 
-|  project_created_type      |  String  | projectTemplateId  (Computation is required) | Type of the project either Imported from library (or) created by the user | 
-|  task_assigned_to          |  String  | tasks\[].assignee | Provides the username or email to which user the task is assigned to | 
-|  channel                   |  String  | userProfile.rootOrgId | Root organisation of user | 
-|  parent_channel            |  String  | Fill with this value “SHIKSHALOKAM“ | Column with constant value | 
-|  program_id                |  String  | programId | Unique identifier of the program to which the project is mapped to | 
-|  program_name              |  String  | programInformation.name | Name of the program to which the project is mapped to | 
-|  project_updated_date      |  Date    | updatedAt | Project last updated date | 
-|  createdBy                 |  String  | userId | User keycloak id on the sunbrid platform | 
-|  project_title_editable    |  String  | title | Edited name of the Project | 
-|  project_duration          |  String  | metaInformation.duration | Duration of the project taken to complete | 
-|  program_externalId        |  String  | programExternalId | Unique identifier of the program to which the project is mapped to | 
-|  private_program           |  String  | isAPrivateProgram | boolean value that defines program type | 
-|  task_deleted_flag         |  Boolean  | tasks\[].isDeleted (Computation Required) | Indicates True or False which tells whether the task is deleted by the user from the app | 
-|  sub_task_deleted_flag         |  Boolean  | task\[].children\[].isDeleted | Indicates True or False which tells whether the sub-task is deleted by the user from the app | 
-|  project_terms_and_condition   |  String  | hasAcceptedTAndC (Computation required) | boolean value that defines terms and condition | 
-|  task_remarks                  |  String  | tasks\[].remarks | Remarks of the task | 
-|  organisation_name             |  String  | userProfile.organisations.orgName | Organisation Name of the user belongs to | 
-|  project_description           |  String  | description | Summary of the project | 
-|  project_completed_date        |  String  | updatedAt//when status is submitted | Date of completion of the project | 
-|  solution_id                   |  String  | solutionInformation._id | Unique identifier of the Solution in an Project generated by system | 
-|  state_externalId              |  String  | userRoleInformation.state | Unique identifier of the State  | 
-|  block_externalId              |  String  | userRoleInformation.block | Unique identifier of the Block  | 
-|  district_externalId           |  String  | userRoleInformation.district | Unique identifier of the District mapped to the user | 
-|  cluster_externalId            |  String  | userRoleInformation.cluster | Unique identifier of the Cluster mapped to the user | 
-|  school_externalId             |  String  | userRoleInformation.school | Unique identifier of the School mapped to the user | 
-|  state_name                    |  String  | userProfile.userLocations.name//userProfile.userLocations.type is state | Name of the State mapped to the user | 
-|  block_name                    |  String  | userProfile.userLocations.name//userProfile.userLocations.type is block | Name of the Block mapped to the user | 
-|  district_name                 |  String  | userProfile.userLocations.name//userProfile.userLocations.type is district | Name of the District mapped to the user | 
-|  cluster_name                  |  String  | userProfile.userLocations.name//userProfile.userLocations.type is cluster | Name of the Cluster mapped to the user | 
-|  school_name                   |  String  | userProfile.userLocations.name//userProfile.userLocations.type is school | Name of the School declared by the User | 
-|  board_name                    |  String  | userProfile.framework.board | Name of the board mapped to the user | 
+| Dimensions in Druid                    | DataType |
+| -------------------------------------- | -------- |
+| COUNT\_DISTINCT(solution\_id)          | String   |
+| COUNT\_DISTINCT( project\_id )         | String   |
+| COUNT\_DISTINCT(createdBy)             | String   |
 
+**Observation Status Dimensions** :
 
+| **Dimensions in Druid**      | **Datatype** | **Field in Kafka Message**                                                 | **Description**                                                                                  |
+| ---------------------------- | ------------ | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+|  entity\_externalId          |  String      | entityExternalId                                                           | Unique identifier of the entity added by the user during observation submission                  |
+|  entity\_id                  |  String      | entityId                                                                   | System generated unique identifier of the entity added by the user during observation submission |
+|  entity\_type                |  String      | entityType                                                                 | Type of entity for the observation submission                                                    |
+|  solution\_id                |  String      | solutionId                                                                 | Unique identifier of the Solution in an observation generated by system                          |
+|  solution\_externalId        |  String      | solutionExternalId                                                         | Unique identifier of the Solution in an observation                                              |
+|  submission\_id              |  String      | \_id                                                                       | Unique system generated identifier for each observation submissions                              |
+|  entity\_name                |  String      | entityInformation.name                                                     | Name of the entity added by the user during observation submission                               |
+|  solution\_name              |  String      | solutionInfo.name                                                          | Name of the solution to which the observation is submitted                                       |
+|  role\_title                 |  String      | userRoleInformation.role                                                   | User sub type                                                                                    |
+|  school\_name                |  String      | userProfile.userLocations.name//userProfile.userLocations.type is school   | Name of the School mapped to the user                                                            |
+|  school\_externalId          |  String      | userRoleInformation.school                                                 | Unique identifier of the school                                                                  |
+|  state\_name                 |  String      | userProfile.userLocations.name//userProfile.userLocations.type is state    | Name of the State mapped to the user                                                             |
+|  district\_name              |  String      | userProfile.userLocations.name//userProfile.userLocations.type is district | Name of the District mapped to the user                                                          |
+|  block\_name                 |  String      | /Fetch from Api                                                            | Name of the Block mapped to the user                                                             |
+|  cluster\_name               |  String      | userProfile.userLocations.name//userProfile.userLocations.type is cluster  | Name of the Cluster mapped to the user                                                           |
+|  completedDate               |  Date        | completedDate                                                              | Observation submission completion date                                                           |
+|  channel                     |  String      | userProfile.rootOrgId                                                      | Root organisation of the user                                                                    |
+|  parent\_channel             |  String      | Fill with this value “SHIKSHALOKAM“                                        | Column with constant value                                                                       |
+|  program\_id                 |  String      | programId                                                                  | Unique identifier generated by the system for the observation submitted                          |
+|  program\_externalId         |  String      | programExternalId                                                          | Unique identifier of the observation submitted                                                   |
+|  program\_name               |  String      | programInfo.name                                                           | Name of the program to which the observation is submitted                                        |
+|  app\_name                   |  String      | appInformation.appName                                                     | application name either app or portal unique identifier                                          |
+|  user\_id                    |  String      | createdBy                                                                  | User keycloak id on the sunbrid platform                                                         |
+|  private\_program            |  String      | isAPrivateProgram                                                          | Boolean value that defines program type                                                          |
+|  solution\_type              |  String      | isRubricDriven & criteriaLevelReport (computation required)                | Defines the type of Solution                                                                     |
+|  organisation\_name          |  String      | userProfile.organisations.orgName                                          | Organisation Name of the user belongs to                                                         |
+|  ecm\_marked\_na             |  String      | ecm\_marked\_na                                                            | Domains marked as not applicable by the user                                                     |
+|  board\_name                 |  String      | userProfile.framework.board                                                | Name of the board                                                                                |
+|  updatedAt                   |  Date        | updatedAt                                                                  | Datetime of last updated of the observation submission                                           |
+| status                       | String       | status                                                                     | Status of the submission observation submission                                                  |
 
- **Project Rollup Dimensions :** 
+**Observation Status Rollup Dimensions** :
 
+| **Dimensions in Druid**     | **Datatype** | **Field in Kafka Message**                                                 | **Description**                                                         |
+| --------------------------- | ------------ | -------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+|  solution\_id               |  String      | solutionId                                                                 | Unique identifier of the Solution in an observation generated by system |
+|  submission\_id             |  String      | \_id                                                                       | Unique identifier generated by system for each submission               |
+|  entity\_name               |  String      | entity\_name                                                               | Name of the entity added by the user during observation submission      |
+|  solution\_name             |  String      | solutionInfo.name                                                          | Name of the solution to which the observation is submitted              |
+|  role\_title                |  String      | role\_title                                                                | User sub type                                                           |
+|  school\_name               |  String      | userProfile.userLocations.name//userProfile.userLocations.type is school   | Name of the School mapped to the user                                   |
+|  school\_externalId         |  String      | userRoleInformation.school                                                 | Unique identifier of the school                                         |
+| state\_externalId           | String       | userRoleInformation.state                                                  | Unique identifier of the state                                          |
+|  state\_name                |  String      | userProfile.userLocations.name//userProfile.userLocations.type is state    | Name of the State mapped to the user                                    |
+| district\_externalId        | String       | userRoleInformation.district                                               | Unique identifier of the district                                       |
+|  district\_name             |  String      | userProfile.userLocations.name//userProfile.userLocations.type is district | Name of the District mapped to the user                                 |
+| block\_externalId           | String       | userRoleInformation.block                                                  | Unique identifier of the block                                          |
+|  block\_name                |  String      | userProfile.userLocations.name//userProfile.userLocations.type is block    | Name of the Block mapped to the user                                    |
+| cluster\_externalId         | String       | userRoleInformation.cluster                                                | Unique identifier of the cluster                                        |
+|  cluster\_name              |  String      | userProfile.userLocations.name//userProfile.userLocations.type is cluster  | Name of the Cluster mapped to the user                                  |
+|  completedDate              |  Date        | completedDate                                                              | Date of completion of the observation submission                        |
+|  channel                    |  String      | userProfile.rootOrgId                                                      | Root organisation of the user                                           |
+|  parent\_channel            |  String      | Fill with this value “SHIKSHALOKAM“                                        | Column with constant value                                              |
+|  program\_id                |  String      | programId                                                                  | Unique identifier generated by the system for the observation submitted |
+|  program\_name              |  String      | programInfo.name                                                           | Name of the program to which the observation is submitted               |
+|  user\_id                   |  String      | createdBy                                                                  | User keycloak id on the sunbrid platform                                |
+|  private\_program           |  String      | isAPrivateProgram                                                          | Boolean value that defines program type                                 |
+|  solution\_type             |  String      | isRubricDriven & criteriaLevelReport (computation required)                | Defines the type of Solution                                            |
+| organisation\_id            | String       | userProfile.organisations.organisationId                                   | Uniquer Identifier for the organisations                                |
+|  organisation\_name         |  String      | userProfile.organisations.orgName                                          | Organisation Name of the user belongs to                                |
+|  updatedAt                  |  Date        | updatedAt                                                                  | Datetime of last updated of the observation submission                  |
+| status                      | String       | status                                                                     | Status of the observation submission                                    |
+| board\_name                 | String       | userProfile.framework.board                                                | Name of the board                                                       |
 
+**Observation Metrics** :
 
-|  **Dimensions in Druid**  |  **Datatype**  |  **Field in Kafka Message**  |  **Description**  | 
-|  --- |  --- |  --- |  --- | 
-|  project_title             |  String  | solutionInformation.name | Name of the Project | 
-|  status_of_project         |  String  | status | Status of the Project created or mapped | 
-|  tasks                     |  String  | tasks\[].name | Name of the Task attached to Project | 
-|  tasks_status              |  String  | tasks\[].status | Status of the Task attached to project | 
-|  designation               |  String  | userRoleInformation.role | Sub role of the user | 
-|  project_id  |  String  | _id | Unique identifier of the Project created or mapped | 
-|  task_id                   |  String  | tasks\[]._id | Unique identifier of Task attached to the Project | 
-|  parent_channel            |  String  | Fill with this value “SHIKSHALOKAM“ | Column with constant value | 
-|  program_id                |  String  | programId | Unique identifier of the program to which the project is mapped to | 
-|  program_name              |  String  | programInformation.name | Name of the program to which the project is mapped to | 
-|  project_updated_date      |  Date    | updatedAt | Project last updated date | 
-|  createdBy                 |  String  | userId | User keycloak id on the sunbrid platform | 
-|  program_externalId        |  String  | programExternalId | Unique identifier of the program to which the project is mapped to | 
-|  private_program           |  String  | isAPrivateProgram | boolean value that defines program type | 
-|  project_terms_and_condition   |  String  | hasAcceptedTAndC (Computation required) | boolean value that defines terms and condition | 
-| organisation_id | String | userProfile.organisations.organisationId | Unique Identifier for the organisation | 
-|  organisation_name             |  String  | userProfile.organisations.orgName | Organisation Name of the user belongs to | 
-|  solution_id                   |  String  | solutionInformation._id | Unique identifier of the Solution in an Project generated by system | 
-|  state_externalId              |  String  | userRoleInformation.state | Unique identifier of the State  | 
-|  block_externalId              |  String  | userRoleInformation.block | Unique identifier of the Block mapped to the user | 
-|  district_externalId           |  String  | userRoleInformation.district | Unique identifier of the District mapped to the user | 
-|  cluster_externalId            |  String  | userRoleInformation.cluster | Unique identifier of the Cluster mapped to the user | 
-|  school_externalId             |  String  | userRoleInformation.school | Unique identifier of the School  | 
-|  state_name                    |  String  | userProfile.userLocations.name//userProfile.userLocations.type is state | Name of the State mapped to the user | 
-|  block_name                    |  String  | userProfile.userLocations.name//userProfile.userLocations.type is block | Name of the Block mapped to the user | 
-|  district_name                 |  String  | userProfile.userLocations.name//userProfile.userLocations.type is district | Name of the District mapped to the user | 
-|  cluster_name                  |  String  | userProfile.userLocations.name//userProfile.userLocations.type is cluster | Name of the Cluster mapped to the user | 
-|  school_name                   |  String  | userProfile.userLocations.name//userProfile.userLocations.type is school | Name of the School declared by the User | 
-| project_created_type |   String | projectTemplateId  (Computation is required) | Type of the project either Imported from library (or) created by the user | 
-| board_name | String | userProfile.framework.board | Name of the board mapped to the user | 
-|  task_evidence_status      |  String  | tasks\[].attachments\[].sourcePath   (Computation Required) | Indicates true or false of evidence attached or not at the task level | 
-| area_of_improvement |  String  | categories\[].name | Category of the project created or assigned or imported | 
+| Dimensions in Druid                       | DataType |
+| ----------------------------------------- | -------- |
+| COUNT\_DISTINCT(solution\_id)             | String   |
+| COUNT\_DISTINCT( submission\_id )         | String   |
+| COUNT\_DISTINCT(user\_id)                 | String   |
 
+**References** :
 
+Sample Kafka Message : Projects
 
- **Project Metrics** :
-
-
-
-| Dimensions in Druid | DataType  | 
-|  --- |  --- | 
-| COUNT_DISTINCT(solution_id)         | String | 
-| COUNT_DISTINCT( project_id )         | String | 
-| COUNT_DISTINCT(createdBy)  | String | 
-
-
-
-
-
- **Observation Status Dimensions** :
-
-
-
-|  **Dimensions in Druid**  |  **Datatype**  |  **Field in Kafka Message**  |  **Description**  | 
-|  --- |  --- |  --- |  --- | 
-|  entity_externalId         |  String  | entityExternalId | Unique identifier of the entity added by the user during observation submission | 
-|  entity_id                 |  String  | entityId | System generated unique identifier of the entity added by the user during observation submission | 
-|  entity_type               |  String  | entityType | Type of entity for the observation submission | 
-|  solution_id               |  String  | solutionId | Unique identifier of the Solution in an observation generated by system | 
-|  solution_externalId       |  String  | solutionExternalId | Unique identifier of the Solution in an observation | 
-|  submission_id             |  String  | _id | Unique system generated identifier for each observation submissions | 
-|  entity_name               |  String  | entityInformation.name | Name of the entity added by the user during observation submission | 
-|  solution_name             |  String  | solutionInfo.name | Name of the solution to which the observation is submitted | 
-|  role_title                |  String  | userRoleInformation.role | User sub type | 
-|  school_name               |  String  | userProfile.userLocations.name//userProfile.userLocations.type is school | Name of the School mapped to the user | 
-|  school_externalId         |  String  | userRoleInformation.school | Unique identifier of the school  | 
-|  state_name                |  String  | userProfile.userLocations.name//userProfile.userLocations.type is state | Name of the State mapped to the user | 
-|  district_name             |  String  | userProfile.userLocations.name//userProfile.userLocations.type is district | Name of the District mapped to the user  | 
-|  block_name                |  String  | /Fetch from Api | Name of the Block mapped to the user | 
-|  cluster_name              |  String  | userProfile.userLocations.name//userProfile.userLocations.type is cluster | Name of the Cluster mapped to the user | 
-|  completedDate             |  Date  | completedDate | Observation submission completion date | 
-|  channel                   |  String  | userProfile.rootOrgId | Root organisation of the user | 
-|  parent_channel            |  String  | Fill with this value “SHIKSHALOKAM“ | Column with constant value | 
-|  program_id                |  String  | programId | Unique identifier generated by the system for the observation submitted | 
-|  program_externalId        |  String  | programExternalId | Unique identifier of the observation submitted | 
-|  program_name              |  String  | programInfo.name | Name of the program to which the observation is submitted | 
-|  app_name                  |  String  | appInformation.appName | application name either app or portal unique identifier | 
-|  user_id                   |  String  | createdBy | User keycloak id on the sunbrid platform | 
-|  private_program           |  String  | isAPrivateProgram | Boolean value that defines program type | 
-|  solution_type             |  String  | isRubricDriven  &  criteriaLevelReport (computation required) | Defines the type of Solution | 
-|  organisation_name         |  String  | userProfile.organisations.orgName | Organisation Name of the user belongs to | 
-|  ecm_marked_na             |  String  | ecm_marked_na | Domains marked as not applicable by the user | 
-|  board_name                |  String  | userProfile.framework.board | Name of the board  | 
-|  updatedAt                 |  Date  | updatedAt | Datetime of last updated of the observation submission | 
-| status | String | status | Status of the submission observation submission | 
-
-
-
- **Observation Status Rollup Dimensions** :
-
-
-
-|  **Dimensions in Druid**  |  **Datatype**  |  **Field in Kafka Message**  |  **Description**  | 
-|  --- |  --- |  --- |  --- | 
-|  solution_id               |  String  | solutionId | Unique identifier of the Solution in an observation generated by system | 
-|  submission_id             |  String  | _id | Unique identifier generated by system for each submission | 
-|  entity_name               |  String  | entity_name | Name of the entity added by the user during observation submission | 
-|  solution_name             |  String  | solutionInfo.name | Name of the solution to which the observation is submitted | 
-|  role_title                |  String  | role_title | User sub type | 
-|  school_name               |  String  | userProfile.userLocations.name//userProfile.userLocations.type is school | Name of the School mapped to the user | 
-|  school_externalId         |  String  | userRoleInformation.school | Unique identifier of the school  | 
-| state_externalId | String | userRoleInformation.state | Unique identifier of the state | 
-|  state_name                |  String  | userProfile.userLocations.name//userProfile.userLocations.type is state | Name of the State mapped to the user | 
-| district_externalId | String | userRoleInformation.district | Unique identifier of the district | 
-|  district_name             |  String  | userProfile.userLocations.name//userProfile.userLocations.type is district | Name of the District mapped to the user | 
-| block_externalId | String | userRoleInformation.block | Unique identifier of the block | 
-|  block_name                |  String  | userProfile.userLocations.name//userProfile.userLocations.type is block | Name of the Block mapped to the user | 
-| cluster_externalId | String | userRoleInformation.cluster | Unique identifier of the cluster | 
-|  cluster_name              |  String  | userProfile.userLocations.name//userProfile.userLocations.type is cluster | Name of the Cluster mapped to the user | 
-|  completedDate             |  Date  | completedDate | Date of completion of the observation submission | 
-|  channel                   |  String  | userProfile.rootOrgId | Root organisation of the user | 
-|  parent_channel            |  String  | Fill with this value “SHIKSHALOKAM“ | Column with constant value | 
-|  program_id                |  String  | programId | Unique identifier generated by the system for the observation submitted | 
-|  program_name              |  String  | programInfo.name | Name of the program to which the observation is submitted | 
-|  user_id                   |  String  | createdBy | User keycloak id on the sunbrid platform | 
-|  private_program           |  String  | isAPrivateProgram | Boolean value that defines program type | 
-|  solution_type             |  String  | isRubricDriven  &  criteriaLevelReport (computation required) | Defines the type of Solution | 
-|  organisation_id | String | userProfile.organisations.organisationId | Uniquer Identifier for the organisations | 
-|  organisation_name         |  String  | userProfile.organisations.orgName | Organisation Name of the user belongs to | 
-|  updatedAt                 |  Date  | updatedAt | Datetime of last updated of the observation submission | 
-| status | String | status | Status of the observation submission | 
-| board_name | String | userProfile.framework.board | Name of the board  | 
-
- **Observation Metrics** :
-
-
-
-| Dimensions in Druid | DataType  | 
-|  --- |  --- | 
-| COUNT_DISTINCT(solution_id)         | String | 
-| COUNT_DISTINCT( submission_id )         | String | 
-| COUNT_DISTINCT(user_id)  | String | 
-
- **References** : 
-
-Sample Kafka Message  : Projects
 ```json
 [
     {
@@ -3077,8 +3051,8 @@ Sample Kafka Message  : Projects
 }
 ```
 
-
 Druid Ingestion Specs : Projects
+
 ```
 {
   "search": {
@@ -3196,8 +3170,8 @@ Druid Ingestion Specs : Projects
 }
 ```
 
-
 Druid Ingestion Specs : Observations
+
 ```json
 {
     "type": "index",
@@ -3272,14 +3246,6 @@ Druid Ingestion Specs : Observations
 }
 ```
 
+***
 
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

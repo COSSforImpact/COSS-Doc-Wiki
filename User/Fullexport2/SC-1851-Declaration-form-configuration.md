@@ -1,31 +1,19 @@
+# SC-1851-Declaration-form-configuration
 
-### Requirement:
+#### Requirement:
 
 * User should be able to self declare information about a role (e.g. Teacher, Volunteer) he/she is playing for an organisation. the organisation must exist as an org entity within the platform.
-
-
 * The list of fields that can be declared for a role should be driven via configuration.
-
-
 * User should be able to declare multiple roles and for multiple orgs. One role is always associated with one org.
-
-
 * Any user should be able self-declare information.
-
-
 * Platform should also take care of backward compatibility for older version of mobile apps. It can be assumed all self declared information from older version are only for one role that is configured at platform level (e.g: Teacher).
-
-
 * A future possibility is that users should be able to declare certain information which is not associated with any role also. The fields to be collected should be configurable by the org which is collecting the information. Please ensure that the design addresses this or can be easily extended to support this in future.
 
+#### Proposed Solution 1:
 
-
-
-### Proposed Solution 1:
 Form APIs are used to store and retrieve UI forms currently. The same flow can be reused with some modifications.
 
 Existing Table Structure:
-
 
 ```
 CREATE TABLE qmzbm_form_service.form_data (
@@ -42,12 +30,12 @@ CREATE TABLE qmzbm_form_service.form_data (
 );
 
 ```
-Request to retrieve forms from form_data table:
+
+Request to retrieve forms from form\_data table:
 
 Url : [https://staging.ntp.net.in/api/data/v1/form/read](https://staging.ntp.net.in/api/data/v1/form/read)
 
 Request Payload:
-
 
 ```
 {
@@ -60,9 +48,11 @@ Request Payload:
 	}
 }
 ```
+
 Response:
 
 Form API Read Response
+
 ```
 {
 	"id": "api.form.read",
@@ -229,40 +219,23 @@ Form API Read Response
 }
 ```
 
+#### Changes Required for Solution 1 to support role based configuration:
 
-
-### Changes Required for Solution 1 to support role based configuration:
 Existing flow can be reused, along with few changes:
 
-
 1. Current flow supports form configuration in organisation level, need to change this to persona level.
-
-
-1. subType column can be used to store the persona or new persona column can be added to the table, so that for each role we can configure the forms differently.
-
-
-1. Validations are already included in the form definition currently.
-
-
-1. Private fields array should be added to have the field names which require encryption.
-
-
-1. This private fields array should be send during update to back end, so that back end can encrypt the data from these fields..
-
-
-1. Create and update in Form APIs can be used to configure the forms for different persona from admin side.
-
-
-1. Create and update API should also support the persona wise update of forms and should have the option to specify private fields array.
-
-
-1. Default persona(‘default’) should be provided, which can be used to configure fields which do not specifically belong to one role.
-
-
+2. subType column can be used to store the persona or new persona column can be added to the table, so that for each role we can configure the forms differently.
+3. Validations are already included in the form definition currently.
+4. Private fields array should be added to have the field names which require encryption.
+5. This private fields array should be send during update to back end, so that back end can encrypt the data from these fields..
+6. Create and update in Form APIs can be used to configure the forms for different persona from admin side.
+7. Create and update API should also support the persona wise update of forms and should have the option to specify private fields array.
+8. Default persona(‘default’) should be provided, which can be used to configure fields which do not specifically belong to one role.
 
 Updated API response:
 
 Response
+
 ```
 {
 	"id": "api.form.read",
@@ -430,64 +403,29 @@ Response
 }
 ```
 
-
 Assumptions:
 
-
 * If adding new persona column, for existing data/forms in the table, it can be ‘default’.
-
-
-
-
 * There is org and sub-org in the system. This design changes are on the assumption that external id details and configuration needs to be on org level.
-
-
 
 Clarifications received:
 
-
 * Do we need to add sub-org to the configurations?
-
-
-    * Sub-org too will have an id, so it is up to portal like consumers to pick suborg form or rootorg form.
-
-
-
-    
+  * Sub-org too will have an id, so it is up to portal like consumers to pick suborg form or rootorg form.
 * How do a user register on multiple org?
-
-
-    * User registration on multiple orgs is being discussed in SC-1837.
-
-
-
-    
+  * User registration on multiple orgs is being discussed in SC-1837.
 * How can a user switch between orgs or sub-orgs? After login or during login?
+  * User switches roles, not orgs - refer to SC-1837. Org switch is taking it to next level and not sure if it is being considered.
 
+#### Proposed Solution 2:
 
-    * User switches roles, not orgs - refer to SC-1837. Org switch is taking it to next level and not sure if it is being considered.
-
-
-
-    
-
-
-### Proposed Solution 2:
-Tenant preference APIs in learners-service can be used for adding form config, based on roles. Read, add, and update tenant preferences API’s are existing. 
-
+Tenant preference APIs in learners-service can be used for adding form config, based on roles. Read, add, and update tenant preferences API’s are existing.
 
 * ‘role’ column can be renamed to ‘persona’
-
-
 * There can be a ‘default’ persona for common config not specific to roles
-
-
 * 'data' can store the fields details like, filed name , type, description, required or not and also the private flag which specifies encryption is needed or not
 
-
-
 Existing table structure:
-
 
 ```
 CREATE TABLE sunbird.tenant_preference (
@@ -502,8 +440,8 @@ CREATE INDEX inx_tp_key ON sunbird.tenant_preference (key);
 CREATE INDEX inx_tp_userid ON sunbird.tenant_preference (orgid);
 
 ```
-New Table Structure:
 
+New Table Structure:
 
 ```
 CREATE TABLE sunbird.tenant_preference (
@@ -515,191 +453,185 @@ CREATE TABLE sunbird.tenant_preference (
     PRIMARY KEY (key, persona, orgid)
 );
 ```
+
 Existing Response Structure:{
 
-    "id": "api.org.preferences.read",
+&#x20;   "id": "api.org.preferences.read",
 
-    "ver": "v1",
+&#x20;   "ver": "v1",
 
-    "ts": "2020-07-27 13:28:47:737+0530",
+&#x20;   "ts": "2020-07-27 13:28:47:737+0530",
 
-    "params": {
+&#x20;   "params": {
 
-        "resmsgid": null,
+&#x20;       "resmsgid": null,
 
-        "msgid": "b530174a-5f9d-41c0-a304-acdabfbddf93",
+&#x20;       "msgid": "b530174a-5f9d-41c0-a304-acdabfbddf93",
 
-        "err": null,
+&#x20;       "err": null,
 
-        "status": "success",
+&#x20;       "status": "success",
 
-        "errmsg": null
+&#x20;       "errmsg": null
 
-    },
+&#x20;   },
 
-    "responseCode": "OK",
+&#x20;   "responseCode": "OK",
 
-    "result": {
+&#x20;   "result": {
 
-        "tenantPreference": \[
+&#x20;       "tenantPreference": \[
 
-            {
+&#x20;           {
 
-                "role": null,
+&#x20;               "role": null,
 
-                "data": "",
+&#x20;               "data": "",
 
-                "tenantname": null,
+&#x20;               "tenantname": null,
 
-                "id": "1",
+&#x20;               "id": "1",
 
-                "orgId": "\*",
+&#x20;               "orgId": "\*",
 
-                "key": "content.textbook.save"
+&#x20;               "key": "content.textbook.save"
 
-            }
+&#x20;           }
 
-        ]
+&#x20;       ]
 
-    }
+&#x20;   }
 
 }
-
-
 
 Proposed Response Structure:{
 
-    "id": "api.org.preferences.read",
+&#x20;   "id": "api.org.preferences.read",
 
-    "ver": "v1",
+&#x20;   "ver": "v1",
 
-    "ts": "2020-07-27 13:28:47:737+0530",
+&#x20;   "ts": "2020-07-27 13:28:47:737+0530",
 
-    "params": {
+&#x20;   "params": {
 
-        "resmsgid": null,
+&#x20;       "resmsgid": null,
 
-        "msgid": "b530174a-5f9d-41c0-a304-acdabfbddf93",
+&#x20;       "msgid": "b530174a-5f9d-41c0-a304-acdabfbddf93",
 
-        "err": null,
+&#x20;       "err": null,
 
-        "status": "success",
+&#x20;       "status": "success",
 
-        "errmsg": null
+&#x20;       "errmsg": null
 
-    },
+&#x20;   },
 
-    "responseCode": "OK",
+&#x20;   "responseCode": "OK",
 
-    "result": {
+&#x20;   "result": {
 
-        "tenantPreference": \[
+&#x20;       "tenantPreference": \[
 
-            {
+&#x20;           {
 
-                "tenantname": null,
+&#x20;               "tenantname": null,
 
-                "id": "1",
+&#x20;               "id": "1",
 
-                "orgId": "\*",
+&#x20;               "orgId": "\*",
 
-                "persona": “teacher”,
+&#x20;               "persona": “teacher”,
 
-                "key": "self-declaration",
+&#x20;               "key": "self-declaration",
 
-                "data": {
+&#x20;               "data": {
 
-                              "fields": \[{
+&#x20;                             "fields": \[{
 
-                                             "name": "state",
+&#x20;                                            "name": "state",
 
-                                             "dataType": "text",
+&#x20;                                            "dataType": "text",
 
-                                             "description": "Select state",
+&#x20;                                            "description": "Select state",
 
-                                             "required": true
+&#x20;                                            "required": true
 
-                              }, {
+&#x20;                             }, {
 
-                                             "name": "district",
+&#x20;                                            "name": "district",
 
-                                             "dataType": "text",
+&#x20;                                            "dataType": "text",
 
-                                             "description": "Select district",
+&#x20;                                            "description": "Select district",
 
-                                             "required": true
+&#x20;                                            "required": true
 
-                              }, {
+&#x20;                             }, {
 
-                                             "name": "phone",
+&#x20;                                            "name": "phone",
 
-                                             "dataType": "number",
+&#x20;                                            "dataType": "number",
 
-                                             "description": "Enter mobile number",
+&#x20;                                            "description": "Enter mobile number",
 
-                                             "required": true,
+&#x20;                                            "required": true,
 
-                                             "private": true
+&#x20;                                            "private": true
 
-                              }, {
+&#x20;                             }, {
 
-                                             "name": "email",
+&#x20;                                            "name": "email",
 
-                                             "dataType": "text",
+&#x20;                                            "dataType": "text",
 
-                                             "description": "Enter email address",
+&#x20;                                            "description": "Enter email address",
 
-                                             "required": false,
+&#x20;                                            "required": false,
 
-                                             "private": true
+&#x20;                                            "private": true
 
-                              }, {
+&#x20;                             }, {
 
-                                             "name": "school",
+&#x20;                                            "name": "school",
 
-                                             "dataType": "text",
+&#x20;                                            "dataType": "text",
 
-                                             "description": "Enter school name",
+&#x20;                                            "description": "Enter school name",
 
-                                             "required": false
+&#x20;                                            "required": false
 
-                              }, {
+&#x20;                             }, {
 
-                                             "name": "udiseId",
+&#x20;                                            "name": "udiseId",
 
-                                             "dataType": "text",
+&#x20;                                            "dataType": "text",
 
-"                                             description": "Enter UDISE ID",,
+"                                             description": "Enter UDISE ID",,
 
-                                             "required": false				
+&#x20;                                            "required": false
 
-                              }, {
+&#x20;                             }, {
 
-                                             "name": "teacherId",
+&#x20;                                            "name": "teacherId",
 
-                                             "dataType": "text",
+&#x20;                                            "dataType": "text",
 
-                                             "description": "Enter ID",
+&#x20;                                            "description": "Enter ID",
 
-                                             "required": true
+&#x20;                                            "required": true
 
-                              }]
+&#x20;                             }]
 
-                 }
+&#x20;                }
 
-            }
+&#x20;           }
 
-        ]
+&#x20;       ]
 
-    }
+&#x20;   }
 
 }
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

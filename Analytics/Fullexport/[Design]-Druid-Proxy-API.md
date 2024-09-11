@@ -1,25 +1,20 @@
+# \[Design]-Druid-Proxy-API
 
+### **Introduction** :
 
-
-##  **Introduction** :
 This document describes the design of the proxy API to validate/filter druid quires to avoid cascading failure.
 
+### **Problem Statement:** &#x20;
 
-##  **Problem Statement:**  
 Currently, The druid API is open and any user can fire a scan query over any date range and also use high cardinality columns as filter criteria without any ranges. Due to this druid system will crash and the user will not able to query the druid system further.
 
-![](images/storage/Screenshot%202019-11-14%20at%203.39.39%20PM.png)                              ![](images/storage/Screenshot%202020-08-25%20at%201.37.12%20PM.png)
+![](<images/storage/Screenshot 2019-11-14 at 3.39.39 PM.png>) ![](<images/storage/Screenshot 2020-08-25 at 1.37.12 PM.png>)
 
 Once API Validates the request JSON object then proxy API will create the Hash key for the request object and checks in the redis for that hash key. if the value is present for the hash key in the redis then it will respond with value to the end-user OR. if the response is not present in the redis then it will fetch the result from the druid data source and store that response into Redis for certain interval of time.
 
+\*\*API End Point: \*\* POST /v1/druid/
 
-
- **API End Point: ** POST /v1/druid/
-
-
-
- **Request: ** 
-
+\*\*Request: \*\*
 
 ```js
 {
@@ -97,14 +92,9 @@ Once API Validates the request JSON object then proxy API will create the Hash k
 }
 ```
 
+\*\*Response: \*\* Proxy API will not re-structure the response from the druid.&#x20;
 
-
-
- **Response: **  Proxy API will not re-structure the response from the druid. 
-
-
-1.  ** Cancel Response : ** 
-
+1. \*\* Cancel Response : \*\*
 
 ```js
 {
@@ -114,8 +104,8 @@ Once API Validates the request JSON object then proxy API will create the Hash k
   "host" : "dev.sunbird.ord:8083"
 }
 ```
-    2.  **Success Response** 
 
+&#x20;   2\. **Success Response**
 
 ```js
 [
@@ -232,13 +222,7 @@ Once API Validates the request JSON object then proxy API will create the Hash k
 }
 ```
 
-
- **Response:** 
-
-
-
-
-
+**Response:**
 
 ```js
 {
@@ -263,34 +247,10 @@ Once API Validates the request JSON object then proxy API will create the Hash k
 }
 ```
 
+\*\* \*\*
 
- ** ** 
+**Conclusion:**
 
+***
 
-
-
-
- **Conclusion:** 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

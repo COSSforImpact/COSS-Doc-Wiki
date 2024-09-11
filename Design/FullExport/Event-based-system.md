@@ -1,17 +1,17 @@
-problem StatementCurrent system is not event driven. And all background jobs are handled by one or more actors , it can have following problems:  
+# Event-based-system
 
+problem StatementCurrent system is not event driven. And all background jobs are handled by one or more actors , it can have following problems: &#x20;
 
-1.  Each background job is calling different actor and doing predefined set of actions. (So it's tightly coupled)
-1.  System state can become inconsistent if asynchronous call fails due to system failure.
-1.  For each job we are passing different set of data (no predefined event structure)
-1.  Difficult to generate the audit logs
+1. &#x20;Each background job is calling different actor and doing predefined set of actions. (So it's tightly coupled)
+2. &#x20;System state can become inconsistent if asynchronous call fails due to system failure.
+3. &#x20;For each job we are passing different set of data (no predefined event structure)
+4. &#x20;Difficult to generate the audit logs
 
-Solution Approach![](images/storage/event-producer%20(2).png)
+Solution Approach![](<images/storage/event-producer (2).png>)
 
 EventPublisher will hold the producer for which the produce calls on event will be made
 
-  
-
+&#x20;&#x20;
 
 ```java
 public interface EventPublisher{
@@ -42,9 +42,7 @@ public class EventPublisherImpl implements EventPublisher{
 }
 ```
 
-
 there could be multiple producer with each having it's own processing of events
-
 
 ```java
 public interface Producer{
@@ -76,11 +74,7 @@ public class LMaxEventProducer implements Producer {
 }
 ```
 
-
-
-
 Consumer:
-
 
 ```
 public interface IConsumer{
@@ -101,18 +95,6 @@ public class ConsumerFactory{
 }
 ```
 
+***
 
-
-
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,31 +1,16 @@
+# Supportability
 
-## 
+###
 
-Background 
-Owing to the difficulty of supporting pure offline machines at scale through a support desk, the goal is to improve the desktop app setup and recovery mechanisms so that they are self-manageable. The first step in this direction is to provide support mechanisms for intermittently connected devices that use the desktop app. 
-
-
+Background  Owing to the difficulty of supporting pure offline machines at scale through a support desk, the goal is to improve the desktop app setup and recovery mechanisms so that they are self-manageable. The first step in this direction is to provide support mechanisms for intermittently connected devices that use the desktop app.&#x20;
 
 Design problem - Raise a support ticket
 
-
-
 User can raise a support ticket if they won't get a resolution for the queries from FAQ or videos displayed to them as part of this they will raise a fresh desk ticket with the following data here we are assuming that user should be online to raise a support ticket and below is the ticket format
 
+![](images/storage/support\_ticket\_flow.png)
 
-
-
-
-![](images/storage/support_ticket_flow.png)
-
-
-
-
-
-
-
-we will be using the [Node Freshdesk SDK](https://www.npmjs.com/package/freshdesk-api) to create the ticket below is the example 
-
+we will be using the [Node Freshdesk SDK](https://www.npmjs.com/package/freshdesk-api) to create the ticket below is the example&#x20;
 
 ```
 const freshdesk = new Freshdesk('https://yourdomain.freshdesk.com', 'yourApiKey')
@@ -44,11 +29,7 @@ freshdesk.createTicket({
 })
 ```
 
-
-
-### Device Spec
-
-
+#### Device Spec
 
 ```
 {
@@ -126,10 +107,7 @@ freshdesk.createTicket({
 
 ```
 
-
 Telemetry Events
-
-
 
 LOG Event for sync
 
@@ -143,24 +121,13 @@ INTERACT event for submit issue button click
 
 AssumptionsUser can raise the ticket only when they are connected to the internet
 
-
-
-Design problem - FAQ 
-
-
+Design problem - FAQ&#x20;
 
 We will be using the common consumption UI FAQ component and how we can manage and store the FAQ data model and access explained below
 
-
-
 ![](images/storage/FAQ.png)
 
-
-
-
-## Schema
-
-
+### Schema
 
 ```js
 {
@@ -171,44 +138,28 @@ index: [lang]
 }
 ```
 
-
-
-
 Telemetry Events
 
 LOG events for faq API access
 
 IMPRESSION event for help page load
 
-INTERACT event video click with cdata video id and type
+INTERACT event video click with cdata video id and type
 
 INTERACT event help menu button click
 
 INTERACT event question click with the question as cdata
 
-INTERACT event help answer yes or no  with the question as cdata
+INTERACT event help answer yes or no  with the question as cdata
 
 RESPONSE event for No step with cdata as the value entered
 
-INTERACT event for report issue button click
+INTERACT event for report issue button click
 
-INTERACT event for submit issue button  with extra  with body
+INTERACT event for submit issue button  with extra  with body
 
+### Design review comments
 
+***
 
-
-## Design review comments
-
-
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

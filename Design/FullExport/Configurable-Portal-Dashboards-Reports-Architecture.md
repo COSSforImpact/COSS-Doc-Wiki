@@ -1,15 +1,14 @@
- **Introduction** This wiki details out the architecture of the configurable reports for portal dashboard and also serves as an implementation guide to configure and set up a report.
+# Configurable-Portal-Dashboards-Reports-Architecture
 
- **Overview** Currently, the data team generates the data for the weekly reports in Diksha and the reports are being sent out as an html file. The configurable reports feature helps embedding these reports into the portal. This provides the capability to add a new report or modify an existing report configuration without any downtime to the Diksha systems. The power of the feature lies in the configuration of the reports that defines how the report will be visualised from the portal.
+**Introduction** This wiki details out the architecture of the configurable reports for portal dashboard and also serves as an implementation guide to configure and set up a report.
 
- **Reporting Architecture** ![](images/storage/configurable_reports_architecture.png)
+**Overview** Currently, the data team generates the data for the weekly reports in Diksha and the reports are being sent out as an html file. The configurable reports feature helps embedding these reports into the portal. This provides the capability to add a new report or modify an existing report configuration without any downtime to the Diksha systems. The power of the feature lies in the configuration of the reports that defines how the report will be visualised from the portal.
 
-
+**Reporting Architecture** ![](images/storage/configurable\_reports\_architecture.png)
 
 The data team runs scheduled jobs to generate various daily and weekly reports such as total active devices over time, total number of sessions over time etc. The generated reports will be in csv format. If necessary, the csv reports can be converted to json formats using open source tools. The report data are then uploaded to a cloud storage and isolated by the channel to which the report belongs to. Channel is analogous to isolation of the report data for each State separately. Each report will have an unique identifier and also a report configuration. The path or location on cloud storage will be prefixed with the report identifier and also the channel identifier. The reports are rendered on the portal using the report configuration which also specifies the location of the data for the report.
 
- **Implementation Guide** Report Configuration SpecificationThe portal dashboard reports can only be accessed by the organisation admin users. The report configuration will be in JSON format and the schema for the report configuration is listed out below.  A separate report configuration needs to be created for each of the organisation slug for which the report dashboards are being created. The multi-tenancy is achieved using the organisation slug which will be part of the  **dataSource** url specified in the configuration. Both charts and tables can be configured for visualisation. The data for the table visualisation can be either provided using the columns and values fields in the configuration with the actual data or using expressions for columnExpr and valuesExpr fields in the configuration. The charts field in the configuration takes an array of chart configuration which allows multiple charts to be configured for the same data.
-
+**Implementation Guide** Report Configuration SpecificationThe portal dashboard reports can only be accessed by the organisation admin users. The report configuration will be in JSON format and the schema for the report configuration is listed out below.  A separate report configuration needs to be created for each of the organisation slug for which the report dashboards are being created. The multi-tenancy is achieved using the organisation slug which will be part of the **dataSource** url specified in the configuration. Both charts and tables can be configured for visualisation. The data for the table visualisation can be either provided using the columns and values fields in the configuration with the actual data or using expressions for columnExpr and valuesExpr fields in the configuration. The charts field in the configuration takes an array of chart configuration which allows multiple charts to be configured for the same data.
 
 ```js
 JSON Schema
@@ -76,13 +75,7 @@ JSON Schema
 
 ```
 
-
-Report data format specification:The report data needs to be in JSON format. However, the current implementation supports CSV format as well by providing an implicit conversion of the CSV data into JSON using open source tools. The  **downloadUrl ** in the report schema configuration will specify the location of the CSV file on cloud storage or disk. The CSV file should contain a header row indicating the fields that can be used for both the chart and table visualisation.  A sample report data JSON file is shown below. The keys section is an array of fields that will be displayed in a table or a chart. The tableDate section contains the data that need to be displayed in the visualisation layer.
-
-
-
-
-
+Report data format specification:The report data needs to be in JSON format. However, the current implementation supports CSV format as well by providing an implicit conversion of the CSV data into JSON using open source tools. The \*\*downloadUrl \*\* in the report schema configuration will specify the location of the CSV file on cloud storage or disk. The CSV file should contain a header row indicating the fields that can be used for both the chart and table visualisation.  A sample report data JSON file is shown below. The keys section is an array of fields that will be displayed in a table or a chart. The tableDate section contains the data that need to be displayed in the visualisation layer.
 
 ```js
 {
@@ -109,21 +102,12 @@ Report data format specification:The report data needs to be in JSON format. How
 }
 ```
 
-
 Naming convention for cloud storage upload directory
 
-
-* Azure blob storage is the default cloud storage supported by the Sunbird portal. The container name can configured using an environment variable  **sunbird_azure_report_container_name** in Sunbird portal and the default value for the container name is  **reports** . The container needs to be a private container and is created as part of the reports setup.
-* The report configuration schema for each organisation slug (multi-tenancy) will be under the specific channel id for the organisation. For e.g. reports/sunbird/config.json will be a report configuration for the sunbird organisation and reports/sunbird/reports.csv and reports/sunbird/reports.json will be the respective data files in CSV and JSON formats.  
+* Azure blob storage is the default cloud storage supported by the Sunbird portal. The container name can configured using an environment variable  **sunbird\_azure\_report\_container\_name** in Sunbird portal and the default value for the container name is **reports** . The container needs to be a private container and is created as part of the reports setup.
+* The report configuration schema for each organisation slug (multi-tenancy) will be under the specific channel id for the organisation. For e.g. reports/sunbird/config.json will be a report configuration for the sunbird organisation and reports/sunbird/reports.csv and reports/sunbird/reports.json will be the respective data files in CSV and JSON formats. &#x20;
 * Both the dataSource and downloadUrl fields in the report configuration will have relative paths to the report configuration and the report data.
 
+***
 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

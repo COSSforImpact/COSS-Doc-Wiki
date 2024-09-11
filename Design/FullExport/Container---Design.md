@@ -1,18 +1,18 @@
- **Introduction** The container for the OpenRAP 2.0 has been developed on top of ext-framework. The additions on top of ext-framework are:
+# Container---Design
 
+**Introduction** The container for the OpenRAP 2.0 has been developed on top of ext-framework. The additions on top of ext-framework are:
 
 1. SDK's like Global, Settings & Download Manager
-1. While the ext-framework has been designed to add plugins within a single application, the use case of OpenRAP 2.0 is that each application is a plugin within OpenRAP. Therefore OpenRAP container has been built on top of ext-framework to support this capability
+2. While the ext-framework has been designed to add plugins within a single application, the use case of OpenRAP 2.0 is that each application is a plugin within OpenRAP. Therefore OpenRAP container has been built on top of ext-framework to support this capability
 
 Following is the high level component diagram of OpenRAP 2.0
 
-![](images/storage/openrap2.0_container.png)
+![](images/storage/openrap2.0\_container.png)
 
+**SDK** Following are SDK's built into the container.
 
+**Global**
 
- **SDK** Following are SDK's built into the container.
-
- **Global** 
 ```js
 /*
  * Plugin to register with the container on initialization.
@@ -32,7 +32,9 @@ register = function(String pluginId, Object pluginConfig){};
  */
 get = function(String pluginId): pluginConfig {}
 ```
- **Telemetry SDK** 
+
+**Telemetry SDK**
+
 ```js
 /* 
  * API to register a plugin and it's corresponding sync url to dispatch telemetry to.
@@ -99,8 +101,8 @@ sync = function() : Promise {};
  */
 getStatus = function() : Promise {};
 ```
-Usage example
 
+Usage example
 
 ```js
 // Example to use telemetry SDK
@@ -111,7 +113,9 @@ telemetrySDK.send([{...}]);
 
 telemetrySDK.sync();
 ```
- **File SDK** 
+
+**File SDK**
+
 ```js
 getInstance = function(String pluginId) : FileSDK {};
 
@@ -134,7 +138,9 @@ getAbsPath = function(String path) : String {};
 watch = function(String[] paths, callback){};
 
 ```
- **Network SDK** 
+
+**Network SDK**
+
 ```js
 isNetworkAvailable = function() : boolean {};
 
@@ -143,8 +149,8 @@ isNetworkAvailable = function() : boolean {};
 network:available
 network:disconnected
 ```
-Usage
 
+Usage
 
 ```js
 EventManager.on('network:available', function() {
@@ -155,7 +161,9 @@ EventManager.on('network:available', function() {
 	// etc
 });
 ```
- **Http SDK** 
+
+**Http SDK**
+
 ```js
 getInstance = function(String pluginId) : HttpSDK {};
 
@@ -169,8 +177,8 @@ delete = function(String url, Object options) : Promise {};
 
 head = function(String url, Object options) : Promise {};
 ```
- **Download Manager** Following are the APIs for the download manager. The workflow of download manager is detailed out in the next few sections.
 
+**Download Manager** Following are the APIs for the download manager. The workflow of download manager is detailed out in the next few sections.
 
 ```js
 /* Method to get the instance of the download manager */
@@ -263,7 +271,9 @@ EventManager.dispatch("sunbirded:download:complete", {
 	}]
 });
 ```
- **Settings SDK** 
+
+**Settings SDK**
+
 ```js
 /* 
  * Method to get the instance of the settings sdk
@@ -284,14 +294,13 @@ put: function(String key, Object value) : Promise {};
  */
 get: function(String key) : Promise {};
 ```
-Open Questions:
 
+Open Questions:
 
 * Does encryption needs to be part of container or plugin
 
+**Database Schema** **plugin\_registry**
 
-
- **Database Schema**  **plugin_registry** 
 ```js
 {
 	document: {
@@ -301,7 +310,9 @@ Open Questions:
 	index: []
 }
 ```
- **settings** 
+
+**settings**
+
 ```js
 {
 	document: {
@@ -311,8 +322,8 @@ Open Questions:
 	index: []
 }
 ```
- **telemetry** A document database is created for each plugin telemetry storage -  **<plugin_id>_telemetry** 
 
+**telemetry** A document database is created for each plugin telemetry storage - **\<plugin\_id>\_telemetry**
 
 ```js
 {
@@ -323,7 +334,9 @@ Open Questions:
 	index: []
 }
 ```
- **telemetry_packets** 
+
+**telemetry\_packets**
+
 ```js
 {
 	document: {
@@ -339,7 +352,9 @@ Open Questions:
 	index: [pluginId, status, updatedOn]
 }
 ```
- **download_queue** 
+
+**download\_queue**
+
 ```js
 {
 	document: {
@@ -366,8 +381,8 @@ Open Questions:
 	index: [pluginId, status, updatedOn]
 }
 ```
- **Folder Structure** Following is the folder structure of the container when it is installed on a dekstop/raspberrypi device/server
 
+**Folder Structure** Following is the folder structure of the container when it is installed on a dekstop/raspberrypi device/server
 
 ```
 <app_base_dir>
@@ -387,48 +402,36 @@ Open Questions:
 	|----/telemetry_archived/
 	|--------/<packet_id>.json // Archived telemetry files that are either exported or synced.
 ```
- **Download Manager** 
 
-Below explains the process of downloading content when a user request for it, the steps are 
+**Download Manager**
 
+Below explains the process of downloading content when a user request for it, the steps are&#x20;
 
 1. Download Manager is initialised with config and will be ready to take the request
-1. When a user request for the download Sunbird Ed Plugin forward request to download Queue
-1. If download manager is available it will download the content and once it is download
-1.  It will raise an event and plugin will listen to that event
-1. With event data it will extract the ECAR and index the content in content database
+2. When a user request for the download Sunbird Ed Plugin forward request to download Queue
+3. If download manager is available it will download the content and once it is download
+4. &#x20;It will raise an event and plugin will listen to that event
+5. With event data it will extract the ECAR and index the content in content database
 
-
-
-![](images/storage/Download%20Manager-Download%20Manager%20High%20Level.png)
-
-
+![](<images/storage/Download Manager-Download Manager High Level.png>)
 
 At low level the download manager works as
 
+1. When it starts downloading it creates **.sud** and **..partial(s)** files, .sud file contains the meta data about file.
+2. If internet is disconnected or system got shut down  then it will pause the download
+3. When the internet is connected again or system restarted it will read the file \*\*.sud \*\* and continue the download from where it left
+4. When the file is download completed then it combines all the partials and creates final ECAR file.
 
-1. When it starts downloading it creates  **<filename>.sud**  and  **<filename>.<n>.partial(s)**  files, <filename>.sud file contains the meta data about file.
-1. If internet is disconnected or system got shut down  then it will pause the download
-1. When the internet is connected again or system restarted it will read the file  **.sud **  and continue the download from where it left
-1. When the file is download completed then it combines all the partials and creates final ECAR file.
+For more details you can refer [su-downloader3](https://www.npmjs.com/package/su-downloader3)
 
-For more details you can refer [su-downloader3](https://www.npmjs.com/package/su-downloader3)
+![](<images/storage/Download Manager-Download Manager In depth.png>)
 
-![](images/storage/Download%20Manager-Download%20Manager%20In%20depth.png)
+**Telemetry Sync** ![](<images/storage/Telemetry Sync-Telemetry-final.png>)
 
+**Telemetry Events**
 
+**Logging**
 
- **Telemetry Sync** ![](images/storage/Telemetry%20Sync-Telemetry-final.png)
+***
 
- **Telemetry Events** <To be done>
-
-
-
- **Logging** <To be done>
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

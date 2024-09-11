@@ -1,13 +1,12 @@
+# Design-for-verify-OTP
 
-## Problem statement:
-  As a sunbird system it should be able to do the verification of generated OTP. 
+### Problem statement:
 
+&#x20; As a sunbird system it should be able to do the verification of generated OTP.&#x20;
 
-## Proposed Solution:
-  Sunbird will expose new api to verify OTP. Both Generate OTP and Verify OTP can be a single micro-service. New api structure will be as follow.  
+### Proposed Solution:
 
-
-
+&#x20; Sunbird will expose new api to verify OTP. Both Generate OTP and Verify OTP can be a single micro-service. New api structure will be as follow. &#x20;
 
 ```js
 URI: v1/user/otp/verify
@@ -44,25 +43,19 @@ Response body:
 // in case of failure it will have errmsg and responseCode will be failure code (client-error, server-error)
 ```
 
-
 This api will do following checks:
 
-
 1. key should be either valid phone number format or email format.
-1. Incoming OTP should match with configured one (example: configured is alphanumeric but it's coming only as numeric, or configured is 5 digits but it's having only 4 or more than 5 digits)
-1. This email/phone should not be in blocked list (blocked for 24 hours or some configured time due to too many hits) -  **Design required , in case of blocked list where need to be store it** 
-1. OTP generation/verification need to generate api access telemetry.
+2. Incoming OTP should match with configured one (example: configured is alphanumeric but it's coming only as numeric, or configured is 5 digits but it's having only 4 or more than 5 digits)
+3. This email/phone should not be in blocked list (blocked for 24 hours or some configured time due to too many hits) - **Design required , in case of blocked list where need to be store it**
+4. OTP generation/verification need to generate api access telemetry.
 
+### Open points:
 
-## Open points:
+* &#x20;Once OTP is verified , DO we need to removed it completely from DB or Do we need to hold for 24 hours , so that within 24 hours also he should not exceed limit.
 
-*  Once OTP is verified , DO we need to removed it completely from DB or Do we need to hold for 24 hours , so that within 24 hours also he should not exceed limit.
+&#x20;    &#x20;
 
-      
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

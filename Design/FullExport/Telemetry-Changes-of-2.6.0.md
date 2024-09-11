@@ -1,11 +1,12 @@
+# Telemetry-Changes-of-2.6.0
 
-## District Mapping (SC-1373)
-Jira ID - [SC-1373 System JIRA](https:///browse/SC-1373)
+### District Mapping (SC-1373)
 
- **User location-DeviceLocation Telemetry - ** Will be triggered when the user clicks submits his location.
+Jira ID - [SC-1373 System JIRA](https://browse/SC-1373)
+
+\*\*User location-DeviceLocation Telemetry - \*\* Will be triggered when the user clicks submits his location.
 
 {
-
 
 ```
 "edata": {
@@ -16,26 +17,26 @@ Jira ID - [SC-1373 System JIRA](https:///browse/SC-1373)
 
 }
 ```
+
 Possible values of fields -
 
 1.type
 
+*
 
-* 
 ```
 "location-changed" - if location is changed.
 ```
 
-* 
+*
+
 ```
 "location-unchanged" ** - ** if location is un changed.
 ```
 
+### **Impression Event** -
 
-
-##  **Impression Event**  -
 Will be trigged when location popup is flashing up on the screen.
-
 
 ```
 {
@@ -64,8 +65,8 @@ uri: "/profile", // route from which popup is visible to user.
 
 };
 ```
- **Telemetry log event - ** Will be triggered for API calls to update device or user location. For error and success, both cases these telemetries should be generated. 
 
+\*\*Telemetry log event - \*\* Will be triggered for API calls to update device or user location. For error and success, both cases these telemetries should be generated.&#x20;
 
 ```
 {
@@ -85,27 +86,25 @@ uri: "/profile", // route from which popup is visible to user.
 }
 ```
 
-
 Possible values of fields -
 
 1.level
 
+*
 
-* 
 ```
 "ERROR" :   When api fails.
 ```
 
-* 
+*
+
 ```
 "SUCCESS" : When API is success.
 ```
 
+### Teacher-ID Verification (SC-1349)
 
-
-## Teacher-ID Verification (SC-1349)
 Impression Event when the popup is visible
-
 
 ```js
 {
@@ -155,10 +154,10 @@ Impression Event when the popup is visible
       }
   }
 ```
+
 Following Intrect Events for each button click
 
 1.When User clicks on the NO button
-
 
 ```js
 { 
@@ -207,8 +206,8 @@ Following Intrect Events for each button click
          }
   }
 ```
-2. When User clicks on the YES button
 
+2. When User clicks on the YES button
 
 ```js
 { 
@@ -257,8 +256,8 @@ Following Intrect Events for each button click
          }
   }
 ```
-3. When User clicks on Submit Button after entring the teacher ID
 
+3. When User clicks on Submit Button after entring the teacher ID
 
 ```js
 { 
@@ -309,8 +308,8 @@ Following Intrect Events for each button click
 
 
 ```
-4. When the teacher ID is wrong and a error Modal appears and user clicks on the OK button
 
+4. When the teacher ID is wrong and a error Modal appears and user clicks on the OK button
 
 ```js
 {
@@ -360,8 +359,8 @@ Following Intrect Events for each button click
   }
 }
 ```
-5. On success of the teacher verification the success pop-up is shown and when user clicks on the ok button of this popup
 
+5. On success of the teacher verification the success pop-up is shown and when user clicks on the ok button of this popup
 
 ```js
 {
@@ -412,10 +411,6 @@ Following Intrect Events for each button click
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

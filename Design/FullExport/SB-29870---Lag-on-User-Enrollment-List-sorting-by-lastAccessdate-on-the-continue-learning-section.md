@@ -1,72 +1,46 @@
+# SB-29870---Lag-on-User-Enrollment-List-sorting-by-lastAccessdate-on-the-continue-learning-section
 
+**Overview:** Currently Lag on sorting by lastAccessdate on the continue learning section appears in the portal. The reason behind it is that the enrollment list API uses default cache. This cache only updates with the same API when enrollment data is empty.  Hence after a few mins the cache gets cleared and reloads while the API is consumed
 
- **Overview:** Currently Lag on sorting by lastAccessdate on the continue learning section appears in the portal. The reason behind it is that the enrollment list API uses default cache. This cache only updates with the same API when enrollment data is empty.  Hence after a few mins the cache gets cleared and reloads while the API is consumed
-
-
-
- **Pr-requisites:** 
-
+**Pr-requisites:**
 
 1. User is a logged in user and has enrolled into at-least one traceable collection
 
+**Linked Issue:**
 
+[SB-29083 System JIRA](https://browse/SB-29083)
 
+**Solutions:**
 
+1. Consuming the user enrollment list API with disabling cache only when after consuming content state API Or Disabling cache from course service&#x20;
+2. On updating user content state API update the existing cache&#x20;
 
- **Linked Issue:** 
-
-[SB-29083 System JIRA](https:///browse/SB-29083)
-
- **Solutions:** 
-
-
-1. Consuming the user enrollment list API with disabling cache only when after consuming content state API   Or  Disabling cache from course service 
-
-
-
-  2.  On updating user content state API update the existing cache 
-
- **Option 1: Disabling cache for User’s enrollment :** Disabling cache needs to be done from course service by setting below statement in CourseEnrolmentActor as false
-
+**Option 1: Disabling cache for User’s enrollment :** Disabling cache needs to be done from course service by setting below statement in CourseEnrolmentActor as false
 
 ```
 if (isCacheEnabled && request.getContext.get("cache").asInstanceOf[Boolean])
 ```
 
-
 Steps to follow:
-
 
 ```
 Set user_enrolments_response_cache_enable to false
 portal to send request.getContext.get("cache").asInstanceOf[Boolean] as false
 ```
 
+**Pros** :
 
- **Pros** :
+* Faster implementation with only configuration changes&#x20;
 
+**Cons** :
 
-* Faster implementation with only configuration changes 
+* The API performance can go down&#x20;
 
-
-
- **Cons** :
-
-
-* The API performance can go down 
-
-
-
-
-
- **Option 2: On updating user content state API update the existing cache** Current cache implementation reloads the cache whenever the cache is cleared. Now the cache will be required to update/reloaded when the update content state API is triggered..
-
-
+**Option 2: On updating user content state API update the existing cache** Current cache implementation reloads the cache whenever the cache is cleared. Now the cache will be required to update/reloaded when the update content state API is triggered..
 
 Steps to follow :
 
- **Update cache ** 
-
+\*\*Update cache \*\*
 
 ```
 Prepare the map to add in cache:
@@ -81,36 +55,22 @@ Prepare the map to add in cache:
 Update this map to cache for key request UserId first index 
 ```
 
-
- **Reload Cache** 
-
+**Reload Cache**
 
 ```
 Call the getEnrolmentList from CourseEnrolmentActor
 Replace the request userId value in cache by getEnrolmentList
 ```
 
-
- **Pros** :
-
+**Pros** :
 
 * Permanent solution, no portal changes
-
-
 * No performance degradation, as the operation can be performed asynchronously
 
-
-
- **Cons** :
-
+**Cons** :
 
 * Complexity in implementation
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

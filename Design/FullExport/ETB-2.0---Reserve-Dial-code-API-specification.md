@@ -1,14 +1,15 @@
- **Overview** As per the current design discussion, LP will be providing two APIs for reserving the dialcodes for textbook and releasing a specific number of dialcodes from the textbook respectively.
+# ETB-2.0---Reserve-Dial-code-API-specification
 
-For storing the reserved dialcodes list against a textbook, there will be a metadata named  **reservedDialcodes. ** 
+**Overview** As per the current design discussion, LP will be providing two APIs for reserving the dialcodes for textbook and releasing a specific number of dialcodes from the textbook respectively.
 
-As part of reserve API, asked number of dialcodes will get generated and  **reservedDialcodes ** metadata of particular textbook will get updated.
+For storing the reserved dialcodes list against a textbook, there will be a metadata named \*\*reservedDialcodes. \*\*
+
+As part of reserve API, asked number of dialcodes will get generated and  \*\*reservedDialcodes \*\* metadata of particular textbook will get updated.
 
 As part of release API, asked number of dialcodes will be release post validating dialcodes used in TOC and reserved dialcodes list.
 
+**Reserved Dialcode API:** **POST - content/v3/dialcode/reserve/{content\_id}** **Request Header:** **Authorisation: //Authorisation keyContent-Type: application/json'X-Channel-Id: //Channel for which dialcode are getting generated'** **Request Body**
 
-
- **Reserved Dialcode API:**  **POST - content/v3/dialcode/reserve/{content_id}**  **Request Header:**  **Authorisation: //Authorisation keyContent-Type: application/json'X-Channel-Id: //Channel for which dialcode are getting generated'**  **Request Body** 
 ```
 {
     "id": "ekstep.learning.content.dialcode.reserve",
@@ -29,7 +30,9 @@ As part of release API, asked number of dialcodes will be release post validatin
 	}
 }
 ```
- **Validation Logic:** 
+
+**Validation Logic:**
+
 * Dialcode will be generated using content Id as batchCode.
 * Content should belong to same channel.
 * Content should be of Type Textbook.
@@ -39,22 +42,22 @@ As part of release API, asked number of dialcodes will be release post validatin
 * If the content already have list of reserved dialcodes, the new dialcodes should be appended.
 * If the requested dialcode count is less or equal to the already reserved dialcode list, it should throw client exception with list of already reserved dialcodes list.
 
- **Release Dialcode API:**  **PATCH - content/v3/dialcode/release/{content_id}**  **Request Header:**  **Authorisation: //Authorisation keyContent-Type: application/json'**  **Request Body** 
+**Release Dialcode API:** **PATCH - content/v3/dialcode/release/{content\_id}** **Request Header:** **Authorisation: //Authorisation keyContent-Type: application/json'** **Request Body**
+
 ```
 {
     
 }
 ```
- **Validation Logic:** 
+
+**Validation Logic:**
+
 * Content should belong to same channel.
 * Content should be of Type Textbook
 * If all the reserved dialcodes are utilised. It will throw exception.
 * If there is not dialcode reserved for the content, it will throw exception.
 * API should release all the the unused dialcodes (not used in any of the children of the textbook)
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

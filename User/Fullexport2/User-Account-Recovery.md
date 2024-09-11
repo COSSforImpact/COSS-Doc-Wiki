@@ -1,28 +1,25 @@
+# User-Account-Recovery
 
-## Problem statement:
-Provide an ability to add either recovery email or recovery phone options to the user. 
+### Problem statement:
 
-Refers to : [SC-1215 System JIRA](https:///browse/SC-1215)
+Provide an ability to add either recovery email or recovery phone options to the user.&#x20;
 
+Refers to : [SC-1215 System JIRA](https://browse/SC-1215)
 
-## Design points:
+### Design points:
 
 * primary email and recovery email must NOT match.
-* primary phone and recovery phone must NOT match.
+* primary phone and recovery phone must NOT match.
 * recovery email or recovery phone is NOT searchable.
 
+### API changes:
 
-## API changes:
-
-###  **Update profile (/user/v1/update)** :
+#### **Update profile (/user/v1/update)** :
 
 * RecoveryEmail or recoveryPhone or both could be provided.
-* If recoveryEmail/recoveryPhone is provided, basic syntax validations will be performed. Email should have @ . The phone length should be 10. 
+* If recoveryEmail/recoveryPhone is provided, basic syntax validations will be performed. Email should have @ . The phone length should be 10.&#x20;
 * Primary email/phone must not match recoveryEmail/phone
 * if the user wants to remove previous recoveryEmail/phone values then its mandatory to pass them as a blank string("").
-
-
-
 
 ```js
 {
@@ -37,27 +34,27 @@ Refers to : [SC-1215 System JIRA](https:///browse/SC-1215)
     }
 }
 ```
- **User search (/api/user/v1/search)** 
+
+**User search (/api/user/v1/search)**
+
 * No changes to search-request api.
-* From now onwards search-response will contains recoveryEmail or recoveryPhone attributes.
-* If the recoveryEmail or recoveryPhone values are present, these can be displayed as options for sending OTP for account-recovery (forgot password flow)
+* From now onwards search-response will contains recoveryEmail or recoveryPhone attributes.
+* If the recoveryEmail or recoveryPhone values are present, these can be displayed as options for sending OTP for account-recovery (forgot password flow)
 * No new code changes is required
 
- **Read User (/api/user/v1/read/:uid)** 
-* In read api from now on, if the user have recoveryEmail or recoveryPhone these details will be retrieved in the read user details api.
+**Read User (/api/user/v1/read/:uid)**
+
+* In read api from now on, if the user have recoveryEmail or recoveryPhone these details will be retrieved in the read user details api.
 * For existing users until they update these values will be retrieved as null.
 
+### Storage enhancements
 
-## Storage enhancements
 In User table, two extra columns will be added as recoveryEmail(String) and recoveryPhone(String).
 
 For existing users, these columns will set to default values as Null.
 
-Alter table query:  ALTER TABLE sunbird.user ADD (recoveryEmail text, recoveryPhone text);
+Alter table query:  ALTER TABLE sunbird.user ADD (recoveryEmail text, recoveryPhone text);
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

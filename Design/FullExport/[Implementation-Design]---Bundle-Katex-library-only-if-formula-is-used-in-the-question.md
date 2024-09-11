@@ -1,17 +1,13 @@
- **Problem Statement** At present when a question is bundled to an ECML content all thee katex library dependencies like CSS, js, fonts etc are getting bundled even though the questions added to the stages does not contain any Formula(Equation) with it. But we need katex library only when a math text or formulas are presented on the question. So Katex library dependencies should be ignored on ECML generation if no questions with formulae are present on any of the stages.
+# \[Implementation-Design]---Bundle-Katex-library-only-if-formula-is-used-in-the-question
 
+**Problem Statement** At present when a question is bundled to an ECML content all thee katex library dependencies like CSS, js, fonts etc are getting bundled even though the questions added to the stages does not contain any Formula(Equation) with it. But we need katex library only when a math text or formulas are presented on the question. So Katex library dependencies should be ignored on ECML generation if no questions with formulae are present on any of the stages.
 
+**Proposed Solutions:** The solution consists of 2 parts
 
- **Proposed Solutions:** The solution consists of 2 parts
+1. Adding **formula**  boolean to question body.
+2. Bundle/Remove Katex library dependencies from a questionunit plugin.    &#x20;
 
-
-1. Adding  **formula**  boolean to question body.
-1. Bundle/Remove Katex library dependencies from a questionunit plugin.     
-
- **Part #1: Adding formula flag to question body on saving the question**  When saving the question data if an equation/formula is added to the question, add a param ' _formula_ ' with value  _true_  to the create assessment request body as given in below example:
-
-
-
+**Part #1: Adding formula flag to question body on saving the question**  When saving the question data if an equation/formula is added to the question, add a param ' _formula_ ' with value _true_ to the create assessment request body as given in below example:
 
 ```js
 {
@@ -79,40 +75,26 @@
 }
 ```
 
-
- **Part #2: Bundle/Remove Katex Plugins on Ecml Generation** When generating ECML if questionbody contains the flag  **formula**  with value  **true**  then we should include the katex library dependencies else those dependencies should be removed.
+**Part #2: Bundle/Remove Katex Plugins on Ecml Generation** When generating ECML if questionbody contains the flag  **formula** with value **true** then we should include the katex library dependencies else those dependencies should be removed.
 
 This can be done with any of the 2 approaches:
 
- **1. Remove katex dependencies from QuestionUnit Plugin Manifest and add on demand :** First, remove all katex library dependencies of questionunit plugin in its manifest. When StageManager invokes ECML generation method of questionset plugin for each stage while bundling each question check for the flag  **formula**  in questionbody **,** If the value is true then add the katex library dependencies and generate ecml. If the flag is not present or undefined then also add katex dependencies to support backward compatibility for older questions.
+**1. Remove katex dependencies from QuestionUnit Plugin Manifest and add on demand :** First, remove all katex library dependencies of questionunit plugin in its manifest. When StageManager invokes ECML generation method of questionset plugin for each stage while bundling each question check for the flag  **formula**  in questionbody **,** If the value is true then add the katex library dependencies and generate ecml. If the flag is not present or undefined then also add katex dependencies to support backward compatibility for older questions.
 
- **Drawbacks:** 
+**Drawbacks:**
 
 If we go by this approach then preview plugin requires changes as it will break while rendering question with formula if the katex library is not present.
 
- **2. Remove/Add katex dependencies to QuestionUnit Plugin at runtime without changing manifest:** When StageManager invokes the ECML generation method of questionset plugin and none of the questions present on those stages has the  **formula**  flag  with value true in their body **,** then remove the katex library dependencies and generate ecml.
+**2. Remove/Add katex dependencies to QuestionUnit Plugin at runtime without changing manifest:** When StageManager invokes the ECML generation method of questionset plugin and none of the questions present on those stages has the  **formula**  flag  with value true in their body **,** then remove the katex library dependencies and generate ecml.
 
 while removing the katex library dependencies keep a local buffer to hold those values and if any question with formula is added to stage further on the same session then the buffered dependencies should be added to questionunit plugin dependencies.
 
 Among the above 2 approaches, the second one is the better one as it does not break the preview side.
 
+**Conclusion:**
 
+This feature will reduce the size of generated ECML content considerably for the included questions that don't have formulae in it.&#x20;
 
- **Conclusion:** 
+***
 
-This feature will reduce the size of generated ECML content considerably for the included questions that don't have formulae in it. 
-
-
-
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,14 +1,17 @@
+# Redis-Cache-Supportability-API-changes
 
-## Background
+### Background
+
 To scale content and hierarchy consumptions, metadata which is fetched as part of the response is stored in Redis cache. In order to support data reset in redis and also to compare neo4j and redis, small adhocs are added to existing APIs.
 
+### API changes
 
-## API changes
+#### Force read from Neo4j
 
-### Force read from Neo4j
-To force read data from neo4j for live node instead of redis(which is default),  _source=db_  is introduced.
+To force read data from neo4j for live node instead of redis(which is default), _source=db_  is introduced.
 
 Content Read API:
+
 ```
 Request:
 GET - content/v3/read/{content_id}?source=db
@@ -34,8 +37,8 @@ Response:
 }
 ```
 
-
 Get Hierarchy API:
+
 ```
 Request:
 GET - content/v3/hierarchy/{content_id}?source=db
@@ -63,12 +66,12 @@ Response:
 
 ```
 
+#### Reset Redis
 
-
-### Reset Redis
-To force reset data in redis, refresh_cache _=true_  is introduced. This reads data from neo4j and reset the data in redis.
+To force reset data in redis, refresh\_cache _=true_ is introduced. This reads data from neo4j and reset the data in redis.
 
 Content Read API:
+
 ```
 Request:
 GET - content/v3/read/{content_id}?refresh_cache=true
@@ -94,8 +97,8 @@ Response:
 }
 ```
 
-
 Get Hierarchy API:
+
 ```
 Request:
 GET - content/v3/hierarchy/{content_id}?refresh_cache=true
@@ -121,12 +124,6 @@ Response:
 }
 ```
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

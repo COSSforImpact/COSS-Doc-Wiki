@@ -1,19 +1,19 @@
-  * [Problem statement:](#problem-statement:)
-  * [Solution 1:](#solution-1:)
-  * [Solution](#solution)
-  * [Conclusion](#conclusion)
+# SC-1550-Design-approach-to-create-one-storage-for-user-certificate-registry
 
-## Problem statement: [SC-1550](https://project-sunbird.atlassian.net/browse/SC-1550)
-As of now sunbird-system has two certificate-storages for storing certificates in two different services. Learner-sevice is having cassandra as storage, while certificate-registry service has elasticsearch as storage option while generating certificates
+* [Problem statement:](SC-1550-Design-approach-to-create-one-storage-for-user-certificate-registry.md#problem-statement:)
+* [Solution 1:](SC-1550-Design-approach-to-create-one-storage-for-user-certificate-registry.md#solution-1:)
+* [Solution](SC-1550-Design-approach-to-create-one-storage-for-user-certificate-registry.md#solution)
+* [Conclusion](SC-1550-Design-approach-to-create-one-storage-for-user-certificate-registry.md#conclusion)
 
-Need to have a unified certificate generating service on the platform.
+### Problem statement: [SC-1550](https://project-sunbird.atlassian.net/browse/SC-1550)
+
+As of now sunbird-system has two certificate-storages for storing certificates in two different services. Learner-sevice is having cassandra as storage, while certificate-registry service has elasticsearch as storage option while generating certificates
+
+Need to have a unified certificate generating service on the platform.
 
 Following are the request data for adding certificate in the learner and user-registry services, small changes are identified with the request bodies.
 
-
-
 Certificate-registry add request:
-
 
 ```js
 {
@@ -76,9 +76,7 @@ Certificate-registry add request:
 }
 ```
 
-
 Learner-Service add request:
-
 
 ```js
 {
@@ -144,10 +142,11 @@ Learner-Service add request:
     }
 }
 ```
+
 few changes are necessary if we need to unify the both requests.
 
+### Solution 1:
 
-## Solution 1:
 If we want learner-service to be apt for certificate storage, as of now it has only cassandra support.
 
 Userid is a mandatory field while adding the certificate, changes should be made in order to convert this into optional field so others users can use this.
@@ -156,16 +155,14 @@ Need to add elasticsearch support which helps better in searching the certificat
 
 Stackholders for certificate-registry need to point to learner-service endpoints and slight change in the request body is necessary
 
+| Pros | Cons                                                                           |
+| ---- | ------------------------------------------------------------------------------ |
+|      | Any small changes related to certificates need a deployment of learner-service |
+|      | Difficult in perspective of maintainability                                    |
 
+### Solution 2:
 
-| Pros | Cons | 
-|  --- |  --- | 
-|  | Any small changes related to certificates need a deployment of learner-service | 
-|  | Difficult in perspective of maintainability | 
-
-
-## Solution 2:
-Certificate-registry can be used to store all user certificate. Since this micro service was built to certificate storage. 
+Certificate-registry can be used to store all user certificate. Since this micro service was built to certificate storage.&#x20;
 
 Currently this service is using only elasticsearch as primary storage. We might need to think about some other DB (cassandra) as primary storage and ES only for search.
 
@@ -175,12 +172,11 @@ It is better if we make cassandra as primary storage for certificates and use el
 
 It means when ever the request comes first it is added to cassandra then a async call is made to add the certificate details to elasticsearch.
 
-Stackholders for learner-service need to point to certificate-registry endpoints and slight change in the request body is necessary. 
+Stackholders for learner-service need to point to certificate-registry endpoints and slight change in the request body is necessary.&#x20;
 
 It is better to use this approach with the support of cassandra and elasticsearch.
 
 changes to request body:
-
 
 ```js
 {
@@ -201,11 +197,9 @@ changes to request body:
 }
 ```
 
-
 Table details:
 
 Existing certificate table details:
-
 
 ```js
 CREATE TABLE sunbird.user_cert (
@@ -219,6 +213,7 @@ CREATE TABLE sunbird.user_cert (
     userid text
 )
 ```
+
 It is better to rename the userid to externalId so that gives generic look, and add few more attributes issuedBy, createdBy, status and validupto.
 
 Add api first saves data to cassandra and the then to elasticsearch
@@ -227,63 +222,45 @@ Validate api can use elasticsearch for searching the data.
 
 Data Migration:
 
-
 * Existing data need to be sync between both from cassandra to elasticsearch and from elasticsearch to cassandra.
 * This need to be discussed and update, because upto now we have only system to sync data from cassandra to elastic-search but here it requires vice-versa too
 
-
-
-
-
-| Pros | Cons | 
-|  --- |  --- | 
-| Independent microservice which is developed only related to certificate management |  | 
-| Easy to deploy and maintain |  | 
-| Others stackholders can easily adopt since there are not many mandatory fields in this service. Only certificate id and access code are mandatory |  | 
-| It can scale high when cassandra is added  for adding of certificates.  | It may perform low when elasticsearch alone used for adding certificates. | 
-
-
+| Pros                                                                                                                                              | Cons                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Independent microservice which is developed only related to certificate management                                                                |                                                                           |
+| Easy to deploy and maintain                                                                                                                       |                                                                           |
+| Others stackholders can easily adopt since there are not many mandatory fields in this service. Only certificate id and access code are mandatory |                                                                           |
+| It can scale high when cassandra is added  for adding of certificates.                                                                            | It may perform low when elasticsearch alone used for adding certificates. |
 
 Other Observations:
 
 Using Cassandra :
-
 
 * We can use cassandra when certificate generation is high in number as it has the following features. Will be useful in certificate bulk-upload cases.
 * Apache Cassandra can be considered the best database in terms of large amounts of data.
 * In terms of performance, scalability cassandra is best.
 * Through gossip protocol cassandra itself can handle failure detection(node down) and data lost failure is not possible.
 
-
-
 Using ElasticSearch :
-
 
 * We can prefer elasticsearch if we have less certificates to add and use search scenario in most of the time in out system, Since it has the below features.
 * The advantages of Elasticsearch is that it was based on Apache Lucene which is a data retrieval library completely developed in Java which is a fully featured text-based search engine with high-performance indexing and scalability.
 * In terms of searching elasticsearch gives better performance.
 
-
-
 Using Cassandra and Elasticsearch with event data driven model :
-
 
 * Cassandra scales good with huge data, I would like to prefer cassandra as main storage store.
 * Then using event driven model, we can push the events for kafka, later the messages can be picked and saved in elasticsearch
 * So we can use elasticsearch for search scenario where elasticsearch was really good.
 
+### Conclusion
 
-## Conclusion
-
-* Will go with the Solution 2 , As Elasticsearch may not scale high when we are dealing with large amount of data while adding certificates.
+* Will go with the Solution 2 , As Elasticsearch may not scale high when we are dealing with large amount of data while adding certificates.
 
 Useful Links:
 
 [https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeFailDetect.html](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeFailDetect.html)
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

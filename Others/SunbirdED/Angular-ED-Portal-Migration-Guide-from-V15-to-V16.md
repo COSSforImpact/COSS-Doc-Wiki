@@ -1,71 +1,46 @@
-* [Migration Steps](#migration-steps)
-  * [Migrate the Sunbird-ED Library](#migrate-the-sunbird-ed-library)
-  * [Update Angualr Material to V16](#update-angualr-material-to-v16)
-* [Reference Link](#reference-link)
-The purpose of this document is to provide a comprehensive guide for migrating the ED portal from Angular v15 to v16. It outlines the step-by-step process of migrating the portal and highlights the challenges encountered during the migration. This guide aims to assist adopters in successfully migrating their Angular v15 portals to v16 and provides insights into overcoming common migration hurdles.
+# Angular-ED-Portal-Migration-Guide-from-V15-to-V16
 
+* [Migration Steps](Angular-ED-Portal-Migration-Guide-from-V15-to-V16.md#migration-steps)
+  * [Migrate the Sunbird-ED Library](Angular-ED-Portal-Migration-Guide-from-V15-to-V16.md#migrate-the-sunbird-ed-library)
+  * [Update Angualr Material to V16](Angular-ED-Portal-Migration-Guide-from-V15-to-V16.md#update-angualr-material-to-v16)
+* [Reference Link](Angular-ED-Portal-Migration-Guide-from-V15-to-V16.md#reference-link) The purpose of this document is to provide a comprehensive guide for migrating the ED portal from Angular v15 to v16. It outlines the step-by-step process of migrating the portal and highlights the challenges encountered during the migration. This guide aims to assist adopters in successfully migrating their Angular v15 portals to v16 and provides insights into overcoming common migration hurdles.
 
-# Migration Steps
- **Assess Compatibility** : Before starting the migration process, assess the compatibility of third-party dependencies, ED- libraries, and Angular-related packages with Angular v16.
+## Migration Steps
 
+**Assess Compatibility** : Before starting the migration process, assess the compatibility of third-party dependencies, ED- libraries, and Angular-related packages with Angular v16.
 
-## Migrate the Sunbird-ED Library
+### Migrate the Sunbird-ED Library
+
 Update the Sunbird Education (ED) related libraries to be compatible with Angular version 16. This update is essential to ensure compatibility with the latest Angular features and improvements. Below is the list of libraries owned by ED that require updating:
 
-
 1. [Sunbird ED portal](https://github.com/Sunbird-Ed/SunbirdEd-portal/tree/release-7.0.0)
+2. [@project-sunbird/common-consumption](https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents/tree/release-7.0.0\_v13\_bmgs)
+3. [@project-sunbird/common-form-elements-full](https://github.com/Sunbird-Ed/SunbirdEd-forms/tree/release-6.0.0\_v14)
+4. [@project-sunbird/sb-content-section](https://github.com/Sunbird-Ed/sb-content-module/tree/release-7.0.0)
+5. [@project-sunbird/sb-dashlet](https://github.com/Sunbird-Ed/sb-dashlets/tree/V14\_Migration)
+6. [@project-sunbird/sb-notification](https://github.com/Sunbird-Ed/sb-notification/tree/release-6.0.0\_v14)
+7. [@project-sunbird/chatbot-client](https://github.com/project-sunbird/sunbird-bot-client/tree/release-6.0.0\_v13)
+8. [sb-svg2pdf-v13](https://github.com/Sunbird-Ed/sb-svg2pdf/tree/release-6.0.0\_v13)
+9. [@project-sunbird/web-extensions](https://github.com/project-sunbird/sunbird-ext-framework/tree/release-6.0.0/web-extensions/sunbird-web-extensions-app)
+10. [@project-sunbird/discussions-ui](https://github.com/Sunbird-Lern/discussions-UI/tree/release-5.3.0\_v14)
+11. [@project-sunbird/sb-themes](https://github.com/Sunbird-Ed/sb-themes/tree/8.0.0)
 
-
-1. [@project-sunbird/common-consumption](https://github.com/Sunbird-Ed/SunbirdEd-consumption-ngcomponents/tree/release-7.0.0_v13_bmgs)
-
-
-1. [@project-sunbird/common-form-elements-full](https://github.com/Sunbird-Ed/SunbirdEd-forms/tree/release-6.0.0_v14)
-
-
-1. [@project-sunbird/sb-content-section](https://github.com/Sunbird-Ed/sb-content-module/tree/release-7.0.0)
-
-
-1. [@project-sunbird/sb-dashlet](https://github.com/Sunbird-Ed/sb-dashlets/tree/V14_Migration)
-
-
-1. [@project-sunbird/sb-notification](https://github.com/Sunbird-Ed/sb-notification/tree/release-6.0.0_v14)
-
-
-1. [@project-sunbird/chatbot-client](https://github.com/project-sunbird/sunbird-bot-client/tree/release-6.0.0_v13)
-
-
-1. [sb-svg2pdf-v13](https://github.com/Sunbird-Ed/sb-svg2pdf/tree/release-6.0.0_v13)
-
-
-1. [@project-sunbird/web-extensions](https://github.com/project-sunbird/sunbird-ext-framework/tree/release-6.0.0/web-extensions/sunbird-web-extensions-app)
-
-
-1. [@project-sunbird/discussions-ui](https://github.com/Sunbird-Lern/discussions-UI/tree/release-5.3.0_v14)
-
-
-1. [@project-sunbird/sb-themes](https://github.com/Sunbird-Ed/sb-themes/tree/8.0.0)
-
-
-
- **Update Angular CLI** Ensure that the Angular CLI is updated to the latest compatible with Angular v16. Use npm to update Angular CLI globally:
-
+**Update Angular CLI** Ensure that the Angular CLI is updated to the latest compatible with Angular v16. Use npm to update Angular CLI globally:
 
 ```
 npm install -g @angular/cli@16
 ```
- 
 
- **Update Angular Core Packages** Update Angular core packages to their latest versions compatible with Angular v15. Use the Angular CLI to update Angular core packages
+&#x20;
 
-
-
+**Update Angular Core Packages** Update Angular core packages to their latest versions compatible with Angular v15. Use the Angular CLI to update Angular core packages
 
 ```
 ng update @angular/core@16 @angular/cli@16
 ```
 
-
 Angular Update Logs
+
 ```
 princekumar ~/projects/SunbirdEd-portal-inf-scroll/SunbirdEd-portal/src/app/client [8.0.0_ng16] $ ng update @angular/core@16 @angular/cli@16
 The installed Angular CLI version is outdated.
@@ -139,16 +114,14 @@ UPDATE src/app/modules/questionnaire/guard/can-deactivate.guard.ts (774 bytes)
   Migration completed (No changes made).
 ```
 
-## Update Angualr Material to V16
-
-
+### Update Angualr Material to V16
 
 ```
 ng update @angular/material@16
 ```
 
-
 Angular Material Update log
+
 ```
 princekumar ~/projects/SunbirdEd-portal-inf-scroll/SunbirdEd-portal/src/app/client [8.0.0_ng16] $ ng update @angular/material@16 --force
 Using package manager: yarn
@@ -181,22 +154,15 @@ UPDATE package.json (9834 bytes)
 
 ```
 
-
 After successfully migrating the portal, an error occurs when attempting to build the project. The error message indicates that the export 'ReflectiveInjector' is not found in '@angular/core'. in these 2 library
 
-
-1. ./node_modules/ng2-semantic-ui-v9/fesm2015/ng2-semantic-ui-v9.js:1092:21-56 - Error: export 'ReflectiveInjector' (imported as 'ReflectiveInjector') was not found in '@angular/core'
-
-
-1. ./node_modules/@project-sunbird/web-extensions/fesm2020/project-sunbird-web-extensions.mjs:111:26-61 - Error: export 'ReflectiveInjector' (imported as 'ReflectiveInjector') was not found in '@angular/core'
-
-
+1. ./node\_modules/ng2-semantic-ui-v9/fesm2015/ng2-semantic-ui-v9.js:1092:21-56 - Error: export 'ReflectiveInjector' (imported as 'ReflectiveInjector') was not found in '@angular/core'
+2. ./node\_modules/@project-sunbird/web-extensions/fesm2020/project-sunbird-web-extensions.mjs:111:26-61 - Error: export 'ReflectiveInjector' (imported as 'ReflectiveInjector') was not found in '@angular/core'
 
 Here's a detailed description to document this issue
 
-
-
 Build Error :: Post Angular V16 Migration
+
 ```
 ✔ Browser application bundle generation complete.
 Warning: /Users/princekumar/projects/SunbirdEd-portal/src/app/client/src/app/modules/groups/components/activity/activity-search/activity-search.component.ts depends on '@project-sunbird/client-services/blocs'. CommonJS or AMD dependencies can cause optimization bailouts.
@@ -478,26 +444,19 @@ Error: src/app/modules/dial-code-search/dial-code-search.module.ts:22:58 - error
 
 ```
 
-1. Updated the @project-sunbird/web-extensions : “8.0.1” library to V16 and resolved the  ReflectiveInjector   Error and updated the latest package in Portal  issue got resolved
+1.  Updated the @project-sunbird/web-extensions : “8.0.1” library to V16 and resolved the ReflectiveInjector Error and updated the latest package in Portal issue got resolved
 
     PR link : [https://github.com/project-sunbird/sunbird-ext-framework/pull/62/files](https://github.com/project-sunbird/sunbird-ext-framework/pull/62/files)
+2.  Updated the @project-sunbird/ng2-semantic-ui : “8.0.3” library to V16 and resolved the ReflectiveInjector Error and updated the latest package in Portal instead of ng2-semantic-ui-v9 and the issue got resolved
 
+    PR link : [https://github.com/project-sunbird/ng2-semantic-ui/tree/8.0.0\_v16](https://github.com/project-sunbird/ng2-semantic-ui/tree/8.0.0\_v16)
 
-1. Updated the @project-sunbird/ng2-semantic-ui : “8.0.3” library to V16 and resolved the  ReflectiveInjector   Error and updated the latest package in Portal instead of ng2-semantic-ui-v9  and the issue got resolved
+## Reference Link
 
-    PR link : [https://github.com/project-sunbird/ng2-semantic-ui/tree/8.0.0_v16](https://github.com/project-sunbird/ng2-semantic-ui/tree/8.0.0_v16)
+Jira Ticket : [ED-3612 System Jira](https://browse/ED-3612)
 
+Angular MIgration Guide: [https://update.angular.io/?l=3\&v=14.0-15.0](https://update.angular.io/?l=3\&v=14.0-15.0)
 
+***
 
-
-# Reference Link
-Jira Ticket : [ED-3612 System Jira](https:///browse/ED-3612)
-
-Angular MIgration Guide: [https://update.angular.io/?l=3&v=14.0-15.0](https://update.angular.io/?l=3&v=14.0-15.0)
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

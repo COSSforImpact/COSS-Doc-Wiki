@@ -1,97 +1,79 @@
+# Messaging-Interface
 
+\| | | | | Draft Specification | |
 
+\| | Shailesh Kochhar, Pramod Verma | | |
 
+|                     |
+| ------------------- |
+| ---                 |
+| ---                 |
+| ---                 |
+| ---                 |
+| ---                 |
+| ---                 |
+|                     |
+|                     |
+| Draft Specification |
+|                     |
 
-
-
-|  | 
-|  | 
-| Draft Specification | 
-| 
-
- | 
-| Shailesh Kochhar, Pramod Verma | 
-|  | 
-|  | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-|  | 
-|  | 
-| Draft Specification | 
-| 
-
- | 
-| Shailesh Kochhar, Pramod Verma | 
-|  | 
-|  | 
-
-
+\| | Shailesh Kochhar, Pramod Verma | | | | |
 
 OverviewDifferent kinds of collaboration possible
 
-
 * Real-time, syncronous
 * Threaded conversations, asyncronous
-* Q&A, asyncronous
+* Q\&A, asyncronous
 
 This doc covers the functional interface which must be implemented by messaging services to allow its real-time synchronous collaboration capability to be exposed within Sunbird.
 
 The functional interface will provide an implementation of the Sunbird abstractions which enable sending and receiving of messages.
 
-ArchitectureSunbird provides plugin points for installing 
-
+ArchitectureSunbird provides plugin points for installing
 
 1. a messaging interface for clients
-1. a messaging service adapter which can connect with a messaging service backend. 
+2. a messaging service adapter which can connect with a messaging service backend.
 
-The Sunbird client (web/mobile) will install a client plugin allowing it to connect to the messaging backend via the messaging interface exposed by the Sunbird server. 
+The Sunbird client (web/mobile) will install a client plugin allowing it to connect to the messaging backend via the messaging interface exposed by the Sunbird server.&#x20;
 
-![Architecture for Messaging Service Integration](images/storage/Sunbird%20Messaging%20Integration.jpg)
+![Architecture for Messaging Service Integration](<images/storage/Sunbird Messaging Integration.jpg>)
 
 EntitiesThe messaging interface provides an abstraction over messaging services to enable one-or-more messaging providers to plug-in to Sunbird. The interface provides the means to manipulate and manage:
 
-
-
-
-*  **Participants** : each participant in a group messaging session is associated with an account. Consider three types of accounts: user, guest and bot
-*  **Identity** : each user account will be associated with a Sunbird identity, it can also be associated with other third-party identities
-*  **Rooms** : equivalent of a group chat. Multiple accounts can participate in a room
-*  **Sessions** : are associated with devices which the participant uses. Multiple sessions may be initiated from a single device
-*  **Events** : are an abstraction over forms of content. A message is one event type.
-*  **Devices** : provide a means for offline management of encryption keys. A device is not always a physical entity, a browser is also a device
+* **Participants** : each participant in a group messaging session is associated with an account. Consider three types of accounts: user, guest and bot
+* **Identity** : each user account will be associated with a Sunbird identity, it can also be associated with other third-party identities
+* **Rooms** : equivalent of a group chat. Multiple accounts can participate in a room
+* **Sessions** : are associated with devices which the participant uses. Multiple sessions may be initiated from a single device
+* **Events** : are an abstraction over forms of content. A message is one event type.
+* **Devices** : provide a means for offline management of encryption keys. A device is not always a physical entity, a browser is also a device
 
 Participant managementFor a participant to send/receive messages, she/he/it must be registered with the messaging service. Registered participants must authenticate to interact with the service and perform operations.
 
-Register: POST /msg/client/v1/register?medium=<medium>?type=<type>Register a user account with profile details using the messaging backend chosen by the instance administrator.
-
+Register: POST /msg/client/v1/register?medium=?type=Register a user account with profile details using the messaging backend chosen by the instance administrator.
 
 * This API may be used to register two types of user accounts (see Registering Bots for details on registering bot accounts)
 * Once the registration is successful, the server must issue the client an authenticatedUserToken which must be used in subsequent API calls from this device
-* The server will attempt to generate an account with the provided username, however, if the username is not available, the server will return a corresponding error. 
+* The server will attempt to generate an account with the provided username, however, if the username is not available, the server will return a corresponding error.
 * The selected username must conform to the constraints specified below, if it does not meet the constraints, the server will return a corresponding error.
 
 Request
 
-| Parameter | Type | Description | 
-|  --- |  --- |  --- | 
-|  _Query Parameters_  | 
-| medium | String | The medium through which the user’s identity is to be validated. One of email or sms.  **_Required_**  | 
-| type | String | The type of registration. One of guest or user | 
-|  _JSON Body Parameters_  | 
-| username | String | The desired username for the user. The username must be a minimum of six characters and may use any of the following characters \[0-9a-zA-Z_ - .]If it is omitted, the server must generate a username for the account. | 
-| deviceId | String | ID of the client device. This is used to register a device for the new account. If it is omitted, the server must generate a deviceId for this device. | 
-| firstName | String | The first name of the new user. | 
-| lastName | String | The last name of the new user. | 
-| address | String | The address being used to register the user which will be attached to this account.  **_Required_** If medium is email, this should be an email address. If medium is sms, this should be a phone number in international format | 
-| sessionId | Int | The ID of the validation session which sent a token to the address.  **_Required_**  (see validationCode API) | 
-| validationCode | String | A valid code received by the user.  **_Required_**  (see validationCode API) | 
+| Parameter              | Type   | Description                                                                                                                                                                                                                     |
+| ---------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Query Parameters_     |        |                                                                                                                                                                                                                                 |
+| medium                 | String | The medium through which the user’s identity is to be validated. One of email or sms. _**Required**_                                                                                                                            |
+| type                   | String | The type of registration. One of guest or user                                                                                                                                                                                  |
+| _JSON Body Parameters_ |        |                                                                                                                                                                                                                                 |
+| username               | String | The desired username for the user. The username must be a minimum of six characters and may use any of the following characters \[0-9a-zA-Z\_ - .]If it is omitted, the server must generate a username for the account.        |
+| deviceId               | String | ID of the client device. This is used to register a device for the new account. If it is omitted, the server must generate a deviceId for this device.                                                                          |
+| firstName              | String | The first name of the new user.                                                                                                                                                                                                 |
+| lastName               | String | The last name of the new user.                                                                                                                                                                                                  |
+| address                | String | The address being used to register the user which will be attached to this account. _**Required**_ If medium is email, this should be an email address. If medium is sms, this should be a phone number in international format |
+| sessionId              | Int    | The ID of the validation session which sent a token to the address. _**Required**_ (see validationCode API)                                                                                                                     |
+| validationCode         | String | A valid code received by the user. _**Required**_ (see validationCode API)                                                                                                                                                      |
 
- _Example_ 
+_Example_
+
 ```
 POST /msg/client/v1/register?medium=sms&type=user
 
@@ -117,8 +99,8 @@ Content-type: application/json
 
 }
 ```
-Response: Status 200Indicates that a new account has been created for the user
 
+Response: Status 200Indicates that a new account has been created for the user
 
 ```
 {
@@ -133,15 +115,14 @@ Response: Status 200Indicates that a new account has been created for the user
 
 }
 ```
+
 Response: Status 400Indicates that there was an error in the request which made it invalid. This may be one of the following error codes
 
-
-* ERR_USERNAME_UNAVAILABLE: The username provided is already being used
-* ERR_USERNAME_INVALID: The username provided is not a valid username
-* ERR_ADDRESS_INVALID: The address provided is not in a valid format for the medium 
-* ERR_CODE_INVALID: The validationCode provided is not valid for the address
-* ERR_CODE_EXPIRED: The validationCode provided has expired
-
+* ERR\_USERNAME\_UNAVAILABLE: The username provided is already being used
+* ERR\_USERNAME\_INVALID: The username provided is not a valid username
+* ERR\_ADDRESS\_INVALID: The address provided is not in a valid format for the medium
+* ERR\_CODE\_INVALID: The validationCode provided is not valid for the address
+* ERR\_CODE\_EXPIRED: The validationCode provided has expired
 
 ```
 {
@@ -152,21 +133,17 @@ Response: Status 400Indicates that there was an error in the request which made 
 
 }
 ```
+
 Response: Status 429The request was rate-limited because of too many requests
 
-Register Bot: POST /msg/client/v1/registerBotRequest Code: POST /msg/client/v1/identity/code/request?medium=<medium>Request that a code be sent to the user to validate their ownership of a identity address using either email or sms medium
+Register Bot: POST /msg/client/v1/registerBotRequest Code: POST /msg/client/v1/identity/code/request?medium=Request that a code be sent to the user to validate their ownership of a identity address using either email or sms medium
 
 Request
 
-| Parameter | Type | Description | 
-|  _URL Parameters_  | 
-| medium | String | The medium through which to send the validation token, can either be email or sms | 
-|  _JSON Body Parameters_  | 
-| clientSecret | String | Unique client secret used to identify the attempt to validate the user’s address. The secret can use the following characters \[0-9a-zA-Z.=_-]  **_Required_**  | 
-| address | String | The address where to send the validation code.  **_Required_** If the medium is email, this should be an email addressIf the medium is sms, this should be a phone number in international format (including country code) | 
-| attemptNumber | Integer | The count of the attempt being made to send the validation code, multiple requests with the same attemptNumber may be ignored.  **_Required_**  | 
+\| Parameter | Type | Description | | _URL Parameters_ | | medium | String | The medium through which to send the validation token, can either be email or sms | | _JSON Body Parameters_ | | clientSecret | String | Unique client secret used to identify the attempt to validate the user’s address. The secret can use the following characters \[0-9a-zA-Z.=\_-] _**Required**_ | | address | String | The address where to send the validation code. _**Required**_ If the medium is email, this should be an email addressIf the medium is sms, this should be a phone number in international format (including country code) | | attemptNumber | Integer | The count of the attempt being made to send the validation code, multiple requests with the same attemptNumber may be ignored. _**Required**_ |
 
- _Example_ 
+_Example_
+
 ```
 POST /msg/client/v1/identity/code/request?medium=sms
 
@@ -182,8 +159,8 @@ Content-type: application/json
 
 }
 ```
-Response: Status 200Indicates that a validation code has been sent, the sessionId will be required when confirming the code
 
+Response: Status 200Indicates that a validation code has been sent, the sessionId will be required when confirming the code
 
 ```
 {
@@ -192,14 +169,11 @@ Response: Status 200Indicates that a validation code has been sent, the sessionI
 
 }
 ```
+
 Response: Status 400Indicates that there was an error in the request which made it invalid. This may be one of the following error codes
 
-
-* ERR_ADDRESS_INVALID: The address provided is not in a valid format
-* ERR_TOO_MANY_ATTEMPTS: The number of attempts has exceeded the maximum allowed by the service. May vary based on the service backend.
-
-
-
+* ERR\_ADDRESS\_INVALID: The address provided is not in a valid format
+* ERR\_TOO\_MANY\_ATTEMPTS: The number of attempts has exceeded the maximum allowed by the service. May vary based on the service backend.
 
 ```
 {
@@ -210,20 +184,15 @@ Response: Status 400Indicates that there was an error in the request which made 
 
 }
 ```
-Validate Identity: POST /msg/client/v1/identity/code/validate?medium=<medium>Validate that a messaging user is the owner of an identity address. This method could be called multiple times for a given username with different mediums. It is up to the service to provide the capability to have multiple identities for the same medium.
+
+Validate Identity: POST /msg/client/v1/identity/code/validate?medium=Validate that a messaging user is the owner of an identity address. This method could be called multiple times for a given username with different mediums. It is up to the service to provide the capability to have multiple identities for the same medium.
 
 Request
 
-| Parameter | Type | Description | 
-|  _URL Parameters_  | 
-| medium | String | The medium through which to send the validation token, can either be email or sms | 
-|  _JSON Body Parameters_  | 
-| username | String | The username for the account to connect the identity with. The username is required if this call is made without an authenticatedUserToken in the header | 
-| address | String | The address being used to register the user which will be attached to this account.  **_Required_** If medium is email, this should be an email address.If medium is sms, this should be a phone number in international format | 
-| sessionId | Int | The ID of the validation session which sent a token to the address.  **_Required_**  (see validationCode API) | 
-| validationCode | String | A valid code received by the user.  **_Required_**  (see validationCode API) | 
+\| Parameter | Type | Description | | _URL Parameters_ | | medium | String | The medium through which to send the validation token, can either be email or sms | | _JSON Body Parameters_ | | username | String | The username for the account to connect the identity with. The username is required if this call is made without an authenticatedUserToken in the header | | address | String | The address being used to register the user which will be attached to this account. _**Required**_ If medium is email, this should be an email address.If medium is sms, this should be a phone number in international format | | sessionId | Int | The ID of the validation session which sent a token to the address. _**Required**_ (see validationCode API) | | validationCode | String | A valid code received by the user. _**Required**_ (see validationCode API) |
 
- _Example_ 
+_Example_
+
 ```
 POST /msg/client/v1/identity/code/validate?medium=sms
 
@@ -241,8 +210,8 @@ Content-type: application/json
 
 }
 ```
-Response: Status 200Indicates that the address has been linked to the username provided.
 
+Response: Status 200Indicates that the address has been linked to the username provided.
 
 ```
 {
@@ -251,13 +220,12 @@ Response: Status 200Indicates that the address has been linked to the username p
 
 }
 ```
+
 Response: Status 400Indicates that there was an error in the request which made it invalid. This may be one of the following error codes
 
-
-* ERR_ADDRESS_INVALID: The address provided is not in a valid format
-* ERR_CODE_INVALID: The validationCode provided is not valid for the address
-* ERR_CODE_EXPIRED: The validationCode provided has expired
-
+* ERR\_ADDRESS\_INVALID: The address provided is not in a valid format
+* ERR\_CODE\_INVALID: The validationCode provided is not valid for the address
+* ERR\_CODE\_EXPIRED: The validationCode provided has expired
 
 ```
 {
@@ -268,8 +236,8 @@ Response: Status 400Indicates that there was an error in the request which made 
 
 }
 ```
-Login: POST /msg/client/v1/loginAuthenticates a user using an authentication method from:
 
+Login: POST /msg/client/v1/loginAuthenticates a user using an authentication method from:
 
 * Mobile number/OTP
 * OIDC identity
@@ -281,21 +249,14 @@ Once the user has been authenticated, the server should issue the user an authen
 
 Request
 
-| Parameter | Type | Description | 
-|  _JSON Body Parameters_  | 
-| sessionId | Int | The id of the login session initiated. A new sessionId can be generated by sending an empty request.  **_Required_**  | 
-| type | Enum | The type of authentication protocol to use.  **_Required_** Can be one of org.sunbird.msg.login.otp, org.sunbird.msg.login.oidc, org.sunbird.msg.login.token | 
-| identity | IdentityObject | Identity information for the user who is logging in.  **_Required_**  | 
-| identity.medium | Enum | The medium of the identity which is being passed.  **_Required_** Can be one of [org.sunbird.msg.id](http://org.sunbird.msg.id).email, [org.sunbird.msg.id](http://org.sunbird.msg.id).phone, [org.sunbird.msg.id](http://org.sunbird.msg.id).oidc | 
-| identity.address | String | The identity address of the user who is logging in. Required when identity.medium is [org.sunbird.msg.id](http://org.sunbird.msg.id).email, [org.sunbird.msg.id](http://org.sunbird.msg.id).phone | 
-| identity.uri | String | The identity URI for authenticating the user who is logging in. Required when identity.medium is [org.sunbird.msg.id](http://org.sunbird.msg.id).oidc | 
-| token | String | The one-time use token to confirm the user’s identity. Required when type is org.sunbird.msg.login.otp or org.sunbird.msg.login.token | 
+\| Parameter | Type | Description | | _JSON Body Parameters_ | | sessionId | Int | The id of the login session initiated. A new sessionId can be generated by sending an empty request. _**Required**_ | | type | Enum | The type of authentication protocol to use. _**Required**_ Can be one of org.sunbird.msg.login.otp, org.sunbird.msg.login.oidc, org.sunbird.msg.login.token | | identity | IdentityObject | Identity information for the user who is logging in. _**Required**_ | | identity.medium | Enum | The medium of the identity which is being passed. _**Required**_ Can be one of [org.sunbird.msg.id](http://org.sunbird.msg.id).email, [org.sunbird.msg.id](http://org.sunbird.msg.id).phone, [org.sunbird.msg.id](http://org.sunbird.msg.id).oidc | | identity.address | String | The identity address of the user who is logging in. Required when identity.medium is [org.sunbird.msg.id](http://org.sunbird.msg.id).email, [org.sunbird.msg.id](http://org.sunbird.msg.id).phone | | identity.uri | String | The identity URI for authenticating the user who is logging in. Required when identity.medium is [org.sunbird.msg.id](http://org.sunbird.msg.id).oidc | | token | String | The one-time use token to confirm the user’s identity. Required when type is org.sunbird.msg.login.otp or org.sunbird.msg.login.token |
 
 Login with OTPTo login using an OTP, the client sets the type parameter to org.sunbird.msg.login.otp, the identity.medium to org.sunbird.msg.id.phone and identity.address to the recipient’s phone number. The token is the OTP requested using the validate identity endpoint.
 
 Login via token is analogous to login via OTP with the type and medium being set appropriately. The token can be received via any communication channel.
 
- _Example_ 
+_Example_
+
 ```
 POST /msg/client/v1/login
 
@@ -319,19 +280,18 @@ Content-type: application/json
 
 }
 ```
+
 Login with OIDCTo login using an OIDC Identity Provider (IdP), the client sets the type parameter to org.sunbird.msg.login.oidc, the identity.medium to [org.sunbird.msg.id](http://org.sunbird.msg.id).oidc and identity.uri to the OIDC Authorization Request URI.
 
-If the server allows logging in via the IdP selected, it redirects the client to visit the OIDC Authorization Request URI (via the appropriate HTTP response). The server should encode a callback endpoint into the Authorization Request URI. 
+If the server allows logging in via the IdP selected, it redirects the client to visit the OIDC Authorization Request URI (via the appropriate HTTP response). The server should encode a callback endpoint into the Authorization Request URI.
 
-The client presents the user with the OAuth2 consent page allowing access to the user’s identity information. 
+The client presents the user with the OAuth2 consent page allowing access to the user’s identity information.
 
-If the user authorises the request, the IdP will redirect the client to the redirect_uri along with an auth code. The redirect_uri should have been set to point to a server endpoint which acts as a confidential OIDC client. The server uses the auth code to request an access token from the IdP and retrieve the user’s identity information. This completes the OIDC login flow.
+If the user authorises the request, the IdP will redirect the client to the redirect\_uri along with an auth code. The redirect\_uri should have been set to point to a server endpoint which acts as a confidential OIDC client. The server uses the auth code to request an access token from the IdP and retrieve the user’s identity information. This completes the OIDC login flow.
 
 Once the OIDC login flow is completed on the server, the client makes a subsequent request to the login endpoint with the same sessionId and receives a success response.
 
-
-*  Initiating the OIDC request
-
+* Initiating the OIDC request
 
 ```
 POST /msg/client/v1/login
@@ -355,8 +315,7 @@ Content-type: application/json
 }
 ```
 
-*  Completing the OIDC request
-
+* Completing the OIDC request
 
 ```
 POST /msg/client/v1/login
@@ -371,8 +330,8 @@ Content-type: application/json
 
 }
 ```
-Response: Status 200Indicates that the user has been authenticated
 
+Response: Status 200Indicates that the user has been authenticated
 
 ```
 {
@@ -387,8 +346,8 @@ Response: Status 200Indicates that the user has been authenticated
 
 }
 ```
-Response: Status 401Indicates that the request is missing authentication credentials
 
+Response: Status 401Indicates that the request is missing authentication credentials
 
 ```
 {
@@ -401,8 +360,8 @@ Response: Status 401Indicates that the request is missing authentication credent
 
 }
 ```
-Response: Status 403Indicates that the authentication has failed.
 
+Response: Status 403Indicates that the authentication has failed.
 
 ```
 {
@@ -413,34 +372,29 @@ Response: Status 403Indicates that the authentication has failed.
 
 }
 ```
+
 Response: Status 400Indicates that there was an error in the request which made it invalid
 
 Logout: POST /msg/client/v1/logoutThis logs out the user from the active session and makes the authenticatedUserToken unuseable for subsequent requests.
 
-Request _Example_ 
+Request _Example_
+
 ```
 {}
 ```
+
 Response: Status 200Indicates that the user has been logged out of this device session
 
-Room (Channel/Group) managementCreate a room: POST /msg/client/v1/room/event/createThis endpoint creates a new room where subsequent events and messages can be dispatched. Room creation is itself an event which is the origin of subsequent events in the room. The room contains Sunbird metadata which can be used for discovery. 
+Room (Channel/Group) managementCreate a room: POST /msg/client/v1/room/event/createThis endpoint creates a new room where subsequent events and messages can be dispatched. Room creation is itself an event which is the origin of subsequent events in the room. The room contains Sunbird metadata which can be used for discovery.
 
 Rooms have two additional settings which control membership of the room. First is visibility which determines if the room is visible in public listings of the rooms available. The second is joinability which determines if the room can be joined without an invitation.
 
 Request
 
-| Parameter | Type | Description | 
-|  _JSON Body Parameters_  | 
-| visibility | Enum | Controls the visibility of the room in room listing APIs. Must be one of unlisted or listed. If visibility is unlisted, then the room will not appear in room lists. If omitted, defaults to unlisted | 
-| membershipType | Enum | Controls the ability of users to join the room. Must be one of invite-only, token or open. If membershipType is invite-only, then new users must be added to the room. If membershipType is token, then a user must provide a token to join the room. If omitted, defaults to invite-only | 
-| name | String | The name to be given to the room. This will be displayed to other users and is recommended to be human-readable. Allowed characters are \[0-9a-z_-/.]  **_Required_**  | 
-| topic | String | A topic for the room to help users understand what the room is intended for. May be omitted | 
-| contextUrl | String | A URL linking the room to a Sunbird context.  **_Required_**  | 
-| invite | List(InviteObject) | A list of messaging service usernames/userAddresses who will be invited to join the room | 
-| invite_external | List(InviteObject) | A list of invitees identified by external identifiers. (see the example below for the InviteObject) | 
-| version | Int | The version of the room object being created. Default to 1 | 
+\| Parameter | Type | Description | | _JSON Body Parameters_ | | visibility | Enum | Controls the visibility of the room in room listing APIs. Must be one of unlisted or listed. If visibility is unlisted, then the room will not appear in room lists. If omitted, defaults to unlisted | | membershipType | Enum | Controls the ability of users to join the room. Must be one of invite-only, token or open. If membershipType is invite-only, then new users must be added to the room. If membershipType is token, then a user must provide a token to join the room. If omitted, defaults to invite-only | | name | String | The name to be given to the room. This will be displayed to other users and is recommended to be human-readable. Allowed characters are \[0-9a-z\_-/.] _**Required**_ | | topic | String | A topic for the room to help users understand what the room is intended for. May be omitted | | contextUrl | String | A URL linking the room to a Sunbird context. _**Required**_ | | invite | List(InviteObject) | A list of messaging service usernames/userAddresses who will be invited to join the room | | invite\_external | List(InviteObject) | A list of invitees identified by external identifiers. (see the example below for the InviteObject) | | version | Int | The version of the room object being created. Default to 1 |
 
- _Example_ 
+_Example_
+
 ```
 POST /msg/client/v1/room/event/create
 
@@ -478,8 +432,8 @@ Content-type: application/json
 
 }
 ```
-Response: Status 200Indicates that the room was created successfully and returns the roomAddress.
 
+Response: Status 200Indicates that the room was created successfully and returns the roomAddress.
 
 ```
 {
@@ -488,14 +442,13 @@ Response: Status 200Indicates that the room was created successfully and returns
 
 }
 ```
+
 Response: Status 400Indicates that the room was not created because of an error encountered when processing the request. The error could be one of
 
-
-* ERR_ROOM_UNAVAILABLE: The room name chosen is unavailable
-* ERR_VISIBILITY_UNSUPPORTED: The chosen visibility is unsupported by the service
-* ERR_MEMBERSHIP_TYPE_UNSUPPORTED: The chosen joinability is unsupported by the service 
-* ERR_VERSION_UNSUPPORTED: The room version selected is not supported by the service
-
+* ERR\_ROOM\_UNAVAILABLE: The room name chosen is unavailable
+* ERR\_VISIBILITY\_UNSUPPORTED: The chosen visibility is unsupported by the service
+* ERR\_MEMBERSHIP\_TYPE\_UNSUPPORTED: The chosen joinability is unsupported by the service
+* ERR\_VERSION\_UNSUPPORTED: The room version selected is not supported by the service
 
 ```
 {
@@ -506,8 +459,8 @@ Response: Status 400Indicates that the room was not created because of an error 
 
 }
 ```
-Add/Remove/Ban member(s): POST /msg/client/v1/room/event/send?type=membershipThis event adds/removes new members to the room using
 
+Add/Remove/Ban member(s): POST /msg/client/v1/room/event/send?type=membershipThis event adds/removes new members to the room using
 
 * RoomAddress
 * UserId
@@ -515,31 +468,25 @@ Add/Remove/Ban member(s): POST /msg/client/v1/room/event/send?type=membershipThi
 
 Set the name/topic for the room: PUT /msg/client/v1/room/event/send?type=metadataThis event changes room metadata using
 
-
 * RoomAddress
 * Name/Topic
 
 User-to-room messaging
-### Send message event: POST /msg/client/v1/room/msg/send?msgId=<msgId>
+
+#### Send message event: POST /msg/client/v1/room/msg/send?msgId=
+
 Sends a message to a room. The interface supports sending multiple types of messages to a room. Not every service implementation will support the universe of message types. It is up to the client to handle errors when sending messages which are unsupported by the server.
 
 Request
 
-| Parameter | Type | Description | 
-|  _Query parameters_  | 
-| msgId | String | A client generated message identifier which is unique across messages. This is used to provide idempotency guarantees. | 
-|  _JSON Body parameters_  | 
-| type | String | The type of event being sent to the room.  **_Required_** Must be org.sunbird.msg.event.room.message | 
-| roomAddress | String | The room to which the message is to be sent.  **_Required_**  | 
-| msg | MessageObject | An event containing the body of the message to send to the room.  **_Required_**  | 
+\| Parameter | Type | Description | | _Query parameters_ | | msgId | String | A client generated message identifier which is unique across messages. This is used to provide idempotency guarantees. | | _JSON Body parameters_ | | type | String | The type of event being sent to the room. _**Required**_ Must be org.sunbird.msg.event.room.message | | roomAddress | String | The room to which the message is to be sent. _**Required**_ | | msg | MessageObject | An event containing the body of the message to send to the room. _**Required**_ |
 
- _MessageObject_ 
+_MessageObject_
 
-| Parameter | Type | Description | 
-| msgtype | Enum | Type of message being sent.  **_Required_** Could be any one of org.sunbird.msg.text, org.sunbird.msg.action,org.sunbird.msg.notice,org.sunbird.msg.image,org.sunbird.msg.audio, org.sunbird.msg.video,org.sunbird.msg.contact,org.sunbird.msg.location,org.sunbird.msg.file | 
-| body | String | A string containing the message body to send to the room. | 
+\| Parameter | Type | Description | | msgtype | Enum | Type of message being sent. _**Required**_ Could be any one of org.sunbird.msg.text, org.sunbird.msg.action,org.sunbird.msg.notice,org.sunbird.msg.image,org.sunbird.msg.audio, org.sunbird.msg.video,org.sunbird.msg.contact,org.sunbird.msg.location,org.sunbird.msg.file | | body | String | A string containing the message body to send to the room. |
 
- _Example_ 
+_Example_
+
 ```
 POST /msg/client/v1/room/msg/send?msgId=hep146j1982h1019dngwcn985ahcd928
 
@@ -561,8 +508,8 @@ Content-type: application/json
 
 }
 ```
-Response: Status 200Indicates that the message was sent successfully to the room and returns the eventId.
 
+Response: Status 200Indicates that the message was sent successfully to the room and returns the eventId.
 
 ```
 {
@@ -571,16 +518,15 @@ Response: Status 200Indicates that the message was sent successfully to the room
 
 }
 ```
+
 Response: Status 400Indicates that the message was not sent because of an error encountered when processing the request. The error could be one of
 
-
-* ERR_ROOM_INVALID: The roomAddress given is not a valid room.
-* ERR_EVENT_TYPE_INVALID: The event type sent is not a message event
-* ERR_EVENT_TYPE_UNSUPPORTED: The event type sent is not supported by the service
-* ERR_MESSAGE_TYPE_INVALID: The message type sent is not a valid message type
-* ERR_MESSAGE_TYPE_UNSUPPORTED: The message type sent is not supported by the service
-* ERR_MESSAGE_INVALID: The message sent is not a valid message of msgtype
-
+* ERR\_ROOM\_INVALID: The roomAddress given is not a valid room.
+* ERR\_EVENT\_TYPE\_INVALID: The event type sent is not a message event
+* ERR\_EVENT\_TYPE\_UNSUPPORTED: The event type sent is not supported by the service
+* ERR\_MESSAGE\_TYPE\_INVALID: The message type sent is not a valid message type
+* ERR\_MESSAGE\_TYPE\_UNSUPPORTED: The message type sent is not supported by the service
+* ERR\_MESSAGE\_INVALID: The message sent is not a valid message of msgtype
 
 ```
 {
@@ -591,7 +537,9 @@ Response: Status 400Indicates that the message was not sent because of an error 
 
 }
 ```
-Send another event type: POST /msg/client/v1/room/event/send?type=<eventType>
+
+Send another event type: POST /msg/client/v1/room/event/send?type=
+
 * RoomAddress
 * EventType
 * EventBody
@@ -600,16 +548,10 @@ Fetch message events: GET /msg/client/v1/room/msg/listFetches messages from a ro
 
 Request
 
-| Parameter | Type | Description | 
-|  _JSON Body parameters_  | 
-| type | String | The type of event being fetched from the room.  **_Required_** Must be org.sunbird.msg.event.room.message | 
-| roomAddress | String | The room from where the messages are to be read.  **_Required_**  | 
-| from | String | A token pointing to the point where to start reading messages from.  **_Required_** This parameter is typically set from the response to a previous /room/msg/list call. It also takes two sentinel values start and end. start lists messages from the beginning of the room’s history, while end lists messages from the end of the room’s history. | 
-| to | String | A point to where to stop reading messages. Can be a pagination token or an eventId | 
-| dir | Enum | Direction in which to list messages. One of f or b | 
-| limit | Int | Maximum number of messages to read. Defaults to 10. The server may choose to return fewer messages than the limit specified. | 
+\| Parameter | Type | Description | | _JSON Body parameters_ | | type | String | The type of event being fetched from the room. _**Required**_ Must be org.sunbird.msg.event.room.message | | roomAddress | String | The room from where the messages are to be read. _**Required**_ | | from | String | A token pointing to the point where to start reading messages from. _**Required**_ This parameter is typically set from the response to a previous /room/msg/list call. It also takes two sentinel values start and end. start lists messages from the beginning of the room’s history, while end lists messages from the end of the room’s history. | | to | String | A point to where to stop reading messages. Can be a pagination token or an eventId | | dir | Enum | Direction in which to list messages. One of f or b | | limit | Int | Maximum number of messages to read. Defaults to 10. The server may choose to return fewer messages than the limit specified. |
 
- _Example_ 
+_Example_
+
 ```
 GET /msg/client/v1/room/msg/list?msgId=hep146j1982h1019dngwcn985ahcd928
 
@@ -629,27 +571,17 @@ Content-type: application/json
 
 }
 ```
+
 Response: Status 200Returns messages from the room starting at from and ending with a token to request the next batch of messages.
 
+\| Parameter | Type | Description | | start | String | The token where the pagination starts. This will be the token passed in from. | | end | String | The token where the pagination ends. This token can be passed as the from parameter in the next call to /room/msg/list | | dir | String | The direction in which the pagination is proceeding | | messages | List(MessageEvent) | A list of message events. |
 
+_MessageEvent_
 
-| Parameter | Type | Description | 
-| start | String | The token where the pagination starts. This will be the token passed in from. | 
-| end | String | The token where the pagination ends. This token can be passed as the from parameter in the next call to /room/msg/list | 
-| dir | String | The direction in which the pagination is proceeding | 
-| messages | List(MessageEvent) | A list of message events.  | 
+\| Parameter | Type | Description | | type | String | The type of event being fetched from the room. _**Required**_ Must be org.sunbird.msg.event.room.message | | roomAddress | String | The roomAddress where the event was sent | | eventId | String | A unique identifier for the event. This can be used by clients to de-duplicate events if needed. | | sender | String | A fully-qualified user id of the message sender | | sentTs | Int | The unix-epoch timestamp on the server when the message was sent. | | msg | MessageObject | A message object defined in the [Send message](https://docs.google.com/document/d/1s-zDjail6x3Ukv6SKXC7HAQvQbS2oLJteAViERff9fU/edit#heading=h.mulapge4j8v7) endpoint |
 
- _MessageEvent_ 
+_Example_
 
-| Parameter | Type | Description | 
-| type | String | The type of event being fetched from the room.  **_Required_** Must be org.sunbird.msg.event.room.message | 
-| roomAddress | String | The roomAddress where the event was sent | 
-| eventId | String | A unique identifier for the event. This can be used by clients to de-duplicate events if needed. | 
-| sender | String | A fully-qualified user id of the message sender | 
-| sentTs | Int | The unix-epoch timestamp on the server when the message was sent. | 
-| msg | MessageObject | A message object defined in the [Send message](https://docs.google.com/document/d/1s-zDjail6x3Ukv6SKXC7HAQvQbS2oLJteAViERff9fU/edit#heading=h.mulapge4j8v7) endpoint | 
-
- _Example_ 
 ```
 {
 
@@ -703,16 +635,13 @@ Response: Status 200Returns messages from the room starting at from and ending w
 
 }
 ```
+
 Response: Status 400Indicates that messages could not be retrieved because of an error encountered when processing the request. The error could be one of
 
-
-* ERR_ROOM_INVALID: The roomAddress given is not a valid room.
-* ERR_FROM_INVALID: The start point from where to read messages is not valid.
-* ERR_TO_INVALID: The end point where to stop reading messages is not valid.
-* ERR_DIR_INVALID: The direction given is not valid.
-
-
-
+* ERR\_ROOM\_INVALID: The roomAddress given is not a valid room.
+* ERR\_FROM\_INVALID: The start point from where to read messages is not valid.
+* ERR\_TO\_INVALID: The end point where to stop reading messages is not valid.
+* ERR\_DIR\_INVALID: The direction given is not valid.
 
 ```
 {
@@ -723,13 +652,9 @@ Response: Status 400Indicates that messages could not be retrieved because of an
 
 }
 ```
+
 Leave the room
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

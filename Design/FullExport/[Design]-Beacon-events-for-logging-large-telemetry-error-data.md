@@ -1,19 +1,16 @@
- **Introduction** This wiki exlplains about the use of Beacon events to log sunbird telemetry error data.
+# \[Design]-Beacon-events-for-logging-large-telemetry-error-data
 
- **Background** Logging error telemetry need to be made effective by sending only error message to telemetry error API and rest of the error stacktrace should be logged through Beacon APIs.
+**Introduction** This wiki exlplains about the use of Beacon events to log sunbird telemetry error data.
 
+**Background** Logging error telemetry need to be made effective by sending only error message to telemetry error API and rest of the error stacktrace should be logged through Beacon APIs.
 
+**Problem Statement**  At present incase of any error we are logging entire error object data which includes error message and stacktrace in telemetry error event.Sometimes the size of the stacktrace is large which creates the load in the telemetry APIs.If we are not logging the stacktrace it will be diffcult to track the error with only error messages and also we need to reproduce the error inorder to fix it.
 
- **Problem Statement**  At present incase of any error we are logging entire error object data which includes error message and stacktrace in telemetry error event.Sometimes the size of the stacktrace is large which creates the load in the telemetry APIs.If we are not logging the stacktrace it will be diffcult to track the error with only error messages and also we need to reproduce the error inorder to fix it.
-
-
-
- **Solution #1** This solution involves following steps:
+**Solution #1** This solution involves following steps:
 
 Log Telemetry error event with stacktrace error object data and send remaining info through beacon API
 
 When there is an error which needs to be logged ,send telemetry event with event object similar to the one below,
-
 
 ```js
 {
@@ -28,15 +25,13 @@ When there is an error which needs to be logged ,send telemetry event with event
 }
 ```
 
+As per above exmple the stacktrace object should contains 2 values **id**  and **message** .The **id**  should be the message-id(mid) and **message**  should be the error message.Now once the error telemetry is logged,we should send the entire stacktrace to beacon API.
 
-As per above exmple the stacktrace object should contains 2 values  **id**  and  **message** .The  **id**  should be the message-id(mid) and  **message**  should be the error message.Now once the error telemetry is logged,we should send the entire stacktrace to beacon API.
-
- **Solution #2** This solution involves following steps:
+**Solution #2** This solution involves following steps:
 
 Log Telemetry error event with only error message
 
 When there is an error which needs to be logged ,send telemetry event with event object similar to the one below,
-
 
 ```js
 {
@@ -51,11 +46,7 @@ When there is an error which needs to be logged ,send telemetry event with event
 }
 ```
 
-
-Send error Stacktace Info to Beacon API The beacon request structure should be gnerated  like the following format,
-
-
-
+Send error Stacktace Info to Beacon API The beacon request structure should be gnerated  like the following format,
 
 ```js
 {
@@ -80,15 +71,11 @@ Send error Stacktace Info to Beacon API The beacon request structure should be 
 
 ```
 
-
-Here in above example, the value of the param  **mid**  should be the MID generated in previous step for telemetry error event ,and by using the same id as part of beacon data we can able to correlate both the logged telemetry error data and subsequent stacktrace send through beacon API.
-
-
+Here in above example, the value of the param **mid**  should be the MID generated in previous step for telemetry error event ,and by using the same id as part of beacon data we can able to correlate both the logged telemetry error data and subsequent stacktrace send through beacon API.
 
 Editor/Player Side Implementation
 
-We need to implement a library called  **BeaconServiceLibrary**  which should expose the method to send beacon message by processng the input js object.
-
+We need to implement a library called  **BeaconServiceLibrary** which should expose the method to send beacon message by processng the input js object.
 
 ```js
 org.ekstep.services.BeaconServiceLibrary = new (org.ekstep.services.iService.extend({
@@ -107,17 +94,11 @@ org.ekstep.services.BeaconServiceLibrary = new (org.ekstep.services.iService.ext
  }
 })
 ```
-The url param of above example is the beacon endpoint url which should be provided by configuration or context data.
 
+The url param of above example is the beacon endpoint url which should be provided by configuration or context data.
 
+**Conclusion** Hence we can reduce the size of error telemetry data with the help of Beacon APIs.Also the stacktrace which will be helpful to track the error occurence also logged.
 
- **Conclusion** Hence we can reduce the size of error telemetry data with the help of Beacon APIs.Also the stacktrace which will be helpful to track the error occurence also logged.
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

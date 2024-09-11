@@ -1,46 +1,41 @@
+# Elasticsearch-upgrade-in-Sunbird-Platform
+
 Problem StatementSunbird is using ES 5.4.3 whereas other platforms (LP/DP) are running on ES 6.3. Hence the Sunbird ES 5.4.3 needs to be upgraded to 6.3.
 
-[SB-11085 System JIRA](https:///browse/SB-11085)
+[SB-11085 System JIRA](https://browse/SB-11085)
 
 Solution ApproachTo accomplish the upgrade we can take below approach
 
 Full cluster restart[Steps](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/restart-upgrade.html)
 
-
 1. Disable shard allocation
-1. Stop indexing and sync flush
-1. shutdown all nodes
-1. upgrade each nodes and provide stored data path
-1. Start each upgraded node
-1. reenable allocation which was disabled in first step
+2. Stop indexing and sync flush
+3. shutdown all nodes
+4. upgrade each nodes and provide stored data path
+5. Start each upgraded node
+6. reenable allocation which was disabled in first step
 
-backup and restore process. Steps -
-
+backup and restore process. Steps -
 
 1. Register a repository in the existing ES 5.4.3
-1. Create a snapshot of the data from ES
-1. Register the same repo in the new ES 6.3
-1. Call the restore API in ES 6.3 for the snapshot created in step 2
-
-
+2. Create a snapshot of the data from ES
+3. Register the same repo in the new ES 6.3
+4. Call the restore API in ES 6.3 for the snapshot created in step 2
 
 Pros and cons
 
-| Approach | pros | cons | 
-|  --- |  --- |  --- | 
-| Full cluster restart |  | downtime | 
-| Backup and restore | minimal downtime | needs extra running nodes | 
+| Approach             | pros             | cons                      |
+| -------------------- | ---------------- | ------------------------- |
+| Full cluster restart |                  | downtime                  |
+| Backup and restore   | minimal downtime | needs extra running nodes |
 
- **Note** 
+**Note**
 
 Snapshots are incremental which means that once sunbird in pointing to the new ES 6.3, we can repeat the snapshot and backup process to push any mew data created in between.
-
-
 
 Problem StatementHow to register a repository?
 
 SolutionFor registering a repository, we need to define/add path.repo in elastisearch.yml as below
-
 
 ```
 #
@@ -85,8 +80,8 @@ curl -X PUT \
   }
 }'
 ```
-Please note that created repo can be verified by below API call
 
+Please note that created repo can be verified by below API call
 
 ```
 Request
@@ -102,11 +97,9 @@ Response
 }
 ```
 
-
 Problem StatementHow to create a snapshot in repo?
 
 SolutionOnce the repository is created, we can take snapshot by below API
-
 
 ```
 Request
@@ -125,8 +118,8 @@ curl -X PUT \
 
 
 ```
- It starts the snapshot process and the status of this process can be verified as below
 
+&#x20;It starts the snapshot process and the status of this process can be verified as below
 
 ```
 Request
@@ -162,14 +155,12 @@ Response
     ]
 }
 ```
-[Further details and considerations](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/modules-snapshots.html#_snapshot)
 
-
+[Further details and considerations](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/modules-snapshots.html#\_snapshot)
 
 Problem StatementHow to restore a snapshot?
 
 SolutionA snapshot created can be restored by calling the below API, however it should be ensured that the same repository is registered where we want to restore
-
 
 ```
 Request
@@ -187,11 +178,9 @@ curl -X POST \
   -H 'cache-control: no-cache'
 ```
 
-
 Problem StatementHow to get the status of snapshot or recovery process
 
 SolutionBelow API is used to get the status
-
 
 ```
 Request
@@ -485,27 +474,18 @@ Response
 }
 ```
 
-
 Problem StatementCluster consideration while backup and restore
 
 SolutionFor cluster implementation, the path.repo should be configured on all nodes with the same value which will be shared file storage.
 
-We can also use [s3 for elasticsearch backup and restore](https://medium.com/@federicopanini/elasticsearch-backup-snapshot-and-restore-on-aws-s3-f1fc32fbca7f) 
-
-
+We can also use [s3 for elasticsearch backup and restore](https://medium.com/@federicopanini/elasticsearch-backup-snapshot-and-restore-on-aws-s3-f1fc32fbca7f)&#x20;
 
 References
+
 1. [https://www.elastic.co/guide/en/elasticsearch/reference/5.5/modules-snapshots.html](https://www.elastic.co/guide/en/elasticsearch/reference/5.5/modules-snapshots.html)
-1. [https://www.elastic.co/guide/en/elasticsearch/plugins/5.5/repository-s3.html](https://www.elastic.co/guide/en/elasticsearch/plugins/5.5/repository-s3.html)
-1. [https://www.elastic.co/guide/en/elasticsearch/reference/6.3/restart-upgrade.html](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/restart-upgrade.html)
+2. [https://www.elastic.co/guide/en/elasticsearch/plugins/5.5/repository-s3.html](https://www.elastic.co/guide/en/elasticsearch/plugins/5.5/repository-s3.html)
+3. [https://www.elastic.co/guide/en/elasticsearch/reference/6.3/restart-upgrade.html](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/restart-upgrade.html)
 
+***
 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

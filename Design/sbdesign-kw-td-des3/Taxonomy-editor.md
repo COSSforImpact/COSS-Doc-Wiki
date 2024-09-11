@@ -1,38 +1,33 @@
- **Problem Statement:** 
+# Taxonomy-editor
+
+**Problem Statement:**
 
 In Sunbird system classification of terms and identify the relations (association) between terms belongs to different categories and show that in visual representation help user to creation and publishing of framework with categories.
 
- **Existing System** 
+**Existing System**
 
 Current system of Taxonomy classifications are hierarchical representation of terms belongs to different category in a tree structure which might be complex when there are large system, It is difficult to show relation or association between terms belong to different category
 
-creation and association of terms in sun bird is done through postman collection, 
+creation and association of terms in sun bird is done through postman collection,
 
- **Proposed System of Taxonomy** 
+**Proposed System of Taxonomy**
 
-In proposed the taxonomy editor system under category we can create terms and associate/relate terms belonging to different categories in a visual representation as shown below this. 
+In proposed the taxonomy editor system under category we can create terms and associate/relate terms belonging to different categories in a visual representation as shown below this.
 
-![](images/storage/clip-board%20(1).jpg)
+![](<images/storage/clip-board (1).jpg>)
 
- **How it works:** 
+**How it works:**
 
-![](images/storage/) **UI setup guide :-** 
-
+![](images/storage) **UI setup guide :-**
 
 1. Install latest version of angular.
 
-  npm i sb-taxonomy-editor
+npm i sb-taxonomy-editor
 
+1.  Add below element in sunbird-Ed-portal
 
-1. Add below element in sunbird-Ed-portal
-
-
-
-   <lib-taxonomy-view \[environment]="environment" \[taxonomyConfig]="taxonomyConfig"></lib-taxonomy-view>
-
-
-1. Save below  "environment"  and "taxonomyConfig" in local storage before initialize above library. (this need to change as input to a library)  / Default configuration is available.
-
+    \<lib-taxonomy-view \[environment]="environment" \[taxonomyConfig]="taxonomyConfig">
+2. Save below "environment" and "taxonomyConfig" in local storage before initialize above library. (this need to change as input to a library) / Default configuration is available.
 
 ```
          environment =  {
@@ -55,46 +50,47 @@ In proposed the taxonomy editor system under category we can create terms and as
         }
 ```
 
-
- **Taxonomy overview :-** 
+**Taxonomy overview :-**
 
 What is taxonomy ?
 
-     Taxonomy helps to clarify our thinking by classifying things neatly into categories and sub-categories based on their relationships. The
+```
+ Taxonomy helps to clarify our thinking by classifying things neatly into categories and sub-categories based on their relationships. The
 
-      primary goal of taxonomy is to recognize, characterise, classify, and name based on their properties.
+  primary goal of taxonomy is to recognize, characterise, classify, and name based on their properties.
+```
 
 What is term ?
 
-    Terms are items (entities or objects) with in the taxonomy, As below example shows education system    taxonomy, where CBSC, Hindi,
+```
+Terms are items (entities or objects) with in the taxonomy, As below example shows education system    taxonomy, where CBSC, Hindi,
 
-     Grade1, English are terms belonging to different categories,
+ Grade1, English are terms belonging to different categories,
+```
 
 What is Association ?
 
-    In the taxonomy system terms belonging to different category relate to each other, that relation is called association, each category term
+```
+In the taxonomy system terms belonging to different category relate to each other, that relation is called association, each category term
 
-    might have multiple relations with terms belonging to different categories.
+might have multiple relations with terms belonging to different categories.
+```
 
-In the below example CBSC board have relate to Hindi medium,  like Hindi medium might have grde 1 and grade 2 relation.
+In the below example CBSC board have relate to Hindi medium, like Hindi medium might have grde 1 and grade 2 relation.
 
-Example:-   Education Taxonomy would look as below.
+Example:- Education Taxonomy would look as below.
 
-![](images/storage/) **API’s Used:** 
+![](images/storage) **API’s Used:**
 
+1. \*\*Framework Read \*\*
 
-1.  **Framework Read ** 
+\{{domain\}} – should be replaced with the host address of the target environment.&#x20;
 
+\{{frameworkId\}} – should be replaced with the framework identifier which is created.&#x20;
 
+\{{channelId\}} - channel Id which the framework belongs to. &#x20;
 
-{{domain}} – should be replaced with the host address of the target environment. 
-
-{{frameworkId}} – should be replaced with the framework identifier which is created. 
-
-{{channelId}} - channel Id which the framework belongs to.  
-
-{{apiKey}} - Kong Gateway API Key for the target environment. 
-
+\{{apiKey\}} - Kong Gateway API Key for the target environment.&#x20;
 
 ```
 curl --location --request GET 'https://{{domain}}/api/framework/v1/read/{{frameworkId}} \ 
@@ -106,12 +102,7 @@ curl --location --request GET 'https://{{domain}}/api/framework/v1/read/{{framew
 --header 'Authorization: Bearer {{apiKey}}' 
 ```
 
-
-
-1.  **Framework Publish ** 
-
-
-
+1. \*\*Framework Publish \*\*
 
 ```
 curl --location --request POST 'https://{{domain}}/api/framework/v1/publish/{{frameworkId}}' \ 
@@ -125,20 +116,13 @@ curl --location --request POST 'https://{{domain}}/api/framework/v1/publish/{{fr
 --data-raw '{}' 
 ```
 
+1. \*\*Term Create \*\*
 
+\{{domain\}} - Host address of the target environment&#x20;
 
+\{{frameworkId\}} – Framework identifier from the target environment.&#x20;
 
-
-1.  **Term Create ** 
-
-
-
-{{domain}} - Host address of the target environment 
-
-{{frameworkId}} – Framework identifier from the target environment. 
-
-{{newUUID}} - provide newly generated UUID value from client. 
-
+\{{newUUID\}} - provide newly generated UUID value from client.&#x20;
 
 ```
 curl --location --request POST 'https://{{domain}}/api/framework/v1/term/create?framework={{frameworkId}}&category={{categoryId}}' \ 
@@ -190,24 +174,19 @@ curl --location --request POST 'https://{{domain}}/api/framework/v1/term/create?
 }' 
 ```
 
+1. **Term Update** &#x20;
 
+\{{domain\}} - Host address of the target environment&#x20;
 
-1.  **Term Update**  
+\{{termCode\}} - Term code value which needs to be updated.&#x20;
 
+\{{frameworkId\}} – Framework identifier from the target environment.&#x20;
 
+\{{categoryId\}} - Category code from the selected object group.&#x20;
 
-{{domain}} - Host address of the target environment 
+\{{targetTermIdentifier\}} - provide the target term object identifier which the association should be created.&#x20;
 
-{{termCode}} - Term code value which needs to be updated. 
-
-{{frameworkId}} – Framework identifier from the target environment. 
-
-{{categoryId}} - Category code from the selected object group. 
-
-{{targetTermIdentifier}} - provide the target term object identifier which the association should be created. 
-
- 
-
+&#x20;
 
 ```
 curl --location --request PATCH 'https://{{domain}}/api/framework/v1/term/update/{{termCode}}?framework={{frameworkId}}&category={{categoryId}}' \ 
@@ -240,23 +219,20 @@ curl --location --request PATCH 'https://{{domain}}/api/framework/v1/term/update
 
 }' 
 ```
-Note : “associations” array contain all the term object identifiers – which are previously created associations.  
 
+Note : “associations” array contain all the term object identifiers – which are previously created associations. &#x20;
 
+**Approval flow (TODO)**
 
- **Approval flow (TODO)** 
+1.  \*\*Workflow Create \*\*
 
+    ```
+          {{domain}} - Host address of the target environment 
+    ```
 
-1.  **Workflow Create ** 
+&#x20;            \{{userToken\}} - User Auth token&#x20;
 
-
-
-              {{domain}} - Host address of the target environment 
-
-              {{userToken}} - User Auth token 
-
-              {{TermObject}} -  Term objects 
-
+&#x20;             \{{TermObject\}} -  Term objects&#x20;
 
 ```
 curl --location '{{domain}}/api//workflow/taxonomy/create' \ 
@@ -280,14 +256,9 @@ curl --location '{{domain}}/api//workflow/taxonomy/create' \
 }' 
 ```
 
+1.  \*\*Workflow Application Search \*\*
 
-
-1.  **Workflow Application Search ** 
-
-
-
-      {{status of the application}} - Status of the application we want to search  
-
+    \{{status of the application\}} - Status of the application we want to search &#x20;
 
 ```
 curl --location 'https://portal.igot-dev.in/api/workflow/taxonomy/search' \  
@@ -307,14 +278,9 @@ curl --location 'https://portal.igot-dev.in/api/workflow/taxonomy/search' \
 }' 
 ```
 
+1. \*\*Workflow Application Read \*\*
 
-
-1.  **Workflow Application Read ** 
-
-
-
-{{wfId}} - wfId of the application 
-
+\{{wfId\}} - wfId of the application&#x20;
 
 ```
 curl --location 'https://portal.igot-dev.in/api/workflow/taxonomy/read/{{wfId}}' \ 
@@ -324,17 +290,11 @@ curl --location 'https://portal.igot-dev.in/api/workflow/taxonomy/read/{{wfId}}'
 --header 'Authorization: bearer {{api-key}}' 
 ```
 
-1.  **Workflow Transition** 
+1. **Workflow Transition**
 
+\{{wfId\}} - wfId of the application \\
 
-
-{{wfId}} - wfId of the application \
-
-
-1.  **Approve Level 2**  
-
-
-
+1. **Approve Level 2** &#x20;
 
 ```
 curl --location --request PATCH 'https://portal.igot-dev.in/api/workflow/taxonomy/update' \ 
@@ -358,10 +318,7 @@ curl --location --request PATCH 'https://portal.igot-dev.in/api/workflow/taxonom
 }'  
 ```
 
-1.  **Approve Level 2**  
-
-
-
+1. **Approve Level 2** &#x20;
 
 ```
 curl --location --request PATCH 'https://portal.igot-dev.in/api/workflow/taxonomy/update' \ 
@@ -385,14 +342,7 @@ curl --location --request PATCH 'https://portal.igot-dev.in/api/workflow/taxonom
 }' 
 ```
 
-
-
-
-
-1.  **Publish**  
-
-
-
+1. **Publish** &#x20;
 
 ```
 curl --location --request PATCH 'https://portal.igot-dev.in/api/workflow/taxonomy/update' \ 
@@ -416,8 +366,6 @@ curl --location --request PATCH 'https://portal.igot-dev.in/api/workflow/taxonom
 }' 
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

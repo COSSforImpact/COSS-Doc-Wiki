@@ -1,80 +1,78 @@
+# Ecreds---Phase3-and-SB-rollout
 
-##   * [](#)
-  * [Design points](#design-points)
-  * [Overall solution](#overall-solution)
-  * [Component interaction](#component-interaction)
-  * [Open questions](#open-questions)
-  * [How to create a HTML template zip file?](#how-to-create-a-html-template-zip-file?)
-  * [API endpoints (proposed and enhancements)](#api-endpoints-(proposed-and-enhancements))
-    * [cert-service](#cert-service)
-  * [Schema design](#schema-design)
-    * [organisation](#organisation)
-    * [FAQ](#faq)
-About
-Refer to PRD [[eCreds|eCreds]] for the over workflows.
+### \*
 
+* [Design points](Ecreds---Phase3-and-SB-rollout.md#design-points)
+* [Overall solution](Ecreds---Phase3-and-SB-rollout.md#overall-solution)
+* [Component interaction](Ecreds---Phase3-and-SB-rollout.md#component-interaction)
+* [Open questions](Ecreds---Phase3-and-SB-rollout.md#open-questions)
+* [How to create a HTML template zip file?](Ecreds---Phase3-and-SB-rollout.md#how-to-create-a-html-template-zip-file?)
+* [API endpoints (proposed and enhancements)](Ecreds---Phase3-and-SB-rollout.md#api-endpoints-\(proposed-and-enhancements\))
+  * [cert-service](Ecreds---Phase3-and-SB-rollout.md#cert-service)
+* [Schema design](Ecreds---Phase3-and-SB-rollout.md#schema-design)
+  * [organisation](Ecreds---Phase3-and-SB-rollout.md#organisation)
+  * [FAQ](Ecreds---Phase3-and-SB-rollout.md#faq) About Refer to PRD \[\[eCreds|eCreds]] for the over workflows.
 
-## Design points
+### Design points
 
 * The repository - [cert-service](https://github.com/project-sunbird/cert-service) hosts both the SDK and the service.
 * The service will follow the same stack as used in KP, LMS platforms - Play, Akka.
 * The service will only create the certificates. Optionally, can send email/sms to users with link to their certificate. The consumer that is triggering certificate generation can choose to send notification.
 * The QR code generation and Cloud storage components from KP are re-used here in the SDK.
 * The SDK doesn't rely upon any env variable - they are either parameterised or available as fields, as the case maybe.
-* The service doesn't choose any defaults for certificate generation, including keys, names. The container for storage is defaulted, but will be allowed for override in the API call.
+* The service doesn't choose any defaults for certificate generation, including keys, names. The container for storage is defaulted, but will be allowed for override in the API call.
 * The service relies on [enc-service](https://github.com/project-sunbird/enc-service) for signing and verification and management of keys. Local laptop perf measurements using jmeter for this service are available [here](https://project-sunbird.atlassian.net/wiki/spaces/OS/pages/1037762563/Sunbird+enc-service).
-* The org table will be enhanced to contain key identifiers to be associated with that specific org. 
-* The new table 'user_creds' will be created with the following columns as given below.
-* All the payload called out in this document comply to the [EkStep API](https://github.com/ekstep/Common-Design/wiki/API-Specifications) specification. For input, pass the object under "request" and take "response" for the reverse direction.
+* The org table will be enhanced to contain key identifiers to be associated with that specific org.&#x20;
+* The new table 'user\_creds' will be created with the following columns as given below.
+* All the payload called out in this document comply to the [EkStep API](https://github.com/ekstep/Common-Design/wiki/API-Specifications) specification. For input, pass the object under "request" and take "response" for the reverse direction.
 
+### Overall solution
 
-## Overall solution
-In 2.3.5, a bunch of steps need to be executed by Devops/Dev/Impl team before certificates can be issued. These are detailed here - [[How to: ECreds - SB 2.3.0/5|How-to--ECreds---SB-2.3.0-5]]
+In 2.3.5, a bunch of steps need to be executed by Devops/Dev/Impl team before certificates can be issued. These are detailed here - \[\[How to: ECreds - SB 2.3.0/5|How-to--ECreds---SB-2.3.0-5]]
 
+### Component interaction
 
-## Component interaction
-![](images/storage/eCreds_solution_and_arch-Page-1%20-existing.png)
+![](<images/storage/eCreds\_solution\_and\_arch-Page-1 -existing.png>)
 
-
-## Open questions
+### Open questions
 
 1. Signatory image is still pending from PM.
 
 Resolved
-1. Should we use only name and not use phone, email due to privacy concerns? The OB v2 spec allows to hash PII. Example:  _sha256$28d50415252ab6c689a54413da15b083034b66e5PV review - Avoid phone and email. Try using Diksha Identifier._ 
-1. In the DIAL code model, each QR code is unique. Should ECreds QR code be similar? Since the certificate uuid is the primary identifier, can we propose one QR code, say 1 dial code that takes in the certificate uuid param.
 
-     _PV review - Let's call that access code. The access code will be the form of authentication we will have to prevent these pages being indexed by search engine. Propose to have the data within the URL of the form domain/certs/{uuid_of_certificate}_ 
-1. Which service responds to QR code scan - the one that must render "View certificate", "Verify", "Recommendations", "Peer certifications"?
+1. Should we use only name and not use phone, email due to privacy concerns? The OB v2 spec allows to hash PII. Example:  _sha256$28d50415252ab6c689a54413da15b083034b66e5PV review - Avoid phone and email. Try using Diksha Identifier._
+2.  In the DIAL code model, each QR code is unique. Should ECreds QR code be similar? Since the certificate uuid is the primary identifier, can we propose one QR code, say 1 dial code that takes in the certificate uuid param.
 
-     _Rayulu - portal content service will do this._ 
-1. We attach html template to the course. We are yet to identify how other details such as issuer, signatory, certificate names must be codified.
+    _PV review - Let's call that access code. The access code will be the form of authentication we will have to prevent these pages being indexed by search engine. Propose to have the data within the URL of the form domain/certs/{uuid\_of\_certificate}_
+3.  Which service responds to QR code scan - the one that must render "View certificate", "Verify", "Recommendations", "Peer certifications"?
+
+    _Rayulu - portal content service will do this._
+4.  We attach html template to the course. We are yet to identify how other details such as issuer, signatory, certificate names must be codified.
 
     DC review - Courses team will create a course metadata where all this will be set.
-1. Read that iText version 7 seems to be promising for HTML to PDF conversion. Need testing (at the moment we don't have the html template, expect closure only by next week)
+5.  Read that iText version 7 seems to be promising for HTML to PDF conversion. Need testing (at the moment we don't have the html template, expect closure only by next week)
 
     Platform-User - The conversion is 2+second and can work with external css, images, which is good. The timing is ok for now.
 
+### How to create a HTML template zip file?
 
-## How to create a HTML template zip file?
-Go to the directory (certificate template) which contains index.html, CSS & fonts, use the command mentioned here to create a zip file. 
+Go to the directory (certificate template) which contains index.html, CSS & fonts, use the command mentioned here to create a zip file.&#x20;
 
+| OS                                             | Cmd                   |
+| ---------------------------------------------- | --------------------- |
+| mac                                            |                       |
+| \`\`\`                                         |                       |
+| zip -r fileName.zip . -x ".\*" -x "\_\_MACOSX" |                       |
+| \`\`\`                                         |                       |
+|                                                |                       |
+| ubuntu                                         | zip -r fileName.zip . |
 
+### API endpoints (proposed and enhancements)
 
-| OS | Cmd | 
-|  --- |  --- | 
-| mac | 
-```
-zip -r fileName.zip . -x ".\*" -x "__MACOSX"
-```
- | 
-| ubuntu | zip -r fileName.zip . | 
+#### cert-service
 
+1\. POST /v1/certs/generateRequest (2.3.5)
 
-## API endpoints (proposed and enhancements)
-
-### cert-service
-1. POST /v1/certs/generateRequest (2.3.5)
 ```js
 {
     "params": {},
@@ -112,9 +110,11 @@ zip -r fileName.zip . -x ".\*" -x "__MACOSX"
    }
 }
 ```
-If the key identifiers do not qualify a http endpoint, the cert-service will presume it is an internal enc-service key and expand it to [https://enc-service:8013/keys/1](https://enc-service:8013/keys/1)
+
+If the key identifiers do not qualify a http endpoint, the cert-service will presume it is an internal enc-service key and expand it to [https://enc-service:8013/keys/1](https://enc-service:8013/keys/1)
 
 Request (2.5.0)
+
 ```js
 {
     "params": {},
@@ -155,8 +155,8 @@ Request (2.5.0)
 }
 ```
 
-
 Response
+
 ```js
 "certificate": [
    {  
@@ -170,27 +170,23 @@ Response
 }
 ```
 
+Request/Response 3.2.0Please refer to this document - \[\[SC-1855 Certificate @ Scale#Request|SC-1855-Certificate-@-Scale]]
 
-Request/Response 3.2.0Please refer to this document - [[SC-1855 Certificate @ Scale#Request|SC-1855-Certificate-@-Scale]]
+2.POST /v1/certs/verifyThis is to verify the JSON certificate data. Verifies certificate signature value and expiry date.&#x20;
 
-2.POST /v1/certs/verifyThis is to verify the JSON certificate data. Verifies certificate signature value and expiry date. 
+&#x20;a) The certificate contains a signature in the signature field. The signature is encrypted using the awarding body's(Issuer) private key.  Signature is verified by using encryption service verify API which takes signature value, issuer's public key id, and certificate object in the request and returns "true" if the signature is valid else "false"
 
- a) The certificate contains a signature in the signature field. The signature is encrypted using the awarding body's(Issuer) private key.  Signature is verified by using encryption service verify API which takes signature value, issuer's public key id, and certificate object in the request and returns "true" if the signature is valid else "false"
+&#x20;b) If a certificate contains an expiry date, The expiry date is compared with the current date. and checks whether the certificate is expired or not&#x20;
 
- b) If a certificate contains an expiry date, The expiry date is compared with the current date. and checks whether the certificate is expired or not 
-
-
-
-| Current Date  | Expiry Date | valid | 
-|  --- |  --- |  --- | 
-| 2019-10-11 | 2019-10-11 | false | 
-| 2019-10-11 | 2019-10-12 | true | 
-| 2019-10-11 | 2019-10-09 | false | 
+| Current Date | Expiry Date | valid |
+| ------------ | ----------- | ----- |
+| 2019-10-11   | 2019-10-11  | false |
+| 2019-10-11   | 2019-10-12  | true  |
+| 2019-10-11   | 2019-10-09  | false |
 
 In the request either we can pass certificate JSON in the param "data" or id of the certificate (URL) in the param "id". If the request contains id, we are downloading the certificate from the cloud and verifying it.
 
- **Request ** a) which contains certificate JSON
-
+\*\*Request \*\* a) which contains certificate JSON
 
 ```
 {
@@ -277,8 +273,8 @@ In the request either we can pass certificate JSON in the param "data" or id of 
     }
 }
 ```
- **Request** b)which contains the id of the certificate
 
+**Request** b)which contains the id of the certificate
 
 ```
 {
@@ -290,17 +286,15 @@ In the request either we can pass certificate JSON in the param "data" or id of 
     }
 }
 ```
- **Response** 
 
+**Response**
 
+| operation | httpCode | result                        |
+| --------- | -------- | ----------------------------- |
+| success   | 200      | valid + messages + errorCount |
+| failure   | 400      | validation error message      |
 
-| operation | httpCode | result | 
-|  --- |  --- |  --- | 
-| success | 200 | valid + messages + errorCount | 
-| failure | 400 | validation error message | 
-
-  the response will be in the following format.
-
+&#x20; the response will be in the following format.
 
 ```
 {
@@ -319,9 +313,7 @@ In the request either we can pass certificate JSON in the param "data" or id of 
 }
 ```
 
-
 For example request with invalid signature and expiry date
-
 
 ```
 {
@@ -407,8 +399,8 @@ For example request with invalid signature and expiry date
     }
 }
 ```
- **Response ** 
 
+\*\*Response \*\*
 
 ```
 {
@@ -430,11 +422,9 @@ For example request with invalid signature and expiry date
 }
 ```
 
+**3.POST /v1/certs/download**
 
- **3.POST /v1/certs/download** 
-
- **Request** 
-
+**Request**
 
 ```js
 { 
@@ -446,14 +436,14 @@ For example request with invalid signature and expiry date
 }
 ```
 
+**learner-service** **1.POST private/user/v1/certs/add (Private API, will not require auth token)** lms-service (learner-service)Deposits a certificate to the user. Think of this as a public store that any part can deposit certificates to the user. We will make this public with some auth token then. This is just to reason out why this data is stored here and a similar copy will be stored in user\_courses table as well.&#x20;
 
- **learner-service**  **1.POST private/user/v1/certs/add (Private API, will not require auth token)** lms-service (learner-service)Deposits a certificate to the user. Think of this as a public store that any part can deposit certificates to the user. We will make this public with some auth token then. This is just to reason out why this data is stored here and a similar copy will be stored in user_courses table as well. 
+user\_courses table will be used to show up the 'Profile' page for the list of enrollments and accomplishments
 
-user_courses table will be used to show up the 'Profile' page for the list of enrollments and accomplishments
-
-user_creds table will be used (in future) to showcase work. For now, it is mainly used to validate the access code.
+user\_creds table will be used (in future) to showcase work. For now, it is mainly used to validate the access code.
 
 Request
+
 ```js
 {
   "params": {},
@@ -471,27 +461,27 @@ Request
   }
 }
 ```
+
 Response
 
-| Operation | HttpCode | Result | 
-|  --- |  --- |  --- | 
-| Success | 200 | None | 
-| Failure | 400 | None errmsg = "validation error", err = 1001 | 
+| Operation | HttpCode | Result                                       |
+| --------- | -------- | -------------------------------------------- |
+| Success   | 200      | None                                         |
+| Failure   | 400      | None errmsg = "validation error", err = 1001 |
 
-Changes proposed: Case:1
+Changes proposed: Case:1
 
-
-*  while re-issuing certificate if the old certificate need to be soft delete we need to maintain the certificate details, so for this we can add a flag "isDeleted" with value true is certificate is deleted and false means valid issued certificate and new entry is added for re-issued certificate.
+* &#x20;while re-issuing certificate if the old certificate need to be soft delete we need to maintain the certificate details, so for this we can add a flag "isDeleted" with value true is certificate is deleted and false means valid issued certificate and new entry is added for re-issued certificate.
 * For the re-issue certificate there can be one more column added which can have old cert-id
 
 Case:2
 
+* &#x20; There is no need to maintain certificate details for delete scenario
 
-*   There is no need to maintain certificate details for delete scenario
-
-2.POST / **private** /user/v1/certs/validate (Private API, will not require auth token)Validates the certificate id matches the access code supplied. We don't want crawlers to capture the pages and this access code makes the intent explicit and a human hand necessary. The Portal team has agreed that the details in this call will be hidden from the URL.
+2.POST / **private** /user/v1/certs/validate (Private API, will not require auth token)Validates the certificate id matches the access code supplied. We don't want crawlers to capture the pages and this access code makes the intent explicit and a human hand necessary. The Portal team has agreed that the details in this call will be hidden from the URL.
 
 Request
+
 ```js
 {
     "params": {},
@@ -502,24 +492,24 @@ Request
     }
 }
 ```
+
 Response
 
-| Operation | HttpCode | Result | 
-|  --- |  --- |  --- | 
-| Success | 200 | json + pdf + batchId + courseId | 
-| Failure | 400 | None errmsg = "Invalid access code", err = 1001 errmsg = "Invalid signature", err = 2001 | 
+| Operation | HttpCode | Result                                                                                   |
+| --------- | -------- | ---------------------------------------------------------------------------------------- |
+| Success   | 200      | json + pdf + batchId + courseId                                                          |
+| Failure   | 400      | None errmsg = "Invalid access code", err = 1001 errmsg = "Invalid signature", err = 2001 |
 
 200 Ok returns a result with the following format
 
 Changes suggested with release-2.5.0:
 
-
-
-3.POST /org/v1/assign/key Enhancements to add keys to the org.
+3.POST /org/v1/assign/key Enhancements to add keys to the org.
 
 In 2.3, this can blindly add a set of keys to the org. In future, there will be validations added to ensure the keys are not shared by other orgs.
 
 Request
+
 ```js
 {
 	"orgId": "",  // The org to which the keys need to be added
@@ -527,17 +517,17 @@ Request
     "encKeys":["5"]
 }
 ```
+
 Response
 
-| Operation | HttpCode | Result | 
-|  --- |  --- |  --- | 
-| Success | 200 | None | 
-| Failure | 400 | None errmsg = "Invalid orgId", err = 1001 | 
+| Operation | HttpCode | Result                                    |
+| --------- | -------- | ----------------------------------------- |
+| Success   | 200      | None                                      |
+| Failure   | 400      | None errmsg = "Invalid orgId", err = 1001 |
 
 4.POST /user/v1/certs/downloadThis is to download the pdf data. This request must go to cert-service to get a signed URL to the pdf.
 
 Requestx-authentication-header is mandated.
-
 
 ```js
 {
@@ -548,19 +538,17 @@ Requestx-authentication-header is mandated.
      }
 }
 ```
+
 Response
 
-| Operation | HttpCode | Result | 
-|  --- |  --- |  --- | 
-| Success | 200 | response: {     signedPdfUrl: "" // Absolute PDF URL} | 
-| Failure | 404 | Not available | 
-
-
+| Operation | HttpCode | Result                                                |
+| --------- | -------- | ----------------------------------------------------- |
+| Success   | 200      | response: {     signedPdfUrl: "" // Absolute PDF URL} |
+| Failure   | 404      | Not available                                         |
 
 5.PATCH /private/user/v1/certs/mergeThis is to merge the user certificate data. If certificates with "fromAccountId" is exists then those details will be updated with "toAccountId".
 
 Requestx-authentication-header is mandated.
-
 
 ```js
 {
@@ -572,55 +560,49 @@ Requestx-authentication-header is mandated.
      }
 }
 ```
+
 Response
 
-| Operation | HttpCode | Result | 
-|  --- |  --- |  --- | 
-| Success | 200 | result: {     "status": "SUCCESS" } | 
-| Failure | 404 | Not available | 
-
-
-```
+| Operation | HttpCode | Result                              |
+| --------- | -------- | ----------------------------------- |
+| Success   | 200      | result: {     "status": "SUCCESS" } |
+| Failure   | 404      | Not available                       |
 
 ```
+```
 
-## Schema design
+### Schema design
+
 These schema changes will be implemented as part of regular schema update Jenkins job and will be preserved in [cassandra-migration repo](https://github.com/project-sunbird/sunbird-utils/tree/master/cassandra-migration).
 
+#### organisation
 
-### organisation
-New column 'keys' with map<String, Array> to capture the intended use of the keys and the key identifiers themselves. No validations are going to be made. It is up to the root org to manage its own keys. They may choose to use the same set of keys for both encryption and signing. This will be populated only for 'root-org', at least not in 2.3 for sub-org.
+New column 'keys' with map\<String, Array> to capture the intended use of the keys and the key identifiers themselves. No validations are going to be made. It is up to the root org to manage its own keys. They may choose to use the same set of keys for both encryption and signing. This will be populated only for 'root-org', at least not in 2.3 for sub-org.
 
- _Example_ :
+_Example_ :
 
 sign → 1, 2, 7, 8
 
-enc → 3, 4
+enc → 3, 4
 
 This translates to the following:
 
-1.  Use keys with id 1, 2, 7, 8 for signing certificates.
+1\.  Use keys with id 1, 2, 7, 8 for signing certificates.
 
-2.  Use keys 3, 4 for encrypting and storing values. This is not going to be used in SB currently, but would be of use when we pull in registry support.
+2\.  Use keys 3, 4 for encrypting and storing values. This is not going to be used in SB currently, but would be of use when we pull in registry support.
 
-user_cert
+user\_cert
 
-| userId (string) | Id (string) | store (map<string, string>) | accessCode (string) | createdAt | updatedAt | 
-|  --- |  --- |  --- |  --- |  --- |  --- | 
-| user id | Identifier/certificate id | json → Raw json data, pdf → link to storage pdf  | text beneath the QR code |  |  | 
+| userId (string) | Id (string)               | store (map\<string, string>)                     | accessCode (string)      | createdAt | updatedAt |
+| --------------- | ------------------------- | ------------------------------------------------ | ------------------------ | --------- | --------- |
+| user id         | Identifier/certificate id | json → Raw json data, pdf → link to storage pdf  | text beneath the QR code |           |           |
 
+#### FAQ
 
-### FAQ
+1.  Response message is this - "message": "/home/sunbird/conf/0125450863553740809\_certificatess/index.html (No such file or directory)"
 
-1. Response message is this - "message": "/home/sunbird/conf/0125450863553740809_certificatess/index.html (No such file or directory)"
+    _Likely that the zip file has a parent directory or that zip was created in some other way. Please refer to section "How to create a HTML template zip file" here._
 
-     _Likely that the zip file has a parent directory or that zip was created in some other way. Please refer to section "How to create a HTML template zip file" here._ 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

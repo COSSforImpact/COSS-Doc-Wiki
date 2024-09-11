@@ -1,68 +1,64 @@
+# Notification-service
 
-##   * [true](#true)
-  * [About](#about)
-  * [Design choices and constraints](#design-choices-and-constraints)
-  * [Architecture diagram](#architecture-diagram)
-  * [Release plan](#release-plan)
-    * [Existing endpoints and proposed](#existing-endpoints-and-proposed)
-  * [Payload schema](#payload-schema)
-    * [Send sms, OTP, email, notification](#send-sms,-otp,-email,-notification)
-  * [Example payloads](#example-payloads)
-    * [Broadcast email to 2 users using template - no personalisation](#broadcast-email-to-2-users-using-template---no-personalisation)
-    * [Send email to 2 users using template with personalisation](#send-email-to-2-users-using-template-with-personalisation)
-    * [Send SMS to 2 users](#send-sms-to-2-users)
-  * [Providers ](#providers )
-  * [Solution](#solution)
-    * [Implementation details](#implementation-details)
-  * [points:](#points:)
-  * [Source](#source)
-  * [References](#references)
- Document status: released/live - SB v2.3.5
+### \* [true](Notification-service.md#true)
 
-## About
-Sunbird Notification service is a micro-service, responsible for reaching out to the end-users. 
+* [About](Notification-service.md#about)
+* [Design choices and constraints](Notification-service.md#design-choices-and-constraints)
+* [Architecture diagram](Notification-service.md#architecture-diagram)
+* [Release plan](Notification-service.md#release-plan)
+  * [Existing endpoints and proposed](Notification-service.md#existing-endpoints-and-proposed)
+* [Payload schema](Notification-service.md#payload-schema)
+  * [Send sms, OTP, email, notification](Notification-service.md#send-sms,-otp,-email,-notification)
+* [Example payloads](Notification-service.md#example-payloads)
+  * [Broadcast email to 2 users using template - no personalisation](Notification-service.md#broadcast-email-to-2-users-using-template---no-personalisation)
+  * [Send email to 2 users using template with personalisation](Notification-service.md#send-email-to-2-users-using-template-with-personalisation)
+  * [Send SMS to 2 users](Notification-service.md#send-sms-to-2-users)
+* [Providers ](Notification-service.md#providers )
+* [Solution](Notification-service.md#solution)
+  * [Implementation details](Notification-service.md#implementation-details)
+* [points:](Notification-service.md#points:)
+* [Source](Notification-service.md#source)
+* [References](Notification-service.md#references)  Document status: released/live - SB v2.3.5
 
+### About
 
-## Design choices and constraints
+Sunbird Notification service is a micro-service, responsible for reaching out to the end-users.&#x20;
+
+### Design choices and constraints
 
 1. Sends notifications to specified users identified by phone number or email or device id/topic.
-1. Has NO understanding of the executing workflow or action involved.
-1. Only the structural integrity of the payload is verified. If invalid phone number/email is passed, the service will not validate; the end result will just be a failure.
-1. Sends a telemetry event upon successful completion of action (toggled via configuration).
-1. The URLs do not carry PII data (the payload does).
+2. Has NO understanding of the executing workflow or action involved.
+3. Only the structural integrity of the payload is verified. If invalid phone number/email is passed, the service will not validate; the end result will just be a failure.
+4. Sends a telemetry event upon successful completion of action (toggled via configuration).
+5.  The URLs do not carry PII data (the payload does).
 
-     _The following are to be considered as known limitations for v1 of the notification _  _(coming out in SB 2.4)._ 
-1. The API operation is generally asynchronous in nature. If the callers want to know status, there is no way through the notification-service. The same API turns into synchronous, for the OTP message type.
+    \_The following are to be considered as known limitations for v1 of the notification \_ _(coming out in SB 2.4)._
+6. The API operation is generally asynchronous in nature. If the callers want to know status, there is no way through the notification-service. The same API turns into synchronous, for the OTP message type.
 
+### Architecture diagram
 
-## Architecture diagram
-![](images/storage/Notification_service.png)
+![](images/storage/Notification\_service.png)
 
+### Release plan
 
-## Release plan
+| Notification-service version | Sunbird version | Payload                                                                                                                          |
+| ---------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0.0                        | 2.4.0           | Google firebase communications enabled for device token based notification (targeted)                                            |
+|                              |                 | _TODO_ items - Consolidation of code (from learner-service) to allow sms, email, topic (broadcast)  - Handle failures on retries |
 
+#### Existing endpoints and proposed
 
-| Notification-service version | Sunbird version | Payload | 
-|  --- |  --- |  --- | 
-| 1.0.0 | 2.4.0 | Google firebase communications enabled for device token based notification (targeted)  | 
-|  |  |  _TODO_  items  - Consolidation of code (from learner-service) to allow sms, email, topic (broadcast)  - Handle failures on retries | 
+| Existing                           | Proposed                      | Comments                             |
+| ---------------------------------- | ----------------------------- | ------------------------------------ |
+| /v1/notification/send              | /v1/notification/send         |                                      |
+| /v1/notification/email             | /v1/notification/send         |                                      |
+| /v1/notification/email (with mode) | /v1/notification/send         |                                      |
+| /v1/otp/generate                   | /v1/notification/otp/generate | Accepts email, phone and sends both. |
+| /v1/otp/verify                     | /v1/notification/otp/verify   |                                      |
 
+### Payload schema
 
-### Existing endpoints and proposed
-
-
-| Existing | Proposed | Comments | 
-|  --- |  --- |  --- | 
-| /v1/notification/send | /v1/notification/send |  | 
-| /v1/notification/email | /v1/notification/send |  | 
-| /v1/notification/email (with mode) | /v1/notification/send |  | 
-| /v1/otp/generate | /v1/notification/otp/generate | Accepts email, phone and sends both. | 
-| /v1/otp/verify | /v1/notification/otp/verify |  | 
-
-
-## Payload schema
-
-### Send sms, OTP, email, notification
+#### Send sms, OTP, email, notification
 
 ```js
 {
@@ -118,7 +114,9 @@ Sunbird Notification service is a micro-service, responsible for reaching out to
      }
 }
 ```
+
 OTP verification
+
 ```js
 {
     "id": "notification.message.verify",
@@ -137,9 +135,9 @@ OTP verification
 
 ```
 
-## Example payloads
+### Example payloads
 
-### Broadcast email to 2 users using template - no personalisation
+#### Broadcast email to 2 users using template - no personalisation
 
 ```js
 {
@@ -179,7 +177,7 @@ Data push to kafka:
 
 ```
 
-### Send email to 2 users using template with personalisation
+#### Send email to 2 users using template with personalisation
 
 ```js
 {
@@ -237,7 +235,7 @@ Data inside Kafka :
 
 ```
 
-### Send SMS to 2 users
+#### Send SMS to 2 users
 
 ```js
 {
@@ -269,15 +267,12 @@ Data inside Kafka :
 }
 ```
 
-
- **Broadcast notifications to all users:**  **Bulk-Topic-Notification-Api (/notification/v1/device/broadcast) : ** 
-
+**Broadcast notifications to all users:** \*\*Bulk-Topic-Notification-Api (/notification/v1/device/broadcast) : \*\*
 
 * This api helps in broadcasting the notifications to multiple device id's based on the topic name.
 * The request is an array of different topics
 
 Request format :
-
 
 ```js
 {
@@ -325,9 +320,8 @@ Request format :
 ```
 
 * From the request notification array picks each notification topic and it is validated, i.e, topic is present in the system
-* Produces a kafka-message for topic name "__env__.lms.notification" in async mode for each topic
+* Produces a kafka-message for topic name "**env**.lms.notification" in async mode for each topic
 * Kafka topic format :
-
 
 ```js
 {
@@ -374,16 +368,14 @@ Request format :
 * For the samza job for each kafka-topic message, api call will be triggered to FCM.
 * FCM process the notifications related device id's of the topic in async way.
 
- **Send notifications to selective users - Targeted audience:**  **System JIRA2207a759-5bc8-39c5-9cd2-aa9ccc1f65ddSB-10685** 
+**Send notifications to selective users - Targeted audience:** **System JIRA2207a759-5bc8-39c5-9cd2-aa9ccc1f65ddSB-10685**
 
- **Device-Token-Notification-Api (/notification/v1/device) : ** 
+\*\*Device-Token-Notification-Api (/notification/v1/device) : \*\*
 
-
-* This Api push notifications to the selected user devices. 
+* This Api push notifications to the selected user devices.&#x20;
 * The Request contains array of user device tokens.
 
 Request format :
-
 
 ```js
 {
@@ -410,9 +402,8 @@ Request format :
 }
 ```
 
-* Picks each notification event from ids array and produces a message to kafka-topic "__env__.lms.notification" in async mode.
+* Picks each notification event from ids array and produces a message to kafka-topic "**env**.lms.notification" in async mode.
 * Kafka Topic format:
-
 
 ```js
 {
@@ -454,43 +445,37 @@ Request format :
 * FCM process the notification related device id of each message in async way.
 * Response from the FCM will be shared later
 
+### Providers&#x20;
 
-## Providers 
+| What    | Who                                                                                                                                                       | Pros/Cons                                                                                          | Current Plan of subscription | Comments                                                                                                                                                                                      |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Device  | FCM [(Google Firebase Cloud Messaging)](https://firebase.google.com/docs/cloud-messaging/?gclid=EAIaIQobChMItbmy-sGJ4wIVTouPCh27Hg6PEAAYASAAEgK9bvD\_BwE) | Can target single devices, to groups of devices, or to devices subscribed to topics.               | TBD - Devops                 | We use it against only topics.                                                                                                                                                                |
+| Email   | SendGrid (Twilio [SendGrid](https://sendgrid.com))                                                                                                        | Template based emails                                                                              | TBD - Devops                 |                                                                                                                                                                                               |
+| SMS/OTP | Msg91 (Walkover [msg91](https://msg91.com/))                                                                                                              | Send message (SMS) Send, Verify OTP Send OTP in email, Verify absent - expects valid phone always. | TBD - Devops                 | We use only messaging service and generate OTP, verify OTP ourselves. This means we are not using this provider for its capabilities.OTP delivered in email cant be verified without a phone. |
 
+### Solution
 
-| What | Who | Pros/Cons | Current Plan of subscription | Comments | 
-|  --- |  --- |  --- |  --- |  --- | 
-| Device | FCM [(Google Firebase Cloud Messaging)](https://firebase.google.com/docs/cloud-messaging/?gclid=EAIaIQobChMItbmy-sGJ4wIVTouPCh27Hg6PEAAYASAAEgK9bvD_BwE) | Can target single devices, to groups of devices, or to devices subscribed to topics. | TBD - Devops | We use it against only topics.<TBD> | 
-| Email | SendGrid (Twilio [SendGrid](https://sendgrid.com))  | Template based emails <TBD to fill in> | TBD - Devops |  | 
-| SMS/OTP | Msg91 (Walkover [msg91](https://msg91.com/)) | Send message (SMS) Send, Verify OTP Send OTP in email, Verify absent - expects valid phone always. | TBD - Devops | We use only messaging service and generate OTP, verify OTP ourselves. This means we are not using this provider for its capabilities.OTP delivered in email cant be verified without a phone. | 
+#### Implementation details
 
-
-## Solution
-
-### Implementation details
 Release 2.4
 
+### points:
 
-## points:
- For sending OTP with Msg91 we found following points:
+&#x20;For sending OTP with Msg91 we found following points:
 
-
-* sender: It will always be 6 character. if caller is providing in request they need to make sure it should be 6 character. If caller is not providing this value then  it will be picked form ENV/properties file. env attribute "sunbird_notification_msg_default_sender".
-* lenght : minium supported length is 4 and  max length is 6. Default is set in system as 4 that can be overrid either in api call by passing length attribute or using env "sunbird_notification_otp_length"
+* sender: It will always be 6 character. if caller is providing in request they need to make sure it should be 6 character. If caller is not providing this value then  it will be picked form ENV/properties file. env attribute "sunbird\_notification\_msg\_default\_sender".
+* lenght : minium supported length is 4 and  max length is 6. Default is set in system as 4 that can be overrid either in api call by passing length attribute or using env "sunbird\_notification\_otp\_length"
 * expiryInMinute : this will come as minute only.
-* message (template.data) :  in case of OTP user is passing message then it should be in "your message ##OTP##" in this format. it must contains ##OTP## in message body. Default message can be set using env : "sunbird_notification_otp_default_message"
-*  For sending OTP assuming request.notifications\[0].Ids attribute will have only one phone number without country code. Country code will be default added by system as 91, it can be override using env: sunbird_notification_default_country_code
-* For sending SMS or push at a time request can have 1000 ids. 
-* Notification object will be broken down as follow 
-*  case "ids > 100" : in that case notification object will be splited into batch of 100 and push to kafka topic. Samza job will read one event and call notification-sdk to send notification
+* message (template.data) :  in case of OTP user is passing message then it should be in "your message ##OTP##" in this format. it must contains ##OTP## in message body. Default message can be set using env : "sunbird\_notification\_otp\_default\_message"
+* &#x20;For sending OTP assuming request.notifications\[0].Ids attribute will have only one phone number without country code. Country code will be default added by system as 91, it can be override using env: sunbird\_notification\_default\_country\_code
+* For sending SMS or push at a time request can have 1000 ids.&#x20;
+* Notification object will be broken down as follow&#x20;
+* &#x20;case "ids > 100" : in that case notification object will be splited into batch of 100 and push to kafka topic. Samza job will read one event and call notification-sdk to send notification
 * case "ids <=100" : in that case same notification object will be written to kafka and handle by samza job.
-* By default all notification execpt OTP generate and verify will be Async call. 
-* for sending sync notification user this end point  **/v1/notification/send/sync** 
+* By default all notification execpt OTP generate and verify will be Async call.&#x20;
+* for sending sync notification user this end point  **/v1/notification/send/sync**
 
-
-
-Release 2.5Implemented Re-Try mechanism in notification samza job:
-
+Release 2.5Implemented Re-Try mechanism in notification samza job:
 
 * Samza job reads one message from kafka and process it for sending as notification, as of now we didn't supported retry the notification when it fails to send
 * Now retry mechanism is added. Kafka notification-message contains iteration field, default value will be 1.
@@ -499,22 +484,14 @@ Release 2.5Implemented Re-Try mechanism in notification samza job:
 * Retry's will be performed with the number of configured attempts, if still the notification message is failed to sent then the notification is sub-merged as of now.
 * Not pushing to failed kafka topic when notification is completely failed to sent in all attempts.
 
+### Source
 
-## Source
-[https://github.com/project-sunbird/sunbird-notification-service](https://github.com/project-sunbird/sunbird-notification-service) → Play based notification micro-service.
+[https://github.com/project-sunbird/sunbird-notification-service](https://github.com/project-sunbird/sunbird-notification-service) → Play based notification micro-service.
 
+### References
 
-## References
+1. Do not use PII data in URLs - Google source in the context of AdSense - [https://support.google.com/adsense/answer/6156630?hl=en](https://support.google.com/adsense/answer/6156630?hl=en)
 
-1. Do not use PII data in URLs - Google source in the context of AdSense - [https://support.google.com/adsense/answer/6156630?hl=en](https://support.google.com/adsense/answer/6156630?hl=en)
+***
 
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,15 +1,16 @@
- **Github Discussion link:** 
+# Event-Capture-using-Apache-Flink-for-PII
 
-[https://github.com/Sunbird-Lern/Community/discussions/58#discussioncomment-4817602](https://github.com/Sunbird-Lern/Community/discussions/58#discussioncomment-4817602)This would contain the flow, structure and the pseduo code for the Flink Job that would be deployed within the Kubernetes cluster. 
+**Github Discussion link:**
+
+[https://github.com/Sunbird-Lern/Community/discussions/58#discussioncomment-4817602](https://github.com/Sunbird-Lern/Community/discussions/58#discussioncomment-4817602)This would contain the flow, structure and the pseduo code for the Flink Job that would be deployed within the Kubernetes cluster.
 
 ![](images/storage/flink.drawio.png)
 
- **Schema of the Kafka Topic:** 
+**Schema of the Kafka Topic:**
 
- **Kafka Topic Name** : {{envName}}.ml.programUsers.raw
+**Kafka Topic Name** : \{{envName\}}.ml.programUsers.raw
 
- **Structure :-** 
-
+**Structure :-**
 
 ```
 {
@@ -37,8 +38,8 @@
       deleted:Boolean
 }
 ```
- **Sample JSON Data :-** 
 
+**Sample JSON Data :-**
 
 ```json
 {
@@ -131,43 +132,35 @@
     "__v" : 0
 }
 ```
+
 noteOnly the New programs rolled out after the Join program feature is enabled on the production, those data will flow into the kafka events, old program before the roll out will not be pushed into the events.
 
 Only the New programs rolled out after the Join program feature is enabled on the production, those data will flow into the kafka events, old program before the roll out will not be pushed into the events.
 
+### ML Data-pipeline Real-time Streaming :- Logic -
 
-## ML Data-pipeline Real-time Streaming :-  Logic -
-
-1. Consume the events from the Kafka topic using **Apache Flink** to perform the real-time streaming. This would be done using the  **PyFlink**  library.
-
+1. Consume the events from the Kafka topic using **Apache Flink** to perform the real-time streaming. This would be done using the **PyFlink** library.
 
 ```py
 pip install apache-flink
 ```
 
-1. The [ **Datastream API** ](https://nightlies.apache.org/flink/flink-docs-master/api/python/reference/pyflink.datastream/connectors.html#kafka) would be used to capture the streaing data from the Kafka Producer. This would require a Stream Environment to be created.
-
+1. The [**Datastream API** ](https://nightlies.apache.org/flink/flink-docs-master/api/python/reference/pyflink.datastream/connectors.html#kafka)would be used to capture the streaing data from the Kafka Producer. This would require a Stream Environment to be created.
 
 ```py
 from pyflink.datastream import StreamExecutionEnvironment
 env = StreamExecutionEnvironment.get_execution_environment()
 ```
-Once done, we have to define the column names, kafka topic name and the datatype using the FlinkKafkaConsumer class. [ _Reference docs_ ](https://nightlies.apache.org/flink/flink-docs-release-1.15/api/python/reference/pyflink.datastream/api/pyflink.datastream.connectors.FlinkKafkaConsumer.html#pyflink.datastream.connectors.FlinkKafkaConsumer).
 
+Once done, we have to define the column names, kafka topic name and the datatype using the FlinkKafkaConsumer class. [_Reference docs_ ](https://nightlies.apache.org/flink/flink-docs-release-1.15/api/python/reference/pyflink.datastream/api/pyflink.datastream.connectors.FlinkKafkaConsumer.html#pyflink.datastream.connectors.FlinkKafkaConsumer).
 
-1. Post that we would Pre-Process/Transform/Manipulate the data which to assign column names, data types and values prior to storing the data in the Cassandra Table.
+1.  Post that we would Pre-Process/Transform/Manipulate the data which to assign column names, data types and values prior to storing the data in the Cassandra Table.
 
-     **_Logical Execution_** :
+    _**Logical Execution**_ :
 
-
-    1. After the stream environment is created - connect to the Kafka topic mentioned above with the Kafka connector. 
-
-
-    1. Initiate the Datastream API with the data type and if required any pre-conceived aggregrate function- here are aren’t using an aggregation. 
-
-
-    1. Once done, the following key-value pairs needs to be extracted ( _shown with their data-type_ ):
-
+    1. After the stream environment is created - connect to the Kafka topic mentioned above with the Kafka connector.
+    2. Initiate the Datastream API with the data type and if required any pre-conceived aggregrate function- here are aren’t using an aggregation.
+    3. Once done, the following key-value pairs needs to be extracted ( _shown with their data-type_ ):
 
 ```
 program_id text,
@@ -198,23 +191,17 @@ created_at Date,
 updated_at Date
 ```
 
+1. Once the value is extracted for the respective event - we would need to connect to the Cassandra table using the [**Cassandra Connector in Apache Flink** ](https://nightlies.apache.org/flink/flink-docs-master/api/python/reference/pyflink.datastream/api/pyflink.datastream.connectors.cassandra.CassandraSink.html?highlight=cassandrasink#pyflink.datastream.connectors.cassandra.CassandraSink)and push the data using the add\_sink method from the class CassandraSink.
+2. Finally, this entire setup needs to be setup as a job to be run in a Kubernetes cluster. For which, [**Apache Flink provides with a CLI interface** ](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/deployment/cli/#submitting-pyflink-jobs)that can be created with to run a PyFlink job.
 
-    
-1. Once the value is extracted for the respective event - we would need to connect to the Cassandra table using the [ **Cassandra Connector in Apache Flink** ](https://nightlies.apache.org/flink/flink-docs-master/api/python/reference/pyflink.datastream/api/pyflink.datastream.connectors.cassandra.CassandraSink.html?highlight=cassandrasink#pyflink.datastream.connectors.cassandra.CassandraSink) and push the data using the add_sink method from the class CassandraSink. 
+#### ER diagram :-
 
+![](<images/storage/Cassandra Schema ER Diagram.drawio (1).drawio (1).drawio (1).png>)
 
-1. Finally, this entire setup needs to be setup as a job to be run in a Kubernetes cluster. For which, [ **Apache Flink provides with a CLI interface** ](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/deployment/cli/#submitting-pyflink-jobs) that can be created with to run a PyFlink job. 
+#### Cassandra DB Schema :-
 
+*
 
-
-
-### ER diagram :-
-![](images/storage/Cassandra%20Schema%20ER%20Diagram.drawio%20(1).drawio%20(1).drawio%20(1).png)
-
-
-### Cassandra DB Schema :-
-
-* 
 ```
 CREATE KEYSPACE IF NOT EXISTS sunbird_programs WITH replication = {
     'class': 'SimpleStrategy',
@@ -222,8 +209,7 @@ CREATE KEYSPACE IF NOT EXISTS sunbird_programs WITH replication = {
  };
 ```
 
-*  **User Program Table Schema**  :-
-
+* **User Program Table Schema** :-
 
 ```
 CREATE TABLE IF NOT EXISTS sunbird_programs.program_enrollment (
@@ -270,74 +256,42 @@ CREATE TABLE IF NOT EXISTS sunbird_programs.program_enrollment (
     AND speculative_retry = '99PERCENTILE';
 ```
 
-
-
-
 Each steps starting from connecting to the Stream Service to Uploading the file in CassandraDB will be logged. Additionally, Apache Flink allows storing of information about completed checkpoints within a separate table in a cassandra database using the CassandraCommitter class.
 
- **_Exception Handling_** :
-
+_**Exception Handling**_ :
 
 * Exceptions related to Kafka events → userProfile key missing
-
-
 * Exceptions related to Cassandra DB → if pushing to DB fails
 
+_**Structure and Repository Understanding:**_
 
+* Initially, a new module named ml-jobs needs to be created on this [Github Repository](https://github.com/Sunbird-Lern/data-pipeline/tree/release-5.1.0) with the help of the [PyBuilder](https://pybuilder.io/) library that will create the structure - containing the main and the test folder.
+* The containing folder will contain a local config.ini file - that can be accessed and run by other developers.
+* The environment specific variables & values would be kept in [this folder.](https://github.com/Sunbird-Lern/data-pipeline/blob/release-5.1.0/kubernetes/helm\_charts/datapipeline\_jobs/values.j2) Structured as shown in the link.
+* To wrap the flink job inside a Kubernetes cluster for deployment the job needs to be in this path: kubernetes/helm\_charts/datapipeline\_jobs - this would be in the YAML language.
 
- **_Structure and Repository Understanding:_** 
+**Coding Flow:**
 
-
-* Initially, a new module named ml-jobs needs to be created on this [Github Repository](https://github.com/Sunbird-Lern/data-pipeline/tree/release-5.1.0) with the help of the [PyBuilder](https://pybuilder.io/) library that will create the structure - containing the main and the test folder. 
-
-
-* The containing folder will contain a local config.ini file - that can be accessed and run by other developers. 
-
-
-* The environment specific variables & values would be kept in [this folder.](https://github.com/Sunbird-Lern/data-pipeline/blob/release-5.1.0/kubernetes/helm_charts/datapipeline_jobs/values.j2) Structured as shown in the link.
-
-
-* To wrap the flink job inside a Kubernetes cluster for deployment the job needs to be in this path: kubernetes/helm_charts/datapipeline_jobs - this would be in the YAML language. 
-
-
-
- **Coding Flow:** 
-
-
-* After completing the flow from the  **_Logical Execution_**  part we can move to the local testing.
-
-
-* For local testing - Kafka producer needs to be set-up in the localhost. Allowing to stream one single event at a time. 
-
-
+* After completing the flow from the _**Logical Execution**_ part we can move to the local testing.
+* For local testing - Kafka producer needs to be set-up in the localhost. Allowing to stream one single event at a time.
 * Post the setup of Kafka - to execute the Flink run using PyFlink we would need to setup Flink job run locally following this [documention for development](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/flinkdev/building/#build-pyflink).
-
-
 * Once done, we can execute the code run using the point state above on how to run Apache Flink using a CLI interface.
 
-
-```text
+```
 ./bin/flink run --python path/of/the/file/python_file.py
 ```
 
-* Once the testing is done ( **_note this is for the main section_** ) - we would need to write the possible test cases ( **_note this is for the unittest section_** ) using the PyTest library which would cover 80% of the code run - which means that it would be capable of handling unique scenarios and their expected outcome based on the written test cases. 
+* Once the testing is done ( _**note this is for the main section**_ ) - we would need to write the possible test cases ( _**note this is for the unittest section**_ ) using the PyTest library which would cover 80% of the code run - which means that it would be capable of handling unique scenarios and their expected outcome based on the written test cases.
+* Post completing both the - **main** and **unittest** , this needs to re-tested as Flink job locally to confirm the job runs fine along with various different Kafka event types/
+* Once the tests for the above sections are completed - the code needs to be customised to run in a develpment environment with possible provate variables and other configuration inputs.
 
+## Deployment in Kubernetes
 
-* Post completing both the -  **main**  and  **unittest** , this needs to re-tested as Flink job locally to confirm the  job runs fine along with various different Kafka event types/ 
+### Local Setup
 
-
-* Once the tests for the above sections are completed - the code needs to be customised to run in a develpment environment with possible provate variables and other configuration inputs. 
-
-
-
-
-# Deployment in Kubernetes 
-
-## Local Setup
-To run the code in a Kubernetes cluster in your local environment. You’ll need to download [Minikube](https://minikube.sigs.k8s.io/docs/start/) which allows you to initate a K8s cluster locally. 
+To run the code in a Kubernetes cluster in your local environment. You’ll need to download [Minikube](https://minikube.sigs.k8s.io/docs/start/) which allows you to initate a K8s cluster locally.
 
 As you execute the code it will create a .jar file. In you r terminal, you will need to push the .jar file after initiating the Minikube instance with:
-
 
 ```bash
 ./bin/flink run \
@@ -345,12 +299,12 @@ As you execute the code it will create a .jar file. In you r terminal, you will 
     -Dkubernetes.cluster-id=my-first-flink-cluster \
     ./examples/streaming/PII_program_data.jar
 ```
-You can read more about this in the official documentation: [https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/deployment/resource-providers/native_kubernetes/](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/deployment/resource-providers/native_kubernetes/)
 
+You can read more about this in the official documentation: [https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/deployment/resource-providers/native\_kubernetes/](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/deployment/resource-providers/native\_kubernetes/)
 
-## Server Setup
+### Server Setup
 
-### The Folder Structure of Scala
+#### The Folder Structure of Scala
 
 ```none
 ml-jobs
@@ -365,9 +319,9 @@ ml-jobs
     |____ pom.xml
 ```
 
-### pii-program-data.conf
-This above configuration file will contain the configuration of the Sunbird Dev-environment. Below is a configuration where a kafka topic is producing and consuming data. The conf file would look something like this:
+#### pii-program-data.conf
 
+This above configuration file will contain the configuration of the Sunbird Dev-environment. Below is a configuration where a kafka topic is producing and consuming data. The conf file would look something like this:
 
 ```none
 include "base-config.conf"
@@ -395,14 +349,14 @@ lms-cassandra {
  user_enrolments.table = "user_enrolments"
 }
 ```
+
 Sunbird has a pre-created base-config.conf which can be pulled as a base configuration and on top of that the required stacks can be added provided with the necessary and required information
 
-Once these changes are updated in the Scala code. We will navigate the Kubernetes folder. 
+Once these changes are updated in the Scala code. We will navigate the Kubernetes folder.&#x20;
 
+#### values.j2: helm\_charts/datapipeline\_jobs
 
-### values.j2: helm_charts/datapipeline_jobs
 The above configuration values when moved through the environment are done using the values.j2 file. We will need to add the pii-program job in the values.j2 file - similar to this:
-
 
 ```
 activity-aggregate-updater:
@@ -436,9 +390,9 @@ activity-aggregate-updater:
    }
 ```
 
-### main.yml: ansible/flink-jobs-deploy
-Now to add separate configuration values in the main.yml depending on the variable values we will add additional key-value pairs in the main.yml file. 
+#### main.yml: ansible/flink-jobs-deploy
 
+Now to add separate configuration values in the main.yml depending on the variable values we will add additional key-value pairs in the main.yml file.&#x20;
 
 ```
 activity_agg_consumer_parallelism: 1
@@ -460,13 +414,11 @@ activity_input_dedup_enabled: true
 activity_agg_enrolment_filter_processe_enabled: true
 activity_agg_collection_status_cache_expiry_time: 3600
 ```
+
 These variables reference a few hidden values from the values.j2 file.
 
 Sunbird uses these details to create an image prior to deployment which contains in the kubernetes/pipeline path - this information on how this is done is yet to be relayed to us.
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

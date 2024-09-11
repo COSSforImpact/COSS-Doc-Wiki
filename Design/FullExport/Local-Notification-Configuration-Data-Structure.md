@@ -1,21 +1,18 @@
+# Local-Notification-Configuration-Data-Structure
 
-## Overview
+### Overview
+
 Local notification purpose is to notify users to sue the mobile app for better learning experience.
 
-Here user will get notification on timely basis, and the notification will be purely locally generated. For this, when the user installs the application and run it for the first time,  based on certain  configurations a notification event will be set on a particular date\* and time\*, which will be triggered at specified time with some message\*.
+Here user will get notification on timely basis, and the notification will be purely locally generated. For this, when the user installs the application and run it for the first time,  based on certain  configurations a notification event will be set on a particular date\* and time\*, which will be triggered at specified time with some message\*.
 
+### Proposed Design
 
-
-
-## Proposed Design
 We're proposing the data structure for configuring the local notification.
-
-
 
 Solution 1:A notification will be triggered on every Tuesday at 7:30 PM (19:30) from the next coming Tuesday onwards.
 
 And will be repeated 4 time only, after which there won't be any notification.
-
 
 ```
 [
@@ -39,13 +36,11 @@ And will be repeated 4 time only, after which there won't be any notification.
 }
 ```
 
-
- **B)** 
+**B)**
 
 A notification will be triggered on every day at an interval of 5 days at 10:00 AM (10:00).
 
 And will be occurring for next 6 weeks, after which notification will stop.
-
 
 ```
 {
@@ -59,54 +54,38 @@ And will be occurring for next 6 weeks, after which notification will stop.
 }
 ```
 
+| Property  | type   | Value (Example) | Description                                                                   |
+| --------- | ------ | --------------- | ----------------------------------------------------------------------------- |
+| time      | string | 20:15           | time in 24 hours                                                              |
+| day       | string | "Tuesday"       | any day of week \["Monday", "Tuesday"... "Sunday"]Note: either of day or date |
+| date      | int    | 14              | date of the month \[1-31]Note: either of day or date                          |
+| repeat    | string | monthly         | repeat pattern                                                                |
+|           | string | weekly          |                                                                               |
+|           | string | yearly          |                                                                               |
+|           | string | daily           |                                                                               |
+| title     | string |                 | Tittle for notification                                                       |
+| msg       | string |                 | Description of notification                                                   |
+| endRepeat | object |                 | object with some properties                                                   |
 
+For repeat object:
 
+| Property    | type | Value (Example) | Description                                                                                                      |
+| ----------- | ---- | --------------- | ---------------------------------------------------------------------------------------------------------------- |
+| months      | int  | 4               | after N number of months should stop notificationNote: if given then day should be a date of a month,example: 20 |
+| weeks       | int  | 5               | after N number of weeks should stop notificationNote: if given then day should be in weekday,example: "Tuesday"  |
+| days        | int  | 3               | after N number of days should stop notificationNote: if given then day and repeat should not be provided         |
+| repeatCount | int  | 10              | should be repeated for N number of times only                                                                    |
 
-| Property | type | Value (Example) | Description | 
-|  --- |  --- |  --- |  --- | 
-| time | string | 20:15 | time in 24 hours | 
-| day | string | "Tuesday" | any day of week \["Monday", "Tuesday"... "Sunday"]Note: either of day or date | 
-| date | int | 14 | date of the month \[1-31]Note: either of day or date | 
-| repeat | string | monthly | repeat pattern | 
-|  | string | weekly | 
-|  | string | yearly | 
-|  | string | daily | 
-| title | string |  | Tittle for notification | 
-| msg | string |  | Description of notification | 
-| endRepeat | object |  | object with some properties | 
+### Pros and Cons
 
+| Solution | Pros                                                                                                 | Cons                                                                                                                                           |
+| -------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1        | Simple logic not too many conditions for calculating date.                                           | While setting passing the values we've to calculate the number of occurrences based on when and how long we want to continue the notification. |
+| 2        | Has just have to pass the values it'll automatically calculate the occurrences and stop if required. | Logic will be complex and have to take care of each every value which needs to be passed.                                                      |
 
+### Using In App Notification Payload
 
-For repeat object:
-
-
-
-| Property | type | Value (Example) | Description | 
-|  --- |  --- |  --- |  --- | 
-| months | int | 4 | after N number of months should stop notificationNote: if given then day should be a date of a month,example: 20 | 
-| weeks | int | 5 | after N number of weeks should stop notificationNote: if given then day should be in weekday,example: "Tuesday" | 
-| days | int | 3 | after N number of days should stop notificationNote: if given then day and repeat should not be provided | 
-| repeatCount | int | 10 | should be repeated for N number of times only | 
-
-
-
-
-## Pros and Cons
-
-
-
-
-| Solution | Pros | Cons | 
-|  --- |  --- |  --- | 
-| 1 | Simple logic not too many conditions for calculating date. | While setting passing the values we've to calculate the number of occurrences based on when and how long we want to continue the notification. | 
-| 2 | Has just have to pass the values it'll automatically calculate the occurrences and stop if required. | Logic will be complex and have to take care of each every value which needs to be passed. | 
-
-
-
-
-## Using In App Notification Payload
 After the discussion, we'll be using the same payload structure as described in [In App Notification](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/780894209/In+app+notifications?atlOrigin=eyJpIjoiZDE0YTIzOTc0YmQ2NDJjMDk0YzZhYjUyMWQ1Nzc0MTQiLCJwIjoiYyJ9).
-
 
 ```
 {
@@ -129,40 +108,30 @@ After the discussion, we'll be using the same payload structure as described in 
 }
 ```
 
+| Property | type     | Value (Example)                                                                                                                                                                   | Description                                                                                                                  |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| id       | int      |                                                                                                                                                                                   | id of the notification will be integer, which will be unique                                                                 |
+| type     | enum     |                                                                                                                                                                                   | Notification type will be integer - Their can different notification types, like DOWNTIME, GREETINGS, NON-DISPLAY and OTHERS |
+| data     | obj      | translations                                                                                                                                                                      | Object specifying the language, Example en                                                                                   |
+| obj      | interval | Interval specifies the time interval difference between 2 notification. Example, for weekly once on a specific weekdayEx: "interval": "weekday"  should go with 2 format of start |                                                                                                                              |
+| obj      | start    | Date and time from when the notification will be triggered for the first time.                                                                                                    |                                                                                                                              |
 
-
-
-| Property | type | Value (Example) | Description | 
-|  --- |  --- |  --- |  --- | 
-| id | int |  | id of the notification will be integer, which will be unique | 
-| type | enum |  | Notification type will be integer - Their can different notification types, like DOWNTIME, GREETINGS, NON-DISPLAY and OTHERS | 
-| data | obj | translations | Object specifying the language, Example en | 
-| obj | interval | Interval specifies the time interval difference between 2 notification. Example, for weekly once on a specific weekdayEx: "interval": "weekday"  should go with 2 format of start | 
-| obj | start | Date and time from when the notification will be triggered for the first time.  
 1. Format "2019/05/14 12:00"
-1. "4 19:00" \[days 1-7, i.e Monday(1), ... Sunday(7)]
+2. "4 19:00" \[days 1-7, i.e Monday(1), ... Sunday(7)]
 
- | 
-| obj | occurrence | Number of times the notification should be triggered, if null then notification will be shown infinite times on the specified date and time or weekday | 
+\| | obj | occurrence | Number of times the notification should be triggered, if null then notification will be shown infinite times on the specified date and time or weekday |
 
 Translations object contains object with these properties with key specifying language code
 
+| Property | type | Value (Example) | Description                                   |
+| -------- | ---- | --------------- | --------------------------------------------- |
+| en       | obj  | title           | Title of notification, should be string       |
+|          | obj  | msg             | Description of notification, should be string |
+| hi       | obj  | title           | Title of notification, should be string       |
+|          | obj  | msg             | Description of notification, should be string |
+| default  | obj  | title           | Title in any default language                 |
+|          | obj  | msg             | Message in any default language               |
 
+***
 
-| Property | type | Value (Example) | Description | 
-|  --- |  --- |  --- |  --- | 
-| en | obj | title | Title of notification, should be string | 
-|  | obj | msg | Description of notification, should be string | 
-| hi | obj | title | Title of notification, should be string | 
-|  | obj | msg | Description of notification, should be string | 
-| default | obj | title | Title in any default language | 
-|  | obj | msg | Message in any default language | 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,20 +1,16 @@
+# Migration-from-QUML-0.5-to-QUML-1.0-version
 
+### Requirement
 
-
-## Requirement
 Old 'PracticeQuestionSet' contents created on the platform do not show print options in the application. Such 'PracticeQuestionSet' are to be modified to show print options.
 
+### Solution
 
-## Solution
-To achieve this, Questions should be updated in QUML version 1.0 format which contains property such as  **_editorstate_**  and  **_responseDeclaration_**   **_Itemsets_**  has to be created from updated  **_questions_**  and linked to  **_content_**  if the content is live it has to  **_publish_**  again
+To achieve this, Questions should be updated in QUML version 1.0 format which contains property such as  _**editorstate**_  and  _**responseDeclaration**_   _**Itemsets**_  has to be created from updated  _**questions**_  and linked to  _**content**_  if the content is live it has to  _**publish**_  again
 
+### Migration Steps
 
-## Migration Steps
-
-
-
-*  **Step 1** : Get the content which doesn't have itemset property using composite search
-
+* **Step 1** : Get the content which doesn't have itemset property using composite search
 
 ```json
   EndPoint: /composite/v3/search
@@ -36,24 +32,21 @@ To achieve this, Questions should be updated in QUML version 1.0 format which co
 
 ```
 
-*  **Step 2** : Get the question from content
+* **Step 2** : Get the question from content
 
-
-```text
+```
   EndPoint: /assessment/v3/items/read
 
 ```
 
-*  **Step 3** : update the structure as per QUML version 1.0 which is to add editorState and responseDeclaration and update the question
-
+* **Step 3** : update the structure as per QUML version 1.0 which is to add editorState and responseDeclaration and update the question
 
 ```
   EndPoint: /assessment/v3/items/update/
 
 ```
 
-*  **Step 4** : Create the itemset using items/Questions
-
+* **Step 4** : Create the itemset using items/Questions
 
 ```
   EndPoint: /itemset/v3/create
@@ -73,8 +66,7 @@ To achieve this, Questions should be updated in QUML version 1.0 format which co
 
 ```
 
-*  **Step 5** : update content with itemset
-
+* **Step 5** : update content with itemset
 
 ```
  	Endpoint: /content/v3/update/
@@ -96,7 +88,6 @@ To achieve this, Questions should be updated in QUML version 1.0 format which co
 
 * Step 6: Publish content if status of content is live
 
-
 ```json
   	EndPoint: /content/v3/publish/
   	requestParameters:
@@ -110,10 +101,6 @@ To achieve this, Questions should be updated in QUML version 1.0 format which co
         }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

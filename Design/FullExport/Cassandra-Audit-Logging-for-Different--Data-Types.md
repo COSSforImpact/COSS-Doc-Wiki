@@ -1,7 +1,8 @@
+# Cassandra-Audit-Logging-for-Different--Data-Types
+
 The purpose of this document is to test Cassandra Trigger and ecAudit logging with different data types to evaluate their support.
 
 Table schema on which we have performed operations.
-
 
 ```
 CREATE TABLE practice.trigger_audit_log (
@@ -30,8 +31,8 @@ CREATE TRIGGER trigger_on ON practice.trigger_audit_log USING 'org.iostream.cass
 
 
 ```
-Query 1  and result :
 
+Query 1  and result :
 
 ```
 Query : INSERT INTO trigger_audit_log (id , stringvalue , listvalues , mapvalues , listofmap ,time ) VALUES ( 1,'iostream',['utils','mw','service'],{'one':'1','two':'2'},[{'stu':'student','in':'instructor'},{'cls':'class','std':'standard'}],'2019-03-27') ;
@@ -44,9 +45,7 @@ Trigger : {keyspace=practice, listofmap=[{in=instructor, stu=student}, {cls=clas
 
 ```
 
-
 Query 2 and result :
-
 
 ```
 Query : UPDATE trigger_audit_log SET listofmap =[{'1':'one','2':'two'},{'ex':'example','ps':'pressure'}] , listvalues= ['util-u','mw-u','service-u'], mapvalues ={'x':'y'} WHERE id =1;
@@ -56,11 +55,7 @@ EcAudit : 13:26:16.256 - client:'10.0.1.116'|user:'cassandra'|status:'ATTEMPT'|o
 Trigger : {keyspace=practice, listofmap=[{1=one, 2=two}, {ex=example, ps=pressure}], mapvalues={x=y}, operationType=UPDATE_ROW, id=1, listvalues=[util-u, mw-u, service-u], table=trigger_audit_log}
 ```
 
-
-
-
 Query 3 and result :
-
 
 ```
 Query : DELETE from practice.trigger_audit_log WHERE id = 8 ;
@@ -69,8 +64,8 @@ EcAudit : 14:28:32.495 - client:'10.0.1.116'|user:'cassandra'|status:'ATTEMPT'|o
 
 Trigger : {operationType=DELETE_ROW, id=8, table=trigger_audit_log}
 ```
-Query 4 and result :  if we use  **blob**  data type.
 
+Query 4 and result :  if we use **blob** data type.
 
 ```
 Query : INSERT INTO practice.trigger_audit_log (id , bolbtype ) VALUES ( 5, textAsBlob('bdb14fbe076f6b94444c660e36a400151f26fc6f'));
@@ -81,10 +76,6 @@ Trigger : {bolbtype=java.nio.HeapByteBuffer[pos=0 lim=40 cap=40], keyspace=pract
 
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,7 +1,6 @@
+# User-All-TnC-acceptance-Design
+
 To support multiple type of terms and condition we have designed a global acceptance fields in the user table. A user might have to accept multiple terms and conditions to access the diksha platform. Hence, as it will be specific to each user, we have created a new field allTncAccepted fields to store those values.
-
-
-
 
 ```sql
 CREATE TABLE sunbird.user (
@@ -63,12 +62,10 @@ CREATE TABLE sunbird.user (
     webpages list<frozen<map<text, text>>>
 ) 
 ```
-alltncaccepted is a  map which stores the type of tnc config and corresponding object as a json string.
 
-To use the alltncaccepted configuration, the config should be updated to  _system_settings_  table through system setting api.
+alltncaccepted is a map which stores the type of tnc config and corresponding object as a json string.
 
-
-
+To use the alltncaccepted configuration, the config should be updated to _system\_settings_ table through system setting api.
 
 ```
 curl --location --request POST 'https://dev.sunbirded.org/api/data/v1/system/settings/set' \
@@ -83,16 +80,14 @@ curl --location --request POST 'https://dev.sunbirded.org/api/data/v1/system/set
   }
 }'
 ```
+
 The following are the terms and condition for a user is stored in the allTncAccepted fields.
 
+#### Terms and Condition
 
-### Terms and Condition
-Group Terms and Condition _groupsTnc_  is used to store groups terms and condition where groups accepted version and date is stored.
+Group Terms and Condition _groupsTnc_ is used to store groups terms and condition where groups accepted version and date is stored.
 
 User Read operation.
-
-
-
 
 ```json
 {
@@ -123,13 +118,13 @@ User Read operation.
 }
 ```
 
-### SB-21223 T&C Pop-up for Org (State) Admin 
+#### SB-21223 T\&C Pop-up for Org (State) Admin&#x20;
+
 Org Admin user tnc field should be configured with system setting api.
 
 Step 1: System Setting Api to configure the tnc version.
 
- Please use “ _orgAdminTnc” value as system will identify as org Admin Tnc based on this keyword._ 
-
+Please use “ _orgAdminTnc” value as system will identify as org Admin Tnc based on this keyword._
 
 ```
 curl --location --request POST 'https://dev.sunbirded.org/api/data/v1/system/settings/set' \
@@ -145,13 +140,9 @@ curl --location --request POST 'https://dev.sunbirded.org/api/data/v1/system/set
 }'
 ```
 
-
 Step 2:
 
 Whenever org admin accept the terms and condition it should be save using accept terms and condition api with the above tnc config value.
-
-
-
 
 ```
 curl --location --request POST 'https://dev.sunbirded.org/api/user/v1/tnc/accept' \
@@ -168,10 +159,8 @@ curl --location --request POST 'https://dev.sunbirded.org/api/user/v1/tnc/accept
         }
 }'
 ```
+
 Read User Api to confirm org admin TnC acceptance
-
-
-
 
 ```
 {
@@ -202,8 +191,6 @@ Read User Api to confirm org admin TnC acceptance
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

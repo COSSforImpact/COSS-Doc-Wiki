@@ -1,34 +1,31 @@
+# Sunbird-Elasticsearch-migration-to-multi-index
 
-### Problem Statement
+#### Problem Statement
+
 Since multiple types are deprecated for Elasticsearch 6.x, There is no way to create a new index with multiple type other than migration from older version. This creates challenges as below.
 
-
 1. New adopters cannot have sunbird in it's current state.
-1. old static mapping update call doesn't work on migrated index with multiple types.
+2. old static mapping update call doesn't work on migrated index with multiple types.
 
- [SB-11532 System JIRA](https:///browse/SB-11532)
+&#x20;[SB-11532 System JIRA](https://browse/SB-11532)
 
+#### Solution Approach
 
-### Solution Approach
 Solution approaches are [documented in detail here](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/1017249999/Mapping+type+removal+in+Elasticsearch). This document will concentrate on multi index approach. The multi index approach is divided into two parts
 
-
 1. Create new indexes with the settings and mappings from old indexes
-1. migration of data of old indexes with each type into separate indexes of single type.
-1. Code changes to point to different indexes in different flows
+2. migration of data of old indexes with each type into separate indexes of single type.
+3. Code changes to point to different indexes in different flows
 
+#### Problem Statement
 
-### Problem Statement
 How to create new index with the setting and mappings from old indexes?
 
+#### Solution Approach
 
-### Solution Approach
 For creating new index with original settings and mappings, first we need to get the settings and mappings of the old indices and then we use that setting and mappings to create new index
 
- **get settings of an index** 
-
-
-
+**get settings of an index**
 
 ```js
 Request
@@ -99,10 +96,10 @@ curl -X GET http://11.2.3.58:9200/searchindex/_settings
 
 
 ```
-With the response we need to prepare the settings for new indexes, copying the analysis and analyzer field and ignoring index specific fields like uuid, provided_name etc.
 
- **get mapping of the index type** 
+With the response we need to prepare the settings for new indexes, copying the analysis and analyzer field and ignoring index specific fields like uuid, provided\_name etc.
 
+**get mapping of the index type**
 
 ```js
 Request
@@ -120,20 +117,15 @@ curl -X GET \
 
 
 ```
+
 to prepare the mapping as input to create index we need to
 
-
 * copy the inner json of the index starting from mapping as root
-
-
-* change the original type name to _doc as per 6.x convention
-* Enabling \[_all] is disabled in 6.0. hence we need to remove that configuration ("_all":{"enabled":true})
-* for searchindex the mapping type needs to be static, hence dynamic field should be set to false and dynamic_template field should be removed.
-
-
+* change the original type name to \_doc as per 6.x convention
+* Enabling \[\_all] is disabled in 6.0. hence we need to remove that configuration ("\_all":{"enabled":true})
+* for searchindex the mapping type needs to be static, hence dynamic field should be set to false and dynamic\_template field should be removed.
 
 Once we have the settings and mappings prepared we can create index with the settings
-
 
 ```js
 Request
@@ -7335,43 +7327,36 @@ curl -X PUT \
 
 
 ```
+
 creating indexes through cURL commands
 
-[[Elasticsearch mapping update job steps|Elasticsearch-mapping-update-job-steps]]
+\[\[Elasticsearch mapping update job steps|Elasticsearch-mapping-update-job-steps]]
 
+#### Problem Statement
 
-
-
-### Problem Statement
 How to migrate old index data with multiple types data to new indexes with single type
 
+#### Solution Approach&#x20;
 
-### Solution Approach 
 The old data can be migrated to new indexes with
 
-
 1. reindex API in elasticsearch
-1. sync functionality in sunbird
+2. sync functionality in sunbird
 
- **pros and cons** 
+**pros and cons**
 
+| approach    | pros                                                                               | cons                                            | comments |
+| ----------- | ---------------------------------------------------------------------------------- | ----------------------------------------------- | -------- |
+| reindex API | can apply settings like size, throttling etc.no involvement of sunbird application |                                                 |          |
+| sync flow   |                                                                                    | need to modify to include support for all types |          |
 
+#### Problem Statement
 
-| approach | pros | cons | comments | 
-|  --- |  --- |  --- |  --- | 
-| reindex API | can apply settings like size, throttling etc.no involvement of sunbird application |  |  | 
-| sync flow |  | need to modify to include support for all types |  | 
-
-
-
-
-### Problem Statement
 How can we use reindex API to migrate data?
 
+#### Solution Approach
 
-### Solution Approach
-POST /_reindex call can be made with proper arguments
-
+POST /\_reindex call can be made with proper arguments
 
 ```js
 Request
@@ -7428,10 +7413,10 @@ curl -X POST \
   }
 }'
 ```
+
 [Additional details](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html)
 
 The reindex API need to be called for
-
 
 * user
 * org
@@ -7442,56 +7427,38 @@ The reindex API need to be called for
 * userprofilevisibility
 * location
 
+System requirementIncrease the heap memory from 2GB to 4GB in “/etc/elasticsearch/cs-node-1/jvm.options” before calling reindex API
 
+#### cURL command for reindex data from old index to new
 
-System requirementIncrease the heap memory from 2GB to 4GB in “/etc/elasticsearch/cs-node-1/jvm.options” before calling reindex API
+dashedreindex curl commandcurl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"user"},"dest":{"index":"user","type":"\_doc"\}}'
 
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"org"},"dest":{"index":"org","type":"\_doc"\}}'
 
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"location"},"dest":{"index":"location","type":"\_doc"\}}'
 
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"usernotes"},"dest":{"index":"usernotes","type":"\_doc"\}}'
 
-### cURL command for reindex data from old index to new
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"badgeassociations"},"dest":{"index":"badgeassociations","type":"\_doc"\}}'
 
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"cbatch"},"dest":{"index":"cbatch","type":"\_doc"\}}'
 
-dashedreindex curl commandcurl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"user"},"dest":{"index":"user","type":"_doc"}}'
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"userprofilevisibility"},"dest":{"index":"userprofilevisibility","type":"\_doc"\}}'
 
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"org"},"dest":{"index":"org","type":"_doc"}}'
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"usercourses"},"dest":{"index":"usercourses","type":"\_doc"\}}'
 
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"location"},"dest":{"index":"location","type":"_doc"}}'
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"sunbirdplugin","type":"announcement"},"dest":{"index":"announcement","type":"\_doc"\}}'
 
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"usernotes"},"dest":{"index":"usernotes","type":"_doc"}}'
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"sunbirdplugin","type":"announcementtype"},"dest":{"index":"announcementtype","type":"\_doc"\}}'
 
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"badgeassociations"},"dest":{"index":"badgeassociations","type":"_doc"}}'
+curl -X POST [http://{es-ip}:{es-port}/\_reindex](http://localhost:9200/\_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"sunbirdplugin","type":"metrics"},"dest":{"index":"metrics","type":"\_doc"\}}'
 
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"cbatch"},"dest":{"index":"cbatch","type":"_doc"}}'
-
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"userprofilevisibility"},"dest":{"index":"userprofilevisibility","type":"_doc"}}'
-
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"searchindex","type":"usercourses"},"dest":{"index":"usercourses","type":"_doc"}}'
-
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"sunbirdplugin","type":"announcement"},"dest":{"index":"announcement","type":"_doc"}}'
-
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"sunbirdplugin","type":"announcementtype"},"dest":{"index":"announcementtype","type":"_doc"}}'
-
-curl -X POST [http://{es-ip}:{es-port}/_reindex](http://localhost:9200/_reindex) -H 'Content-Type: application/json' -d '{"source":{"index":"sunbirdplugin","type":"metrics"},"dest":{"index":"metrics","type":"_doc"}}'
-
-
-
-
-
-
-### Open Questions
+#### Open Questions
 
 1. sunbirddataaudit index is used to log some of the request auditing in elasticsearch. Is it still needed and supported with new multi index way. (AuditLogActions.java has details of which API being audited currently)
-1. sunbirdplugin index is used based on the API call, the type is passed into the request. need discussion as how to support it in new multi index format.
-1. Currently health check url for elasticsearch checks if "searchindex" exists or not, since we are having multiple index for different entity how do we verify health check for elasticsearch? do we just check user index or all indexes or some other way.
+2. sunbirdplugin index is used based on the API call, the type is passed into the request. need discussion as how to support it in new multi index format.
+3. Currently health check url for elasticsearch checks if "searchindex" exists or not, since we are having multiple index for different entity how do we verify health check for elasticsearch? do we just check user index or all indexes or some other way.
 
+***
 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

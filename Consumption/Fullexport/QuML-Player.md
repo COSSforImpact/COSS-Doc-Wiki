@@ -1,48 +1,45 @@
+# QuML-Player
 
-## Overview:
+### Overview:
+
 Need to design a module which is capable of managing practice-tests/exam-preps/online-exam based on request. Request can be of following types:
 
 a) MCQ - Multiple Choice Question
 
-b) SA     - Short Answer
+b) SA     - Short Answer
 
-c) VSA   - Very Short Answer
+c) VSA   - Very Short Answer
 
-d) LA      - Long Answer
+d) LA      - Long Answer
 
+### Problem statement:&#x20;
 
+Consumption Clients like Mobile,Desktop should have the capability to queue the questions as per user interaction. Since most of the times these clients are believed to be offline, It creates a need to have a question player utility available for the system. Absence of such a system would end up having prolonged user experience, inefficient usage of browser resources etc.
 
+### Existing System:&#x20;
 
-## Problem statement: 
-Consumption Clients like Mobile,Desktop should have the capability to queue the questions as per user interaction. Since most of the times these clients are believed to be offline, It creates a need to have a question player utility available for the system. Absence of such a system would end up having prolonged user experience, inefficient usage of browser resources etc.
+Currently we have content player which is used as Single standalone solution for most of the content types. Any Changes to be done for the player would mean entire player should go for release life cycle.&#x20;
 
+### Proposed System:
 
-
-
-## Existing System: 
-Currently we have content player which is used as Single standalone solution for most of the content types. Any Changes to be done for the player would mean entire player should go for release life cycle. 
-
-
-## Proposed System:
 Proposed System will breakdown the player module into multiple modules. As part of larger initiative, this is step towards creating standalone player like QuML Player.Pros :
+
 * Usage of Templating frameworks will provide at-most capability for UX capabilities.
 * Dom Manipulation driven by templates will be absolute minimum
 * JSONs which today holds significant logic of rendering can be nullified.
 * Better Interaction Capabilities.
-* Ecars which carry significant chunk of libraries to be loaded can be scoped out. Just pass on JSON in the ecar along with assets.
+*   Ecars which carry significant chunk of libraries to be loaded can be scoped out. Just pass on JSON in the ecar along with assets.
 
     Ex: LateX library is worth 1.5MB today which gets carried across each ecar which has mathematical or scientific expressions.
 
 Cons :
-*  Risk of testing these templates against big question bank.
+
+* &#x20;Risk of testing these templates against big question bank.
 * Any Changes in the User Experience might be a challenge for the users to get accustomed to new experience.
 
- **QuMLDistribution Mechanism:** NPM **Components                   :** Angular 7 Components
+**QuMLDistribution Mechanism:** NPM **Components                   :** Angular 7 Components
 
- **Module                            : QuML Player Module as Angular LibraryPlayer Interface:** 
-
-
-
+**Module                            : QuML Player Module as Angular LibraryPlayer Interface:**
 
 ```js
 @Input  : data: [Questions]
@@ -62,46 +59,35 @@ load: function(do_id)
 next: function(do_id)
 previous: function(do_id)
 ```
- **QuML Elements:** 
 
+**QuML Elements:**
 
-*  **QuML Player**  : Placeholder for all templates. Provides Intelligence in terms of:
-    * Question Ordering
-    * Animation
-    * Theme
-    * Time Keeping
-    * Behaviour Metadata
-    * Attempt Metadata
+* **QuML Player** : Placeholder for all templates. Provides Intelligence in terms of:
+  * Question Ordering
+  * Animation
+  * Theme
+  * Time Keeping
+  * Behaviour Metadata
+  * Attempt Metadata
+  * Score Board
+  * Receiver of all Event Emitters of Hosted Templates
+  * Loader
+* &#x20;Template Components (MCQ,SA,VSA,LA or Any Future Components)
+  * Layout rendering
+  * Horizontal
+  * Vertical
+  * Grid
+  * 2 -Column
+  * 3 -Column
+  * Event Emitters on all interactions
+* &#x20;Telemetry wrapper for all emitted events
+*   Common Latex library which can process inline latex content
 
-    
-    * Score Board
-    * Receiver of all Event Emitters of Hosted Templates
-    * Loader
+    **Hard Dependency** :
 
-    
-*  Template Components (MCQ,SA,VSA,LA or Any Future Components)
-    * Layout rendering
-    * Horizontal
-    * Vertical
-    * Grid
-    * 2 -Column
-    * 3 -Column
+    Latex Library for rendering has to be hard dependency&#x20;
 
-    
-    * Event Emitters on all interactions
-
-    
-*  Telemetry wrapper for all emitted events
-* Common Latex library which can process inline latex content
-
-    
-
-     **Hard Dependency** :
-
-    Latex Library for rendering has to be hard dependency 
-
-     **QuML Elementsa) MCQ/SCQ**  : Multiple Choice / Single Choice Questions
-
+    **QuML Elementsa) MCQ/SCQ** : Multiple Choice / Single Choice Questions
 
 ```js
 {
@@ -219,9 +205,7 @@ previous: function(do_id)
 }
 ```
 
-
-b)  **SA    :** Short Answer
-
+b) **SA    :** Short Answer
 
 ```js
 {
@@ -299,9 +283,7 @@ b)  **SA    :** Short Answer
 
 ```
 
-
-c)  **VSA  :** Very Short Answer
-
+c) **VSA  :** Very Short Answer
 
 ```js
 {
@@ -377,9 +359,7 @@ c)  **VSA  :** Very Short Answer
 }
 ```
 
-
-d)  **LA     : ** Long Answer 
-
+d) \*\*LA     : \*\* Long Answer&#x20;
 
 ```js
 {
@@ -455,55 +435,15 @@ d)  **LA     : ** Long Answer 
 }
 ```
 
-
-
-
 ![](images/storage/card-diagram2.png)
 
-                     
+&#x20;                   &#x20;
 
+![](images/storage/image2019-11-21\_19-30-42.png)
 
-
-![](images/storage/image2019-11-21_19-30-42.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-a) Attribute for   **time**  Component For each question is missing for each assessment_type. (Can be possibility)
+a) Attribute for  **time** Component For each question is missing for each assessment\_type. (Can be possibility)
 
 b) Attribute suggesting where the question is being used is missing. (Can be practice test,exam prep, test or exam)
-
 
 ```js
 {
@@ -579,10 +519,6 @@ b) Attribute suggesting where the question is being used is missing. (Can be pra
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

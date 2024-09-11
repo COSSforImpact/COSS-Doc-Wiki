@@ -1,65 +1,56 @@
- **Overview** Remove GSON dependency from Sunbird Platform. Instead, use Jackson which is used at several places already within Sunbird. The main motivation for this task is to minimize the dependency between Sunbird and Open Saber Client (which uses gson and resulted in exceptions during integration).
+# Remove-GSON-dependency-from-Sunbird-Platform
 
+**Overview** Remove GSON dependency from Sunbird Platform. Instead, use Jackson which is used at several places already within Sunbird. The main motivation for this task is to minimize the dependency between Sunbird and Open Saber Client (which uses gson and resulted in exceptions during integration).
 
+**Approach** : Remove dependency of **Gson** ,from each project in Sunbird-Platform , Do code changes required to make functionality exactly same to the previous code written using Gson. Using Jackson will be best Option for doing this, as we are already using Jackson in several places.
 
- **Approach**  : Remove dependency of  **Gson**  ,from each project in Sunbird-Platform , Do code changes required to make functionality exactly same to the previous code written using Gson. Using Jackson will be best Option for doing this, as we are already using Jackson in several places.
+**Changes Done :**
 
+**(1) Sunbird-Utils :**
 
+**actor-core/pom.xml :** removed dependency \*\*.  \*\*
 
- **Changes Done :** 
+**common-util/pom.xml :** removed dependency.
 
- **(1) Sunbird-Utils :** 
+**common-util/src/main/java/org/sunbird/services/sso/impl/KeyCloakRsaKeyFetcher.java** : code changes.
 
- **actor-core/pom.xml :** removed dependency **.  ** 
+**common-util/src/test/java/org/sunbird/services/sso/impl/KeyCloakRsaKeyFetcherTest.java** : code changes to accommodate the above file changes.( **KeyCloakRsaKeyFetcher.java** )
 
- **common-util/pom.xml :** removed dependency.
+**common-util/src/main/java/org/sunbird/telemetry/util/SunbirdTelemetryEventConsumer.java** : code changes.
 
- **common-util/src/main/java/org/sunbird/services/sso/impl/KeyCloakRsaKeyFetcher.java** : code changes.
+**sunbird-notification/pom.xml :** added Jackson and removed Gson dependency.
 
- **common-util/src/test/java/org/sunbird/services/sso/impl/KeyCloakRsaKeyFetcherTest.java** : code changes to accommodate the above file changes.( **KeyCloakRsaKeyFetcher.java** )
+**sunbird-notification/src/main/java/org/sunbird/notification/utils/JsonUtil.java** : code changes
 
- **common-util/src/main/java/org/sunbird/telemetry/util/SunbirdTelemetryEventConsumer.java**  : code changes.
+**sunbird-notification/src/main/java/org/sunbird/notification/sms/providerimpl/Msg91SmsProvider.java :** code changes to accommodate the above file changes.( **JsonUtil.java** )
 
- **sunbird-notification/pom.xml :** added Jackson and removed Gson dependency.
+**(2)** **Sunbird-lms-mw :**
 
- **sunbird-notification/src/main/java/org/sunbird/notification/utils/JsonUtil.java**  : code changes
+**actors/badge/src/main/java/org/sunbird/badge/util/BadgingUtil.java** : code changes.
 
- **sunbird-notification/src/main/java/org/sunbird/notification/sms/providerimpl/Msg91SmsProvider.java :**  code changes to accommodate the above file changes.( **JsonUtil.java** )
+**actors/common/pom.xml** : dependency removed.
 
- **(2)**  **Sunbird-lms-mw :** 
+**telemetry-core/src/main/java/org/sunbird/util/lmaxdisruptor/SunbirdTelemetryEventConsumer.java** : deleted as not need and not used.
 
- **actors/badge/src/main/java/org/sunbird/badge/util/BadgingUtil.java**  : code changes.
+**telemetry-core/src/main/java/org/sunbird/util/lmaxdisruptor/SunbirdTelemetryEventConsumerTest.java** deleted as not need and not used.
 
- **actors/common/pom.xml**  : dependency removed.
+**(3) Sunbird-lms-service :**
 
- **telemetry-core/src/main/java/org/sunbird/util/lmaxdisruptor/SunbirdTelemetryEventConsumer.java**  : deleted as not need and not used.
+**service/pom.xml :** dependency removed
 
- **telemetry-core/src/main/java/org/sunbird/util/lmaxdisruptor/SunbirdTelemetryEventConsumerTest.java**  deleted as not need and not used.
+**LINK TO THE PULL REQUESTS :**
 
- **(3) Sunbird-lms-service :** 
+**sunbird-utils : https://github.com/project-sunbird/sunbird-utils/pull/366**
 
- **service/pom.xml :** dependency removed
+**sunbird-lms-mw : https://github.com/project-sunbird/sunbird-lms-mw/pull/460**
 
+**sumbird-lms-service : https://github.com/project-sunbird/sunbird-lms-service/pull/193**
 
+### **Code to support to remove Gson and Use Jackson** :
 
+Following code snippets and output  will demonstrate the Changes Done in above files. Basically how old Gson code is replaced with new Jackson Code without any change in the end product.
 
-
- **LINK TO THE PULL REQUESTS :** 
-
- **sunbird-utils : https://github.com/project-sunbird/sunbird-utils/pull/366** 
-
- **sunbird-lms-mw : https://github.com/project-sunbird/sunbird-lms-mw/pull/460** 
-
- **sumbird-lms-service : https://github.com/project-sunbird/sunbird-lms-service/pull/193** 
-
-
-##  **Code to support to remove Gson and Use Jackson**  :
-Following code snippets and output  will demonstrate the Changes Done in above files. Basically how old Gson code is replaced with new Jackson Code without any change in the end product.
-
-
-
- **Snippet 1:** 
-
+**Snippet 1:**
 
 ```java
 public class GsonToJackson {
@@ -103,9 +94,7 @@ public class GsonToJackson {
 
 ```
 
-
 Output :
-
 
 ```
 Using JackSon : value of externalIds [{"id":"sso_mock_user","provider":"INFRA","idType":"INFRA"}]
@@ -115,10 +104,8 @@ Using Gson    : value of externalIds [{"id":"sso_mock_user","provider":"INFRA","
 Using Gson    : value of externalId {"id":"sso_mock_user","provider":"INFRA","idType":"INFRA"}
 Using Gson    : value of provider in externalId is : INFRA
 ```
+
 Snippet 2 :
-
-
-
 
 ```java
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -154,9 +141,7 @@ public class GsonToJackson_2 {
 
 ```
 
-
 Output :
-
 
 ```
 Using Gson    : Object to Json String conversion : {"revocation_reason":"REVOCATION_REASON","revocation":false,"reason":"REASON"}
@@ -165,16 +150,6 @@ Using Jackson : Object to Json String conversion : {"revocation_reason":"REVOCAT
 
 ```
 
+***
 
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

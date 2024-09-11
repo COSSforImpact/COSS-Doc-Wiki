@@ -1,22 +1,16 @@
+# Background:
 
-## Background:
-Jira ticket:[ED-1975 System JIRA](https:///browse/ED-1975)
+Jira ticket:[ED-1975 System JIRA](https://browse/ED-1975)
 
- **Problem Statement :** 
+**Problem Statement :**
+
 1. The profile can update with any framework categories if the server allows it.
+2. We have to upgrade DB with dynamic keys and remove BMGS from local DB, then for existing users it will throw error.
+3. Guest users use the BMGS framework, now login with existing user which framework is different(organisation) than how to handles it?
 
-
-1. We have to upgrade DB with dynamic keys and remove BMGS from local DB, then for existing users it will throw error.
-
-
-1. Guest users use the BMGS framework, now login with existing user which framework is different(organisation) than how to handles it?
-
-
-
- **Update profile request BMGS to category1, category2, category3 and category4, we are facing some issue from backend.** 
+**Update profile request BMGS to category1, category2, category3 and category4, we are facing some issue from backend.**
 
 Discussion Link: [https://github.com/orgs/Sunbird-Lern/discussions/122](https://github.com/orgs/Sunbird-Lern/discussions/122)
-
 
 ```
 "request": "request": {
@@ -37,8 +31,8 @@ Discussion Link: [https://github.com/orgs/Sunbird-Lern/discussions/122](https://
   }
 }
 ```
- **Response:** 
 
+**Response:**
 
 ```
 {
@@ -58,16 +52,16 @@ Discussion Link: [https://github.com/orgs/Sunbird-Lern/discussions/122](https://
   }
 }
 ```
-Jira ticket: [ED-2124 System JIRA](https:///browse/ED-2124)
 
- **Design:**  **Update Profile:** 
+Jira ticket: [ED-2124 System JIRA](https://browse/ED-2124)
 
- **a) Server Profile:** 
+**Design:** **Update Profile:**
+
+**a) Server Profile:**
 
 Now we can use category1, category2, category3 and category4 as update user profile request instead of BMGS.
 
 Example of update profile request.
-
 
 ```
 "request": "request": {
@@ -88,26 +82,26 @@ Example of update profile request.
   }
 }
 ```
- **Update Profile for Logged In user:** 
+
+**Update Profile for Logged In user:**
 
 Update profile request BMGS to category1, category2, category3 and category4
-
 
 ```
  this.profileService.updateServerProfile(req).toPromise()
 ```
- **Update profile with category[i] for New Logged in USer:** 
+
+**Update profile with category\[i] for New Logged in USer:**
 
 Update profile request BMGS to category1, category2, category3 and category4
-
 
 ```
  this.profileService.updateServerProfile(req).toPromise()
 ```
- **Edit Logged In User:** 
+
+**Edit Logged In User:**
 
 Update profile request BMGS to category1, category2, category3 and category4
-
 
 ```
  const req: UpdateServerProfileInfoRequest = {
@@ -123,14 +117,14 @@ Update profile request BMGS to category1, category2, category3 and category4
    // req.framework['category1'] = 'categories';
     this.profileService.updateServerProfile(req).toPromise()
 ```
- 
 
-b)  **Local profile DB :** 
+&#x20;
+
+b) **Local profile DB :**
 
 Update local profile DB keys BMGS to category1, category2, category3 and category4.
 
-The new DB will be created for new user with category1,….category4 but  **_for existing user we have to write a migrate code for DB update with category[i]_** 
-
+The new DB will be created for new user with category1,….category4 but _**for existing user we have to write a migrate code for DB update with category\[i]**_
 
 ```
 export interface Profile {
@@ -149,10 +143,6 @@ export interface Profile {
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

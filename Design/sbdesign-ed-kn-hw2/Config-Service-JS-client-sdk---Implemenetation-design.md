@@ -1,33 +1,22 @@
- **Existing Solution:** 
+# Config-Service-JS-client-sdk---Implemenetation-design
+
+**Existing Solution:**
 
 The existing implementation of config service integrations in portal are available as helper methods as part of the portal code which is tightly bounded to portal module.So if we want to implement it for content service it requires rewriting the whole helper part which adds the complexity whenever changes are to be done.
 
-
-
-
-
- **Proposed Solution:** 
+**Proposed Solution:**
 
 Inorder to fit all js modules we should make changes into the existing config builder/helper implementations and we should convert it into a generic js module which works with portal or content service as a npm package.
 
-
-
-
-
-
-
-                                                                                                                                                                 ![](images/storage/Untitled%20Diagram.png)￼ 
-
-
+&#x20;                                                                                                                                                                ![](<images/storage/Untitled Diagram.png>)￼&#x20;
 
 The architecture and flow of sdk has been illustrated in the above figure.Sdk basically contains 3 major components namely configbuilder,confighelper and source-adapters.
 
- **Source Adapters ** 
+\*\*Source Adapters \*\*
 
 Source adapeters conatins the js methods to fetch the configurations from specific config source.These methods will be executed by the config builder and configuration values will be returned as js object in the callback.
 
 Below example shows the outline for config API source adapter js.
-
 
 ```js
 function ConfigServiceSourceAdpater(httpOptions){
@@ -39,11 +28,9 @@ function ConfigServiceSourceAdpater(httpOptions){
 }
 ```
 
-
- **Config Builder** 
+**Config Builder**
 
 Config builder frames/builds the configurations by invoking the exported methods of provided config source adapter instances.It also contains the cron scheduler method to refresh the config cache at particular intervals.
-
 
 ```js
 function ConfigBuilder(options){
@@ -55,11 +42,9 @@ function ConfigBuilder(options){
 }
 ```
 
-
- **Config Helper** 
+**Config Helper**
 
 This js component gets or adds the given configuration to cache using its methods.
-
 
 ```js
 function ConfigHelper(){
@@ -74,13 +59,11 @@ return {
 }
 ```
 
+**Installation and Integration**
 
- **Installation and Integration** 
-
-This Config-service-js-sdk will be published as npm and installed into portal node modules through ```npm install``` command.
+This Config-service-js-sdk will be published as npm and installed into portal node modules through `npm install` command.
 
 Then Config builder should be instantiated with necassary option like below.
-
 
 ```js
 const configBuilderOptions =   {
@@ -104,14 +87,6 @@ configBuilder.buildConfig().then(function(status){
 })
 ```
 
+***
 
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,18 +1,15 @@
+# On-boarding
 
-## Context
+### Context
+
 The current desktop application is generic for all states - and a user has to spend time filtering through a set of boards, mediums, classes, and subjects every time they land on the app to get content that is relevant for them to solve this problem we will ask the user to input the framework preference and location so that we can show the relevant content to the user. The user location is required to pull the reports of usage of the app by location level.
-
-
-
-
 
 ![](images/storage/Locations.png)
 
-
-## Schema
-
+### Schema
 
 Users
+
 ```js
 {
   "id": String
@@ -27,9 +24,7 @@ Users
 }
 ```
 
-
-
-### Locations
+#### Locations
 
 ```
 {
@@ -42,11 +37,7 @@ index: [name]
 }
 ```
 
-
 location information will be stored in settings DB since each device belongs one location and it will be added to the device registry spec when it is available below is the storage structure of the location data for a device
-
-
-
 
 ```js
 {
@@ -58,11 +49,7 @@ location information will be stored in settings DB since each device belongs one
 }
 ```
 
-
-
-## User SDK
-
-
+### User SDK
 
 ```js
 	getInstance = function(String pluginId) : UserSDK {};
@@ -79,14 +66,13 @@ location information will be stored in settings DB since each device belongs one
 
 ```
 
-## Telemetry Events
-
+### Telemetry Events
 
 LOG event for locations API
 
 LOG event for user register API
 
-ERROR events on locations or user save 
+ERROR events on locations or user save&#x20;
 
 IMPRESSION event for content preference page load
 
@@ -96,19 +82,10 @@ INTERACT event for framework submit button click
 
 INTERACT event for location submit button click
 
+###
 
-## 
+Design review comments We will store the locations and frameworks data in the database and always refer from it, not from the file system we will introduce the reset button. if anything is corrupted in DB to reset the app
 
-Design review comments
-We will store the locations and frameworks data in the database and always refer from it, not from the file system we will introduce the reset button. if anything is corrupted in DB to reset the app
+***
 
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

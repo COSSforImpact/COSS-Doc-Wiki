@@ -1,66 +1,51 @@
- **Problem statement :** 
+# Design-to-get-list-of-ongoing-and-upcoming-open-batches.
 
- **   ** Consumer want to show count of upcoming and ongoing open batches for a course.  Since course is stored under learning platform and created batch from course are stored under sunbird-LMS.
+**Problem statement :**
 
-There are two different system and they don't know each other apart from validation. 
+\*\*   \*\* Consumer want to show count of upcoming and ongoing open batches for a course.  Since course is stored under learning platform and created batch from course are stored under sunbird-LMS.
 
+There are two different system and they don't know each other apart from validation.&#x20;
 
+Proposed Solution 1:             As of now Sunbird is running a cron job on daily basis, to update some meta data inside course. This scheduler job will do following actions.
 
-Proposed Solution 1:             As of now Sunbird is running a cron job on daily basis, to update some meta data inside course. This scheduler job will do following actions.
+&#x20;            \* Select all those batch whose **startDate** <= today date and  **countIncrementStatus** is false.
 
-             \* Select all those batch whose  **startDate**  <= today date and  **countIncrementStatus**  is false.
+&#x20;            \* Select all those batch whose **endDate** >= yesterday date  \*\*countDecrementStatus \*\* is false.
 
-             \* Select all those batch whose  **endDate**  >= yesterday date  **countDecrementStatus ** is false.
+&#x20;           \*  Now based on above two query and batch type (open or invite-only) , it will update course meta data as follow.
 
-            \*  Now based on above two query and batch type (open or invite-only) , it will update course meta data as follow.
+&#x20;           \*  in case of course going to start now. it will add key as ""c\_" + {"sunbird\_installation"}+ "_open\_batch\_count"  or c_{"sunbird\_installation"}\_private\_batch\_count.  with value as int.
 
-            \*  in case of course going to start now. it will add key as ""c_" + {"sunbird_installation"}+ "_open_batch_count"  or c_{"sunbird_installation"}_private_batch_count.  with value as int.
+&#x20;           \* in case of batch end , it will decrements count against same key.
 
-            \* in case of batch end , it will decrements count against same key.
+| Pros                                                                                                             | Cons |
+| ---------------------------------------------------------------------------------------------------------------- | ---- |
+| As get course has meta data to indicate open batch count per installation, so no need to make any extra api call |      |
 
-
-
-
-
-| Pros | Cons | 
-|  --- |  --- | 
-| As get course has meta data to indicate open batch count per installation, so no need to make any extra api call | 
 1. This meta data is updated only when course is going to start , it means for upcoming course we can't get it.
 
- | 
-|  | 2.  Data is updated by scheduler job and scheduler job is not 100% guaranteed  | 
-|  | 3. Some time due to content attribute changes , it's not able to update the content, so in that case meta data won't be updated.4. TO add meta data for upcoming batch as well , will have more complexity to manage it when upcoming batch changes as ongoing. | 
+\| | | 2.  Data is updated by scheduler job and scheduler job is not 100% guaranteed  | | | 3. Some time due to content attribute changes , it's not able to update the content, so in that case meta data won't be updated.4. TO add meta data for upcoming batch as well , will have more complexity to manage it when upcoming batch changes as ongoing. |
 
-  
+&#x20;&#x20;
 
-         Note : So to support solution 1: we need to take following actions:
+&#x20;        Note : So to support solution 1: we need to take following actions:
 
-           
+&#x20;         &#x20;
 
+| Actions |
+| ------- |
+|         |
 
-
-| Actions | 
-|  --- | 
-| 
 1. Need to add meta data for future upcoming batch as well.
-1. Need to fix all those content which are failing during update (On Diksha found only 1. do_31261135182897971215 and on ntp staging and sunbird staging can't find any content,but on sunbird dev found lot more content.)
-1. Need to have some fallback  for scheduler job management . so might be instead of once in a day can be run twice in a day.
-1. Apart from that during batch creation time itself we can add this meta data.
+2. Need to fix all those content which are failing during update (On Diksha found only 1. do\_31261135182897971215 and on ntp staging and sunbird staging can't find any content,but on sunbird dev found lot more content.)
+3. Need to have some fallback  for scheduler job management . so might be instead of once in a day can be run twice in a day.
+4. Apart from that during batch creation time itself we can add this meta data.
 
- | 
+|
 
+Proposed Solution 2:Sunbird will expose a new api to get open batch count for list for ongoing and upcoming batches.  New api details will be as follows:
 
-
-
-
-
-
-
-
-Proposed Solution 2:Sunbird will expose a new api to get open batch count for list for ongoing and upcoming batches.  New api details will be as follows:
-
- 
-
+&#x20;
 
 ```js
 URI: /course/v1/search
@@ -208,51 +193,48 @@ Response:
 }
 ```
 
+| Pros | Cons |
+| ---- | ---- |
+|      |      |
 
-
-
-| Pros | Cons | 
-|  --- |  --- | 
-| 
 1. Easy to manage , later any other changes can be easily incorporated.
-1. Only one api call that will handle complete business logic  
-1. Using request body 2 or 3 will provide flexibility to move complete business logic on server side.
+2. Only one api call that will handle complete business logic &#x20;
+3. Using request body 2 or 3 will provide flexibility to move complete business logic on server side.
 
- | 
-1.  new api need to be introduce
-1. Some issues with limit and offset. there might be the case one course is used under "N" number of batches , then in another set as well it can come.
+|
 
- | 
-|  |  | 
+1. &#x20;new api need to be introduce
+2. Some issues with limit and offset. there might be the case one course is used under "N" number of batches , then in another set as well it can come.
 
-\*\* Search open batch based on filter will have issues.Proposed Solution 3:  Sunbird will define new page section to provide open course list under page api.
+\| | | |
 
- TO achieve this we need to do following modification under page assemble api and get page section .
+\*\* Search open batch based on filter will have issues.Proposed Solution 3:  Sunbird will define new page section to provide open course list under page api.
 
-   \* Now section table need to have calling source as well.  which will include (source, indexName, typeName)
+&#x20;TO achieve this we need to do following modification under page assemble api and get page section .
 
-  \* Assemble page business logic will be modified to make call based on source 
+&#x20;  \* Now section table need to have calling source as well.  which will include (source, indexName, typeName)
 
- \* local source can have multiple search query with query order.
+&#x20; \* Assemble page business logic will be modified to make call based on source&#x20;
 
+&#x20;\* local source can have multiple search query with query order.
 
+| Pros | Cons |
+| ---- | ---- |
+|      |      |
 
-| Pros | Cons | 
-|  --- |  --- | 
-| 
 1. for consumer only one page assemble api and that will provide complete data
 
- | 
+|
+
 1. need to modify existing api , More testing required.
-1.  Due to that requirement table structure need to be modified
-1. some data migration alos required with old section.
+2. &#x20;Due to that requirement table structure need to be modified
+3. some data migration alos required with old section.
 
- | 
+|
 
-Proposed Solution 4:  User can make another api as batch search api  by passing all courseIds and some extra filters.
+Proposed Solution 4:  User can make another api as batch search api  by passing all courseIds and some extra filters.
 
-  
-
+&#x20;&#x20;
 
 ```js
 {"request":{"filters":{ "courseId" : ["do_112634552998936576175","do_112634535631675392173","do_112633845274157056122"],"status":["0","1"],"enrollmentType":"open"},
@@ -261,34 +243,24 @@ Proposed Solution 4:  User can make another api as batch search api  by passin
 }
 ```
 
+| Pros | Cons |
+| ---- | ---- |
+|      |      |
 
-
-
-
-
-| Pros | Cons | 
-|  --- |  --- | 
-| 
 1. Existing api can be re-used.
 
- | 
+|
+
 1. Caller (portal/app) need to make one extra api call and then then need to merge both response
-1. Caller need to make one more api call to get my enroll course
-1. It can have performance issues .
+2. Caller need to make one more api call to get my enroll course
+3. It can have performance issues .
 
- | 
-|  |  | 
+\| | | |
 
- **Open Questions :** 
+**Open Questions :**
 
+1. &#x20;If one course have 3  open batches and caller already enrolled for one batch then do we need to sent open batch count as 3 or 2 or for him there is no open batch to do enroll.
 
-1.  If one course have 3  open batches and caller already enrolled for one batch then do we need to sent open batch count as 3 or 2 or for him there is no open batch to do enroll.
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

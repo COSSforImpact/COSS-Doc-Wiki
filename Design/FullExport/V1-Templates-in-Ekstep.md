@@ -1,647 +1,564 @@
-This document contains details about the older v1 templates available in ekstep. It provides information about how to
+# V1-Templates-in-Ekstep
 
+This document contains details about the older v1 templates available in ekstep. It provides information about how to
 
 * Create and upload templates.
 * Create questions(MCQ, FTB and MTF) in ekstep portal.
 * How to debug template issues.
 
- **Types of templates** 
-
+**Types of templates**
 
 1. MCQ
-1. FTB
-1. MTF
+2. FTB
+3. MTF
 
-
-
- **How to create questions using templates** 
-
+**How to create questions using templates**
 
 1. Login to dev.ekstep.in or qa.ekstep.in
-1. Click on Resources → Question Bank'
-1. It will show you the list of available templates and the preview
-1. To create a new question, Click on Add Question
-1. And select a template and click start creating
-    1. For FTB,
-    * Enter the question text, the question text may be the title for the question or may be the question itself.
-    * Enter the answer text, the answer text can be single or multiple
-    * It may have the additional Model field to be filled for some templates.
-    * For some templates, the questions and answers can be generated randomly.
+2. Click on Resources → Question Bank'
+3. It will show you the list of available templates and the preview
+4. To create a new question, Click on Add Question
+5. And select a template and click start creating
+   1. For FTB,
+   2. Enter the question text, the question text may be the title for the question or may be the question itself.
+   3. Enter the answer text, the answer text can be single or multiple
+   4. It may have the additional Model field to be filled for some templates.
+   5. For some templates, the questions and answers can be generated randomly.
+   6. For MCQ,
+   7. Enter the question text, the question text may be the title for the question or may be the question itself.
+   8. Enter the answer text, the answer text can be single or multiple
+   9. It may have the additional Model field to be filled for some templates.
+   10. For some templates, the questions and answers can be generated randomly.&#x20;
+   11. For MTF,
+   12. Enter the question text, the question text may be the title for the question or may be the question itself.
+   13. Enter the answer text, the answer text can be single or multiple
+   14. It may have the additional Model field to be filled for some templates.
+   15. For some templates, the questions and answers can be generated randomly.&#x20;
+6. Click on "save" and "save & create another"
+7. The created question will be available in the question bank.
 
-    
-    1. For MCQ,
-    * Enter the question text, the question text may be the title for the question or may be the question itself.
-    * Enter the answer text, the answer text can be single or multiple
-    * It may have the additional Model field to be filled for some templates.
-    * For some templates, the questions and answers can be generated randomly. 
-
-    
-    1. For MTF,
-    * Enter the question text, the question text may be the title for the question or may be the question itself.
-    * Enter the answer text, the answer text can be single or multiple
-    * It may have the additional Model field to be filled for some templates.
-    * For some templates, the questions and answers can be generated randomly. 
-
-    
-
-    
-1. Click on "save" and "save & create another"
-1. The created question will be available in the question bank.
-
-
-
- **List of available v1 templates in QA and Production** 
-
+**List of available v1 templates in QA and Production**
 
 1. Measuring Angles
-1. Number Chart
-1. Place Value In Numbers
-1. MCQ - General
-1. Comparing Angles
-1. Horizontal Operations with Place Value Models
-1. Vertical Operations with Place Value Models
-1. Comparing Numbers
-1. Place Value Bundles
-1. Comparing Size
-1. Counting Objects
-1. Comparing Quantities
-1. Place Value Models - Learn
-1. Text Question, Text Options (Vertical)
-1. Text + Image Question, Text or Image Options
-1. Counting with Place Value Models - 1
-1. Counting with Place Value Models - 2
-1. Image Question, Image or Audio Option
-1. Mcq long text
-1. Sequencing
-1. TEXT AND IMAGE MATCHING (HORIZONTAL)
-1. Text and Image Matching (Vertical)
-1. Reordering Letters & Numbers
-1. Sorting Template
-1. Reordering Words
-1. Operations with images
-1. Fill in the Blanks (with Image) - Word Answers
-1. Vertical Operations
-1. Division
-1. Addition/Subtraction (with place value markers)
-1. Addition/Subtraction
-1. Multiplication (with parametrization)
-1. Fill in the Blank - Number Answers
-1. Multiplication
-1. Sudoku
-1. Multiple Blanks
-1. Division
-1. Vertical Operations
-1. Fill in the Blank (sentence) - Number Answers
-1. Custom Keyboard
+2. Number Chart
+3. Place Value In Numbers
+4. MCQ - General
+5. Comparing Angles
+6. Horizontal Operations with Place Value Models
+7. Vertical Operations with Place Value Models
+8. Comparing Numbers
+9. Place Value Bundles
+10. Comparing Size
+11. Counting Objects
+12. Comparing Quantities
+13. Place Value Models - Learn
+14. Text Question, Text Options (Vertical)
+15. Text + Image Question, Text or Image Options
+16. Counting with Place Value Models - 1
+17. Counting with Place Value Models - 2
+18. Image Question, Image or Audio Option
+19. Mcq long text
+20. Sequencing
+21. TEXT AND IMAGE MATCHING (HORIZONTAL)
+22. Text and Image Matching (Vertical)
+23. Reordering Letters & Numbers
+24. Sorting Template
+25. Reordering Words
+26. Operations with images
+27. Fill in the Blanks (with Image) - Word Answers
+28. Vertical Operations
+29. Division
+30. Addition/Subtraction (with place value markers)
+31. Addition/Subtraction
+32. Multiplication (with parametrization)
+33. Fill in the Blank - Number Answers
+34. Multiplication
+35. Sudoku
+36. Multiple Blanks
+37. Division
+38. Vertical Operations
+39. Fill in the Blank (sentence) - Number Answers
+40. Custom Keyboard
 
-
-
- **How to debug templates in browser** 
-
+**How to debug templates in browser**
 
 * Clone the content-player([https://github.com/project-sunbird/sunbird-content-player](https://github.com/project-sunbird/sunbird-content-player)) repo of sunbird.
-* Inside content-player → player → public → fixture-stories, Add your template folder containing (index.ecml, assets etc)
-* Inside content-player → player → app-data → fixture-content-list.json, Add the below object structure to the json object result → contnet
+* Inside content-player → player → public → fixture-stories, Add your template folder containing (index.ecml, assets etc)
+* Inside content-player → player → app-data → fixture-content-list.json, Add the below object structure to the json object result → contnet
 
-                    {
+&#x20;                   {
 
-                         "identifier": "template-name",
+&#x20;                        "identifier": "template-name",
 
-                         "mimeType": "application/vnd.ekstep.ecml-archive",
+&#x20;                        "mimeType": "application/vnd.ekstep.ecml-archive",
 
-                         "localData": {
+&#x20;                        "localData": {
 
-                                    "questionnaire": null,
+&#x20;                                   "questionnaire": null,
 
-                                     "appIcon": "fixture-stories/template_folder_name/logo.png",
+&#x20;                                    "appIcon": "fixture-stories/template\_folder\_name/logo.png",
 
-                                     "subject": "literacy_v2",
+&#x20;                                    "subject": "literacy\_v2",
 
-                                     "description": "epub - Beyond Good and Evil",
+&#x20;                                    "description": "epub - Beyond Good and Evil",
 
-                                     "name": "Custom Eval",
+&#x20;                                    "name": "Custom Eval",
 
-                                     "downloadUrl": "",
+&#x20;                                    "downloadUrl": "",
 
-                                     "checksum": null,
+&#x20;                                    "checksum": null,
 
-                                     "loadingMessage": "Without requirements or design, programming is the art of adding bugs to an empty text file. ...",
+&#x20;                                    "loadingMessage": "Without requirements or design, programming is the art of adding bugs to an empty text file. ...",
 
-                                     "concepts": \[{
+&#x20;                                    "concepts": \[{
 
-                                                     "identifier": "LO1",
+&#x20;                                                    "identifier": "LO1",
 
-                                                     "name": "Receptive Vocabulary",
+&#x20;                                                    "name": "Receptive Vocabulary",
 
-                                                     "objectType": "Concept"
+&#x20;                                                    "objectType": "Concept"
 
-                                        }],
+&#x20;                                       }],
 
-                                     "identifier": "org.ekstep.customeval",
+&#x20;                                    "identifier": "org.ekstep.customeval",
 
-                                     "grayScaleAppIcon": null,
+&#x20;                                    "grayScaleAppIcon": null,
 
-                                     "pkgVersion": 1
+&#x20;                                    "pkgVersion": 1
 
-                          },
+&#x20;                         },
 
-                         "isAvailable": true,
+&#x20;                        "isAvailable": true,
 
-                         "path": "fixture-stories/custom_eval"
+&#x20;                        "path": "fixture-stories/custom\_eval"
 
-              },
-
+&#x20;             },
 
 * In the browser, click on the template logo you added for the template, the player will show the template, If the ECML is valid.
-* Inside content-player → player, Open command prompt and type "node app.js" and press enter.
+* Inside content-player → player, Open command prompt and type "node app.js" and press enter.
 * In the browser type "localhost:3000".
 
-
-
- **How to create templates** 
-
+**How to create templates**
 
 * Create a folder with the template name. The template folder structure should contain
+  * assets
+  * images.png
+  * widgets
+  * css
+  * index.css
+  * js
+  * index.js
+  * items
+  * assessment.json
+  * index.ecml
+* **Assets** folder contains images required for the template
+* **Widgets** folder contains additional js and css required for the template
+* **Items** folder contains assessment.json file which is used by the template
+*   **index.ecml** contains the ECML for the template. The basic structure of the template is&#x20;
 
-    
-    * assets
-    * images.png
+    *
 
-    
-    * widgets
-    * css
-    * index.css
+    &#x20;         &#x20;
 
-    
-    * js
-    * index.js
+```
+       <param name="next" value="stage1"/>
+```
 
-    
+&#x20;     &#x20;
 
-    
-    * items
-    * assessment.json
+```
+            <embed template="item" var-item="item"/>
 
-    
-    * index.ecml
+       </g>
 
-    
+</stage>
 
+<stage h="100" id="stage1" w="100" x="0" y="0" preload="true">
 
+       <param name="next" value="stage2"/>
 
+       <param name="previous" value="splash"/>
 
-*  **Assets**  folder contains images required for the template
-*  **Widgets**  folder contains additional js and css required for the template
-*  **Items**  folder contains assessment.json file which is used by the template
-*  **index.ecml**  contains the ECML for the template. The basic structure of the template is 
-    * <theme id="theme" startStage="splash" ver="0.2">
+       <image assest="image">
 
-    <manifest>
+</stage>
 
-                <media id="id" src="image.png" type="image"/>
+<stage h="100" id="stage2" w="100" x="0" y="0" preload="true">
 
-    </manifest>
+<param name="previous" value="stage1"/>
 
-    <stage id="baseStage" preload="true">
+       <image assest="image">
 
-        <image asset="image"/>
+</stage>
+```
 
-    </stage>
+* **Tags used in ECML**
+  * theme -  Which is the entry point of the ecml. It should specify the id as theme and the stage which is to be rendered first.
+  * manifest - it contains the media tags of medias(images, audio), js and css files used inside the template
+  * media - it is used to include the medias(images, audio), js and css files used inside the template
+  * stage - this tag specifies each screen inside the renderer. One can add multiple stages. The start stage should be "splash" and should be included in the theme tag. If you want to include the json add attribute iterate and var = item
+  * embed - Embed tag is used to embed the template inside the stage
+  * param - name attribute of param can be next, previous to specify the navigation to the next and previous stages.
+  * controller - this tag is used to include the json file inside the items folder. specify the json file name as id and name attribute.
+  * template - contains unique id for the template and the tag contains various tags which specify the UI for the template.
+*   **assessment.json**
 
-    <controller id="assessment" name="assessment" type="items"/>
-
-    <template id="tempalate_name"></template>
-
-<stage h="100" id="splash" iterate="assessment" var="item" w="100" x="0" y="0" preload="true">
-
-           <param name="next" value="stage1"/>
-
-       <g h="88" w="76" x="12" y="0">
-
-                <embed template="item" var-item="item"/>
-
-           </g>
-
-    </stage>
-
-    <stage h="100" id="stage1" w="100" x="0" y="0" preload="true">
-
-           <param name="next" value="stage2"/>
-
-           <param name="previous" value="splash"/>
-
-           <image assest="image">
-
-    </stage>
-
-    <stage h="100" id="stage2" w="100" x="0" y="0" preload="true">
-
-    <param name="previous" value="stage1"/>
-
-           <image assest="image">
-
-    </stage>
-
-</theme>
-
-    
-*  **Tags used in ECML** 
-    * theme -  Which is the entry point of the ecml. It should specify the id as theme and the stage which is to be rendered first.
-    * manifest - it contains the media tags of medias(images, audio), js and css files used inside the template
-    * media - it is used to include the medias(images, audio), js and css files used inside the template
-    * stage - this tag specifies each screen inside the renderer. One can add multiple stages. The start stage should be "splash" and should be included in the theme tag. If you want to include the json add attribute iterate and var = item
-    * embed - Embed tag is used to embed the template inside the stage
-    * param - name attribute of param can be next, previous to specify the navigation to the next and previous stages.
-    * controller - this tag is used to include the json file inside the items folder. specify the json file name as id and name attribute.
-    * template - contains unique id for the template and the tag contains various tags which specify the UI for the template.
-
-    
-*  **assessment.json** 
-    * For  **MCQ** 
+    * For **MCQ**
     * {
 
-    "identifier": "template_name",
+    "identifier": "template\_name",
 
-    "title": "template_name",
+    "title": "template\_name",
 
-    "total_items": 1,
+    "total\_items": 1,
 
     "shuffle": false,
 
-    "max_score": 1,
+    "max\_score": 1,
 
     "subject": "LIT",
 
-    "item_sets": \[{
+    "item\_sets": \[{
 
-             "id": "set_1",
+    &#x20;        "id": "set\_1",
 
-             "count": 1
+    &#x20;        "count": 1
 
     }],
 
     "items": {
 
-             "set_1": \[{
+    &#x20;        "set\_1": \[{
 
-             "identifier": "protractor.que1",
+    &#x20;        "identifier": "protractor.que1",
 
-             "qid": "protractor.que1",
+    &#x20;        "qid": "protractor.que1",
 
-             "type": "MCQ",
+    &#x20;        "type": "MCQ",
 
-              "template_id": "template_name",
+    &#x20;         "template\_id": "template\_name",
 
-              "template": "template_name",
+    &#x20;         "template": "template\_name",
 
-              "title": "Question text here",
+    &#x20;         "title": "Question text here",
 
-              "question_audio": "",
+    &#x20;         "question\_audio": "",
 
-              "question": "Question_title",
+    &#x20;         "question": "Question\_title",
 
-              "model" : {
+    &#x20;         "model" : {
 
-                        "angleRange":"0-180" // for example, and it can be anything depands on the model
+    &#x20;                   "angleRange":"0-180" // for example, and it can be anything depands on the model
 
-              },
+    &#x20;         },
 
-             "question_image": "angle_img",
+    &#x20;        "question\_image": "angle\_img",
 
-             "options": \[{
+    &#x20;        "options": \[{
 
-                    "value": {
+    &#x20;               "value": {
 
-                          "type": "mixed",
+    &#x20;                     "type": "mixed",
 
-                          "text": "120",
+    &#x20;                     "text": "120",
 
-                          "audio": "",
+    &#x20;                     "audio": "",
 
-                          "image": "",
+    &#x20;                     "image": "",
 
-                          "asset": ""
+    &#x20;                     "asset": ""
 
-                    }
+    &#x20;               }
 
-             }, {
+    &#x20;        }, {
 
-             "value": {
+    &#x20;        "value": {
 
-                         "type": "mixed",
+    &#x20;                    "type": "mixed",
 
-                         "text": "180",
+    &#x20;                    "text": "180",
 
-                          "audio": "",
+    &#x20;                     "audio": "",
 
-                          "image": "",
+    &#x20;                     "image": "",
 
-                          "asset": ""
+    &#x20;                     "asset": ""
 
-                         }
+    &#x20;                    }
 
-             },{
+    &#x20;        },{
 
-            "value": {
+    &#x20;       "value": {
 
-                          "type": "mixed",
+    &#x20;                     "type": "mixed",
 
-                          "text": "75",
+    &#x20;                     "text": "75",
 
-                         "audio": "",
+    &#x20;                    "audio": "",
 
-                         "image": "",
+    &#x20;                    "image": "",
 
-                         "asset": ""
+    &#x20;                    "asset": ""
 
-                     },
+    &#x20;                },
 
-                     "answer": true
+    &#x20;                "answer": true
 
-              }]
+    &#x20;         }]
 
-          }
+    &#x20;     }
 
     }
 
-    
-    * For  **FTB** 
+    * For **FTB**
     * {
 
-    "identifier": "template_name",
+    "identifier": "template\_name",
 
-    "title": "template_name",
+    "title": "template\_name",
 
-    "total_items": 1,
+    "total\_items": 1,
 
     "shuffle": false,
 
-    "max_score": 1,
+    "max\_score": 1,
 
     "subject": "LIT",
 
-    "item_sets": \[{
+    "item\_sets": \[{
 
-             "id": "set_1",
+    &#x20;        "id": "set\_1",
 
-             "count": 1
+    &#x20;        "count": 1
 
     }],
 
     "items": {
 
-             "set_1": \[{
+    &#x20;        "set\_1": \[{
 
-             "identifier": "protractor.que1",
+    &#x20;        "identifier": "protractor.que1",
 
-             "qid": "protractor.que1",
+    &#x20;        "qid": "protractor.que1",
 
-             "type": "MCQ",
+    &#x20;        "type": "MCQ",
 
-              "template_id": "template_name",
+    &#x20;         "template\_id": "template\_name",
 
-              "template": "template_name",
+    &#x20;         "template": "template\_name",
 
-              "title": "Question text here",
+    &#x20;         "title": "Question text here",
 
-              "question_audio": "",
+    &#x20;         "question\_audio": "",
 
-              "question": "Question_title",
+    &#x20;         "question": "Question\_title",
 
-              "model: {
+    &#x20;         "model: {
 
-                    "keys": "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
+    &#x20;               "keys": "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
 
-              },
+    &#x20;         },
 
-             "answer":  {
+    &#x20;        "answer":  {
 
-                    "ans1": {
+    &#x20;               "ans1": {
 
-                             "value": "जजज",
+    &#x20;                        "value": "जजज",
 
-                             "score": 1
+    &#x20;                        "score": 1
 
-                     }
+    &#x20;                }
 
-                }
+    &#x20;           }
 
-          }
+    &#x20;     }
 
     }
 
-    
-    * For  **MTF** 
+    * For **MTF**
     * {
 
-    "identifier": "template_name",
+    "identifier": "template\_name",
 
-    "title": "template_name",
+    "title": "template\_name",
 
-    "total_items": 1,
+    "total\_items": 1,
 
     "shuffle": false,
 
-    "max_score": 1,
+    "max\_score": 1,
 
     "subject": "LIT",
 
-    "item_sets": \[{
+    "item\_sets": \[{
 
-             "id": "set_1",
+    &#x20;        "id": "set\_1",
 
-             "count": 1
+    &#x20;        "count": 1
 
     }],
 
     "items": {
 
-             "set_1": \[{
+    &#x20;        "set\_1": \[{
 
-             "identifier": "protractor.que1",
+    &#x20;        "identifier": "protractor.que1",
 
-             "qid": "protractor.que1",
+    &#x20;        "qid": "protractor.que1",
 
-             "type": "MCQ",
+    &#x20;        "type": "MCQ",
 
-              "template_id": "template_name",
+    &#x20;         "template\_id": "template\_name",
 
-              "template": "template_name",
+    &#x20;         "template": "template\_name",
 
-              "title": "Question text here",
+    &#x20;         "title": "Question text here",
 
-              "question_audio": "",
+    &#x20;         "question\_audio": "",
 
-              "question": "Question_title",
+    &#x20;         "question": "Question\_title",
 
-              "model" : {
+    &#x20;         "model" : {
 
-                        "angleRange":"0-180" // for example, and it can be anything depands on the model
+    &#x20;                   "angleRange":"0-180" // for example, and it can be anything depands on the model
 
-              },
+    &#x20;         },
 
-             "question_image": "angle_img",
+    &#x20;        "question\_image": "angle\_img",
 
-            "lhs_options": \[{
+    &#x20;       "lhs\_options": \[{
 
-                 "value": { "type": "mixed", "audio": "", "image": "home", "text": "" },
+    &#x20;            "value": { "type": "mixed", "audio": "", "image": "home", "text": "" },
 
-                 "index": 0
+    &#x20;            "index": 0
 
-               }, {
+    &#x20;          }, {
 
-                  "value": { "type": "mixed", "audio": "", "image": "home", "text": "" },
+    &#x20;             "value": { "type": "mixed", "audio": "", "image": "home", "text": "" },
 
-                  "index": 1
+    &#x20;             "index": 1
 
-              }, {
+    &#x20;         }, {
 
-                   "value": { "type": "mixed", "audio": "", "image": "", "text": "3" },
+    &#x20;              "value": { "type": "mixed", "audio": "", "image": "", "text": "3" },
 
-                   "index": 2
+    &#x20;              "index": 2
 
-              }, {
+    &#x20;         }, {
 
-                 "value": { "type": "mixed", "audio": "", "image": "", "text": "4" },
+    &#x20;            "value": { "type": "mixed", "audio": "", "image": "", "text": "4" },
 
-                 "index": 3
+    &#x20;            "index": 3
 
-             }, {
+    &#x20;        }, {
 
-                "value": { "type": "mixed", "audio": "", "image": "", "text": "5" },
+    &#x20;           "value": { "type": "mixed", "audio": "", "image": "", "text": "5" },
 
-                 "index": 4
+    &#x20;            "index": 4
 
-             }, {
+    &#x20;        }, {
 
-                "value": { "type": "mixed", "audio": "", "image": "", "text": "6" },
+    &#x20;           "value": { "type": "mixed", "audio": "", "image": "", "text": "6" },
 
-                "index": 5
+    &#x20;           "index": 5
 
-      }],
+    &#x20; }],
 
-    "rhs_options": \[{
+    "rhs\_options": \[{
 
-              "value": { "type": "mixed", "audio": "", "image": "home", "text": "" },
+    &#x20;         "value": { "type": "mixed", "audio": "", "image": "home", "text": "" },
 
-               "answer": 0
+    &#x20;          "answer": 0
 
-          }, {
+    &#x20;     }, {
 
-               "value": { "type": "mixed", "audio": "", "image": "", "text": "the" },
+    &#x20;          "value": { "type": "mixed", "audio": "", "image": "", "text": "the" },
 
-               "answer": 1
+    &#x20;          "answer": 1
 
-         }, {
+    &#x20;    }, {
 
-              "value": { "type": "mixed", "audio": "", "image": "home", "text": "" },
+    &#x20;         "value": { "type": "mixed", "audio": "", "image": "home", "text": "" },
 
-              "answer": 2
+    &#x20;         "answer": 2
 
-        } ,{
+    &#x20;   } ,{
 
-              "value": { "type": "mixed", "audio": "", "image": "", "text": "the" },
+    &#x20;         "value": { "type": "mixed", "audio": "", "image": "", "text": "the" },
 
-              "answer": 3
+    &#x20;         "answer": 3
 
-        }, {
+    &#x20;   }, {
 
-              "value": { "type": "mixed", "audio": "", "image": "", "text": "school" },
+    &#x20;         "value": { "type": "mixed", "audio": "", "image": "", "text": "school" },
 
-              "answer": 4
+    &#x20;         "answer": 4
 
-        }, {
+    &#x20;   }, {
 
-             "value": { "type": "mixed", "audio": "", "image": "", "text": "team." },
+    &#x20;        "value": { "type": "mixed", "audio": "", "image": "", "text": "team." },
 
-            "answer": 5
+    &#x20;       "answer": 5
 
-        }],
+    &#x20;   }],
 
-       }
+    &#x20;  }
 
     }
 
-    
-
-    
-
- **Steps to upload templates in Ekstep portal** 
-
+**Steps to upload templates in Ekstep portal**
 
 1. Go inside the template folder and create a zip of the template folder.
+2. Login to [dev.ekstep.in](http://dev.ekstep.in) or [qa.ekstep.in](http://qa.ekstep.in)
+3. Click on "Create new lesson" button
+4. Select "Upload a file".
+5. Fill all the required fields
+6. Select the \*\*Content Type \*\* as "template"
+7. Select the Template Type as "MCQ" or "FTB" or "MTF"
+8. Enter the template name as same as template id in the ECML.
+9. Upload the .zip file of the template.
+10. Then save the template and send for review.
+11. Once it is reviewed and published by other user your template will appear in the question bank.
+
+**Steps to create the lesson by adding the questions**
+
 1. Login to [dev.ekstep.in](http://dev.ekstep.in) or [qa.ekstep.in](http://qa.ekstep.in)
-1. Click on "Create new lesson" button
-1. Select "Upload a file".
-1. Fill all the required fields
-1. Select the  **Content Type ** as "template"
-1. Select the Template Type as "MCQ" or "FTB" or "MTF"
-1. Enter the template name as same as template id in the ECML.
-1. Upload the .zip file of the template.
-1. Then save the template and send for review.
-1. Once it is reviewed and published by other user your template will appear in the question bank.
+2. Click on "Create new lesson" button
+3. Select "Create new lesson".
+4. Fill all the required fields
+5. Click on launch editor
+6. Click on "Add question set" plugin from the core plugins bar
+7. Select any questions from the list or apply filter (or) search to select the required question
+8. Provide question title, Total marks and how many number of questions to be displayed, and the toggle button to show immediate feedback and the shuffle questions
+9. Then click on "add Question set" will add the question set to the stage.
+10. Then click on "preview to start the assessment.
+11. Click on dowload icon to download it to the mobile and an email will be send to the email id.
+12. Click on the button to play the lesson inside your Genie app
 
- **Steps to create the lesson by adding the questions** 
-
-
-1. Login to [dev.ekstep.in](http://dev.ekstep.in) or [qa.ekstep.in](http://qa.ekstep.in)
-1. Click on "Create new lesson" button
-1. Select "Create new lesson".
-1. Fill all the required fields
-1. Click on launch editor
-1. Click on "Add question set" plugin from the core plugins bar
-1. Select any questions from the list or apply filter (or) search to select the required question
-1. Provide question title, Total marks and how many number of questions to be displayed, and the toggle button to show immediate feedback and the shuffle questions
-1. Then click on "add Question set" will add the question set to the stage.
-1. Then click on "preview to start the assessment.
-1. Click on dowload icon to download it to the mobile and an email will be send to the email id.
-1. Click on the button to play the lesson inside your Genie app
-
- **Other details about templates** 
+**Other details about templates**
 
 [https://docs.google.com/spreadsheets/d/1fQ8ekSVjHG-QHTCffMa7K56WWIAXyGKnAWRSX7VgpdQ/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1fQ8ekSVjHG-QHTCffMa7K56WWIAXyGKnAWRSX7VgpdQ/edit?usp=sharing)
 
 [https://docs.google.com/spreadsheets/d/1LvqQzHfhi4eNDl4LtBUJCqCfYBF71NwHYHO2Ko1B45k/edit#gid=1994775373](https://docs.google.com/spreadsheets/d/1LvqQzHfhi4eNDl4LtBUJCqCfYBF71NwHYHO2Ko1B45k/edit#gid=1994775373)
 
- **ECML Reference** 
+**ECML Reference**
 
 [https://github.com/ekstep/Common-Design/wiki/ECML-Home](https://github.com/ekstep/Common-Design/wiki/ECML-Home)
 
 [https://github.com/ekstep/Common-Design/wiki/Item-Templates-V1](https://github.com/ekstep/Common-Design/wiki/Item-Templates-V1).
 
+### Related articles
 
-
-
-
-
-
-
-
-
-## Related articles
 Related articles appear here based on the labels you select. Click to edit the macro and add or change labels.
 
 false5com.atlassian.confluence.content.render.xhtml.model.resource.identifiers.SpaceResourceIdentifier@4b0a743falsemodifiedtruepagelabel = "kb-how-to-article" and type = "page" and space = "SBDES"kb-how-to-article
 
-
-
 true
 
+|   |
+| - |
+|   |
 
+***
 
-|  | 
-|  --- | 
-|  | 
-
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

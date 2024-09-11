@@ -1,49 +1,42 @@
+# Self-sign-up-workflow
 
-# Problem statement:
-   Sunbird system will allow user on-boarding with following ways:
+## Problem statement:
 
+&#x20;  Sunbird system will allow user on-boarding with following ways:
 
-1.   Self sign up
-1.   Google plus login
-1.   State login    
+1. &#x20; Self sign up
+2. &#x20; Google plus login
+3. &#x20; State login   &#x20;
 
 Problem will have during user profile merging. Migrating self sign up user profile with Google plus login or state login.
 
-
-
 Note : As create user required phone or email verification by sending OTP, so is our assumption is each adopter will be using sms gateway, if there user want to signup with phone.
 
+### User attribute required during sign up:
 
-## User attribute required during sign up:
+| Attribute     | Type         | Required    | purpose                                                                             |
+| ------------- | ------------ | ----------- | ----------------------------------------------------------------------------------- |
+| name          | string       | true        | name of user. can be combination of firstname , middle name and lastname            |
+| username      | alphanumeric | false       | unique identity to identify user. user name will be unique per installation         |
+| password      | alphanumeric | true        |                                                                                     |
+| phone         | number       | conditional | either phone or email is mandatory . but during creation time user can't pass both. |
+| email         | alphanumeric | conditional | either phone or email is mandatory . but during creation time user can't pass both. |
+| userType      | string       | internal    | To identify user is Teacher or Other , as of now there is only two types            |
+| signUpType    | string       | internal    | To identify user came via selfsignUp, googleplus , statelogin or stateonboard       |
+| phoneVerified | boolean      | internal    | will be true only when user verified phone otp                                      |
+| emailVerified | boolean      | internal    | will be true only when user verified email otp                                      |
+| otp           | number       | false       | OTP can be passed during signup                                                     |
 
+### Proposed solution 1:
 
-| Attribute | Type | Required | purpose | 
-|  --- |  --- |  --- |  --- | 
-| name | string | true | name of user. can be combination of firstname , middle name and lastname | 
-| username | alphanumeric | false | unique identity to identify user. user name will be unique per installation | 
-| password | alphanumeric | true |  | 
-| phone | number | conditional | either phone or email is mandatory . but during creation time user can't pass both. | 
-| email | alphanumeric | conditional | either phone or email is mandatory . but during creation time user can't pass both. | 
-| userType | string | internal | To identify user is Teacher or Other , as of now there is only two types | 
-| signUpType | string | internal | To identify user came via selfsignUp, googleplus , statelogin or stateonboard | 
-| phoneVerified | boolean | internal | will be true only when user verified phone otp | 
-| emailVerified | boolean | internal | will be true only when user verified email otp | 
-| otp | number | false | OTP can be passed during signup  | 
-
-
-
-
-## Proposed solution 1:
 Self sign up work flow:
 
-
-*  User will enter all mandatory field (name, phone/email, username,password) on consumer portal/app
-* Consumer will make call for generate OTP for either phone or email
-*  OTP Generation will be taken care by [[Design for One time password (OTP)|Design-for-One-time-password-(OTP)]]
-* Once User enter OTP, consumer will verify OTP using following design [[Design for verify OTP|Design-for-verify-OTP]]
+* &#x20;User will enter all mandatory field (name, phone/email, username,password) on consumer portal/app
+* Consumer will make call for generate OTP for either phone or email
+* &#x20;OTP Generation will be taken care by \[\[Design for One time password (OTP)|Design-for-One-time-password-(OTP)]]
+* Once User enter OTP, consumer will verify OTP using following design \[\[Design for verify OTP|Design-for-verify-OTP]]
 * Once OTP is verified then they will call create user api.
 * if any validation fails then it will throw proper error
-
 
 ```js
 Changes in Create User api request body:
@@ -84,80 +77,72 @@ Doubts:
 * Are we taking country code as well from user , or always will associate user country code as "+91"
 
 ```
-As per discussion with design council we are going to take proposed solution 1:Storage of user data pre-user creation:   Requirement is sunbird should not create user into system unless or until it's verified. 
+
+As per discussion with design council we are going to take proposed solution 1:Storage of user data pre-user creation:   Requirement is sunbird should not create user into system unless or until it's verified.&#x20;
 
 Proposed solution 1:
 
-          Consumer (portal/app) can hold user data in local cache , and  once OTP is verified then only they make create user api call.
+&#x20;         Consumer (portal/app) can hold user data in local cache , and  once OTP is verified then only they make create user api call.
 
+| Pros | Cons |
+| ---- | ---- |
+|      |      |
 
-
-
-
-| Pros | Cons | 
-|  --- |  --- | 
-| 
 1. Junk data won't be in system.
-1. System will always has verified user account.
+2. System will always has verified user account.
 
- | 
+|
+
 1. if you refresh cache or clear cache that might clear user store data.
 
- | 
-|  |  | 
+\| | | |
 
-   
+&#x20; &#x20;
 
+#### Proposed solution 2:&#x20;
 
-### Proposed solution 2: 
-  User Data can be stored under sunbird as some temp table or inside OTP table as well, and once user verify OTP then , it will move data from temp to user table.
+&#x20; User Data can be stored under sunbird as some temp table or inside OTP table as well, and once user verify OTP then , it will move data from temp to user table.
 
+| Pros | Cons |
+| ---- | ---- |
+|      |      |
 
-
-
-
-| Pros | Cons | 
-|  --- |  --- | 
-| 
 1. All attempted user data is in sunbird
 
- | 
-1. it will have lot of unverified profile in sunbird. 
+|
 
- | 
+1. it will have lot of unverified profile in sunbird.&#x20;
 
+|
 
-### Proposed solution 3: 
-  Sunbird can introduce Redis service and all unverified user data can be stored under Redis.This service can be used for other centralized cache as well.
+#### Proposed solution 3:&#x20;
 
+&#x20; Sunbird can introduce Redis service and all unverified user data can be stored under Redis.This service can be used for other centralized cache as well.
 
+| Pros | Cons |
+| ---- | ---- |
+|      |      |
 
-| Pros | Cons | 
-|  --- |  --- | 
-| 
 1. Data lost issues can be resolved
-1. Sunbird will have all verified and un-verifed data.
-1. Redis cache can be used in other places as well. As of now sunbird is doing in-memory cache of some data , and that will vary from server to server.
+2. Sunbird will have all verified and un-verifed data.
+3. Redis cache can be used in other places as well. As of now sunbird is doing in-memory cache of some data , and that will vary from server to server.
 
- | 
+|
+
 1. Implementation time will be more.
-1. Need to manage one more stack
+2. Need to manage one more stack
 
- | 
-
-
+|
 
 Notes: After design discussion No need for storage of pre user creation.
 
+## Google sign In:
 
-# Google sign In:
- When user come to sunbird via Google sign in , Caller will do following check.
+&#x20;When user come to sunbird via Google sign in , Caller will do following check.
 
-
-*  If user already exist in sunbird  and user status is not deleted , then allow that user to do login.
-*  If user does not exist in sunbird then make below api call 
+* &#x20;If user already exist in sunbird  and user status is not deleted , then allow that user to do login.
+* &#x20;If user does not exist in sunbird then make below api call&#x20;
 * User existence check will happen with provided email.(In user search request ,you can pass email inside filter.)
-
 
 ```js
 URI: v1/user/verifyAndCreate
@@ -189,67 +174,58 @@ Response:
 
 
 ```
-Notes: As per design discussion this will be completely handled by portal or app team . Sunbird backend need to just make emailVerified as true, if user create call is coming after Google signin. 
 
+Notes: As per design discussion this will be completely handled by portal or app team . Sunbird backend need to just make emailVerified as true, if user create call is coming after Google signin.&#x20;
 
-# State sign-in
+## State sign-in
+
 When user comes through state-portal, he/she will get a link to access Diksha portal.
 
-
 1. Once user clicks, internally it will check existence of the user in the diksha.
-1. If found with status as active and isPhoneVerified as true then user will be directly taken to the Diksha portal, as login user.
-1. If not found, then portal will take user phone number by parsing JWT token and generate OTP,
-1. OTP will be generated and sent to user's mobile phone. OTP Generation will be taken care by [[Design for One time password (OTP)|Design-for-One-time-password-(OTP)]]
-1. On diksha user will be redirected to Enter OTP 
-1. On successful OTP validation, user will be created within Diksha and user will be logged into the platform.
+2. If found with status as active and isPhoneVerified as true then user will be directly taken to the Diksha portal, as login user.
+3. If not found, then portal will take user phone number by parsing JWT token and generate OTP,
+4. OTP will be generated and sent to user's mobile phone. OTP Generation will be taken care by \[\[Design for One time password (OTP)|Design-for-One-time-password-(OTP)]]
+5. On diksha user will be redirected to Enter OTP&#x20;
+6. On successful OTP validation, user will be created within Diksha and user will be logged into the platform.
 
-    
+&#x20;  &#x20;
 
-    Case 2:
+&#x20;   Case 2:
 
-      1.   User found with status as active and isPhoneVerified as false, then Caller need to generate OTP and ask user to verify it, once caller verified it, That user profile isPhoneVerified need to be marked as ture.
+&#x20;     1\.   User found with status as active and isPhoneVerified as false, then Caller need to generate OTP and ask user to verify it, once caller verified it, That user profile isPhoneVerified need to be marked as ture.
 
-     2. User found with status as inactive/deleted then what need to be done? 
+&#x20;    2\. User found with status as inactive/deleted then what need to be done?&#x20;
 
+### \*\* Open Questions:
 
+&#x20;    \* What should be userName in this case?  &#x20;
 
+&#x20;        Resp: As discussed username will be auto-generated - internally system will make sure that auto-generated username will be related to user and not very hard to remember.&#x20;
 
-## \*\* Open Questions:
-     \* What should be userName in this case?   
+&#x20;           it will have lowercase of name and appended with 4 random digit. if name will be separated by spaces then space will be replaced by "\_".
 
-         Resp: As discussed username will be auto-generated - internally system will make sure that auto-generated username will be related to user and not very hard to remember. 
+&#x20;         Example : MD MANZARUL HAQUE : md\_manzarul\_haque0098&#x20;
 
-            it will have lowercase of name and appended with 4 random digit. if name will be separated by spaces then space will be replaced by "_".
+&#x20;  \*  Does system need to generate password for Google signup user?
 
-          Example : MD MANZARUL HAQUE : md_manzarul_haque0098 
+&#x20;       Resp:  As per discussion , no need to generate password.
 
-   \*  Does system need to generate password for Google signup user?
+&#x20;  \* Do we need to send any welcome email to user? if yes then what should be content?
 
-        Resp:  As per discussion , no need to generate password.
+&#x20;      Resp:  As per discussion, for Google user creation no need to send any email.
 
-   \* Do we need to send any welcome email to user? if yes then what should be content? 
+&#x20;  \* What will happen if some old Google user won't have firstName or name itself?
 
-       Resp:  As per discussion, for Google user creation no need to send any email.
+&#x20;  \* There might be scenario user already exist but his status is deleted?
 
-   \* What will happen if some old Google user won't have firstName or name itself?
+&#x20;      Resp:  As per discussion, user creation will fail.
 
-   \* There might be scenario user already exist but his status is deleted?
+&#x20;  \* Do we need to carry loginId as well?
 
-       Resp:  As per discussion, user creation will fail.
+&#x20; \* In Old implementation during user create we have to send phoneVerified as true?
 
-   \* Do we need to carry loginId as well?
+&#x20;\* User external Id workflow?(In old )
 
-  \* In Old implementation during user create we have to send phoneVerified as true?
+***
 
- \* User external Id workflow?(In old )
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

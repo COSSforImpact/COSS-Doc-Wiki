@@ -1,27 +1,24 @@
- **Overview** As, most of the users will be doing self sign-up into the sunbird platform, all users will by default belong to default organisation/channel, i.e. Custodian channel. Currently, we do not allow to change the user's root organisation from update user api. As, most user will be now created through self sign-up we need a way to change user's root-org, so that user can be associated with state's root-org, and contribute in the platform based on membership.
+# Updating-User's-Root-Organisation
 
- **Solution approaches**  **Approach 1** Allow updating the root org from update user API.
+**Overview** As, most of the users will be doing self sign-up into the sunbird platform, all users will by default belong to default organisation/channel, i.e. Custodian channel. Currently, we do not allow to change the user's root organisation from update user api. As, most user will be now created through self sign-up we need a way to change user's root-org, so that user can be associated with state's root-org, and contribute in the platform based on membership.
 
+**Solution approaches** **Approach 1** Allow updating the root org from update user API.
 
+| Pros                                                    | Cons                                                                                         |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Using the same API, so no new API need to be introduced | Role having user-update will be able to carry out the operation, so role cannot be seperated |
+|                                                         | Will add and make current business logic and make update method more complex                 |
 
-| Pros | Cons | 
-|  --- |  --- | 
-| Using the same API, so no new API need to be introduced | Role having user-update will be able to carry out the operation, so role cannot be seperated | 
-|  | Will add and make current business logic and make update method more complex | 
+**Approach 2** Provide additional API to update the user's root-org
 
- **Approach 2** Provide additional API to update the user's root-org
+| Pros                                                             | Cons                                    |
+| ---------------------------------------------------------------- | --------------------------------------- |
+| More control on user-role management, we can restrict API access | Introducing new API, one more end-point |
+| Better managed from code-design perspective.                     |                                         |
 
+#### API Design
 
-
-| Pros | Cons | 
-|  --- |  --- | 
-| More control on user-role management, we can restrict API access | Introducing new API, one more end-point | 
-| Better managed from code-design perspective. |  | 
-
-
-### API Design
-
-```text
+```
 {
   "request": {
     "userId" : "id-of-user-to-migrate",
@@ -84,22 +81,23 @@ Response 400 Bad Request - Invalid root org
     }
 }
 ```
- **Open doubts:** 
-*  **  ** Which role user will have above api call access?
-*   Does caller need to have same role under newly proposed moved org or he can be part of any rootOrg.
 
- **Complete solution/Change required for successful root-org migration**  **Check's and warnings for user before proceeding** 
+**Open doubts:**
+
+* \*\*  \*\* Which role user will have above api call access?
+* &#x20; Does caller need to have same role under newly proposed moved org or he can be part of any rootOrg.
+
+**Complete solution/Change required for successful root-org migration** **Check's and warnings for user before proceeding**
+
 * User needs to be shown warning for current suborg membership/roles that user holds if any, will be removed.
 * User needs to be shown warning for enrolled courses, that belong to previous root-org, having status "Not Started" or "In Progress"
 * User should be asked to un-enroll or complete such courses, before executing root-org migration.
 
- **Actions to be executed for successful migration** 
+**Actions to be executed for successful migration**
+
 * While fetching courses, if there is any filtering based on root-org, that needs to be removed, while showing user completed courses. (Within sunbird core level there are no business logic for user-course association related to root-org)
-* Remove user_org association, which are invalid according to new root-org to be associated.
+* Remove user\_org association, which are invalid according to new root-org to be associated.
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

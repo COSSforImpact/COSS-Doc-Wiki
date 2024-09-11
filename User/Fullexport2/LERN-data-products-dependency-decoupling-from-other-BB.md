@@ -1,128 +1,136 @@
+# LERN-data-products-dependency-decoupling-from-other-BB
 
-##  Objective
+### &#x20;Objective
+
 LERN Dataproducts is collection of scripts which will be used to generate reports for LERN related data creation and consumption.
 
 Current data products are using some of the data locations from other building blocks.
 
 From this migration, other building block data dependencies will be decoupled.
 
+### Building block dependencies and approaches
 
-##  Building block dependencies and approaches
+| **Job Name**                                                           | **Dependency** | **Approach** |
+| ---------------------------------------------------------------------- | -------------- | ------------ |
+| <p><strong>Exhaust Jobs</strong></p><ul><li>Progress Exhaust</li></ul> |                |              |
 
+* Response Exhaust
+* Userinfo Exhaust
 
-|  **Job Name**  |  **Dependency**  |  **Approach**  | 
-|  --- |  --- |  --- | 
-|  **Exhaust Jobs** <ul><li>Progress Exhaust
+\| \*\*\_Lern BB\_\*\*
 
-</li><li>Response Exhaust
+* user\_enrolments&#x20;
+* assessment\_aggregator
+* user\_activity\_agg
 
-</li><li>Userinfo Exhaust
+\*\*\_Obsrv BB\_\*\*
 
-</li></ul> |  **_Lern BB_** <ul><li>user_enrolments 
+* User Redis
+* Postgres Job\_request table
 
-</li><li>assessment_aggregator
+\*\*\_User ORG\_\*\*
 
-</li><li>user_activity_agg
+* user\_consent
+* system\_settings
 
-</li></ul> **_Obsrv BB_** <ul><li>User Redis
+\*\*\_Public API\_\*\*
 
-</li><li>Postgres Job_request table
+* Content Search API
 
-</li></ul> **_User ORG_** <ul><li>user_consent
+|
 
-</li><li>system_settings
+* Move exhaust APIs to Lern
+* Deploy Usercache redis in Lern
+* Move job\_request table under LERN environment
+* Add custodian org details in job config or fetch using system settings API
 
-</li></ul> **_Public API_** <ul><li>Content Search API
+Need discussion for user\_consent table - | | \*\*Course Consumption\*\* | \*\*\_Lern BB\_\*\*
 
-</li></ul> | <ul><li>Move exhaust APIs to Lern
+* Course\_batch cassandra table&#x20;
 
-</li><li>Deploy Usercache redis in Lern
+\*\*\_User ORG\_\*\*
 
-</li><li>Move job_request table under LERN environment
+* Organization table from sunbird keyspace
 
-</li><li>Add custodian org details in job config or fetch using system settings API
+\*\*\_Obsrv BB\_\*\*
 
-</li></ul>Need discussion for user_consent table -  | 
-|  **Course Consumption**  |  **_Lern BB_** <ul><li>Course_batch cassandra table 
+* Summary-events druid datasource
 
-</li></ul> **_User ORG_** <ul><li>Organization table from sunbird keyspace
+\*\*\_Public API\_\*\*
 
-</li></ul> **_Obsrv BB_** <ul><li>Summary-events druid datasource
+* Content search API
 
-</li></ul> **_Public API_** <ul><li>Content search API
+|
 
-</li></ul> | <ul><li>Use public API for getting ORG details
+* Use public API for getting ORG details
+* Disable these jobs via config - cronjob configuration
+* Instead of accessing tables directly use apis - scaling issues will come
+* internal api calls to druid or public api with token authentication
+  * OPA layer implementation for authentication and code changes for the API key credentials in Druid API call.
 
-</li><li>Disable these jobs via config - cronjob configuration
+\| | \*\*Course Enrollment\*\* | \*\*\_Lern BB\_\*\*
 
-</li><li>Instead of accessing tables directly use apis - scaling issues will come
+* Course\_batch cassandra table
+* Course batch elasticsearch index
 
-</li><li>internal api calls to druid or public api with token authentication
+\*\*\_User ORG\_\*\*
 
-<ul><li>OPA layer implementation for authentication and code changes for the API key credentials in Druid API call.
+* Organization table from sunbird keyspace
 
-</li></ul></li></ul> | 
-|  **Course Enrollment**  |  **_Lern BB_** <ul><li>Course_batch cassandra table
+\*\*\_Public API\_\*\*
 
-</li><li>Course batch elasticsearch index
+* Content search API
 
-</li></ul> **_User ORG_** <ul><li>Organization table from sunbird keyspace
+|
 
-</li></ul> **_Public API_** <ul><li>Content search API
+* Use org search API ( \*\*Public API\*\* ) for getting organization details
 
-</li></ul> | <ul><li>Use org search API ( **Public API** ) for getting organization details
+\| | \*\*State Admin Report\*\* | \*\*\_User ORG BB\_\*\*
 
-</li></ul> | 
-|  **State Admin Report**  |  **_User ORG BB_** <ul><li> **cassandra table** 
+* \*\*cassandra table\*\*
+  * User
+  * User\_declaration
+  * User\_consent
+  * Location
 
-<ul><li>User
+|
 
-</li><li>User_declaration
+* Use Location search API instead of cassandra table - scaling issue
+* Add User\_declaration, User\_consent to Usercache and use it as single data point for user related reports. - multiple entries are there for declaration and consent respective to course and orgs.
+  * During update or revoke of consent, cache should be in sync.
 
-</li><li>User_consent
+Need discussion for user related tables | | \*\*State Admin Geo Report\*\* | \*\*\_User ORG BB\_\*\*
 
-</li><li>Location
+* \*\*cassandra table\*\*
+  * Organisation&#x20;
+  * Location
 
-</li></ul></li></ul> | <ul><li>Use Location search API instead of cassandra table - scaling issue
+\| | | \*\*Collection Summary Job V2\*\* | \*\*\_Lern BB\_\*\*
 
-</li><li>Add User_declaration, User_consent to Usercache and use it as single data point for user related reports. - multiple entries are there for declaration and consent respective to course and orgs.
+* user\_enrolments&#x20;
+* course\_batch
 
-<ul><li>During update or revoke of consent, cache should be in sync.
+\*\*\_Obsrv BB\_\*\*
 
-</li></ul></li></ul>Need discussion for user related tables | 
-|  **State Admin Geo Report**  |  **_User ORG BB_** <ul><li> **cassandra table** 
+* User Redis
+* Druid API to trigger ingestion task for \*\*collection-summary-snapshot\*\*
 
-<ul><li>Organisation 
+\*\*\_Public API\_\*\*
 
-</li><li>Location
+* Content Search API
 
-</li></ul></li></ul> |  | 
-|  **Collection Summary Job V2**  |  **_Lern BB_** <ul><li>user_enrolments 
+|
 
-</li><li>course_batch
+* internal api calls to druid or public api with token authentication
+  * OPA layer implementation for authentication and code changes for the API key credentials in Druid API call.
 
-</li></ul> **_Obsrv BB_** <ul><li>User Redis
+\| | \*\*Exhaust API\*\* | Postgres table for job\_request |
 
-</li><li>Druid API to trigger ingestion task for  **collection-summary-snapshot** 
+* Moving Exhaust API service to LERN
+* Move job\_request table under LERN environment
 
-</li></ul> **_Public API_** <ul><li>Content Search API
+|
 
-</li></ul> | <ul><li>internal api calls to druid or public api with token authentication
+***
 
-<ul><li>OPA layer implementation for authentication and code changes for the API key credentials in Druid API call.
-
-</li></ul></li></ul> | 
-|  **Exhaust API**  | Postgres table for job_request | <ul><li>Moving Exhaust API service to LERN
-
-</li><li>Move job_request table under LERN environment
-
-</li></ul> | 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

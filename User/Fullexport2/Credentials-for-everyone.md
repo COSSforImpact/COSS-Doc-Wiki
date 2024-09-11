@@ -1,26 +1,33 @@
+# Credentials-for-everyone
 
-###     * [](#)
-    * [Purpose](#purpose)
-    * [Solution diagram](#solution-diagram)
-    * [Certificate Registry](#certificate-registry)
-    * [Release scope](#release-scope)
-    * [Certificate-Registry APIs](#certificate-registry-apis)
-    * [Open questions](#open-questions)
-    * [Resolved questions](#resolved-questions)
-Prior art: [[Ecreds - Phase3 and SB rollout|Ecreds---Phase3-and-SB-rollout]]
+#### \*
 
-### Purpose
-We want to start issuing credentials for all, including  _non_  on-boarded users. These may be individuals such as teachers and students as well as institutions.
+```
+* [Purpose](#purpose)
+* [Solution diagram](#solution-diagram)
+* [Certificate Registry](#certificate-registry)
+* [Release scope](#release-scope)
+* [Certificate-Registry APIs](#certificate-registry-apis)
+* [Open questions](#open-questions)
+* [Resolved questions](#resolved-questions)
+```
 
+Prior art: \[\[Ecreds - Phase3 and SB rollout|Ecreds---Phase3-and-SB-rollout]]
 
-### Solution diagram
-![](images/storage/eCreds_solution_and_arch-Page-2%20-%20proposed%20(1).png)
+#### Purpose
 
+We want to start issuing credentials for all, including _non_ on-boarded users. These may be individuals such as teachers and students as well as institutions.
 
-### Certificate Registry
+#### Solution diagram
+
+![](<images/storage/eCreds\_solution\_and\_arch-Page-2 - proposed (1).png>)
+
+#### Certificate Registry
+
 The certificate registry is where the certificates are deposited. It is envisioned that this has both on-boarded and external certificates of users and things (like schools). In this view, the following schema is proposed.
 
 schema
+
 ```js
 "id": "certificate id, text", 
 "recipient": {
@@ -49,26 +56,26 @@ schema
 }
 
 ```
+
 Why these in schema _id_ : The id of the certificate, complete URI is different from the registry identifier to that certificate.
 
- _recipient_ : Except name, all other attributes are part of the raw json data. The type helps identify if the cert is awarded to a person or entity. Whether the person is a student, doctor, teacher is hard for us to construct/provide. So, the registry will stick to an individuals. Further details about the capacity of the individual or who is the individual is not a concern of the registry.
+_recipient_ : Except name, all other attributes are part of the raw json data. The type helps identify if the cert is awarded to a person or entity. Whether the person is a student, doctor, teacher is hard for us to construct/provide. So, the registry will stick to an individuals. Further details about the capacity of the individual or who is the individual is not a concern of the registry.
 
- _data:_ The entire raw certification json data is preserved here, in case the URLs don't work or unreachable later. Imagine, some company deposits certificate into the registry, but then goes missing. The certificates could be still valid. So, we like to preserve it.
+_data:_ The entire raw certification json data is preserved here, in case the URLs don't work or unreachable later. Imagine, some company deposits certificate into the registry, but then goes missing. The certificates could be still valid. So, we like to preserve it.
 
- _createdBy, updatedBy_ : certificate-registry doesn't have any 
+_createdBy, updatedBy_ : certificate-registry doesn't have any&#x20;
 
- _related_ : A raw object where the depositor can store some related values for easy retrieval/search later. 
+_related_ : A raw object where the depositor can store some related values for easy retrieval/search later.&#x20;
 
-Sensitive informationThe name of the recipient (in case of user) is stored in plain text. Phone, email is not used in the certificate raw data. It is only used by the service to communicate certificate link. This information is stored in an encrypted format here in the registry, so as to map (migrate to respective users or orgs) later. 
+Sensitive informationThe name of the recipient (in case of user) is stored in plain text. Phone, email is not used in the certificate raw data. It is only used by the service to communicate certificate link. This information is stored in an encrypted format here in the registry, so as to map (migrate to respective users or orgs) later.&#x20;
 
+#### Release scope
 
-### Release scope
 For the GJ experiment, Oct 25, encryption will not happen. This will be taken up in 2.6 or later.
 
+#### Certificate-Registry APIs
 
-### Certificate-Registry APIs
 /add - Deposit the certificateRequest
-
 
 ```
 {
@@ -90,8 +97,8 @@ For the GJ experiment, Oct 25, encryption will not happen. This will be taken up
     }
 }
 ```
-Response
 
+Response
 
 ```
 {
@@ -105,8 +112,8 @@ Response
     }
 }
 ```
-/validate - Validate the access code and upon success get the details from the registryRequest
 
+/validate - Validate the access code and upon success get the details from the registryRequest
 
 ```
 {
@@ -116,8 +123,8 @@ Response
     }
 }
 ```
-Response
 
+Response
 
 ```java
 {
@@ -188,20 +195,18 @@ Response
     }
 }
 ```
+
 /verify - Verify the certificate JSON2 dataRequest
 
-
 ```js
-
 ```
+
 Response
 
-
 ```js
-
 ```
-/download - Gets a signed URL to the certificate Request
 
+/download - Gets a signed URL to the certificate Request
 
 ```
 {
@@ -210,8 +215,8 @@ Response
     }
 }
 ```
-Response
 
+Response
 
 ```
 {
@@ -231,17 +236,12 @@ Response
 }
 ```
 
-### Open questions
+#### Open questions
 
-### Resolved questions
+#### Resolved questions
 
-1. Which service takes in the CSV and how they get converted to registry API? - Program backend will do this using the existing Cassandra database support - likely to use existing tables bulk_upload, bulk_upload_process.
+1. Which service takes in the CSV and how they get converted to registry API? - Program backend will do this using the existing Cassandra database support - likely to use existing tables bulk\_upload, bulk\_upload\_process.
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

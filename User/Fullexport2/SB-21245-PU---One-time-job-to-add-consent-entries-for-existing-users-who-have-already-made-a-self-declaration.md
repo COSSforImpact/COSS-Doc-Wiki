@@ -1,28 +1,16 @@
+# SB-21245-PU---One-time-job-to-add-consent-entries-for-existing-users-who-have-already-made-a-self-de
+
 As a part of the task [SB-21245](https://project-sunbird.atlassian.net/browse/SB-21245), following steps need to be executed on the requirement basis.
 
-
-## Steps for data Migration from user_declarations to  **user_consent** 
-
-
+### Steps for data Migration from user\_declarations to **user\_consent**
 
 1. Bring down the learner service
-
-
-1. Count the number of records in user_declarations and user_consent, post running the job the records should be of equal count.
-
-
-1. If spark is available, login to spark machine. Else, download spark from [here](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.0/spark-3.0.0-bin-hadoop2.7.tgz), to the preferred instance.
-
-
-1. validate data count in respective table
-
-
-1. Job printing the total records before and after the migration.
-
-
+2. Count the number of records in user\_declarations and user\_consent, post running the job the records should be of equal count.
+3. If spark is available, login to spark machine. Else, download spark from [here](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.0/spark-3.0.0-bin-hadoop2.7.tgz), to the preferred instance.
+4. validate data count in respective table
+5. Job printing the total records before and after the migration.
 
 Follow the below mentioned steps for data migration:
-
 
 ```
 vi SelfDeclarationToConsentMigration.scala 
@@ -32,8 +20,8 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of SelfDeclarationToConsentMigration.scala}}
 SelfDeclarationToConsentMigration.main("{cassandra ip}")
 ```
- 
 
+&#x20;
 
 ```scala
 import com.typesafe.config.{Config, ConfigFactory}
@@ -93,13 +81,11 @@ object SelfDeclarationToConsentMigration extends Serializable {
     }
 }    
 ```
- **Prod-data in pre-prod test env execution output samples:** 
 
-![](images/storage/Screenshot%202021-01-22%20at%208.51.06%20PM.png)![](images/storage/Screenshot%202021-01-22%20at%208.52.40%20PM.png)![](images/storage/Screenshot%202021-01-22%20at%208.52.02%20PM.png)![](images/storage/Screenshot%202021-01-22%20at%208.50.34%20PM.png)
+**Prod-data in pre-prod test env execution output samples:**
 
+![](<images/storage/Screenshot 2021-01-22 at 8.51.06 PM.png>) ![](<images/storage/Screenshot 2021-01-22 at 8.52.40 PM.png>) ![](<images/storage/Screenshot 2021-01-22 at 8.52.02 PM.png>) ![](<images/storage/Screenshot 2021-01-22 at 8.50.34 PM.png>)
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

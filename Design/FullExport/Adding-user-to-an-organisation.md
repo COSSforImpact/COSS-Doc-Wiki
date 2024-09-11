@@ -1,23 +1,18 @@
+# Overview :
 
-## Overview :
- There is a need in  **sunbird**  platform to identify user and org based on their external id and provider, instead of identifying them using there ids. 
+&#x20;There is a need in **sunbird** platform to identify user and org based on their external id and provider, instead of identifying them using there ids.&#x20;
 
+**Problem statement** : [Ticket Ref: SC-879](https://project-sunbird.atlassian.net/browse/SC-879)
 
+&#x20; As of now in some APIs , sunbird identifies organisation based on externalId and provider key in following cases.
 
- **Problem statement**  : [Ticket Ref: SC-879](https://project-sunbird.atlassian.net/browse/SC-879)
+&#x20; 1\. Add user to org
 
-  As of now in some APIs , sunbird identifies organisation based on externalId and provider key in following cases.
+&#x20;  2\. assign roles
 
-  1. Add user to org
+&#x20;   Now the problem is we need to support above api's to identify user based on  user's externalId, idtype and provider.
 
-   2. assign roles
-
-    Now the problem is we need to support above api's to identify user based on  user's externalId, idtype and provider.
-
-
-
-   
-
+&#x20; &#x20;
 
 ```js
 // Old api structure
@@ -56,41 +51,27 @@ Note:
 
 ```
 
+| Attribute      | status                                                        |
+| -------------- | ------------------------------------------------------------- |
+| userExternalId | required if userId absent                                     |
+| userIdType     |  required if userExternalId present                           |
+| userProvider   | required if userExternalId  present                           |
+| userId         |  required if userExternalId absent                            |
+| organisationId | required if externalId absent                                 |
+| externalId     | required if organisationId absent                             |
+| provider       | required if externalId present                                |
+| roles          | required for assign roles api , for add members it's optional |
 
-
-
-| Attribute | status | 
-|  --- |  --- | 
-| userExternalId | required if userId absent | 
-| userIdType |  required if userExternalId present | 
-| userProvider | required if userExternalId  present | 
-| userId |  required if userExternalId absent | 
-| organisationId | required if externalId absent | 
-| externalId | required if organisationId absent | 
-| provider | required if externalId present | 
-| roles | required for assign roles api , for add members it's optional | 
-
-  
+&#x20;&#x20;
 
 After few releases we propose to change this names as follows:
 
+| **User**                    | **Org**                     |
+| --------------------------- | --------------------------- |
+| userExternalId (externalId) |  orgExternalId (externalId) |
+| userProvider (provider)     | orgProvider (provider)      |
+| userIdType (idType)         |                             |
 
+***
 
-|  **User**  |  **Org**  | 
-|  --- |  --- | 
-| userExternalId (externalId) |  orgExternalId (externalId) | 
-| userProvider (provider) | orgProvider (provider) | 
-| userIdType (idType) |  | 
-
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

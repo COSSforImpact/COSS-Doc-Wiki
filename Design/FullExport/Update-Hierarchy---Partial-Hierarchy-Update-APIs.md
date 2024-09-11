@@ -1,17 +1,18 @@
+# Update-Hierarchy---Partial-Hierarchy-Update-APIs
 
-## Background
+### Background
+
 For any collection contents, to add or remove a leaf node from the hierarchy, the entire hierarchy needs to sent as part of update hierarchy request. This requires a huge amount data transfer over the network as the request is proportionate to the entire hierarchy of a collection.
 
+### Solution
 
-## Solution
 In order to provide facility to add or remove children to a unit level in the hierarchy, we have the below APIs.
 
+#### Add leafNodes to hierarchy :&#x20;
 
-### Add leafNodes to hierarchy : 
 This API facilitates user to add list of children to a unit in the hierarchy under a collection content
 
- **PATCH: /content/v3/hierarchy/add** 
-
+**PATCH: /content/v3/hierarchy/add**
 
 ```
 Request:
@@ -24,8 +25,6 @@ Request:
     }
 }
 ```
-
-
 
 ```
 Response:
@@ -48,13 +47,11 @@ Response:
 }
 ```
 
+#### Remove leafNodes from hierarchy
 
-
-### Remove leafNodes from hierarchy
 This API removes the list of children from a unit in the hierarchy of a collection content.
 
- **DELETE: /content/v3/hierarchy/remove** 
-
+**DELETE: /content/v3/hierarchy/remove**
 
 ```
 Request: 
@@ -68,8 +65,6 @@ Request:
 
 
 ```
-
-
 
 ```
 Response:
@@ -91,10 +86,6 @@ Response:
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

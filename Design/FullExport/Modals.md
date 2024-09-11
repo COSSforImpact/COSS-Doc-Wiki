@@ -1,32 +1,25 @@
+# Modals
 
+\| [https://app.invisionapp.com/d/main#/console/16496654/342077612/preview](https://app.invisionapp.com/d/main#/console/16496654/342077612/preview) |
 
+| [https://edcarroll.github.io/ng2-semantic-ui/#/modules/modal](https://edcarroll.github.io/ng2-semantic-ui/#/modules/modal)                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---                                                                                                                                              |
+| [https://app.invisionapp.com/d/main#/console/16496654/342077612/preview](https://app.invisionapp.com/d/main#/console/16496654/342077612/preview) |
+| [https://edcarroll.github.io/ng2-semantic-ui/#/modules/modal](https://edcarroll.github.io/ng2-semantic-ui/#/modules/modal)                       |
 
+### 3 variations of Modals:
 
-| [https://app.invisionapp.com/d/main#/console/16496654/342077612/preview](https://app.invisionapp.com/d/main#/console/16496654/342077612/preview) | 
-| [https://edcarroll.github.io/ng2-semantic-ui/#/modules/modal](https://edcarroll.github.io/ng2-semantic-ui/#/modules/modal) | 
-|  --- | 
-|  --- | 
-| [https://app.invisionapp.com/d/main#/console/16496654/342077612/preview](https://app.invisionapp.com/d/main#/console/16496654/342077612/preview) | 
-| [https://edcarroll.github.io/ng2-semantic-ui/#/modules/modal](https://edcarroll.github.io/ng2-semantic-ui/#/modules/modal) | 
+\| size | Mobile Behaviour | Tablet Behaviour | Computer Behaviour | | width = 300px  & height = 250px | width = 300px  & height = 250px | width = 300px  & height = 250px | | width = 100% & max-height = 480px | width = 100% & max-height = 480px | width = 720px & max-height = 480px | | Entire screen | Entire screen | Entire screen | | --- | --- | --- | --- |
 
+| ---                               |
+| --------------------------------- |
+| ---                               |
+| width = 300px  & height = 250px   |
+| width = 100% & max-height = 480px |
+| Entire screen                     |
 
-## 3 variations of Modals:
-
-
-| size | Mobile Behaviour | Tablet Behaviour | Computer Behaviour | 
-| width = 300px  & height = 250px | width = 300px  & height = 250px | width = 300px  & height = 250px | 
-| width = 100% & max-height = 480px | width = 100% & max-height = 480px | width = 720px & max-height = 480px | 
-| Entire screen | Entire screen | Entire screen | 
-|  --- |  --- |  --- |  --- | 
-|  --- | 
-|  --- | 
-|  --- | 
-| width = 300px  & height = 250px | width = 300px  & height = 250px | width = 300px  & height = 250px | 
-| width = 100% & max-height = 480px | width = 100% & max-height = 480px | width = 720px & max-height = 480px | 
-| Entire screen | Entire screen | Entire screen | 
-
-
-## HTML Template:
+### HTML Template:
 
 ```xml
 <sui-modal
@@ -58,10 +51,6 @@
 </sui-modal>
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

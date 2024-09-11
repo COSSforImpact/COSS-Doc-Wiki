@@ -1,29 +1,30 @@
+# Additional-Metadata-required-in-Textbook
 
-## Overview
-In view of providing better experience for devices which run on a low configuration and/or low bandwidth, to the  **offline modes** - mobile and desktop apps, the following is decided :
+### Overview
 
- **1.**  Addition of  **hierarchy.json**  file inside the ecar, which consists of the minimum required data in hierarchical structure, for viewing content in the apps mentioned.
+In view of providing better experience for devices which run on a low configuration and/or low bandwidth, to the **offline modes** - mobile and desktop apps, the following is decided :
 
- **2.**  Two new metadata fields are added into the existing metadata :
+**1.** Addition of **hierarchy.json** file inside the ecar, which consists of the minimum required data in hierarchical structure, for viewing content in the apps mentioned.
 
- **i.**   totalCompressedSize - Size of the Textbook in compressed/zipped format
+**2.** Two new metadata fields are added into the existing metadata :
 
- **ii.**  totalUncompressedSize - Size of the Textbook in uncompressed format
+**i.**   totalCompressedSize - Size of the Textbook in compressed/zipped format
 
-    The above fields are required to determine the  **available disk space**  of the user for downloading app-related content.
+**ii.** totalUncompressedSize - Size of the Textbook in uncompressed format
 
+&#x20;   The above fields are required to determine the **available disk space** of the user for downloading app-related content.
 
-## Ecar Structure
-EcarFolder 
+### Ecar Structure
 
-| _ _ _ _ _ manifest.json
+EcarFolder&#x20;
 
-| _ _ _ _ _ hierarchy.json
+\| \_ \_ \_ \_ \_ manifest.json
 
-| _ _ _ _ _ other folders
+\| \_ \_ \_ \_ \_ hierarchy.json
 
+\| \_ \_ \_ \_ \_ other folders
 
-## Sample Hierarchy Json
+### Sample Hierarchy Json
 
 ```js
 {  
@@ -349,20 +350,6 @@ EcarFolder 
 }
 ```
 
+***
 
-
-
-
-
-
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]
