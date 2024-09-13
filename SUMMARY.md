@@ -1214,7 +1214,3 @@
       * [Test-Prep](sunbird-building-blocks/prd/prd-ed-td-req-ind/test-prep.md)
       * [Versioning-of-Textbooks-and-their-linked-content---Functional-Spec](sunbird-building-blocks/prd/prd-ed-td-req-ind/versioning-of-textbooks-and-their-linked-content-functional-spec.md)
       * [eCreds](sunbird-building-blocks/prd/prd-ed-td-req-ind/ecreds.md)
-* [Infrastructure & Security](infrastructure-and-security.md)
-* [Release Management](release-management/README.md)
-  * [Sunbird ED Release Nomenclature](release-management/sunbird-ed-release-nomenclature.md)
-  * [Page](release-management/page.md)
