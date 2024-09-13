@@ -1,9 +1,15 @@
 # Table of contents
 
 * [Sunbird Knowledge Hub](README.md)
-  * [Page 1](sunbird-knowledge-hub/page-1.md)
-  * [Why DPG\_ DPI](sunbird-knowledge-hub/why-dpg\_-dpi.md)
-  * [DPG\_DPI in Ed and Skilling](sunbird-knowledge-hub/dpg\_dpi-in-ed-and-skilling.md)
+  * [Why DPG & DPI](sunbird-knowledge-hub/why-dpg-and-dpi.md)
+  * [Understanding DPI and India's Efforts](sunbird-knowledge-hub/understanding-dpi-and-indias-efforts.md)
+  * [DPG & DPI in Education and Skilling](sunbird-knowledge-hub/dpg-and-dpi-in-education-and-skilling.md)
+  * [Understanding Sunbird](sunbird-knowledge-hub/understanding-sunbird/README.md)
+    * [The Sunbird Story](sunbird-knowledge-hub/understanding-sunbird/the-sunbird-story.md)
+    * [Overview of Sunbird Building Blocks](sunbird-knowledge-hub/understanding-sunbird/overview-of-sunbird-building-blocks.md)
+    * [Sunbird Building Blocks Explained](sunbird-knowledge-hub/understanding-sunbird/sunbird-building-blocks-explained.md)
+    * [Practitioner's Perspective](sunbird-knowledge-hub/understanding-sunbird/practitioners-perspective.md)
+  * [Leveraging DPIs & India Stack](sunbird-knowledge-hub/leveraging-dpis-and-india-stack.md)
   * [Sunbird Building Blocks](sunbird-knowledge-hub/sunbird-building-blocks/README.md)
     * [Sunbird Obsrv](sunbird-knowledge-hub/sunbird-building-blocks/analytics/README.md)
       * [Technical Documents](sunbird-knowledge-hub/sunbird-building-blocks/analytics/technical-documents/README.md)
