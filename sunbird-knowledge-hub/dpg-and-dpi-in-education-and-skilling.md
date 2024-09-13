@@ -1,4 +1,4 @@
-# DPG\_DPI in Ed and Skilling
+# DPG & DPI in Education and Skilling
 
 ### **Why DPG/ DPI** <a href="#id-4vl2fooem9tm" id="id-4vl2fooem9tm"></a>
 
@@ -58,7 +58,7 @@ The Sunbird community is growing with adoption and contributions from various in
 
 The Sunbird family of digital public goods that act as building blocks to create solutions and DPIs in skilling and education are described below (also see [sunbird.org](https://sunbird.org/sunbird.org))
 
-![](../.gitbook/assets/0.png)
+![](<../.gitbook/assets/0 (4).png>)
 
 **VISION**
 
