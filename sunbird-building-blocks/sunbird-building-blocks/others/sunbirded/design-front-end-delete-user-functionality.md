@@ -24,10 +24,10 @@ The library will consists of
 * Terms and conditions Page
   *
 
-      ![](../../../Others/SunbirdED/images/storage/image-20231004-140856.png)
+      ![](../../../../Others/SunbirdED/images/storage/image-20231004-140856.png)
 * Otp popup for verification
 
-![](../../../Others/SunbirdED/images/storage/image-20231004-140920.png)
+![](../../../../Others/SunbirdED/images/storage/image-20231004-140920.png)
 
 #### Pros:
 
