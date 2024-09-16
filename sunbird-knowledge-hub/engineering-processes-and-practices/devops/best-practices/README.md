@@ -2,5 +2,5 @@
 icon: folder-open
 ---
 
-# Decoding Registry
+# Best Practices
 

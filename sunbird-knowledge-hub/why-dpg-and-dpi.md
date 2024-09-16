@@ -1,4 +1,8 @@
-# Why DPG\_ DPI
+---
+icon: elementor
+---
+
+# Why DPG & DPI ?
 
 **DPG & DPI**
 

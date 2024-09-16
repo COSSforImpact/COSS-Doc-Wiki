@@ -1,4 +1,5 @@
 ---
+icon: elementor
 layout:
   title:
     visible: true

@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Transition to Kubernetes
 
 ### This page is a walk-through for the research and ideas which we stumbled upon the journey to adopt Kubernetes. <a href="#transitiontokubernetes-thispageisawalk-throughfortheresearchandideaswhichwestumbleduponthejourneytoa" id="transitiontokubernetes-thispageisawalk-throughfortheresearchandideaswhichwestumbleduponthejourneytoa"></a>
