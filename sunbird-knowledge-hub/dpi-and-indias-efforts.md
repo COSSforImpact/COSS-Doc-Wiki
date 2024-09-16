@@ -1,4 +1,8 @@
-# Understanding DPI and India's Efforts
+---
+coverY: 0
+---
+
+# DPI and India's Efforts
 
 
 
