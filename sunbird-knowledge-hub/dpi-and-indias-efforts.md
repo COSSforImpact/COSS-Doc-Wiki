@@ -1,5 +1,15 @@
 ---
-coverY: 0
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # DPI and India's Efforts
