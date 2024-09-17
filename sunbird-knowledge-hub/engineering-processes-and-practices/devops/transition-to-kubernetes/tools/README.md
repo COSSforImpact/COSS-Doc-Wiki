@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Tools
 
 ### DevOps Tools to manage infra and application life-cycle <a href="#tools-devopstoolstomanageinfraandapplicationlife-cycle" id="tools-devopstoolstomanageinfraandapplicationlife-cycle"></a>

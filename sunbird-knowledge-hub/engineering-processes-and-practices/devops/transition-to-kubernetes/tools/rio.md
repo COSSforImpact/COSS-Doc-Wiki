@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # RIO
 
 Rio is an opinionated tool, implemented on top of Knative

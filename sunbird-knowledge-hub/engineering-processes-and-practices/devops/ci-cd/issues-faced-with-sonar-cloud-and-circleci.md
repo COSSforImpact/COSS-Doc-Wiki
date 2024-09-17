@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Issues faced with Sonar Cloud and CircleCI
 
 **Sonarcloud displays 0 code coverage for Nodejs:**

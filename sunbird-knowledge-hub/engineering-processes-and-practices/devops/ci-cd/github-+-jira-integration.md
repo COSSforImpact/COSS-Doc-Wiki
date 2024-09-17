@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # GitHub + Jira integration
 
 ![](../../../../.gitbook/assets/1591705813.png)

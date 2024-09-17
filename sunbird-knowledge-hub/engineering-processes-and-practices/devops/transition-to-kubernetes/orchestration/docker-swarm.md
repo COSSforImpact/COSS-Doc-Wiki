@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Docker Swarm
 
 Docker is one of the applications which makes creation,publishing, and running of the containers easy

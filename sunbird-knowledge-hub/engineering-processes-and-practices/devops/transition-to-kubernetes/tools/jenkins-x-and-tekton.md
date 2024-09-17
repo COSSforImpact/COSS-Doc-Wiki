@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Jenkins X and Tekton
 
 #### Jenkins X provides pipeline automation, built-in GitOps, and preview environments to help teams collaborate and accelerate their software delivery at any scale <a href="#jenkinsxandtekton-jenkinsxprovidespipelineautomation-built-ingitops-andpreviewenvironmentstohelpteam" id="jenkinsxandtekton-jenkinsxprovidespipelineautomation-built-ingitops-andpreviewenvironmentstohelpteam"></a>

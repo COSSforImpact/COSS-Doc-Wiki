@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Orchestration
 
 Containers are processes, which are running in sandboxed environment.

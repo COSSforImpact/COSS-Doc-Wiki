@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Spinnaker
 
 #### Spinnaker is a application management and application deployment tool which has the capability of deploying various types of applications as well as manage / provison cloud infrastructure required for deployments  <a href="#spinnaker-spinnakerisaapplicationmanagementandapplicationdeploymenttoolwhichhasthecapabilityofdeploy" id="spinnaker-spinnakerisaapplicationmanagementandapplicationdeploymenttoolwhichhasthecapabilityofdeploy"></a>

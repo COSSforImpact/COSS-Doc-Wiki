@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Rancher
 
 * Rancher is a GUI Management tool for Kubernetes Clusters

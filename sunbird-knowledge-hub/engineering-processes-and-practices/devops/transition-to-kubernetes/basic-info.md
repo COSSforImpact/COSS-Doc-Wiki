@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Basic Info
 
 ### **WHY ?** <a href="#basicinfo-why" id="basicinfo-why"></a>

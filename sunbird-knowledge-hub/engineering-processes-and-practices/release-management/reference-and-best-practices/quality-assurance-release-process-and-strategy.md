@@ -1,4 +1,8 @@
-# Quality-Assurance--Release-Process-&-Strategy
+---
+icon: elementor
+---
+
+# Quality Assurance Strategy
 
 ## Process General Details
 

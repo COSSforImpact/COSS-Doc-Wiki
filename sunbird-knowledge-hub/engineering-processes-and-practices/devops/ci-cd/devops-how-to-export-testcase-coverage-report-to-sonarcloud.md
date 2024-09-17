@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # DevOps : How to export Testcase coverage report to SonarCloud
 
 We're using `jacoco.xml` to export code coverage report to sonarqube.

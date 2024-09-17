@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Azure Storage
 
 **Azure Storage Blob:**

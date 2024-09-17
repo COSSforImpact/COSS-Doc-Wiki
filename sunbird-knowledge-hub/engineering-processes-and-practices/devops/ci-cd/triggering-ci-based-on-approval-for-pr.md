@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Triggering CI based on approval for PR
 
 **Problem statement:**

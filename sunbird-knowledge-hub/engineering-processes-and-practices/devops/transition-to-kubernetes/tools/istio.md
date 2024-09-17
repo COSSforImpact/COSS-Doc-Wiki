@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Istio
 
 ### Service Mesh <a href="#istio-servicemesh" id="istio-servicemesh"></a>

@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Setup Sonar Cloud
 
 Adding new project for analysis.

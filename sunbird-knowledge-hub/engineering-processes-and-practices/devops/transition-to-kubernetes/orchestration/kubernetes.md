@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Kubernetes
 
 ### **1. Kubernetes Architecture** <a href="#kubernetes-1.kubernetesarchitecture" id="kubernetes-1.kubernetesarchitecture"></a>

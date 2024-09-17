@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Branching Strategy
 
 ## Branching strategy
