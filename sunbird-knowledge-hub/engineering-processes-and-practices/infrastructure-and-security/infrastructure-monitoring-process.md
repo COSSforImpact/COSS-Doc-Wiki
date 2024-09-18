@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Infrastructure-Monitoring-Process
 
 ## Process General Details
