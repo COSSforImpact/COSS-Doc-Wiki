@@ -1,4 +1,5 @@
 ---
+icon: book-atlas
 coverY: 0
 layout:
   cover:
@@ -18,4 +19,4 @@ layout:
 
 # Sunbird Knowledge Hub
 
-**Welcome to the Sunbird Knowledge Hub!** Dive into the fascinating journey of Sunbird, where groundbreaking ideas meet practical solutions. From the origins of this revolutionary platform to its transformative impact on digital public infrastructure. Uncovers the stories, strategies, and successes that have shaped Sunbird. Whether you're exploring its architectural brilliance, reading adoption stories, or browsing white papers, get ready for an insider's look at how Sunbird is building the future—one innovation at a time.
+**Welcome to the Sunbird Knowledge Hub !** A comprehensive resource for all things related to Sunbird. This site provides access to key documents, including architecture overviews, white papers, adoption stories, and detailed guides on leveraging Sunbird's modular building blocks. Whether you're looking to understand Sunbird's principles or explore its use in large-scale digital public infrastructure projects, this hub offers valuable insights and practical resources to help you harness the full potential of Sunbird.
