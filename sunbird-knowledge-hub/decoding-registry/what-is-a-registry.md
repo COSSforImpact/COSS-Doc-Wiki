@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # What is a registry
 
 ### Objective <a href="#m47rqi3ejc9l" id="m47rqi3ejc9l"></a>

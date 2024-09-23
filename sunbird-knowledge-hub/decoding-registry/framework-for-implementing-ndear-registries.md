@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Framework for implementing NDEAR-Registries
 
 ### **Framework for implementing NDEAR-Registries** <a href="#o6b3qmwk3g30" id="o6b3qmwk3g30"></a>

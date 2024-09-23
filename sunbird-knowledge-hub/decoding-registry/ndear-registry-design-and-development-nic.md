@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # NDEAR Registry Design & Development - NIC
 
 ### National Informatics Centre <a href="#id-999cwujf1qyu" id="id-999cwujf1qyu"></a>

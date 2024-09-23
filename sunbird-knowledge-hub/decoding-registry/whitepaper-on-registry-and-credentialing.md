@@ -1,4 +1,8 @@
-# Writeup on Registry & Credentialing
+---
+icon: elementor
+---
+
+# Whitepaper on Registry & Credentialing
 
 **Context & Problem Statement**
 
