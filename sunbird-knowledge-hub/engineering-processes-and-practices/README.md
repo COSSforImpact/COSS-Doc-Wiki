@@ -15,3 +15,15 @@ The **Sunbird Engineering Processes & Practices** section outlines the key metho
 {% content-ref url="release-management/" %}
 [release-management](release-management/)
 {% endcontent-ref %}
+
+{% content-ref url="quality-assurance/" %}
+[quality-assurance](quality-assurance/)
+{% endcontent-ref %}
+
+{% content-ref url="infrastructure-and-security/" %}
+[infrastructure-and-security](infrastructure-and-security/)
+{% endcontent-ref %}
+
+{% content-ref url="standards-and-guidelines/" %}
+[standards-and-guidelines](standards-and-guidelines/)
+{% endcontent-ref %}

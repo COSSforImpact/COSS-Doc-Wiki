@@ -24,7 +24,7 @@
   * [Sunbird Adoption](sunbird-knowledge-hub/sunbird-adoption/README.md)
     * [How Infosys Leveraged Sunbird](sunbird-knowledge-hub/sunbird-adoption/how-infosys-leveraged-sunbird.md)
     * [DIKSHA](sunbird-knowledge-hub/sunbird-adoption/diksha/README.md)
-      * [Diksha - National Platform for School Education](sunbird-knowledge-hub/sunbird-adoption/diksha/diksha-national-platform-for-school-education.md)
+      * [DIKSHA - National Platform for School Education](sunbird-knowledge-hub/sunbird-adoption/diksha/diksha-national-platform-for-school-education.md)
       * [DIKSHA Solutions and Capabilities](sunbird-knowledge-hub/sunbird-adoption/diksha/diksha-solutions-and-capabilities.md)
     * [Sunbird Adoptions As of Aug 2024](sunbird-knowledge-hub/sunbird-adoption/sunbird-adoptions-as-of-aug-2024.md)
     * [Solutions implemented Using DPGs](sunbird-knowledge-hub/sunbird-adoption/solutions-implemented-using-dpgs.md)
