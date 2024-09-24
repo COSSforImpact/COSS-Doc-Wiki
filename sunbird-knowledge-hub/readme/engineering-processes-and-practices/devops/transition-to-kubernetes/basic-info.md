@@ -2,13 +2,11 @@
 icon: elementor
 ---
 
-# Basic Info
+# Basic-Info
 
-### **WHY ?** <a href="#basicinfo-why" id="basicinfo-why"></a>
+**WHY ?** **Current Infra**
 
-#### **Current Infra** <a href="#basicinfo-currentinfra" id="basicinfo-currentinfra"></a>
-
-#### Docker Swarm as the orchestration engine <a href="#basicinfo-dockerswarmastheorchestrationengine" id="basicinfo-dockerswarmastheorchestrationengine"></a>
+#### Docker Swarm as the orchestration engine
 
 Pros:
 
@@ -24,28 +22,32 @@ Cons:
 * No way to get realtime telemetry or metrics about the state of infra (especially service communication)
 * No platforms like knative or istio, which is an instant value add-on for both/infra and addon
 
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/infra.png)
 
-
-### Container Fundamentals <a href="#basicinfo-containerfundamentals" id="basicinfo-containerfundamentals"></a>
+### Container Fundamentals
 
 * **VM vs Container**
 
-&#x20;       &#x20;
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/VM.png) ![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/Container.png)
 
 * **Key concepts of container**
   * Containers are applications which is restricted by kernel feature called namespaces
-    * pid - Process Namespace
-    * net - Network
-    * mnt - FileSystem
-    * usr - UserID
-    * utc - hostname
-    * ipc - semaphores, channels
+  * pid - Process Namespace
+  * net - Network
+  * mnt - FileSystem
+  * usr - UserID
+  * utc - hostname
+  * ipc - semaphores, channels
   * Cgroups will limit the resource usage
-    * ResouceUsage
-      * Memory
-      * CPU
-      * Block I/O
-      * Network
-    * Device Node access control
-      * /dev/\*
+  * ResouceUsage
+  * Memory
+  * CPU
+  * Block I/O
+  * Network
+  * Device Node access control
+  * /dev/\*
 * **Docker is an engine which makes such containers. There are alternatives like containerd, rkt etc**
+
+***
+
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -7,7 +7,7 @@
   * Networking via iptables, called overlay network
   * **packets travel:** container → docker bridge network → iptables → ipvs → second host ...
 
-\*\*  \*\*
+\*\* \*\*
 
 * **Creating a service in Docker Swarm**
 
@@ -29,7 +29,7 @@ services:
 
 \| |
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/telemetry-service.png)
+![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/telemetry-service.png)
 
 ***
 

@@ -16,9 +16,9 @@ By adding this approval based trigger reviewer can make sure that there is no su
        In CircleCI itself we can set manual approval for a job. Workflows can be configured to wait for manual approval of a job before continuing to the next job. Anyone who has to push access to the repository can click the Approval button to continue the workflow.
     ```
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200811-040342.png)
+![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200811-040342.png)
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200811-040451.png)
+![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200811-040451.png)
 
 To achieve this we have to update the CircleCI config file. Below is the sample config file.
 
@@ -71,7 +71,7 @@ workflows:
 
 As part of the last step in the CircleCI build, we can comment by constructing the respective Jira ticket URL so that anyone can just click on the URL and see the respective Jira ticket. This can be achieved by using conventional commit message format.
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200811-041525.png)
+![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200811-041525.png)
 
 *   **Commenting on the pull request to approve the CI.**
 
