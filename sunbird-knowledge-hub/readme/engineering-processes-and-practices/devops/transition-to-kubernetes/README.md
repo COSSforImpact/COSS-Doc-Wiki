@@ -22,7 +22,6 @@ icon: folder-open
   * [**Knative**](broken-reference)
   * **Spinnaker**
   * **Tekton**
-* **Monitoring**
-* **Log aggregation**
+* Infra Suggestions
 
 \

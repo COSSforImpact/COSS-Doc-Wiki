@@ -2,5 +2,8 @@
 icon: elementor
 ---
 
-# Infra Suggestion
+# Infra Suggestions
 
+
+
+<figure><img src="../../../../../.gitbook/assets/infra-Kubernetes Infra.png" alt=""><figcaption></figcaption></figure>

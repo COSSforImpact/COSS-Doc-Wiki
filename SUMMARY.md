@@ -54,7 +54,7 @@
           * [Spinnaker](sunbird-knowledge-hub/readme/engineering-processes-and-practices/devops/transition-to-kubernetes/tools/spinnaker.md)
           * [Jenkins X and Tekton](sunbird-knowledge-hub/readme/engineering-processes-and-practices/devops/transition-to-kubernetes/tools/jenkins-x-and-tekton.md)
           * [RIO](sunbird-knowledge-hub/readme/engineering-processes-and-practices/devops/transition-to-kubernetes/tools/rio.md)
-        * [Monitoring & Log aggregation](sunbird-knowledge-hub/readme/engineering-processes-and-practices/devops/transition-to-kubernetes/infra-suggestion.md)
+        * [Infra Suggestions](sunbird-knowledge-hub/readme/engineering-processes-and-practices/devops/transition-to-kubernetes/infra-suggestion.md)
       * [Best Practices](sunbird-knowledge-hub/readme/engineering-processes-and-practices/devops/best-practices/README.md)
         * [Infra Provisioning](sunbird-knowledge-hub/readme/engineering-processes-and-practices/devops/best-practices/infra-provisioning.md)
         * [Infra for Building Blocks](sunbird-knowledge-hub/readme/engineering-processes-and-practices/devops/best-practices/infra-for-building-blocks.md)
