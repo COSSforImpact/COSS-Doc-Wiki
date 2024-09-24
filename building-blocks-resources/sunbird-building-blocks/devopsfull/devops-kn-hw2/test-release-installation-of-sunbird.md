@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Test-Release-Installation-of-Sunbird
 
 ### Provisioning Azure Infra
@@ -14,8 +18,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 ![](../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20210630-043513.png) \* If you don’t have an account, Signup for one on [https://www.maxmind.com/en/geolite2/signup?lang=en](https://www.maxmind.com/en/geolite2/signup?lang=en)
 
-* Create an ssh public key
-  *
+* Create an ssh public key \*
 
 ```
 ssh-keygen -C installation_test_key -b 4096 -f /tmp/deployer_key

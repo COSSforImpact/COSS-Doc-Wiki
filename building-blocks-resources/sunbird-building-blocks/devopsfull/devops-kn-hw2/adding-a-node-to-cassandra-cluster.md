@@ -1,4 +1,8 @@
-# Adding-a-node-to-Cassandra-Cluster
+---
+icon: elementor
+---
+
+# 1 Adding-a-node-to-Cassandra-Cluster
 
 **Overview** This document describes the standard operating procedure to add a new node to the existing Cassandra cluster
 
@@ -10,12 +14,12 @@
 
 **Steps**
 
-* Create a VM of same instance type and disk size as current cluster from azure portal console&#x20;
+* Create a VM of same instance type and disk size as current cluster from azure portal console
 * Bootstrap the VM using Jenkins job
-* Ansible changes in Github private repo&#x20;
+* Ansible changes in Github private repo
   * Create a new temporary branch in a private repository from the latest release branch and give a name like release-4.3.0-cassandra-provision
   * Remove the hostname and ip’s of current cassandra cluster nodes
-  * Add  the hostname and ip information of the new node
+  * Add the hostname and ip information of the new node
 * Provision Cassandra in the new node by triggering Provision/Core/Cassandra Jenkins job. Make sure new private repo branch name (release-4.3.0-cassandra-provision) is used in the job options
 * Update the ulimit values to 65535 at /etc/security/limits.conf
 *
@@ -51,10 +55,10 @@ rm -rf /var/lib/cassandra/data/*
 ```
 
 * Start cassandra process using sudo service cassandra start
-* Verify if the node is in the process of joining/bootstrapping the cluster&#x20;
+* Verify if the node is in the process of joining/bootstrapping the cluster
   * Runnodetool statusYou will see the status of new node as UJ which mean Up and Joining
   * Check /var/log/cassandra/system.log and look for message JOINING: Starting to bootstrap...
-  * Run nodetool compactionstats -H to check if any compactions are running&#x20;
+  * Run nodetool compactionstats -H to check if any compactions are running
   * In case of bootstrap failure, resume the node bootstrap using nodetool bootstrap resume command through tmux session
   * **DO NOT RESTART THE SERVICE ON THE NODE BEING ADDED DURING THE BOOTSTRAP OPERATION**
 * Run nodetool clean once the node joined the cluster and is stable

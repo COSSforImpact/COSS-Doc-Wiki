@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Jenkins-jobs-to-auto-stop---start-azure-infra-
 
 Jenkins jobs created to stop / start the Azure infra for the following Envs. Jenkins pipeline takes Azure Resource group as input and updates the status of each VM in the resource group to **Deallocation** state.

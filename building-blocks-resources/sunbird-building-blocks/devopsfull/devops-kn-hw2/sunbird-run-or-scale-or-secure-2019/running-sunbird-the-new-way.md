@@ -19,7 +19,7 @@ _New Approach_
 
 **Pros:**
 
-* All components can be installed - LP, DP and Core service's&#x20;
+* All components can be installed - LP, DP and Core service's
 * Easy customization of all components by forking the desired repository
 * Spin up a Jenkins instance and start building on your own
 * Everything is a Jenkinsfile
@@ -33,7 +33,7 @@ _New Approach_
 * 600 variables refactored to about 100 odd variables
 * Every configuration can be overridden based on requirements
 * Easy upgrades by just using the latest GA certified tag. One click build and deploy.
-* Total control on publishing content and frameworks&#x20;
+* Total control on publishing content and frameworks
 * Minimal hardware - Just 10 servers for entire setup
 * Easy scaling of infrastructure - All through Ansible inventory and Jenkinsfiles
 * Production ready setup and easy promotion of code from dev to production (Securing Jenkins is out of scope)
@@ -48,23 +48,21 @@ _New Approach_
 
 **Variables:** _**Old Inventory and Variables Structure**_
 
-_Private                                                                               Public_
+_Private Public_
 
-\_                                             \_
+\_ \_
 
 _**New Inventory and Variables Structure**_
 
-_Private                                                                               Public_
+_Private Public_
 
-\_                                      \_
-
-&#x20;         &#x20;
+\_ \_
 
 \_How was \_ \_this \_ _done?_
 
 * Converted every freestyle Jenkins job to a Jenkinsfile
 * Published every Jenkinsfile along with ready to use job configurations
-* Constant and non mandatory variables were set to its default which is as per standards&#x20;
+* Constant and non mandatory variables were set to its default which is as per standards
 * Flexibility to override the defaults and add their own variables
 * Setting up Jenkins and all required jobs using 3 scripts.
 * Mandatory variables provided in a standard template along with detailed descriptions which needs to be filled
@@ -72,7 +70,7 @@ _Private                                                                        
 
 _Pictorial representation_
 
-![](../../../../DevOpsFull/devops-kn-hw2/images/storage/Workflow.png)
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/Workflow.png)
 
 _How will an adopter run this process?_
 

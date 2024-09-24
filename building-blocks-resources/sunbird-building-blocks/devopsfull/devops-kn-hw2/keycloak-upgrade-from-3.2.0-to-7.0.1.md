@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Keycloak-Upgrade-from-3.2.0-to-7.0.1
 
 Steps to upgrade keyclok from version 3.2.0 to 7.0.1

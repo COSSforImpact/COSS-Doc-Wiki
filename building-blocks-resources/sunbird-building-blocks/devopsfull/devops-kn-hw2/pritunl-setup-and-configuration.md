@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Pritunl-Setup-and-Configuration
 
 **Infra Provision:**

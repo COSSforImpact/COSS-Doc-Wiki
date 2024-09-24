@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # How-to-create-a-dashboard-in-grafana
 
 1. Open grafana url and enter username and password

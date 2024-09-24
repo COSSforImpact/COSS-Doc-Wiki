@@ -10,7 +10,7 @@ None of the staging automated jenkins files need this change. The staging automa
 
 With the new change, the build job looks like this -
 
-![](<../../../../DevOpsFull/devops-kn-hw2/images/storage/Screenshot from 2021-02-11 17-43-16.png>)In the paramater called github\_release\_tag the default value will be refs/heads/${public\_repo\_branch}
+![](<../../../../../DevOpsFull/devops-kn-hw2/images/storage/Screenshot from 2021-02-11 17-43-16.png>)In the paramater called github\_release\_tag the default value will be refs/heads/${public\_repo\_branch}
 
 ${public\_repo\_branch} will always point to latest release version. As of today, it release-3.7.0.
 

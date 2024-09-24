@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Sunbird-Pull-Request-and-CI-Process
 
 * \[\[GitHub + Jira integration|GitHub-+-Jira-integration]]

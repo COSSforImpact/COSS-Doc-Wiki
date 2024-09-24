@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Keycloak-on-Sunbird
 
 **Introduction**
@@ -121,7 +125,7 @@ Known issues
    * In the state SSO sign in, the app gets redirected to /sso/sign-in/success?id={id}. It invokes a portal endpoint (/v1/sso/create/session?id={extracted\[‘id’]}) to exchange the ID to get the tokens
    * In the google sign in workflow, the app gets the tokens directly as query params
 
-\*\*      \*\*
+\*\* \*\*
 
 ![](<../../../../DevOpsFull/devops-kn-framewnbp/images/storage/cbimage (4).png>)
 

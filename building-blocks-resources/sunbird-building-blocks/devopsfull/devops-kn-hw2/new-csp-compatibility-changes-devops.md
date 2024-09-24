@@ -1,45 +1,36 @@
+---
+icon: elementor
+---
 
-### Repository - [https://github.com/project-sunbird/sunbird-devops](https://github.com/project-sunbird/sunbird-devops)
+# New-CSP-Compatibility-Changes---DevOps
+
+#### Repository - [https://github.com/project-sunbird/sunbird-devops](https://github.com/project-sunbird/sunbird-devops)
+
 Cloud specific ansible role
 
-|  **Cloud Provider**  |  **Ansible Role**  | 
-|  --- |  --- | 
-| AWS | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/aws-cloud-storage](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/aws-cloud-storage) | 
-| Azure | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/azure-cloud-storage](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/azure-cloud-storage) | 
-| GCP | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/gcp-cloud-storage](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/gcp-cloud-storage) | 
-
+| **Cloud Provider** | **Ansible Role**                                                                                                                                                                                                 |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS                | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/aws-cloud-storage](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/aws-cloud-storage)     |
+| Azure              | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/azure-cloud-storage](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/azure-cloud-storage) |
+| GCP                | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/gcp-cloud-storage](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/gcp-cloud-storage)     |
 
 * We will need to create a CSP specific ansible role which can perform tasks such as upload / download / delete of files and folders from CSP storage buckets etc.
-
-
 * Take a look at one of the existing cloud provider role such as AWS / GCP to understand what all operations are required as part of the role.
-
-
 
 Cloud specific Elasticsearch plugin
 
-|  **Cloud Provider**  |  **Ansible Role**  | 
-|  --- |  --- | 
-| AWS | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-s3-snapshot](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-s3-snapshot) | 
-| Azure | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-azure-snapshot](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-azure-snapshot) | 
-| GCP | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-gcs-snapshot](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-gcs-snapshot) | 
-
+| **Cloud Provider** | **Ansible Role**                                                                                                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| AWS                | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-s3-snapshot](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-s3-snapshot)       |
+| Azure              | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-azure-snapshot](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-azure-snapshot) |
+| GCP                | [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-gcs-snapshot](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/ansible/roles/es-gcs-snapshot)     |
 
 * We will need to create a CSP specific ansible role which can perform elasticsearch snapshot
-
-
 * Take a look at one of the existing cloud provider role such as AWS / GCP to understand the snapshot approach
-
-
 * Under the hood, we are using the cloud provider plugin for elasticsearch snapshot - [https://www.elastic.co/guide/en/elasticsearch/plugins/6.8/repository.html](https://www.elastic.co/guide/en/elasticsearch/plugins/6.8/repository.html)
-
-
 * The plugin gets installed and configured using the ansible role
 
-
-
 Ansible tasks related to storage bucketsBelow is a sample block which uploads to AWS S3 bucket ([https://github.com/project-sunbird/sunbird-devops/blob/release-5.1.0/ansible/artifacts-upload.yml#L30-L41](https://github.com/project-sunbird/sunbird-devops/blob/release-5.1.0/ansible/artifacts-upload.yml#L30-L41) )
-
 
 ```
     - name: upload artifact to aws s3
@@ -57,12 +48,7 @@ Ansible tasks related to storage bucketsBelow is a sample block which uploads to
 ```
 
 * In order to support a new CSP, we will need to add a similar block which can invoke the CSP specific roles and upload to CSP storage buckets
-
-
 * Below is the list of files that need to be modified to include the CSP storage ansible role
-
-
-
 
 ```
 ansible/bootstrap.yml
@@ -94,30 +80,18 @@ ansible/assets-upload.yml
 ansible/artifacts-download.yml
 ansible/plugins.yml
 ```
-Ansible Variables  Private Repo Templates
+
+Ansible Variables Private Repo Templates
+
 * All the cloud specific variables (for example, bucket name, access key, secret key etc.) are provided to adopters using ansible variable template files
-
-
 * The ansible variable template files need to be updated to include CSP specific variables so that a user is aware on what variables need to be filled based on the cloud provider
-
-
-* The templates are located here - [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/private_repo/ansible/inventory/dev](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/private_repo/ansible/inventory/dev)
-
-
+* The templates are located here - [https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/private\_repo/ansible/inventory/dev](https://github.com/project-sunbird/sunbird-devops/tree/release-5.1.0/private\_repo/ansible/inventory/dev)
 * An adopter updates all the files mentioned in the above url which also includes the cloud specific variables
 
-
-
-
-### Repository - [https://github.com/project-sunbird/sunbird-learning-platform/](https://github.com/project-sunbird/sunbird-learning-platform/)
+#### Repository - [https://github.com/project-sunbird/sunbird-learning-platform/](https://github.com/project-sunbird/sunbird-learning-platform/)
 
 * The implementation is same as the previous section (no private repo template in this repo, its part of the previous section)
-
-
 * Below is the list of files that require the changes
-
-
-
 
 ```
 ansible/artifacts-upload.yml
@@ -131,15 +105,10 @@ ansible/artifacts-download.yml
 ansible/es_backup.yml
 ```
 
-### Repository - [https://github.com/Sunbird-Obsrv/sunbird-data-pipeline](https://github.com/Sunbird-Obsrv/sunbird-data-pipeline)
+#### Repository - [https://github.com/Sunbird-Obsrv/sunbird-data-pipeline](https://github.com/Sunbird-Obsrv/sunbird-data-pipeline)
 
 * The implementation is same as the previous section (no private repo template in this repo, its part of the previous section)
-
-
 * Below is the list of files that require the changes
-
-
-
 
 ```
 ansible/artifacts-upload.yml
@@ -160,8 +129,6 @@ ansible/artifacts-download.yml
 ansible/es_backup.yml
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

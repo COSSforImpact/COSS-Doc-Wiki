@@ -1,10 +1,14 @@
+---
+icon: elementor
+---
+
 # About-Sunbird-and-Pre-requisite
 
 Sunbird is an open-source repository of learning management microservices architected for scale and designed to support diverse teaching and learning solutions. Sunbird is the open-source contribution by EkStep Foundation and is licensed under MIT license.
 
 This document explains the steps to setup Sunbird on your cloud infra.
 
-&#x20;This installation has been tested with 10 VMs running the vanilla Ubuntu 16 image;
+This installation has been tested with 10 VMs running the vanilla Ubuntu 16 image;
 
 * a Public IP
 * with all ports opened
@@ -30,7 +34,7 @@ This document explains the steps to setup Sunbird on your cloud infra.
 
 2. Private GitHub repository to store ansible hosts and secrets
 3. FQDN(fully qualified domain name) with SSL
-4. Azure Storage account&#x20;
+4. Azure Storage account
 5. Docker hub account
 
 ***

@@ -1,5 +1,10 @@
-How to change proxy config dynamically without disrupting traffic
+---
+icon: elementor
+---
 
+# Dynamic-proxy-config-change
+
+How to change proxy config dynamically without disrupting traffic
 
 ```
 // Edit the configmap to add change
@@ -17,10 +22,6 @@ kubectl get po -l app=nginx-public-ingress | awk '{print $1}' | tail -n +2 | xar
 
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

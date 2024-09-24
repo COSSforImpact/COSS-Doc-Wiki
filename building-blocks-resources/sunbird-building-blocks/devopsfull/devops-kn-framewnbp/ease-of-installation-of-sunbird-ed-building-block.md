@@ -1,8 +1,12 @@
+---
+icon: elementor
+---
+
 # Ease-of-Installation-of-Sunbird-Ed-Building-Block
 
 Objective of this page is to describe the current challenges in installing Ed building block, how do we solve them, implementation design and execution plan.
 
-**What are the current challenges?** Adopters of Sunbird Ed are having following challenges/concerns while installing Sunbird Ed building block in to their Cloud service provider account&#x20;
+**What are the current challenges?** Adopters of Sunbird Ed are having following challenges/concerns while installing Sunbird Ed building block in to their Cloud service provider account
 
 a) It takes approximately 3 weeks to install and set up Sunbird ED
 
@@ -86,24 +90,24 @@ Phase 2 :
 * Documentation on setting up and managing production work loads, handling day to day operations and debugging issues
 * Documentation on many of the _how to_ docs and monthly upgrade process
 
-How do we want to address them?We would like to address the above mentioned challenges/concerns in different phases. &#x20;
+How do we want to address them?We would like to address the above mentioned challenges/concerns in different phases.
 
-**In Phase1** , we would like to target to improve the adopter experience by reducing the time and effort it takes to install and setup Ed building blocks. This will reduce the install Ed from 7 days to 3 days. We will do the following to address these&#x20;
+**In Phase1** , we would like to target to improve the adopter experience by reducing the time and effort it takes to install and setup Ed building blocks. This will reduce the install Ed from 7 days to 3 days. We will do the following to address these
 
 * Fix the issues faced while executing the build, provision and deployment instructions in release 4.10
 * Write wrapper jobs which in turn trigger all the required Jenkins jobs automatically so that adopter need to trigger only few jobs instead many jobs which saves time and effort. This will be done by creating a master Jenkins job for builds, provision and deployment of each dependent BB by taking the Jenkins job path, release TAG as input
 
-**In Phase2** , we would like to address cost optimisation of cloud infra to install Ed, reducing the time to install to 1 day, minimising the variables to be initialised, improving the installation experience through CLI mode wizard. This will reduce the time to install Ed to 1 day and cost of minimum infra required to setup Ed approximately by 30%. We will do the following to address these &#x20;
+**In Phase2** , we would like to address cost optimisation of cloud infra to install Ed, reducing the time to install to 1 day, minimising the variables to be initialised, improving the installation experience through CLI mode wizard. This will reduce the time to install Ed to 1 day and cost of minimum infra required to setup Ed approximately by 30%. We will do the following to address these
 
-* Create terraform scripts and a single a helm chart for Ed building block to deploy all the state less and stateful applications in the Kubernetes cluster which reduces the cost of cloud infra &#x20;
-* Fine tuning the CPU and Memory requests and limit configurations to run Sunbird Ed building block with bare minimum resources &#x20;
-* Option to deploy micro services to the Kubernetes cluster and stateful applications like databases to the Virtual Machines to enable adopters to run production like workloads&#x20;
+* Create terraform scripts and a single a helm chart for Ed building block to deploy all the state less and stateful applications in the Kubernetes cluster which reduces the cost of cloud infra
+* Fine tuning the CPU and Memory requests and limit configurations to run Sunbird Ed building block with bare minimum resources
+* Option to deploy micro services to the Kubernetes cluster and stateful applications like databases to the Virtual Machines to enable adopters to run production like workloads
 * Publish build artefacts docker images and non-containerised artefacts from each BB which saves overall time to deploy and issues faced while building from source code due to dependent libraries are not being available
-* Refactor and reduce the number of variables to be initialised to 20&#x20;
+* Refactor and reduce the number of variables to be initialised to 20
 * Provide options to choose scale requirement in terms of tps for 100, 500 and 1000 tps and provision the infra to support the same. Also, provide a wiki page detailing how to scale beyond 1000 tps
-* Develop CLI wizard that guides the adopter to install Sunbird Ed&#x20;
+* Develop CLI wizard that guides the adopter to install Sunbird Ed
 
-Implementation Design (Along with Execution Plan):&#x20;
+Implementation Design (Along with Execution Plan):
 
 Phase 1:
 
@@ -215,7 +219,7 @@ Phase 2.5 (Still in ideation):
 * There are more than 80 Jenkins jobs to be executed manually to provision, build and deploy Ed services
 * There are approximately 50 ansible variables to be updated/initialised while installing Ed
 * There are no default configurations provided to setup Infra for different scaling needs like 100 tps, 500 tps etc. The current configuration provided by default support 50-100 tps
-* It requires DevOps skilled resource to setup&#x20;
+* It requires DevOps skilled resource to setup
   * Production workloads required skilled resources
   * Install and Try - Will required basic knowledge of cloud and other components
 * Configuring a new framework is complex

@@ -1,5 +1,10 @@
-Adding the Dockerfile used to build the custom prometheus image with azcopy on ubuntu for reference
+---
+icon: elementor
+---
 
+# Prometheus-PV-Backup-and-Restore-on-Kubernetes
+
+Adding the Dockerfile used to build the custom prometheus image with azcopy on ubuntu for reference
 
 ```
 FROM quay.io/prometheus/prometheus:v2.17.2
@@ -34,9 +39,7 @@ kubectl exec -it -n monitoring prometheus-sunbird-monitoring-prometheus-0 -c pro
 kubectl scale deployment -n monitoring sunbird-monitoring-operator --replicas=1
 ```
 
-
 On second cluster run the following (cluster where we need to restore the backup)
-
 
 ```
 kubectl scale deployment -n monitoring sunbird-monitoring-operator --replicas=0
@@ -58,20 +61,14 @@ kubectl exec -it -n monitoring prometheus-sunbird-monitoring-prometheus-0 -c pro
 kubectl scale deployment -n monitoring sunbird-monitoring-operator --replicas=1
 ```
 
-
- **Addition information (for knowledge / debugging purpose only)** 
+**Addition information (for knowledge / debugging purpose only)**
 
 To manually start prometheus, use the below command (ensure you create the prometheus.env.yaml file in /tmp directory by copying from old pod)
-
 
 ```
 /bin/prometheus --web.console.templates=/etc/prometheus/consoles --web.console.libraries=/etc/prometheus/console_libraries --config.file=/tmp/prometheus.env.yaml --storage.tsdb.path=/prometheus --storage.tsdb.retention.time=90d --web.enable-lifecycle --storage.tsdb.no-lockfile --web.enable-admin-api --web.external-url=http://sunbird-monitoring-prometheus.monitoring:9090 --web.route-prefix=/
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,41 +1,32 @@
- **Objective** :
+---
+icon: elementor
+---
+
+# Cost-optimisation-of-Azure-Infra
+
+**Objective** :
 
 Scaling down Kafka nodes to 1
 
- **Action Items:** 
-
+**Action Items:**
 
 * Launch a new VM in staging RG
+* Provision and deploy Kafka
 
+**OpsAdministration/Core/Bootstrap**
 
-* Provision and deploy Kafka 
+**Provision/DataPipeline/Kafka**
 
+**Deploy/Core/KafkaSetup**
 
+**Deploy/DataPipeline/KafkaSetup**
 
- **OpsAdministration/Core/Bootstrap** 
-
- **Provision/DataPipeline/Kafka** 
-
- **Deploy/Core/KafkaSetup** 
-
- **Deploy/DataPipeline/KafkaSetup** 
-
- **Deploy/KnowledgePlatform/KafkaSetup** 
-
+**Deploy/KnowledgePlatform/KafkaSetup**
 
 * Replace the IP in hosts file and deploy flink jobs / services
 
+**Learnings:**
 
+***
 
-
-
- **Learnings:** 
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

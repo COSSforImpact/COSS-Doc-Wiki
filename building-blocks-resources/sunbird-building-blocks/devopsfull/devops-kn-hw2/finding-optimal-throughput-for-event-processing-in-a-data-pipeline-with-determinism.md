@@ -1,4 +1,8 @@
-# finding-optimal-throughput-for-event-processing-in-a-data-pipeline-with-determinism
+---
+icon: elementor
+---
+
+# Finding-optimal-throughput-for-event-processing-in-a-data-pipeline-with-determinism
 
 [SB-12205 System JIRA](https://browse/SB-12205)
 
@@ -73,15 +77,15 @@ For the above input (shown JSON), the output is
 
 \*\* finding optimal throughput \*\*
 
-throughput required is:  117 million events per hour
+throughput required is: 117 million events per hour
 
 adding 1 unit of time to lower throughput
 
-throughput required is :  100 million events per hour
+throughput required is : 100 million events per hour
 
 adding 2 unit of time to lower throuput
 
-throughput required is :  88 million events per hour
+throughput required is : 88 million events per hour
 
 code is [here](https://github.com/ekstep/Data-Science/blob/master/explore/poc/autoscale/druidIndexing.py)
 

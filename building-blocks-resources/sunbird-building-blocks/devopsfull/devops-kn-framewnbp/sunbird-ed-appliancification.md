@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Sunbird-Ed-Appliancification
 
 This document details out the approach and design to setup Sunbird Ed for different environments along with defined solutions
