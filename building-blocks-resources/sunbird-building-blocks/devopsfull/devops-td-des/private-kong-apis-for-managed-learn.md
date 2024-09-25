@@ -1,7 +1,10 @@
+---
+icon: elementor
+---
+
+# Private-Kong-APIs-for-Managed-Learn
+
 This is a rough document, the process will be streamlined in a future release when we move private kong to Kubernetes. As of now, these APIs need to be added for private kong under the private API list under ansible/roles/internal-kong-api/defaults/main.yml. These API's and the roles / deployment files will be made available on in a future release.
-
-
-
 
 ```
 private_ml_core_prefix: /private/mlcore
@@ -897,8 +900,6 @@ ml_project_private_url: "http://{{private_ingressgateway_ip}}/ml-projects"
 
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

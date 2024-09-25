@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Back-up-and-Restore-POSTGRES
 
 Steps to take a backup of normal postgres vm and restore it to hosted service postgres:
@@ -32,7 +36,7 @@ pg\_dump -F p api\_manager\_dev > api-manager.sql
 
 1. Run the restore command to restore the backup.
 
-psql --file=/var/lib/postgresql/api-manager.sql --host=\<ipaddress/dns\_address of destination postgres>  --port=5432 --username=@ --dbname=api\_manager\_dev
+psql --file=/var/lib/postgresql/api-manager.sql --host=\<ipaddress/dns\_address of destination postgres> --port=5432 --username=@ --dbname=api\_manager\_dev
 
 1. Verify the tables count on hosted service by using below query;
 
