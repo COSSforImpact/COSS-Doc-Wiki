@@ -159,7 +159,7 @@ workflows:
       - ep-build
 ```
 
-\*\*Links for reference:  \*\*
+\*\*Links for reference: \*\*
 
 **https://circleci.com/docs/2.0/config-intro/**
 

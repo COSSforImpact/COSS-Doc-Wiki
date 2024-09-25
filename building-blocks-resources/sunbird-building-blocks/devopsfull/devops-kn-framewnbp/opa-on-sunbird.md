@@ -7,11 +7,6 @@ icon: elementor
 #### Introduction <a href="#introduction" id="introduction"></a>
 
 * OPA is a short form for open policy agent
-* ####
-
-
-
-* ###
 * OPA is a cncf graduated project that is generally used for evaluating policies
 * We are using opa on sunbird to perform API checks such as role check, organisation check, user check etc
 * For more details on opa, see here - [![](https://www.openpolicyagent.org/favicon.png)Introduction](https://www.openpolicyagent.org/docs/latest/)

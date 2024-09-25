@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Jenkins-job-changes---Auto-and-Manual-builds
 
 As part of release-3.7.0, all configuration access in jenkins, rancher and VM’s are removed for everyone working on sunbird. This will require some changes in the jenkinsfile code. Please refer to these PR’s for information on how to update your build jenkinsfiles.

@@ -18,19 +18,19 @@ initial _username_ and _password_ will be **admin**
 
 Click on the create new project
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-6-24.png)
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-6-24.png)
 
 Give a name for your project and click setup
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-7-37.png)
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-7-37.png)
 
 Generate a token
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-8-37.png)
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-8-37.png)
 
 Select your language
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-11-27.png)
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-11-27.png)
 
 copy the above command and run it in your project(above example is for maven projects)
 
@@ -38,7 +38,7 @@ After that you should see something like this, if your project is analysed prope
 
 Note: you might have to refresh the page
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-13-55.png)
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-11-26\_11-13-55.png)
 
 If you want to export a specific coverage report
 
@@ -54,11 +54,11 @@ mvn verify sonar:sonar \
 
 Click on **Get project badges**
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-12-16\_12-54-25.png)
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-12-16\_12-54-25.png)
 
 Copy the URL and paste it in the Github repository README file.
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-12-16\_12-52-33.png)
+![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-12-16\_12-52-33.png)
 
 ***
 

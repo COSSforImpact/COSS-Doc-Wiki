@@ -6,7 +6,7 @@ icon: elementor
 
 #### Boundary is the gateway to sunbird infrastructure
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-061915.png)
+![](../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-061915.png)
 
 Simplified architecture is given above.
 
@@ -16,21 +16,21 @@ Simplified architecture is given above.
 2. Download the boundary client from [https://www.boundaryproject.io/downloads#desktop](https://www.boundaryproject.io/downloads#desktop)
 3. Login with the provided credentials after selecting proper organization
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-062316.png)
+![](../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-062316.png)
 
 1. Once you logged in, you’ll see a list of authorized targets.
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-062445.png)
+![](../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-062445.png)
 
 1. Select the target → Host and click connect
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-062614.png)
+![](../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-062614.png)
 
 1. If you’ve used
    1. **Kubernetes**
    2. Make sure you’ve proper kubeconfig to authenticate against the cluster. You can use kubectl config get-contexts to get check the correct cluster.
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-062930.png)
+![](../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-062930.png)
 
 ```
 1. Enable inscure-tls, as the cluster client certificate is not signed for 127.0.0.1 ip
@@ -72,7 +72,7 @@ ssh -i /path/to/ssh_key_file username@127.0.0.1 -p 38203
 
 ```
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-064200.png)
+![](../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20211027-064200.png)
 
 ***
 

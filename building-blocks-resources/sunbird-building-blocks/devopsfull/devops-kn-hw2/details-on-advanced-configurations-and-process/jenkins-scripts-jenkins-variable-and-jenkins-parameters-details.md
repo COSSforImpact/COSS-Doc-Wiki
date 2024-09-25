@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Jenkins-scripts,-Jenkins-variable-and-Jenkins-parameters-details
 
 **Script details**
@@ -48,7 +52,7 @@ This is the ID field value from Jenkins. Once the username and password of priva
 
 **public\_repo\_branch**
 
-This is a unique variable. All the jobs in Jenkins are by default configured to checkout the Jenkinsfile from this variable as \*\*${public\_repo\_branch}. \*\* When a value like release-1.14 is provided to this variable, the Jenkins jobs checkout the Jenkinsfile from release-1.14 branch from the URL configured in the job. If this value is set to  **refs/tags/release-1.14** , then Jenkins will checkout the Jenkinsfile from the tag named release-1.14. This variable can be changed in Jenkins job configurations and a specific branch or tag name can be specified. This is useful when you want to run some jobs from a different branch or tag instead of the value mentioned in this variable.
+This is a unique variable. All the jobs in Jenkins are by default configured to checkout the Jenkinsfile from this variable as \*\*${public\_repo\_branch}. \*\* When a value like release-1.14 is provided to this variable, the Jenkins jobs checkout the Jenkinsfile from release-1.14 branch from the URL configured in the job. If this value is set to **refs/tags/release-1.14** , then Jenkins will checkout the Jenkinsfile from the tag named release-1.14. This variable can be changed in Jenkins job configurations and a specific branch or tag name can be specified. This is useful when you want to run some jobs from a different branch or tag instead of the value mentioned in this variable.
 
 **deploy-conf (Global pipeline libraries section)**
 
@@ -60,7 +64,7 @@ This is the name of the library which we have used in Jenkinsfiles. When Jenkins
 
 **github\_release\_tag**
 
-Specify a tag name here if you want to build from a tag. Example - release-1.14. This will look for a tag named release-1.14 in the repository URL configured in the Jenkins job and checkout the code from this tag. This should not be confused with  \*\*public\_repo\_branch. \*\* The  \*\*public\_repo\_branch \*\* is used only to checkout the Jenkinsfile which has all the build logic. \*\*Even if public\_repo\_branch is configured to some tag name, you will still need to provide a tag name in this parameter box when running the build. \*\* If this is empty, it will checkout code from the tag specified in  **public\_repo\_branch** \*\* \*\* but it will not tag build artifact with the tag name. Instead it will tag it with commit hash which is undesirable when you want to build from tag.
+Specify a tag name here if you want to build from a tag. Example - release-1.14. This will look for a tag named release-1.14 in the repository URL configured in the Jenkins job and checkout the code from this tag. This should not be confused with \*\*public\_repo\_branch. \*\* The \*\*public\_repo\_branch \*\* is used only to checkout the Jenkinsfile which has all the build logic. \*\*Even if public\_repo\_branch is configured to some tag name, you will still need to provide a tag name in this parameter box when running the build. \*\* If this is empty, it will checkout code from the tag specified in **public\_repo\_branch** \*\* \*\* but it will not tag build artifact with the tag name. Instead it will tag it with commit hash which is undesirable when you want to build from tag.
 
 All Build jobs creates an artifact called metadata.json which will have details such as artifact / docker image name and version, on which Jenkins slave it was built.
 
@@ -92,7 +96,7 @@ In deploy jobs, the artifact is downloaded or pulled from the option specified. 
 
 **artifact\_version**
 
-If you leave this value empty, by default it will take the version specified in the metadata.json file and deploy that version. In case you want to deploy some other version, you can provide the version value here.&#x20;
+If you leave this value empty, by default it will take the version specified in the metadata.json file and deploy that version. In case you want to deploy some other version, you can provide the version value here.
 
 This is useful when you want to roll back to a previous version from current version.
 
