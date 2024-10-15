@@ -1,2 +1,0 @@
-# sbdesign-ed-td-arch
-

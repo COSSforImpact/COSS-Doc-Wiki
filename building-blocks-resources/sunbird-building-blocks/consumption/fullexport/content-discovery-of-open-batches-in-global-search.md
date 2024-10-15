@@ -1,15 +1,18 @@
+---
+icon: elementor
+---
 
-## Problem
+# Content-Discovery-of-Open-Batches-in-Global-Search
+
+### Problem
+
 As a system, Collections such as courses are associated with batch information to suggest if collection has open batches/ closed batches. In the case of non-trackable collections like textbooks etc. The info is not present as the information is not relevant. This brings a unique problem of discoverability. When user searches for Trackable collection, Consumption may end up with trackable. collections with closed batches which is not relevance to the user. In case of Global/Generic search this provides a unique challenge to filter only open batch trackable collections + Non Trackable collections to be returned as part of search query.
 
+### Present System
 
-## Present System
 In the present system, Tracked Collections are stamped with metdata of batch.status to indicate the presence of open batches.
 
-
-
 Non Trackable Collection
-
 
 ```json
 "content": [{
@@ -38,8 +41,8 @@ Non Trackable Collection
   ]
 }
 ```
-Trackable - Closed Batch
 
+Trackable - Closed Batch
 
 ```json
 {
@@ -64,15 +67,13 @@ Trackable - Closed Batch
 }
 ```
 
-## Proposed System
+### Proposed System
+
 In the proposed system, intent is to make collection searchable for batch status irrespective of whether the collection is trackable or non trackable. This gives the flexibility for the user to create custom filter preferences on “Open Batches“ for Collection.
 
+### Solution
 
-
-
-## Solution
 Using Existing metadata informationIn this solution, collection metadata metadata which represents batch information to be available with default values. For Ex:
-
 
 ```json
 "content": [{
@@ -128,8 +129,6 @@ Using Existing metadata informationIn this solution, collection metadata metadat
 }
 ```
 
-
-
 ```json
 {
   "content": [
@@ -153,8 +152,8 @@ Using Existing metadata informationIn this solution, collection metadata metadat
   ]
 }
 ```
-Non Trackable Collection - Closed Batch
 
+Non Trackable Collection - Closed Batch
 
 ```
 {
@@ -179,8 +178,6 @@ Non Trackable Collection - Closed Batch
 }
 ```
 
-
-
 ```json
 {
   "content": [
@@ -204,10 +201,10 @@ Non Trackable Collection - Closed Batch
   ]
 }
 ```
- **Note** : This Approach would mean we need to carry migration with cassandra for all collections (“Both Trackable and Non Trackable“)
+
+**Note** : This Approach would mean we need to carry migration with cassandra for all collections (“Both Trackable and Non Trackable“)
 
 Sample Search Query for Solution 1 & 2
-
 
 ```
 {
@@ -265,8 +262,6 @@ Sample Search Query for Solution 1 & 2
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

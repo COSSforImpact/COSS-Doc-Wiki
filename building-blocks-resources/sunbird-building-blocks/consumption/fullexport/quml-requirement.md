@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # QuML-Requirement
 
 ## Why QuML Player?

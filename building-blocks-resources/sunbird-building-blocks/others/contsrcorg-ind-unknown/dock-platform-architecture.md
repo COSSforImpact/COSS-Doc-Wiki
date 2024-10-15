@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # DOCK-Platform-Architecture
 
 ### Introduction

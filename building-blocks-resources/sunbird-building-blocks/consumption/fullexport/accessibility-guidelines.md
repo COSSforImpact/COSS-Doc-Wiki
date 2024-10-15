@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Accessibility-Guidelines
 
 **Accessibility**  is the inclusive set of engineering/solutioning practices to ensure there are no barriers that prevent interaction with, or access to, website on the internet by people with physical disabilities, situational disabilities, and socio-economic restrictions on bandwidth and speed.

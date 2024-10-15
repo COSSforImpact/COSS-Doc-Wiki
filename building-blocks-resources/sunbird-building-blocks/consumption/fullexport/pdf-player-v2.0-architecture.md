@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # PDF-Player-v2.0-Architecture
 
 | **Actors**            | **Description**                                                                                                                                                                    | **Role**                                                                         |

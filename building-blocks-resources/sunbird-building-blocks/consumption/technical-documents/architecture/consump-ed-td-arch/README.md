@@ -1,2 +1,0 @@
-# consump-ed-td-arch
-

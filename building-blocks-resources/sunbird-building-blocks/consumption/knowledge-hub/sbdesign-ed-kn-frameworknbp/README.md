@@ -1,2 +1,0 @@
-# sbdesign-ed-kn-frameworknbp
-

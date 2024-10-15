@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Dom-(Plugin)-vs-Virtual-Dom---Shadow-Dom-(Modern-Frameworks)
 
 | **Plugin**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Shadow Dom/Virtual DOM**                                                                                                                                                                                                                          |
