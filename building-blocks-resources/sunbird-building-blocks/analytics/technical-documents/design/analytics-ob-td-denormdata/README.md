@@ -1,2 +1,0 @@
-# analytics-ob-td-denormdata
-
