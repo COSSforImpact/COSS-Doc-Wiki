@@ -1,21 +1,17 @@
+---
+icon: elementor
+---
+
+# How-to---Set-up-SMS-Template
+
 Create an account on [msg91](https://msg91.com/in) and login to get the [authKey](https://msg91.com/help/MSG91/where-can-i-find-my-authentication-key). Register the sender ID. Register the SMS template in the DLT portal and get a template ID. Add the approved template to the msg91 portal along with the template ID.
 
-
 * [Step-by-step process to configure SMS](https://msg91.com/help/MSG91/step-by-step-process-to-configure-sms)
-
-
 * [Where can I find my authentication key?](https://msg91.com/help/MSG91/where-can-i-find-my-authentication-key)
-
-
 * [How to Add, Update, or Delete a sender ID (header) on MSG91?](https://msg91.com/help/MSG91/how-to-add-sender-id-in-msg91)
-
-
 * [How to add or delete an SMS template?](https://msg91.com/help/MSG91/how-to-add-or-delete-an-sms-template)
 
-
-
-
-### Use the below msg91 curl to verify sending the SMS:
+#### Use the below msg91 curl to verify sending the SMS:
 
 ```
 curl --location --request POST 'https://api.msg91.com/api/v2/sendsms' \
@@ -39,11 +35,11 @@ curl --location --request POST 'https://api.msg91.com/api/v2/sendsms' \
 }'
 ```
 
-## smsTemplateConfig:
+### smsTemplateConfig:
+
 Once sending the SMS is verified using the above curl, configure the message template using the SystemSetting API in learner service using the below curl.
 
- **Note:**  Replace the <DLT_TE_ID> with the template ID of the message registered with DLT.
-
+**Note:** Replace the \<DLT\_TE\_ID> with the template ID of the message registered with DLT.
 
 ```
 curl --location --globoff '{{host}}/v1/system/settings/set' \
@@ -59,7 +55,7 @@ curl --location --globoff '{{host}}/v1/system/settings/set' \
 }'
 ```
 
-### Verify the smsTemplateConfig by using the below curl:
+#### Verify the smsTemplateConfig by using the below curl:
 
 ```
 curl --location --globoff '{{host}}/api/data/v1/system/settings/get/smsTemplateConfig' \
@@ -67,7 +63,7 @@ curl --location --globoff '{{host}}/api/data/v1/system/settings/get/smsTemplateC
 --header 'Authorization: {{kong_api_key}}'
 ```
 
-### Set the auth key and sender name as system env to learner-service, notification-service and notification data pipeline:
+#### Set the auth key and sender name as system env to learner-service, notification-service and notification data pipeline:
 
 ```
 sunbird_msg_91_auth=<authKey> 
@@ -75,10 +71,6 @@ sunbird_msg_sender=<senderid registered with DLT>
 sms_gateway_provider=91SMS // for a different provider like NIC , this varible will be set as NIC
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,15 +1,20 @@
+---
+icon: elementor
+---
+
+# DIK-6130---Incomplete-data-in-User-Self-registration-report---JK
+
 Release: 4.4.0
 
 Ticket: [https://project-diksha.atlassian.net/browse/DIK-6130a](https://project-diksha.atlassian.net/browse/DIK-6130a)
 
-In this script we are correcting the org consent data. Consent status to be updated to ACTIVE for users with missing entries in user_consent table(which are present in user_declarations). Consent status to be updated to REVOKED for users which has ACTIVE consent entry, but missing user_declarations entry.
+In this script we are correcting the org consent data. Consent status to be updated to ACTIVE for users with missing entries in user\_consent table(which are present in user\_declarations). Consent status to be updated to REVOKED for users which has ACTIVE consent entry, but missing user\_declarations entry.
 
-From release-4.4.0, we are considering 2 tables user_declaration and user_consent in report generation, also checking the consent status is ACTIVE or not. 
+From release-4.4.0, we are considering 2 tables user\_declaration and user\_consent in report generation, also checking the consent status is ACTIVE or not.
 
-Due to some gap in UI implementation, data was inserted only to user_declaration. So those records are not shown in report now. We are running this migration to correct those records. 
+Due to some gap in UI implementation, data was inserted only to user\_declaration. So those records are not shown in report now. We are running this migration to correct those records.
 
-So if ACTIVE consent is existing and no matching user_declaration , the script will revoke consent. And if user_declaration is existing, but no consent, then script will add new entry in consent table.
-
+So if ACTIVE consent is existing and no matching user\_declaration , the script will revoke consent. And if user\_declaration is existing, but no consent, then script will add new entry in consent table.
 
 ```
 vi UserConsentRevokeUpdate.scala
@@ -19,10 +24,10 @@ bin/spark-shell --master local[*] --driver-memory 100g --packages com.datastax.s
 :load {{absolute path of UserConsentRevokeUpdate.scala}}
 UserConsentRevokeUpdate.main(Array("{cassandra ip}","{custodian-orgid}"));
 ```
-Get the custodian-orgid value from system_settings table:
+
+Get the custodian-orgid value from system\_settings table:
 
 select \* from sunbird.systemsettings where id='custodianRootOrgId';
-
 
 ```
 import org.apache.spark.sql.functions.{col, _}
@@ -143,26 +148,22 @@ object UserConsentRevokeUpdate extends Serializable {
     }
 }
 ```
+
 Time taken to run this script without saving to DB: 2.63578333 minutes
 
+Output from pre-prod with test cluster custuserorgconsent\_audit file:
 
-
-Output from pre-prod with test cluster custuserorgconsent_audit file:
-
-users with active status and object_type as org count =4181271
+users with active status and object\_type as org count =4181271
 
 users entries common in both tables count =3291384
 
 userconsent count that are revoked =14985
 
-filtered active-users that are already revoked  =8
+filtered active-users that are already revoked =8
 
 final active-user consent count =1428661
 
-
-
-Output from pre-prod cluster custuserorgconsent_audit file:
-
+Output from pre-prod cluster custuserorgconsent\_audit file:
 
 ```
  users with active status and object_type as org count =1461
@@ -172,11 +173,9 @@ Output from pre-prod cluster custuserorgconsent_audit file:
  final active-user consent count =3725
 ```
 
-
 Output from pre-prod test cluster dry run with prod-data:
 
 Time taken to run the script 4.21898333 minutes
-
 
 ```
 users with active status and object_type as org count =4323976
@@ -185,15 +184,11 @@ users with active status and object_type as org count =4323976
  filtered active-users that are already revoked  =12
  final active-user consent count =1398523
 ```
- **Note** : After running the script please save the below paths to secure azure blob
+
+**Note** : After running the script please save the below paths to secure azure blob
 
 paths: /tmp/InsertUserConsent/tmp/UserRevokedStatus
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

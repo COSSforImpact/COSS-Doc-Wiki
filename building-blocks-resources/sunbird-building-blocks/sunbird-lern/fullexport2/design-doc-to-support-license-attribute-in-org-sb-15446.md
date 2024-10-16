@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Design-doc-to-support-license-attribute-in-org-(SB-15446)
 
 ### \*

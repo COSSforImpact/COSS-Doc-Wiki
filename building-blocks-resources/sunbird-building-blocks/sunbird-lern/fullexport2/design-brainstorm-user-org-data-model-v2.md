@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Design-Brainstorm--User---Org-Data-Model-V2
 
 ![](../../../../.gitbook/assets/User-Org\_DataModel.png) _Data model (not the actual database & column design)_

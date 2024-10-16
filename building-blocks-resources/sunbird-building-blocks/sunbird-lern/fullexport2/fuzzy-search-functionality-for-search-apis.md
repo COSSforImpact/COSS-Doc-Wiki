@@ -1,9 +1,10 @@
+---
+icon: elementor
+---
+
+# Fuzzy-Search-functionality-for-search-APIs
+
 To make fuzzy search in any of search APIs like org & location, use below request
-
-
-
-
-
 
 ```
 curl --location --request POST 'http://localhost:9000/v1/org/search' \
@@ -20,8 +21,6 @@ curl --location --request POST 'http://localhost:9000/v1/org/search' \
 }'
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

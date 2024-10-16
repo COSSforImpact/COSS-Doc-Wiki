@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Install kafka and Hadoop in local machine :
 
 Always start the nodemanager and resourcemanager after the leaner application, because internally learner application and hadoop run on same port "8088"
