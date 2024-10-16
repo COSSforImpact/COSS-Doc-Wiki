@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Postman-API-Scenarios-Automation---User-guide
 
 **Steps to manually run the collection in your Local Postman:** **Step 1: Download Environment and Collection**

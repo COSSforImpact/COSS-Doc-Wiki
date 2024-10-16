@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Resend-Otp
 
 * [Background:](resend-otp.md#background:)

@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # LERN-data-products-dependency-decoupling-from-other-BB
 
 ### &#x20;Objective

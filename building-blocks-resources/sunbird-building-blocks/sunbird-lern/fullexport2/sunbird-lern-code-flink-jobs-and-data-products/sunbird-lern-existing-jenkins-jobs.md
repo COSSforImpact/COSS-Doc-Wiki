@@ -1,6 +1,12 @@
+---
+icon: elementor
+---
+
+# Sunbird-Lern-existing-jenkins-jobs
+
 The following are the different modules jenkins jobs from the Sunbird-Lern.
 
- **Build Jenkins Jobs :** 
+**Build Jenkins Jobs :**
 
 learner : [http://10.20.0.14:8080/jenkins/job/Build/job/Core/job/Learner/](http://10.20.0.14:8080/jenkins/job/Build/job/Core/job/Learner/)
 
@@ -18,9 +24,7 @@ discussion-forum : [https://10.20.0.14/jenkins/job/Build/job/Core/job/Nodebb/](h
 
 [https://10.20.0.14/jenkins/job/Build/job/Core/job/DiscussionsMiddleware/](https://10.20.0.14/jenkins/job/Build/job/Core/job/DiscussionsMiddleware/)
 
-
-
- **Deploy Jenkins Jobs:** 
+**Deploy Jenkins Jobs:**
 
 learner : [http://10.20.0.14:8080/jenkins/job/Deploy/job/dev/job/Kubernetes/job/Learner/](http://10.20.0.14:8080/jenkins/job/Deploy/job/dev/job/Kubernetes/job/Learner/)
 
@@ -34,13 +38,10 @@ groups : [http://10.20.0.14:8080/jenkins/job/Deploy/job/dev/job/Kubernetes/job/G
 
 cert-service : [http://10.20.0.14:8080/jenkins/job/Deploy/job/dev/job/Kubernetes/job/Cert/](http://10.20.0.14:8080/jenkins/job/Deploy/job/dev/job/Kubernetes/job/Cert/)
 
-discussion-forum :  [https://10.20.0.14/jenkins/job/Deploy/job/staging/job/Kubernetes/job/DiscussionsMW/](https://10.20.0.14/jenkins/job/Deploy/job/staging/job/Kubernetes/job/DiscussionsMW/)
+discussion-forum : [https://10.20.0.14/jenkins/job/Deploy/job/staging/job/Kubernetes/job/DiscussionsMW/](https://10.20.0.14/jenkins/job/Deploy/job/staging/job/Kubernetes/job/DiscussionsMW/)
 
 [https://10.20.0.14/jenkins/job/Deploy/job/staging/job/Kubernetes/job/Nodebb/](https://10.20.0.14/jenkins/job/Deploy/job/staging/job/Kubernetes/job/Nodebb/)
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

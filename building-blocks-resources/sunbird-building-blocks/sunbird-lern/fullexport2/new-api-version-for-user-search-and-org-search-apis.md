@@ -1,11 +1,16 @@
+---
+icon: elementor
+---
 
-## SB-23718 : New API version - User Search
-End-point: /v2/user/search 
+# New-API-version-for-user-search-and-Org-search-APIs
+
+### SB-23718 : New API version - User Search
+
+End-point: /v2/user/search
 
 Method: POST
 
 Request:
-
 
 ```
 {
@@ -17,8 +22,8 @@ Request:
     }
 }
 ```
-Response: 
 
+Response:
 
 ```
 {
@@ -123,13 +128,13 @@ Response:
 }
 ```
 
-## SB-23719 : New API version - Org Search
+### SB-23719 : New API version - Org Search
+
 End-point: /v2/org/search
 
 Method: POST
 
-Request: 
-
+Request:
 
 ```
 {
@@ -141,8 +146,8 @@ Request:
     }
 }
 ```
-Response:
 
+Response:
 
 ```
 {
@@ -207,14 +212,8 @@ Response:
 }
 ```
 
-
 [Test cases - collection](https://www.getpostman.com/collections/dad6027a05e66bf395e8)
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

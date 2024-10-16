@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Keycloak-Migration-7.0.1-to-21.x-Design
 
 ### Overview

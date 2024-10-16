@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Release
 
 | Version | Enhancements existing support (learner-service)                                                                                                                                                                                                                                                                                                                                                                                   | Comments                                                                                                                                                                                                                                                                                                                                      |

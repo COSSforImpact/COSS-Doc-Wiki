@@ -1,21 +1,25 @@
+---
+icon: folder-open
+---
+
 # Notification-Design-Discussion
 
-* [Introduction](notification-design-discussion.md#introduction)
-* [Background](notification-design-discussion.md#background)
-* [Problem Statement:](notification-design-discussion.md#problem-statement:)
-  * [Key Design Problem](notification-design-discussion.md#key-design-problem)
-  * [PROPOSED SOLUTION :](notification-design-discussion.md#proposed-solution-:)
-  * [Failed Notification Events](notification-design-discussion.md#failed-notification-events--)
-  * [Schema Definition](notification-design-discussion.md#schema-definition)
-  * [/notification/create](notification-design-discussion.md#/notification/create)
-  * [Multi-Language Support](notification-design-discussion.md#multi-language-support)
-  * [Backward Compatibility Read and Write Older Mobiles](notification-design-discussion.md#backward-compatibility-read-and-write-older-mobiles)
-  * [Clarification Needed:](notification-design-discussion.md#clarification-needed:)
-  * [Challenges:](notification-design-discussion.md#challenges:)
-* [Async Notification Design :](notification-design-discussion.md#async-notification-design-:-)
-  * [Proposed ASYNC Notification Support](notification-design-discussion.md#proposed-async-notification-support)
-  * [LoadTest Analysis :](notification-design-discussion.md#loadtest-analysis-:--)
-  * [Remove:](notification-design-discussion.md#remove:-)
+* [Introduction](./#introduction)
+* [Background](./#background)
+* [Problem Statement:](./#problem-statement:)
+  * [Key Design Problem](./#key-design-problem)
+  * [PROPOSED SOLUTION :](./#proposed-solution-:)
+  * [Failed Notification Events](./#failed-notification-events--)
+  * [Schema Definition](./#schema-definition)
+  * [/notification/create](./#/notification/create)
+  * [Multi-Language Support](./#multi-language-support)
+  * [Backward Compatibility Read and Write Older Mobiles](./#backward-compatibility-read-and-write-older-mobiles)
+  * [Clarification Needed:](./#clarification-needed:)
+  * [Challenges:](./#challenges:)
+* [Async Notification Design :](./#async-notification-design-:-)
+  * [Proposed ASYNC Notification Support](./#proposed-async-notification-support)
+  * [LoadTest Analysis :](./#loadtest-analysis-:--)
+  * [Remove:](./#remove:-)
 
 ### Introduction
 
@@ -91,7 +95,7 @@ The following are key design problems for the implementation.
 
 #### PROPOSED SOLUTION :
 
-Architecture![](../../../../.gitbook/assets/test.jpg)
+Architecture![](../../../../../.gitbook/assets/test.jpg)
 
 Database DesignThe following are the database design needed to support the notification service.
 
@@ -895,7 +899,7 @@ Based on _template.Id_ and _Lang_ will get the respective language template. Tem
 
 The architecture to support backward compatibility.
 
-![](<../../../../.gitbook/assets/Notifications Migrartion (1).jpg>)
+![](<../../../../../.gitbook/assets/Notifications Migrartion (1).jpg>)
 
 * As a part of this change , _**/user/feed/v1/create**_ will internally call the new notifications _**v2/notification/send**_ and the **v1** feed format will be stored in both **v1** and **v2** format.
 * The _**/user/v1/feed**_ will get the data all the **v1** formatted data from the new notification table by using the new end points.
@@ -1047,7 +1051,7 @@ Json Structure to be pushed as events to Kafka.
 
 #### Proposed ASYNC Notification Support
 
-![](../../../../.gitbook/assets/untitled.png)Events structure:The events can be send in two format : -
+![](../../../../../.gitbook/assets/untitled.png)Events structure:The events can be send in two format : -
 
 * Complete information in the events with notification specified schema which will be processed by default job
 * Events information with context which will be processed by specific flink job written to process it.

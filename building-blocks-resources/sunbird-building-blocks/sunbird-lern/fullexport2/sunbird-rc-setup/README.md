@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Sunbird-RC-Setup
 
 Clone Sunbird-RC from (MAIN - branch)
@@ -26,7 +30,7 @@ The following are the dependent services used by the above micro-services;
 
 Folder Structure of Sunbird-RC
 
-![](../../../../.gitbook/assets/image-20220308-064843.png)Prerequisites:
+![](../../../../../.gitbook/assets/image-20220308-064843.png)Prerequisites:
 
 * Open jdk 8 and above
 * Node 16 and above
@@ -48,7 +52,7 @@ This above procedure will build all the 4 required services.
 1. Navigate to and open a terminal and execute $ sudo docker-compose up - This will start all the micro-services and services (as mentioned in the table above on respective ports)
 2. Open your favorite browser and open [http://keycloak:8080](http://keycloak:8080) this will open the keycloak home page
 
-![](../../../../.gitbook/assets/image-20220308-065510.png)Click on Administration Console, that will navigate you to Authorization page.
+![](../../../../../.gitbook/assets/image-20220308-065510.png)Click on Administration Console, that will navigate you to Authorization page.
 
 username: admin
 
@@ -56,9 +60,9 @@ password: admin
 
 4. Once authenticated you will be navigated to the homepage of keycloak. on the left top corner of the page click on the drop down next to MASTER
 
-![](../../../../.gitbook/assets/image-20220308-065900.png)and choose - Add Realm and this will navigate you to Add Realm page
+![](../../../../../.gitbook/assets/image-20220308-065900.png)and choose - Add Realm and this will navigate you to Add Realm page
 
-![](../../../../.gitbook/assets/image-20220308-070149.png)Click on **Select file** button and that will pop-up an window to select the realm settings json file.
+![](../../../../../.gitbook/assets/image-20220308-070149.png)Click on **Select file** button and that will pop-up an window to select the realm settings json file.
 
 Navigate to the location where Sunbird-RC is cloned -
 
@@ -68,19 +72,19 @@ Click on **Create** button.
 
 Keycloak will create the Sunbirdrc realm.
 
-![](../../../../.gitbook/assets/image-20220308-072512.png)After the sunbirdrc realm is created (screenshot above),
+![](../../../../../.gitbook/assets/image-20220308-072512.png)After the sunbirdrc realm is created (screenshot above),
 
-![](../../../../.gitbook/assets/image-20220308-072847.png)Click on Clients (on LHS) - Clients page is loaded
+![](../../../../../.gitbook/assets/image-20220308-072847.png)Click on Clients (on LHS) - Clients page is loaded
 
-![](../../../../.gitbook/assets/image-20220308-072945.png)Click on admin-api
+![](../../../../../.gitbook/assets/image-20220308-072945.png)Click on admin-api
 
-![](../../../../.gitbook/assets/image-20220308-073206.png)Admin API page is loaded
+![](../../../../../.gitbook/assets/image-20220308-073206.png)Admin API page is loaded
 
-![](../../../../.gitbook/assets/image-20220308-073305.png)Click on **Credentials** tab and Click on **Regenerate Secret** button.
+![](../../../../../.gitbook/assets/image-20220308-073305.png)Click on **Credentials** tab and Click on **Regenerate Secret** button.
 
-![](../../../../.gitbook/assets/image-20220308-073348.png)Copy the **Secret** key and paste it on to **docker-compose.yml** file under **registry** - **environment** - **sunbird\_sso\_admin\_client\_secret** key
+![](../../../../../.gitbook/assets/image-20220308-073348.png)Copy the **Secret** key and paste it on to **docker-compose.yml** file under **registry** - **environment** - **sunbird\_sso\_admin\_client\_secret** key
 
-![](../../../../.gitbook/assets/image-20220308-073804.png)Save the file.
+![](../../../../../.gitbook/assets/image-20220308-073804.png)Save the file.
 
 Navigate the windows where sudo docker-compose up command was executed and hot Ctrl+X to stop the service.
 

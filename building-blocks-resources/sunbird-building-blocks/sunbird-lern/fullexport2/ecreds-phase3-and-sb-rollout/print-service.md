@@ -18,7 +18,7 @@
 
 ### Consumption Diagram
 
-![](../../../../.gitbook/assets/cert-print.png)
+![](../../../../../.gitbook/assets/cert-print.png)
 
 ### Solution/Capabilities
 

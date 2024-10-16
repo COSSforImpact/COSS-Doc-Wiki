@@ -1,40 +1,32 @@
+---
+icon: elementor
+---
+
+# Load-Test-Certificate-Generator-Flink-job
+
 This document contains the steps required for testing Certificate-Generator flink job.
 
-
 1. Create the topic in kafka
+2. Push messages into the kafka-topic via scripts( we are using here scala script)
+3. Create a cron-job which will checks kafka-topic for every minute
+4. Run the respective flink-job from jenkins
+5. Get the kafka-topic details into a separate text file for checking the processed messages.
 
-
-1. Push messages into the kafka-topic via scripts( we are using here scala script)
-
-
-1. Create a cron-job which will checks kafka-topic for every minute
-
-
-1. Run the respective flink-job from jenkins
-
-
-1. Get the kafka-topic details into a separate text file for checking the processed messages.
-
-
-
- **Create-Kafka topic** :
+**Create-Kafka topic** :
 
 Login to kafka-machine
 
 Navigate to kafka bin path and create topic with below message
 
-
 ```
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --topic loadtest.generate.certificate.request  --replication-factor 1 --partitions 1
 ```
 
-
- **Push messages to Topic:** 
+**Push messages to Topic:**
 
 Here we are using scala script to load messages into the kafka-topic
 
 Login to spark machine
-
 
 ```
 vi KafkaSink.scala
@@ -50,8 +42,6 @@ bin/spark-shell --master local[*] --driver-memory 100g --packages com.datastax.s
 :load {{absolute path of KafkaLoadData.scala}}
 KafkaLoadData.main(Array("");
 ```
-
-
 
 ```
 package org.sunbird.analytics.job.report.scripts
@@ -92,8 +82,6 @@ object KafkaSink {
   
 }
 ```
-
-
 
 ```
 package org.sunbird.analytics.job.report.scripts
@@ -148,8 +136,6 @@ class KafkaDispatcher extends java.io.Serializable {
 }
 ```
 
-
-
 ```
 package org.sunbird.analytics.job.report.scripts
 
@@ -187,35 +173,29 @@ object KafkaLoadData extends Serializable {
 }
 ```
 
-
- **Create-cron job:** 
+**Create-cron job:**
 
 Setting up cron job for throughput computation:
 
-Create a shell script  **compute_throughput.sh** with below content
+Create a shell script **compute\_throughput.sh** with below content
 
-#!/bin/bash
+\#!/bin/bash
 
-output_dir=<path>/throughput
+output\_dir=/throughput
 
 now=$(date +'%F %H:%M:%S')
 
-output=$(<path-to-kafka-dir>/kafka_2.12-2.8.0/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092  --describe --group loadtest-certificate-generator-group)
+output=$(/kafka\_2.12-2.8.0/bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group loadtest-certificate-generator-group)
 
-echo -e $now '\t' $output >> $output_dir/throughput.txt
-
-
+echo -e $now '\t' $output >> $output\_dir/throughput.txt
 
 Setup crontab to run this shell script every minute
 
- ***/1 * * * * <path-to-script>/compute_throughput.sh** 
+\***/1 \* \* \* \* /compute\_throughput.sh**
 
+**Run Flink application:**
 
-
- **Run Flink application:** 
-
-Deploy the flink job and check the  throughput.txt, it will show the below content.
-
+Deploy the flink job and check the throughput.txt, it will show the below content.
 
 ```
 2022-04-29 10:18:01      GROUP TOPIC PARTITION CURRENT-OFFSET LOG-END-OFFSET LAG CONSUMER-ID HOST CLIENT-ID 
@@ -251,11 +231,9 @@ Deploy the flink job and check the  throughput.txt, it will show the below conte
 2022-04-29 10:33:01      GROUP TOPIC PARTITION CURRENT-OFFSET LOG-END-OFFSET LAG CONSUMER-ID HOST CLIENT-ID
                          loadtest-certificate-generator-group loadtest.generate.certificate.request 0 1610000 1610000 0 - - -
 ```
+
 Note: totally it took 15mins to process 5 lakh message with 1 instance of flink job.
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

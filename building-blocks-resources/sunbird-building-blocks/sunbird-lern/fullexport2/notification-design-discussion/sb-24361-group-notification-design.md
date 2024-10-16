@@ -1,19 +1,20 @@
+---
+icon: elementor
+---
+
+# SB-24361---Group-Notification-Design
+
 Currently, there is no notifications are sent to user for any operation. From release-4.2.0 it is planned to send notifications to the users of the group whenever there is an important event or activity happening in the group.
 
+## Notifications
 
-
-
-# Notifications
 [https://docs.google.com/spreadsheets/d/17M7peaM1TbFa7kYx0FhAIWnPDrMajlES1mPTnq2IFss/edit#gid=0](https://docs.google.com/spreadsheets/d/17M7peaM1TbFa7kYx0FhAIWnPDrMajlES1mPTnq2IFss/edit#gid=0) The following notifications will be send based on different actions in the group.
 
 Group Notification will use the new notification create api to create notifications as defined in the document [https://project-sunbird.atlassian.net/wiki/spaces/UM/pages/2632613972/SB-24321+Group+Notification+Design+Discussion](https://project-sunbird.atlassian.net/wiki/spaces/UM/pages/2632613972/SB-24321+Group+Notification+Design+Discussion) .
 
+#### Notification Create :
 
-
-
-### Notification Create : 
 The new notification create API will be used to create a new notifications for the members:
-
 
 ```
 curl --location --request POST 'https://dev.sunbirded.org/api/user/notification/create' \
@@ -59,11 +60,9 @@ curl --location --request POST 'https://dev.sunbirded.org/api/user/notification/
 }'
 ```
 
+#### Notification Read :
 
-
-### Notification Read : 
 notification read api will be used by the client to read the notifications.
-
 
 ```json
 {
@@ -122,11 +121,11 @@ notification read api will be used by the client to read the notifications.
 }
 ```
 
-### Sample Notifications :  
- The following are example response for different notifications
+#### Sample Notifications :
 
- When member leave the groupAll admins will get the notifications. Key  **_groupRole_**  in the additional info will help to identify the user role in the group who has been notified.
+The following are example response for different notifications
 
+When member leave the groupAll admins will get the notifications. Key _**groupRole**_ in the additional info will help to identify the user role in the group who has been notified.
 
 ```json
 {
@@ -181,9 +180,7 @@ notification read api will be used by the client to read the notifications.
 }
 ```
 
-
 when member is added to the groupWhen member is added to the group only that member will get the notifications.
-
 
 ```
 {
@@ -237,10 +234,8 @@ when member is added to the groupWhen member is added to the group only that mem
     }
 }
 ```
+
 When member is removed from the groupwhen member is removed from the group, only the member who got removed will get the notifications.
-
-
-
 
 ```
 {
@@ -294,8 +289,8 @@ When member is removed from the groupwhen member is removed from the group, only
     }
 }
 ```
-when group is deletedWhen group is deleted , all members of the group will get the notifications
 
+when group is deletedWhen group is deleted , all members of the group will get the notifications
 
 ```
 {
@@ -350,9 +345,7 @@ when group is deletedWhen group is deleted , all members of the group will get t
 }
 ```
 
-
 when activity is assigned to the groupWhen activity is assigned to the group , all members of the group will get the notifications
-
 
 ```json
 {
@@ -411,8 +404,8 @@ when activity is assigned to the groupWhen activity is assigned to the group , a
     }
 }
 ```
-when activity is unassigned from groupwhen activity is unassigned to the group whole member will get the notifications.
 
+when activity is unassigned from groupwhen activity is unassigned to the group whole member will get the notifications.
 
 ```
 {
@@ -472,8 +465,6 @@ when activity is unassigned from groupwhen activity is unassigned to the group w
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]
