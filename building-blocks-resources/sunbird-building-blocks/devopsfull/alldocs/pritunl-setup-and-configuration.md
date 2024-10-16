@@ -38,13 +38,13 @@ Database Setup
 
 When Pritunl starts for the first time a database setup prompt will be shown on the web server running on port 443. The database setup will prompt for a setup key and MongoDB URI. To get the setup key ssh on to the server and run the command sudo pritunl setup-key this will return the setup key. By default the MongoDB URI will be filled with the URI for the localhost MongoDB server. This should be left as it is when the MongoDB server is running on the same server as the Pritunl instance. For Enterprise clusters refer to the MongoDB documentation for Connection String URI Format. Alternatively this can be set directly in the /etc/pritunl.conf file or using the cli command. More information on the cli command can be found in the Commands sections. Some MongoDB servers authenticate on the admin database and require the option authSource=admin to be included in the URI.
 
-![image-20240313-052913.png](../../../../DevOpsFull/AllDocs/images/storage/image-20240313-052913.png) Initial Setup
+![image-20240313-052913.png](../../../../.gitbook/assets/image-20240313-052913.png) Initial Setup
 
 After the MongoDB database uri has been configured the web console will display the login dialog. The default username is pritunl, run sudo pritunl default-password to get the default password. After signing in the initial setup dialog will be shown. This will allow changing the username and password. The Pritunl servers public address will be automatically detected and should not need to be changed. For generating a signed SSL certificate refer to the LetsEncrypt SSL Certificate section.
 
-![image-20240313-053008.png](../../../../DevOpsFull/AllDocs/images/storage/image-20240313-053008.png)
+![image-20240313-053008.png](../../../../.gitbook/assets/image-20240313-053008.png)
 
-![image-20240313-053020.png](../../../../DevOpsFull/AllDocs/images/storage/image-20240313-053020.png)
+![image-20240313-053020.png](../../../../.gitbook/assets/image-20240313-053020.png)
 
 **Connecting:**
 
@@ -52,13 +52,13 @@ Creating Organization and User
 
 To create an organization click Add Organization from the Organization page in the web console. Then click Add User an email address and user pin can optionally be included.
 
-![image-20240313-063859.png](../../../../DevOpsFull/AllDocs/images/storage/image-20240313-063859.png)Creating Server
+![image-20240313-063859.png](../../../../.gitbook/assets/image-20240313-063859.png)Creating Server
 
 Once the organization and user have been created go to the Servers page and click Add Server. By default a random udp port and random vpn network will be selected. The network should not conflict with a local network on your client computer and also be large enough for all users that will be attached to the server. The dns server will automatically be set to Google's public dns server. Once the server is created click Attach Organization to and attach the organization created earlier to the server. Then click Start Server to start the vpn server.
 
-![image-20240313-063924.png](../../../../DevOpsFull/AllDocs/images/storage/image-20240313-063924.png)
+![image-20240313-063924.png](../../../../.gitbook/assets/image-20240313-063924.png)
 
-![image-20240313-063949.png](../../../../DevOpsFull/AllDocs/images/storage/image-20240313-063949.png)
+![image-20240313-063949.png](../../../../.gitbook/assets/image-20240313-063949.png)
 
 Once the VPN is setup, to connect to any other server like Jenkins through VPN, you need to have peering done between VPN network and the destination server network and configure the server route from the VPN console.
 
@@ -70,17 +70,17 @@ Downloading User Profile
 
 After the server has been created the user profile can be downloaded on the Users page by clicking the download button or profile links button on the right side of a user. The profile can then be imported into the Pritunl client or any other OpenVPN client.
 
-![image-20240313-064015.png](../../../../DevOpsFull/AllDocs/images/storage/image-20240313-064015.png)User Profile Links
+![image-20240313-064015.png](../../../../.gitbook/assets/image-20240313-064015.png)User Profile Links
 
 Profile links allow downloading user profiles in different formats using temporary links. The uri link can be used to import the profile directly from the Pritunl client.
 
-![image-20240313-064054.png](../../../../DevOpsFull/AllDocs/images/storage/image-20240313-064054.png)
+![image-20240313-064054.png](../../../../.gitbook/assets/image-20240313-064054.png)
 
 **Pritunl Client Configuration:**
 
 Go throw the video attached for connecting client.
 
-![pritunl.webm](../../../../DevOpsFull/AllDocs/images/storage/pritunl.webm)Below is the link to read more about client configuration and connecting to pritunl vpn:
+![pritunl.webm](../../../../.gitbook/assets/pritunl.webm)Below is the link to read more about client configuration and connecting to pritunl vpn:
 
 [https://client.pritunl.com/](https://client.pritunl.com/)
 

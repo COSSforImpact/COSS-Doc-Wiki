@@ -78,7 +78,7 @@
 
 ## Implementation design with Redis:&#x20;
 
-## &#x20;  ![](../../../../Design/FullExport/images/storage/distributedCache.png)
+## &#x20;  ![](../../../../.gitbook/assets/distributedCache.png)
 
 \*\*WorkFlow: \*\*
 

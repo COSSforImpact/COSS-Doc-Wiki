@@ -1,13 +1,13 @@
 # Kubernetes
 
-**1. Kubernetes Architecture**            ![](../../../../DevOpsFull/AllDocs/images/storage/Kubernetes-Architecture.png)![](../../../../DevOpsFull/AllDocs/images/storage/Kubernetes-Master.png)
+**1. Kubernetes Architecture** ![](<../../../../.gitbook/assets/Kubernetes-Architecture (1).png>)![](<../../../../.gitbook/assets/Kubernetes-Master (1).png>)
 
 **2. Basic Objects**
 
 *   **POD** A _Pod_ is the basic execution unit of a Kubernetes application–the smallest and simplest unit in the Kubernetes object model that you create or deploy. A Pod represents processes running on your Cluster.
 
-    ![](../../../../DevOpsFull/AllDocs/images/storage/pods1.png)
-* **Service** In Kubernetes, a Service is an abstraction which defines a logical set of Pods and a policy by which to access them (sometimes this pattern is called a micro-service).![](../../../../DevOpsFull/AllDocs/images/storage/service1.png)
+    ![](<../../../../.gitbook/assets/pods1 (1).png>)
+* **Service** In Kubernetes, a Service is an abstraction which defines a logical set of Pods and a policy by which to access them (sometimes this pattern is called a micro-service).![](<../../../../.gitbook/assets/service1 (2).png>)
 *   **Volume** Kubernetes volume, has an explicit lifetime - the same as the Pod that encloses it. Consequently, a volume outlives any Containers that run within the Pod, and data is preserved across Container restarts. Of course, when a Pod ceases to exist, the volume will cease to exist, too
 
     If In need, can stateful Volumes, which will be persistent, even after the deployment got deleted.
@@ -19,15 +19,15 @@
 
 **3. Types of Service** **1.NodePort**
 
-![](../../../../DevOpsFull/AllDocs/images/storage/NodePort.png)
+![](<../../../../.gitbook/assets/NodePort (1).png>)
 
 **2.LoadBalancer**
 
-![](../../../../DevOpsFull/AllDocs/images/storage/LoadBalancer1.png)
+![](<../../../../.gitbook/assets/LoadBalancer1 (1).png>)
 
 **3.Ingress**
 
-![](../../../../DevOpsFull/AllDocs/images/storage/Ingress1.png)
+![](<../../../../.gitbook/assets/Ingress1 (1).png>)
 
 ### Code Example for a deployment
 
@@ -79,13 +79,13 @@ spec:
 
 ```
 
-![](../../../../DevOpsFull/AllDocs/images/storage/service1.png)
+![](<../../../../.gitbook/assets/service1 (2).png>)
 
-**4. Deploying new versions without downtime** Kubernetes allows the containers to be updated without downtime. When we send a deploy request to K8s, it will bring up new containers with the requested version and for every new container(configurable) that is live and handling requests, it purges an old container and overtime the cluster will only have the newer version. Rollback is also allowed if there are errors after the new deployment.&#x20;
+**4. Deploying new versions without downtime** Kubernetes allows the containers to be updated without downtime. When we send a deploy request to K8s, it will bring up new containers with the requested version and for every new container(configurable) that is live and handling requests, it purges an old container and overtime the cluster will only have the newer version. Rollback is also allowed if there are errors after the new deployment.
 
 The following best practices have to be implemented to allow for this feature to work without dropping requests
 
-&#x20;1\. The following snippet should be part of the deployment yaml file. This allows to control the number of new containers and the old container purge count.
+1\. The following snippet should be part of the deployment yaml file. This allows to control the number of new containers and the old container purge count.
 
 ```
 strategy: 
@@ -95,7 +95,7 @@ strategy:
    type: RollingUpdate
 ```
 
-&#x20;2\. The following snippet should be part of the deployment yaml file. This allows us to configure the endpoints that K8s can use to detect that a new container is ready for use.
+2\. The following snippet should be part of the deployment yaml file. This allows us to configure the endpoints that K8s can use to detect that a new container is ready for use.
 
 ```
         livenessProbe:      
@@ -118,7 +118,7 @@ strategy:
          timeoutSeconds: 3
 ```
 
-&#x20;3\. The application should handle SIGTERM requests and delay shutdown (Thread.sleep or JS equivalent) for some duration - ideally 30 seconds. This gives enough time for the container (being purged) to complete all requests        that it was already processing. The container would stop getting new requests once the SIGTERM is sent to it.
+3\. The application should handle SIGTERM requests and delay shutdown (Thread.sleep or JS equivalent) for some duration - ideally 30 seconds. This gives enough time for the container (being purged) to complete all requests that it was already processing. The container would stop getting new requests once the SIGTERM is sent to it.
 
 **5. AutoScaling**
 
@@ -142,7 +142,7 @@ spec:
 ```
 
 * Cluster Auto Scaling
-* Sample response bench-marking![](<../../../../DevOpsFull/AllDocs/images/storage/client request.png>)![](<../../../../DevOpsFull/AllDocs/images/storage/client RPS.png>)![](<../../../../DevOpsFull/AllDocs/images/storage/conatiner details.png>)![](<../../../../DevOpsFull/AllDocs/images/storage/hey output 1.png>)![](<../../../../DevOpsFull/AllDocs/images/storage/hey output 2.png>)
+* Sample response bench-marking![](<../../../../.gitbook/assets/client request (1).png>)![](<../../../../.gitbook/assets/client RPS (1).png>)![](<../../../../.gitbook/assets/conatiner details (1).png>)![](<../../../../.gitbook/assets/hey output 1 (1).png>)![](<../../../../.gitbook/assets/hey output 2 (1).png>)
 
 ***
 

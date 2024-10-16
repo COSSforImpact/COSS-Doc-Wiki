@@ -34,7 +34,7 @@ Jira Link : [https://project-sunbird.atlassian.net/browse/SB-24105](https://proj
 
 **Submit Api** : It is an existing api which will be used in our Data Product
 
-![](<../../../../Analytics/Fullexport/images/storage/flow chart.png>)
+![](<../../../../.gitbook/assets/flow chart.png>)
 
 **Queries** :
 

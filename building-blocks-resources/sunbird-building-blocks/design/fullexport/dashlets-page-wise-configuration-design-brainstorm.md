@@ -114,14 +114,14 @@ Other vars….
 
 Only single form should exist with all the links or individual form for each page id.
 
-**RENDERING PHASE** Solution 1 - Using a structural Directive![](<../../../../Design/FullExport/images/storage/Untitled Diagram.png>)
+**RENDERING PHASE** Solution 1 - Using a structural Directive![](<../../../../.gitbook/assets/Untitled Diagram.png>)
 
 1. We’ll attach the directive to an element (For example button) in any part of the page.
 2. If it’s a button it will load a certain component and will get the context object from the report service using the page id of the page where it is attached
 3. Element → Form Service → Report Service → Template Component
 4. Redirection logic or which component to render can be defined at the form level
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2021-05-25 at 12.46.01 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2021-05-25 at 12.46.01 PM.png>)
 
 **Pros** :-
 
@@ -139,7 +139,7 @@ We can configure it to redirect to any component/template using menubar form and
 
 If no report is configured for that page button won’t appear.
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2021-05-25 at 12.49.46 PM.png>)Pros:
+![](<../../../../.gitbook/assets/Screenshot 2021-05-25 at 12.49.46 PM.png>)Pros:
 
 no code changes , everything automated using form service and report service
 

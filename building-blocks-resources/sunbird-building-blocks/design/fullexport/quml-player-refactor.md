@@ -29,7 +29,7 @@ Dividing the current structure of code into two parts _**question player**_ and 
 
     This follows a unidirectional approach to update state rather than the bidirectional one to reduce complexity in debugging. So the renderer updates state using the Player API and the player then _schedules_ any events if needed due to star.
 
-![](../../../../Design/FullExport/images/storage/quml-player-refactor-1-20220208-054304.png)
+![](../../../../.gitbook/assets/quml-player-refactor-1-20220208-054304.png)
 
 Core features to be extracted
 

@@ -11,7 +11,7 @@ This document covers the design and modifications needed to support events relat
 
 ### Event Model
 
-![](../../../../Design/FullExport/images/storage/EventModel.png)
+![](../../../../.gitbook/assets/EventModel.png)
 
 Attributes _EVENTS_
 
@@ -113,7 +113,7 @@ _EVENT SET_
 
 #### Updated Enrolment table design
 
-![](../../../../Design/FullExport/images/storage/EventEnrolmentModel.png)
+![](../../../../.gitbook/assets/EventEnrolmentModel.png)
 
 Changes to be done:
 

@@ -53,15 +53,15 @@ For example:
 
 1. The Collection component would expect CollectionType, Board, Class, Medium, Subject, Framework to list the textbook and it would have actions such as showFilters
 
-![](<../../../../Design/FullExport/images/storage/CollectionComponent (2).png>)
+![](<../../../../.gitbook/assets/CollectionComponent (2).png>)
 
 Similarly, ChapterList component would expect CollectionId and List of content types as configuration and selectChapter, addResource, preview etc as actions.
 
-![](<../../../../Design/FullExport/images/storage/chapterlist component (2).png>)
+![](<../../../../.gitbook/assets/chapterlist component (2).png>)
 
 If we put together all the component and its required configurations, actions and possible enhancements into a module/highlevel component the following would be the overall component hierarchy and configuration.
 
-![](<../../../../Design/FullExport/images/storage/Flowchart-programs (2) (1).jpg>)
+![](<../../../../.gitbook/assets/Flowchart-programs (2) (1).jpg>)
 
 With this basic set of configurations and actions a program can be created by an admin of a program.&#x20;
 

@@ -12,10 +12,9 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
   * Open [https://www.maxmind.com/en/accounts/current/license-key](https://www.maxmind.com/en/accounts/current/license-key)
   * Click on
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20210630-043513.png) \* If you don’t have an account, Signup for one on [https://www.maxmind.com/en/geolite2/signup?lang=en](https://www.maxmind.com/en/geolite2/signup?lang=en)
+![](../../../../.gitbook/assets/image-20210630-043513.png) \* If you don’t have an account, Signup for one on [https://www.maxmind.com/en/geolite2/signup?lang=en](https://www.maxmind.com/en/geolite2/signup?lang=en)
 
-* Create an ssh public key
-  *
+* Create an ssh public key \*
 
 ```
 ssh-keygen -C installation_test_key -b 4096 -f /tmp/deployer_key
@@ -24,7 +23,7 @@ vim /tmp/deployer_key.pub
 
 * Login to [http://portal.azure.com](http://portal.azure.com) → select Cloud shell
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20210630-043003.png) \*
+![](../../../../.gitbook/assets/image-20210630-043003.png) \*
 
 ```
 git clone https://github.com/project-sunbird/sunbird-devops -b releaese-<version>

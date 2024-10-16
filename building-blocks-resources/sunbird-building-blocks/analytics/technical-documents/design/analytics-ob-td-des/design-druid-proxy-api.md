@@ -8,7 +8,7 @@ This document describes the design of the proxy API to validate/filter druid qui
 
 Currently, The druid API is open and any user can fire a scan query over any date range and also use high cardinality columns as filter criteria without any ranges. Due to this druid system will crash and the user will not able to query the druid system further.
 
-![](<../../../../../../Analytics/analytics-ob-td-des/images/storage/Screenshot 2019-11-14 at 3.39.39 PM.png>) ![](<../../../../../../Analytics/analytics-ob-td-des/images/storage/Screenshot 2020-08-25 at 1.37.12 PM.png>)
+![](<../../../../../../.gitbook/assets/Screenshot 2019-11-14 at 3.39.39 PM (1).png>) ![](<../../../../../../.gitbook/assets/Screenshot 2020-08-25 at 1.37.12 PM (1).png>)
 
 Once API Validates the request JSON object then proxy API will create the Hash key for the request object and checks in the redis for that hash key. if the value is present for the hash key in the redis then it will respond with value to the end-user OR. if the response is not present in the redis then it will fetch the result from the druid data source and store that response into Redis for certain interval of time.
 

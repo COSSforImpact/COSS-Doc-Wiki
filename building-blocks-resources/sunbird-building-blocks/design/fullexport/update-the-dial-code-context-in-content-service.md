@@ -107,7 +107,7 @@ The schema & context objects are added for Sunbird & Sunbird-Ed in the below ref
 
 [Sunbrid-Ed](https://github.com/vinukumar-vs/json-ld/tree/dial/schema/sbed) => sbed/schema.json & sbed.context.json
 
-![](../../../../Design/FullExport/images/storage/image-20220527-113208.png) ![](../../../../Design/FullExport/images/storage/image-20220527-113302.png) ![](../../../../Design/FullExport/images/storage/image-20220527-113035.png)
+![](../../../../.gitbook/assets/image-20220527-113208.png) ![](../../../../.gitbook/assets/image-20220527-113302.png) ![](../../../../.gitbook/assets/image-20220527-113035.png)
 
 The content service will be generating the request based on the mapping object configured for content-service.
 

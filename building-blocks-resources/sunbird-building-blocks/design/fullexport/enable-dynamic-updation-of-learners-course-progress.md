@@ -6,7 +6,7 @@
 
 [SB-12089 System JIRA](https://browse/SB-12089)
 
-![](<../../../../Design/FullExport/images/storage/Untitled drawing (1).png>)
+![](<../../../../.gitbook/assets/Untitled drawing (1).png>)
 
 **Key Design Problems:** 1. Easy way to maintain course details for a batch.
 

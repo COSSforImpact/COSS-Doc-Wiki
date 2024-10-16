@@ -17,7 +17,7 @@
 
 ### **New Design** :
 
-![](../../../../Design/FullExport/images/storage/redis-updater-design2.png)
+![](../../../../.gitbook/assets/redis-updater-design2.png)
 
 **Workflow:** The Redis Updater samza job updates the User, Content and Dialcode cache currently. The redis updater will be split in two different samza jobs, i.e. User Cache Updater and Content Cache Updater.
 
@@ -29,7 +29,7 @@
 
     &#x20; \- Based on the locationids, it searches for state and district information from the location db and updates the Redis Cache along with the existing metadata.
 
-    ![](../../../../Design/FullExport/images/storage/workflow-user-cache-updater.png)
+    ![](../../../../.gitbook/assets/workflow-user-cache-updater.png)
 *   Content Cache Updater
 
     &#x20; \- This job would process the learning graph events and filters it based on object type.

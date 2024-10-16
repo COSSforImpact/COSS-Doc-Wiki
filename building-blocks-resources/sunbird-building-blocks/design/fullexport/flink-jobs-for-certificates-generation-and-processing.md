@@ -8,7 +8,7 @@ This wiki details the design approach on issuing/generating certificates via fli
 
 The current certificate-generator samza job and cert-service(generateCertificate) API is refactored as flink jobs. Below diagram depicts the flow.
 
-![](<../../../../Design/FullExport/images/storage/design (1).png>)
+![](<../../../../.gitbook/assets/design (1).png>)
 
 **Changes in cert-processor**
 

@@ -35,7 +35,7 @@ RCA will mainly focus on identifying the preventive actions i.e the actions that
 
 ## Process Diagram
 
-![](../../../../Others/ekstepprocess-ind-unknown/images/storage/image2019-7-29\_15-31-20.png)
+![](../../../../.gitbook/assets/image2019-7-29\_15-31-20.png)
 
 |
 

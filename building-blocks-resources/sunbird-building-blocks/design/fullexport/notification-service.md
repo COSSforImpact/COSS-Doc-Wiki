@@ -45,9 +45,9 @@ Service should have the ability to configure the attributes on system level or t
 
 Service should have the intelligence to decide the broadcast medium depending on the request type
 
-Flow diagram focusing on external components![](../../../../Design/FullExport/images/storage/Page\_1\_1.png)
+Flow diagram focusing on external components![](../../../../.gitbook/assets/Page\_1\_1.png)
 
-Flow diagram focusing on internal components![](../../../../Design/FullExport/images/storage/Page\_1\_2.png)&#x20;
+Flow diagram focusing on internal components![](../../../../.gitbook/assets/Page\_1\_2.png)&#x20;
 
 ### Notification Broadcast medium
 
@@ -117,7 +117,7 @@ for **SMS, push, and WhatsApp**  notification the template will be a plain text 
 
 Notification Template will have the following design and API's will be exposed to create and update the Template
 
-![](../../../../Design/FullExport/images/storage/Page\_1\_9.png)
+![](../../../../.gitbook/assets/Page\_1\_9.png)
 
 API
 

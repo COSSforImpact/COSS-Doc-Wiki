@@ -22,7 +22,7 @@ In all these scenarios following details are to be provided by the creator when 
 
 Please refer to the below snapshot on the new fields in the form API.
 
-![](<../../../../PRD/prd-ed-td-req-ind/images/storage/Form Changes\_\_1561703663\_182.73.165.66.jpg>)
+![](<../../../../.gitbook/assets/Form Changes\_\_1561703663\_182.73.165.66.jpg>)
 
 In the portal view, in the course ToC page needs to show the following:
 

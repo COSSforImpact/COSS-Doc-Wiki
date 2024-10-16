@@ -16,7 +16,7 @@ Ability to provide review comments to a content at the page level.
 
 To provide the ability to give review comment at page level we need to provide a new set of API to do CRUD operation. We need store and organize this comments in DB. Portal and Content framework should provide UI.
 
-![](<../../../../../../../Design/sbdesign-ed-kn-hw2/images/storage/Untitled Diagram.jpg>)
+![](<../../../../../../../.gitbook/assets/Untitled Diagram (4).jpg>)
 
 ### Backend changes:
 
@@ -126,9 +126,9 @@ UI changes are required in both portal and content editor.
 
 UI changes in Portal:&#x20;
 
-![](../../../../../../../Design/sbdesign-ed-kn-hw2/images/storage/2.png)
+![](<../../../../../../../.gitbook/assets/2 (2).png>)
 
-UI changes in the content editor:![](../../../../../../../Design/sbdesign-ed-kn-hw2/images/storage/3.png)
+UI changes in the content editor:![](<../../../../../../../.gitbook/assets/3 (2).png>)
 
 ### Limitation:&#x20;
 

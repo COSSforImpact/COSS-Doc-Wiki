@@ -65,11 +65,11 @@ Adding Github checks for enforcing the conventional commits.By adding Github che
 
 Pull request title which doesn’t match the required pattern.
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200810-142625.png)
+![](<../../../../../.gitbook/assets/image-20200810-142625 (1).png>)
 
 Pull request with proper PR message title which matches the required pattern.
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200810-142120.png)
+![](<../../../../../.gitbook/assets/image-20200810-142120 (1).png>)
 
 Reference: [https://www.conventionalcommits.org/en/v1.0.0/](https://www.conventionalcommits.org/en/v1.0.0/)
 
@@ -85,7 +85,7 @@ For adding this template we have to create a .github directory in the project ro
 
 Sample pull request template.
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200810-145549.png)
+![](<../../../../../.gitbook/assets/image-20200810-145549 (1).png>)
 
 Merging strategy for release branches **Problem** : If a pull request is raised between two branches of the same repository. The sonarcloud analysis for the PR will be in a pending state.
 

@@ -6,7 +6,7 @@ icon: elementor
 
 **Component View**
 
-![](../../../../../../Design/sbdesign-ed-td-arch2/images/storage/openrap-sunbirded-plugin-Page-2.png)
+![](<../../../../../../.gitbook/assets/openrap-sunbirded-plugin-Page-2 (1).png>)
 
 **Folder Structure**
 

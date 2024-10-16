@@ -25,7 +25,7 @@ Mocha will be the test runner used and chai will be the assertion library which 
 
 Open Functional\_automation\_spectron.jpg![](blob:https://project-sunbird.atlassian.net/f153d61d-ea6d-4f7d-a808-004c2c20478e#media-blob-url=true\&id=22640d79-db4f-480d-9f8d-02a4b03d95cf\&collection=contentId-1359151105\&contextId=1359151105\&mimeType=image%2Fjpeg\&name=Functional\_automation\_spectron.jpg\&size=52388\&width=590\&height=406\&alt=)
 
-<figure><img src="../../../../../../.gitbook/assets/Functional_automation_spectron.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Functional_automation_spectron (2).jpg" alt=""><figcaption></figcaption></figure>
 
 &#x20;
 

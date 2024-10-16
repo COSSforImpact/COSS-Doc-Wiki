@@ -2,7 +2,7 @@
 
 **Architecture** :-
 
-![](<../../../../../../Analytics/analytics-ob-td-Improllup/images/storage/Actual Cassandra Arch.png>)
+![](<../../../../../../.gitbook/assets/Actual Cassandra Arch (1).png>)
 
 *   **Kafka** : Backend API will push the data for every update in the submission doc to Kafka topic.
 

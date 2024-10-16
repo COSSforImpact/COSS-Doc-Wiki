@@ -44,7 +44,7 @@ This document details the architecture of this new platform, named as DOCK platf
 
 ### Logical View
 
-![](../../../../Others/contsrcorg-ind-unknown/images/storage/DOCK\_Logical\_View.png)DOCK PortalDOCK Portal is the web interface for accessing the DOCK platform functionality. This portal uses micro-services of Sunbird & DOCK platform to create a unified experience for the users. It uses the following Sunbird platform services:
+![](../../../../.gitbook/assets/DOCK\_Logical\_View.png)DOCK PortalDOCK Portal is the web interface for accessing the DOCK platform functionality. This portal uses micro-services of Sunbird & DOCK platform to create a unified experience for the users. It uses the following Sunbird platform services:
 
 * Sunbird platform’s keycloak for user authentication. This enables users of the sunbird platform to use their existing user accounts to login to DOCK platform and vice versa.
 * Sunbird user & org repository for user management and identifying sourcing orgs & its users.
@@ -64,7 +64,7 @@ Telemetry & DataSunbird telemetry service and analytics module is used for stori
 
 ### Process View & Entities
 
-![](../../../../Others/contsrcorg-ind-unknown/images/storage/DOCK\_Process\_View.png) **Channel** Channel entity is used to store the details of the platform that is using DOCK platform for sourcing content. For example, DIKSHA and Shikshalokam will be two channels in the DOCK platform. There could be multiple sourcing orgs within each channel. All programs, collections & content created will be associated with the respective channel.
+![](../../../../.gitbook/assets/DOCK\_Process\_View.png) **Channel** Channel entity is used to store the details of the platform that is using DOCK platform for sourcing content. For example, DIKSHA and Shikshalokam will be two channels in the DOCK platform. There could be multiple sourcing orgs within each channel. All programs, collections & content created will be associated with the respective channel.
 
 Sourcing OrgSourcing Org is a tenant within the platform that is sourcing content on the DOCK platform. There is no separate entity created in DOCK platform for sourcing orgs. DOCK portal connects to the corresponding Sunbird instance to fetch the details of sourcing org and its users.
 
@@ -82,7 +82,7 @@ CertificatesThese are digital certificates that are awarded to contributors or c
 
 ### Deployment View
 
-![](../../../../Others/contsrcorg-ind-unknown/images/storage/DOCK\_Deployment\_View.png)
+![](../../../../.gitbook/assets/DOCK\_Deployment\_View.png)
 
 ### Content and Data copy
 

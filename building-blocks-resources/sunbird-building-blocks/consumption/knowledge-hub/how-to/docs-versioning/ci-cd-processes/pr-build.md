@@ -15,7 +15,7 @@ icon: elementor
   * deploy
   * post comment on github with modified pages link
 
-![](../../../../../../../Design/sbdesign-ed-kn-frameworknbp/images/storage/PR.png)
+![](<../../../../../../../.gitbook/assets/PR (1).png>)
 
 Related Jira Issues - [SB-5591 System JIRA](https://browse/SB-5591)
 

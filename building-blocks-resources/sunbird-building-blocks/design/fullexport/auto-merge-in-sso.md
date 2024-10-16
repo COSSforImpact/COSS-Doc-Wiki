@@ -12,7 +12,7 @@ If the user refutes ownership of the existing account, they are provided with a 
 
 **Approach :**
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (3).jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram (3).jpg>)
 
 &#x20;                                        &#x20;
 
@@ -56,11 +56,11 @@ If the user refutes ownership of the existing account, they are provided with a 
 
 Verify user via email or phone
 
-![](../../../../Design/FullExport/images/storage/ezgif.com-gif-maker.jpg)
+![](../../../../.gitbook/assets/ezgif.com-gif-maker.jpg)
 
 user enters OTP
 
-![](<../../../../Design/FullExport/images/storage/ezgif.com-gif-maker (1).jpg>)
+![](<../../../../.gitbook/assets/ezgif.com-gif-maker (1).jpg>)
 
 Click on the below-mentioned link for further flow.
 

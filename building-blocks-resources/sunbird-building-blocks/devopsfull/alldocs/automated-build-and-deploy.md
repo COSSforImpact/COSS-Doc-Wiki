@@ -1,6 +1,6 @@
 # Automated-Build-and--Deploy
 
-![](../../../../DevOpsFull/AllDocs/images/storage/SunbirdCICD-New-approach.png)The idea is to automate the build and deployment of various Jenkins jobs to a specific environment based on Github tags.
+![](../../../../.gitbook/assets/SunbirdCICD-New-approach.png)The idea is to automate the build and deployment of various Jenkins jobs to a specific environment based on Github tags.
 
 **What is required from the development team?** Development team will create the tag for their respective github repositories using a Jenkins job.
 
@@ -10,11 +10,11 @@
 * Provide the release branch from where the tag needs to be created
 * Click on Build
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20200416-155029.png)
+![](../../../../.gitbook/assets/image-20200416-155029.png)
 
 * In the cosole log, the tag will be displayed
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20200416-155336.png)
+![](../../../../.gitbook/assets/image-20200416-155336.png)
 
 **What happens next?**
 
@@ -32,9 +32,9 @@
 
 **Few images depicting the above details** _Start and End time variables_
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20200416-160449.png) _New jobs get created based on tags_
+![](../../../../.gitbook/assets/image-20200416-160449.png) _New jobs get created based on tags_
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20200416-160613.png)
+![](../../../../.gitbook/assets/image-20200416-160613.png)
 
 _Downstream jobs triggered automatically based on the status of upstream job_
 
@@ -47,11 +47,11 @@ _Downstream jobs triggered automatically based on the status of upstream job_
   * Player CDN Build
   * Player Deploy
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20200416-162144.png) ![](../../../../DevOpsFull/AllDocs/images/storage/image-20200416-162246.png)
+![](../../../../.gitbook/assets/image-20200416-162144.png) ![](../../../../.gitbook/assets/image-20200416-162246.png)
 
 _Slack Notifications_
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20200416-162343.png)
+![](../../../../.gitbook/assets/image-20200416-162343.png)
 
 **Current challenges to discuss**
 

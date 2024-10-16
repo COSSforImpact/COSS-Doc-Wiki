@@ -2,7 +2,7 @@
 
 ### Current Design
 
-![](<../../../../Design/FullExport/images/storage/Courses Infra Current.png>)Following are the key problems with the current design:
+![](<../../../../.gitbook/assets/Courses Infra Current.png>)Following are the key problems with the current design:
 
 1. Writing progress updates and completion percentage to ES is not able to scale to the required needs. ES is not build for massive writes similar to Cassandra.
 2. Content state update API writes to two Kafka topics and does a read/write to Cassandra. Scaling the API requires to scale both Kafka and Cassandra which is not cost efficient
@@ -11,7 +11,7 @@
 
 ### Proposed Design
 
-![](<../../../../Design/FullExport/images/storage/Courses Infra - Proposed.png>)Proposing the following changes for the courses infra to scale vertically
+![](<../../../../.gitbook/assets/Courses Infra - Proposed.png>)Proposing the following changes for the courses infra to scale vertically
 
 1. Remove the writing of report to ES. This would mean to disable the view online of report functionality for the Course Admin.
 2. Generate a de-normalized user table from all the tables, so that the report generation is just one join with the user\_courses table
@@ -25,7 +25,7 @@ With the introduction of groups for the e-schooling use case, there is necessity
 1. Batch Mode - Where the group progress is updated on a schedule (every 24 hrs).
 2. Query Mode - Where the group progress is queried dynamically when needed (and possibly cached with a ttl for performance)
 
-![](<../../../../Design/FullExport/images/storage/Group Reports.png>)Following are the pros & cons of both approaches:
+![](<../../../../.gitbook/assets/Group Reports.png>)Following are the pros & cons of both approaches:
 
 #### Batch Mode
 
@@ -72,7 +72,7 @@ Within the query mode - we have two possible sources where the data can be queri
 
 ### Edge Caching
 
-![](../../../../Design/FullExport/images/storage/edge-caching-before.png) ![](../../../../Design/FullExport/images/storage/edge-caching.png)
+![](../../../../.gitbook/assets/edge-caching-before.png) ![](../../../../.gitbook/assets/edge-caching.png)
 
 ### Group Activity Aggregates
 

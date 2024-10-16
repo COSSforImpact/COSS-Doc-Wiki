@@ -127,7 +127,7 @@ Use the create/update form API with the following API request
 
 }
 
-![](../../../../../../../Design/sbdesign-ed-kn-hw2/images/storage/request-changes-popup.png)
+![](<../../../../../../../.gitbook/assets/request-changes-popup (1).png>)
 
 **Sample API request for Publish option with configuration:**
 
@@ -223,7 +223,7 @@ Use the create/update form API with the following API request
 
 }
 
-![](../../../../../../../Design/sbdesign-ed-kn-hw2/images/storage/publish-popup.png)
+![](<../../../../../../../.gitbook/assets/publish-popup (1).png>)
 
 so in the above two request body we can configure the checklist on content
 

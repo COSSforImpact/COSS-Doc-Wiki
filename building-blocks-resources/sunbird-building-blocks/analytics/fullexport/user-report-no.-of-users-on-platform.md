@@ -12,7 +12,7 @@ The objective of this document is to explain the User Report via Redis in the Ad
 
 ## Architecture :
 
-![](<../../../../Analytics/Fullexport/images/storage/Screenshot from 2023-04-18 14-16-31.png>)
+![](<../../../../.gitbook/assets/Screenshot from 2023-04-18 14-16-31.png>)
 
 ## Custom data product :
 
@@ -184,7 +184,7 @@ No.of users
 
 * User will consume the report from the Admin Dashboard Portal
 
-**Final Output :** ![](<../../../../Analytics/Fullexport/images/storage/Screenshot from 2023-04-19 15-55-22.png>)
+**Final Output :** ![](<../../../../.gitbook/assets/Screenshot from 2023-04-19 15-55-22.png>)
 
 ***
 

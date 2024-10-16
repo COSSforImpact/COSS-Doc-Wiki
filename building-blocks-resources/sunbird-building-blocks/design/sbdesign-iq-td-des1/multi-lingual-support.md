@@ -105,7 +105,7 @@ Achieve multi-lingual support in inQuiry
 
 Reference :
 
-![](<../../../../Design/sbdesign-iq-td-des1/images/storage/Screenshot 2023-02-23 at 11.31.55 AM.png>) ![](<../../../../Design/sbdesign-iq-td-des1/images/storage/Screenshot 2023-02-23 at 11.47.55 AM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2023-02-23 at 11.31.55 AM (1).png>) ![](<../../../../.gitbook/assets/Screenshot 2023-02-23 at 11.47.55 AM (1).png>)
 
 ### Scenario 3 : The Editor and Player should support rendering in any language
 

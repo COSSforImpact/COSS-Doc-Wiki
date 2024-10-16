@@ -58,7 +58,7 @@ Stage 1 - (sync) - CSV upload passes after syntax and duplicate checks. We must 
 
 Stage 2 - (background) - CSV uploaded in stage 1 expands into shadow DB.Stage 3 - (backgound) - Changes done to shadow DB gets into DIKSHA DB.
 
-![](<../../../../User/Fullexport2/images/storage/UserUpload (1).png>)
+![](<../../../../.gitbook/assets/UserUpload (1).png>)
 
 ### Table details:
 

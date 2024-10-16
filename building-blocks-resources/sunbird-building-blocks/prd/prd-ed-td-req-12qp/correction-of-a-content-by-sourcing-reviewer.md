@@ -139,7 +139,7 @@ Link to [Wireframes](https://docs.google.com/presentation/d/1JzSKL\_GFqKiul4KLOO
 
 Tree capturing options of question paper
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20210824-040057.png)[whimsical link](https://whimsical.com/prashnavali-4-3-J2tG6LZ6VfVVBDCjgfyWnZ)
+![](../../../../.gitbook/assets/image-20210824-040057.png)[whimsical link](https://whimsical.com/prashnavali-4-3-J2tG6LZ6VfVVBDCjgfyWnZ)
 
 **Tech Implementation**
 

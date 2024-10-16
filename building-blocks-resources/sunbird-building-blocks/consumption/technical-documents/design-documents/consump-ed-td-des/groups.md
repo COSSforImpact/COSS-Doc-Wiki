@@ -21,7 +21,7 @@ Verify that:
 5. Groups are ordered by creation date - recent to last (within admin & non-admin sections)
 6. User sees an option to create a group
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20200618-061519.png)
+![](<../../../../../../.gitbook/assets/image-20200618-061519 (1).png>)
 
 Form Configs Associated:
 

@@ -4,7 +4,7 @@
 * \[\[Best practices for raising a pull request|Best-practices-for-raising-a-pull-request]]
 * \[\[Triggering CI based on approval for PR|Triggering-CI-based-on-approval-for-PR]]
 
-![](../../../../DevOpsFull/AllDocs/images/storage/Sunbird-CICD.png)
+![](../../../../.gitbook/assets/Sunbird-CICD.png)
 
 ***
 

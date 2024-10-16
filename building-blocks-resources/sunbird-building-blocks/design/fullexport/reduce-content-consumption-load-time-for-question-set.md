@@ -2,7 +2,7 @@
 
 Presently, any content having a question set load [Katex](https://ckeditor.com/cke4/addon/katex) library on its consumption. in the platform, Katex is CKEditor add-ons which enables math rendering. Even if a question is not using math, the platform still bundles the Katex assets ( 650 KB ) which take more than 7 seconds to load in the browser.
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2020-05-04 at 13.46.41.png>)Image -1
+![](<../../../../.gitbook/assets/Screenshot 2020-05-04 at 13.46.41.png>)Image -1
 
 ### Proposed Solution:
 
@@ -10,9 +10,9 @@ Presently, any content having a question set load [Katex](https://ckeditor.com/c
 2. Create anewplugin that loads only Katex assets while rendering the content
 3. Before generating ECML check for the math usages and dynamically add the new plugin in ECML.
 
-![](<../../../../Design/FullExport/images/storage/Katex (2).png>)Flow diagram
+![](<../../../../.gitbook/assets/Katex (2).png>)Flow diagram
 
-![](../../../../Design/FullExport/images/storage/ECML\_diff.png)Old ECML structure
+![](../../../../.gitbook/assets/ECML\_diff.png)Old ECML structure
 
 New ECML structure
 

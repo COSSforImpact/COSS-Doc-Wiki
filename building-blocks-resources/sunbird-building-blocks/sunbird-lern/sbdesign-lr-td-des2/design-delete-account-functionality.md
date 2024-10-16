@@ -30,7 +30,7 @@ User should not able to do the following things after successful deletion of acc
 
 #### Delete User
 
-![](../../../../Design/sbdesign-lr-td-des2/images/storage/delete-user-api-flow.png)
+![](<../../../../.gitbook/assets/delete-user-api-flow (1).png>)
 
 * Send the OTP to the user’s email/phone to validate the user. (OTP templates for user account deletion verification)
 

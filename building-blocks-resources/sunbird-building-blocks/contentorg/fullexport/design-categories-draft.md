@@ -22,7 +22,7 @@ Each channel can configure the list of primary categories enabled for creators b
 
 Channel can also override the category definition.
 
-![](../../../../ContentOrg/Fullexport/images/storage/Channel\_Categories.png)
+![](../../../../.gitbook/assets/Channel\_Categories.png)
 
 ### Working Notes
 

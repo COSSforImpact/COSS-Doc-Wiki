@@ -4,7 +4,7 @@ For the adaptors to experience the collections which are part of knowLG building
 
 Since the knowLG portal is built using the angular framework we will design the player as a component and each is responsible for taking the input data and rendering and also providing the output event for the same.
 
-Design![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/image-20220623-114408.png)
+Design![](<../../../../../../.gitbook/assets/image-20220623-114408 (1).png>)
 
 Below provides the interfaces for each component that needs to be implemented
 

@@ -2,7 +2,7 @@
 
 **Component View**
 
-![](../../../../Design/FullExport/images/storage/openrap-sunbirded-plugin-Page-2.png)
+![](../../../../.gitbook/assets/openrap-sunbirded-plugin-Page-2.png)
 
 **Folder Structure**
 

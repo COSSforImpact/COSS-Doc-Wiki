@@ -12,7 +12,7 @@ The current Knowlg mobile app is capable of playing the static content added to 
 * Knowlg app will have the QR code scanner which will upon scanning load the content with the same config in the mobile app
 * Whenever there is a change in config the QR code will be updated to reflect that change
 
-![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/image-20220929-085954.png)
+![](<../../../../../../.gitbook/assets/image-20220929-085954 (1).png>)
 
 Pros:
 
@@ -31,7 +31,7 @@ Cons:
 * Common components and service libraries are used in both mobile apps and website
 * The mobile app will have search and play content capability similar to the portal and it will also have a player configuration component to change the player behavior
 
-![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/image-20220929-091926.png)
+![](<../../../../../../.gitbook/assets/image-20220929-091926 (1).png>)
 
 Pros:
 

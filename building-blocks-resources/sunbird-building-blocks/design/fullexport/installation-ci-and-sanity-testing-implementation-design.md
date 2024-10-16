@@ -63,7 +63,7 @@ proposing to use the circleCI for the Continues Integration.
 
 The flowchart shows the steps involved in the process of creation of the CI&#x20;
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram.jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram.jpg>)
 
 ### Not Doing
 

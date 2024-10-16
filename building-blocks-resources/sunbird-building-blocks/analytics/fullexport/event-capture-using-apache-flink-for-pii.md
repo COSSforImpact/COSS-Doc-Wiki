@@ -4,7 +4,7 @@
 
 [https://github.com/Sunbird-Lern/Community/discussions/58#discussioncomment-4817602](https://github.com/Sunbird-Lern/Community/discussions/58#discussioncomment-4817602)This would contain the flow, structure and the pseduo code for the Flink Job that would be deployed within the Kubernetes cluster.
 
-![](../../../../Analytics/Fullexport/images/storage/flink.drawio.png)
+![](../../../../.gitbook/assets/flink.drawio.png)
 
 **Schema of the Kafka Topic:**
 
@@ -196,7 +196,7 @@ updated_at Date
 
 #### ER diagram :-
 
-![](<../../../../Analytics/Fullexport/images/storage/Cassandra Schema ER Diagram.drawio (1).drawio (1).drawio (1).png>)
+![](<../../../../.gitbook/assets/Cassandra Schema ER Diagram.drawio (1).drawio (1).drawio (1).png>)
 
 #### Cassandra DB Schema :-
 

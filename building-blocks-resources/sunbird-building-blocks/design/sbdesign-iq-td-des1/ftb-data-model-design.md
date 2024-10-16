@@ -1,6 +1,6 @@
 # Data Model
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/image2018-12-7\_16-9-25.png)
+![](<../../../../.gitbook/assets/image2018-12-7\_16-9-25 (1).png>)
 
 ## Example 1
 

@@ -8,7 +8,7 @@ As per the above document, we’ve finalized the following approach:
 * The Sunbird collection editor can be imported as an NPM package into the questionSet editor or any other editor.
 * All the capabilities/features of the sunbird collection editor will be available in the NPM library, even though questionSet or any other editors are not using those features.
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/wA2f14peneeltsly8z6pHkrUIYUT6-DXwQQqvfGvlMbyYKOVcY3jK4xfkpqDy2QlRtYtl9t\_KnjN7ELIISwIt5m2uEKx5W7Fn6HEjGOb1ZGk8F3V0HUfw22KaijR6ZXEWhJh-zy8Xrc-1NVBknxygQHslrTDpmAxx8IcInFLxBy9qi34x7\_vj0mFAajCBg)With the above approach in mind, we can separate out all the question-set-related components, and services into a new library (Question-set-editor). This way, we’ll have two separate libraries
+![](<../../../../.gitbook/assets/wA2f14peneeltsly8z6pHkrUIYUT6-DXwQQqvfGvlMbyYKOVcY3jK4xfkpqDy2QlRtYtl9t\_KnjN7ELIISwIt5m2uEKx5W7Fn6HEjGOb1ZGk8F3V0HUfw22KaijR6ZXEWhJh-zy8Xrc-1NVBknxygQHslrTDpmAxx8IcInFLxBy9qi34x7\_vj0mFAajCBg (1)>)With the above approach in mind, we can separate out all the question-set-related components, and services into a new library (Question-set-editor). This way, we’ll have two separate libraries
 
 1. **editor** (All the capabilities needs to create any content collection)
 2. **Question Set Editor** (Which has all the question-set related capabilities as well as some common capabilities from collection-editor)
@@ -25,7 +25,7 @@ Reference: [https://github.com/ng-packagr/ng-packagr/blob/main/docs/secondary-en
 
 Below is the possible folder structure for the collection editor:
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/PFv4p0gK1t6r\_uSN70YuDggBwkqkoIXIEWrV6QNyjSAIlIrkSGxLvwEa7e8BT1i2ipFeULiVIg9TRWRvddM4MTQn02VEY2XAUQ\_Ii7RuO\_PMNp4mo2\_LkMaJhWjgGZY2xXDcCcHK0kibFeQKXcqeh8n4hmVxndvhqSMgmabqdU0ObK8tNvkIvY8heZzCzQ)Check out how it is beneficial for any library to have a secondary entry point
+![](<../../../../.gitbook/assets/PFv4p0gK1t6r\_uSN70YuDggBwkqkoIXIEWrV6QNyjSAIlIrkSGxLvwEa7e8BT1i2ipFeULiVIg9TRWRvddM4MTQn02VEY2XAUQ\_Ii7RuO\_PMNp4mo2\_LkMaJhWjgGZY2xXDcCcHK0kibFeQKXcqeh8n4hmVxndvhqSMgmabqdU0ObK8tNvkIvY8heZzCzQ (1)>)Check out how it is beneficial for any library to have a secondary entry point
 
 As part of the above POC, the following scenarios are checked:
 
@@ -92,7 +92,7 @@ Test multiple scenarios with secondary points and dependency
 * Lodash-es will be tree-shaken by webpack or angular build if not being used.
 * Total size = 84 KB
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/L17aFqFjv6XlGe3q4E1R4cii3bBwnmxGpBzgl8bG41CtmByia2ivfSCu-hajOWjnTjjS3jRGLFrkTSiZY8me4wH1Xa9BdE6dWSMyVFb7cHvC\_70vB5gvlKDLdHjyrtK5Al1MQdE-ISXNl6R3hm7jetN-hozsYRcGd59toRPOBB8fJtjtBjzHqA3sEGlR6Q)
+![](<../../../../.gitbook/assets/L17aFqFjv6XlGe3q4E1R4cii3bBwnmxGpBzgl8bG41CtmByia2ivfSCu-hajOWjnTjjS3jRGLFrkTSiZY8me4wH1Xa9BdE6dWSMyVFb7cHvC\_70vB5gvlKDLdHjyrtK5Al1MQdE-ISXNl6R3hm7jetN-hozsYRcGd59toRPOBB8fJtjtBjzHqA3sEGlR6Q (1)>)
 
 **2. Add a new module with a secondary Entry point**
 
@@ -132,7 +132,7 @@ Test multiple scenarios with secondary points and dependency
 * For the UMD package, it will be bundled as soon as we import the awesome.time.module for the ES module it will be tree shaken until actually used in the code.
 * The bundle size is 160.8
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/pcxgujSJFWike4kztpNikUjZ-V75P7jxbQdnEyYHf9N85UtdJjVZPfuddgDPnOlJrO3uXqlGj7NP0fwNvy7w7qc-CNO3E\_2Bf04aCabJN3jSv76Wb2kxeB7O2EB2mnfhNvpyXVN2cunhhDQ3-lL8p05ORq1hIyAshjtHaEq12r9ssgUT80SOoORvZi2ZIQ)
+![](<../../../../.gitbook/assets/pcxgujSJFWike4kztpNikUjZ-V75P7jxbQdnEyYHf9N85UtdJjVZPfuddgDPnOlJrO3uXqlGj7NP0fwNvy7w7qc-CNO3E\_2Bf04aCabJN3jSv76Wb2kxeB7O2EB2mnfhNvpyXVN2cunhhDQ3-lL8p05ORq1hIyAshjtHaEq12r9ssgUT80SOoORvZi2ZIQ (1)>)
 
 **5. Use a secondary point in the lazy-loaded route**
 
@@ -146,7 +146,7 @@ Test multiple scenarios with secondary points and dependency
 * Moment.js will be a part of this lazy-loaded module, not a main module
 * So it will help to reduce the initial app load, but users can use the same functionality by visiting a particular route.
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/mhM2ljYiJbreirtWtYUoBF272DhJmRiK2h3SBfW9ja91l4Omhy15SCXXSRQGdjpaVGkBX24SBrth03wx3ZcjCSh1qdYNhszPU0KA5XxoF6LE8LyXRkuN5VkQVJEuKhIaiKqWDljtBDNTzPBPbQBd0aDiuK4-4s6w-iD608mgtBvUKLvwgtbHzAYWcn66og)
+![](<../../../../.gitbook/assets/mhM2ljYiJbreirtWtYUoBF272DhJmRiK2h3SBfW9ja91l4Omhy15SCXXSRQGdjpaVGkBX24SBrth03wx3ZcjCSh1qdYNhszPU0KA5XxoF6LE8LyXRkuN5VkQVJEuKhIaiKqWDljtBDNTzPBPbQBd0aDiuK4-4s6w-iD608mgtBvUKLvwgtbHzAYWcn66og (1)>)
 
 **Test the following scenarios:**
 

@@ -36,7 +36,7 @@ ArchitectureSunbird provides plugin points for installing
 
 The Sunbird client (web/mobile) will install a client plugin allowing it to connect to the messaging backend via the messaging interface exposed by the Sunbird server.&#x20;
 
-![Architecture for Messaging Service Integration](<../../../../Design/FullExport/images/storage/Sunbird Messaging Integration.jpg>)
+![Architecture for Messaging Service Integration](<../../../../.gitbook/assets/Sunbird Messaging Integration.jpg>)
 
 EntitiesThe messaging interface provides an abstraction over messaging services to enable one-or-more messaging providers to plug-in to Sunbird. The interface provides the means to manipulate and manage:
 

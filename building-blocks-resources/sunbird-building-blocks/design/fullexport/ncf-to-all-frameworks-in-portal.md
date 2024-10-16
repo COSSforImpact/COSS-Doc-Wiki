@@ -23,7 +23,7 @@ With more users anticipated on the custodian org with self sign up opening up an
 
 SolutionIn the portal, after a user successful logs in, the user is shown a mandatory onboarding popup to select Board, Medium, Class and Subject. In case a user belongs to custodian org,
 
-![](<../../../../Design/FullExport/images/storage/Sunbird (1).png>)
+![](<../../../../.gitbook/assets/Sunbird (1).png>)
 
 **Step 1:** 1.  It will call [Get channel api](http://docs.sunbird.org/latest/apis/framework/#operation/ChannelV1ReadGet) to get the frameworks associated with the custodian org and which will be populated in board dropdown as single select. Our assumption is that the framework name and board name will be same and each framework contains single board. The NCF framework will not be considered for the Custodian Org.&#x20;
 

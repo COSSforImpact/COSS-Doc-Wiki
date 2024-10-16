@@ -17,7 +17,7 @@ Requirement SpecificationsOverall Process WorkflowFollowing are prerequisites fo
 * List of B, M, G, S that are in scope for this ETB program are defined
 * Textbook creators are configured of the program
 
-![](<../../../../PRD/prd-ed-td-req-8bu/images/storage/PRD FLOW 08012020.png>)
+![](<../../../../.gitbook/assets/PRD FLOW 08012020.png>)
 
 User StoriesView Textbooks in a ProgramThis user story describes the feature of Textbook creator opening a Program page and viewing all Textbooks already configured as part of that program, if any.
 
@@ -126,11 +126,11 @@ Only programs in a channel that are in "Open" state are shown in the Contributio
 
 A textbook can be added to only one "Open" program at any given time. A textbook can be present in multiple "Closed" programs.
 
-Wire-frames![](../../../../PRD/prd-ed-td-req-8bu/images/storage/20-01-2020\_1.jpg)
+Wire-frames![](../../../../.gitbook/assets/20-01-2020\_1.jpg)
 
 Upon clicking on "Add Textbook(s)", dialogue box opens:
 
-![](<../../../../PRD/prd-ed-td-req-8bu/images/storage/Screen 2\_\_02.jpg>)
+![](<../../../../.gitbook/assets/Screen 2\_\_02.jpg>)
 
 Localization RequirementsNA (since this is a supply side use case)
 

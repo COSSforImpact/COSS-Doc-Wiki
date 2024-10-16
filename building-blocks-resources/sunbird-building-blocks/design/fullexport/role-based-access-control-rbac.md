@@ -106,7 +106,7 @@ all operation can be preform with right set of people.
 
 **ER diagram** :&#x20;
 
-![](../../../../Design/FullExport/images/storage/RBAC-diagram.png)
+![](../../../../.gitbook/assets/RBAC-diagram.png)
 
 **How RBAC works in sunbird** : &#x20;
 
@@ -114,7 +114,7 @@ all operation can be preform with right set of people.
 
 &#x20; &#x20;
 
-![](../../../../Design/FullExport/images/storage/Sunbird\_rbac.jpg.png)
+![](../../../../.gitbook/assets/Sunbird\_rbac.jpg.png)
 
 \*\*RBAC code structure \*\* :&#x20;
 

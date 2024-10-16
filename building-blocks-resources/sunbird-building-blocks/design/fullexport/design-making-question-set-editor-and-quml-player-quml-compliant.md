@@ -134,7 +134,7 @@ We will store the maxScore inside the outcomeDeclaration property for new questi
 
 The use of maxTime is to show the timer on the QuML player and the use of warningTime is to indicate the time remaining to complete the question set.
 
-![](../../../../Design/FullExport/images/storage/maxTime.png)![](../../../../Design/FullExport/images/storage/warningTime.png)But as per the QuML schema, timeLimits\` should be stored in the below format:
+![](../../../../.gitbook/assets/maxTime.png)![](../../../../.gitbook/assets/warningTime.png)But as per the QuML schema, timeLimits\` should be stored in the below format:
 
 ```json
 timeLimits:

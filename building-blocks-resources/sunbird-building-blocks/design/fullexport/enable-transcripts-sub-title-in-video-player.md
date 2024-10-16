@@ -12,7 +12,7 @@ This wiki explains the design and implementation of enabling the transcripts in 
 
 ### Design:
 
-![](<../../../../Design/FullExport/images/storage/videoPlayerTranscripts.drawio (1).png>)Solution:
+![](<../../../../.gitbook/assets/videoPlayerTranscripts.drawio (1).png>)Solution:
 
 * We are using the video js plugin for enabling the transcripts selection in the player and its [link](https://github.com/tomByrer/videojs-transcript-click/blob/master/dist/videojs-transcript-click.js).
 * sample example link for this is [https://tombyrer.github.io/videojs-transcript-click/demo/index.html](https://tombyrer.github.io/videojs-transcript-click/demo/index.html).

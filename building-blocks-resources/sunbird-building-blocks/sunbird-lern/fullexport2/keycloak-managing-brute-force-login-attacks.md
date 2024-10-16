@@ -6,19 +6,19 @@ This document describes the steps of how to configure brute force login attacks 
 
 * Open keycloak home by opening the url  _**\{{host\_name\}}/auth**_ , e.g.: [https://dev.sunbirded.org/auth/](https://dev.sunbirded.org/auth/)
 
-![](../../../../User/Fullexport2/images/storage/1\_Keycloak\_admin\_home.png)
+![](../../../../.gitbook/assets/1\_Keycloak\_admin\_home.png)
 
 * Click on "Administration Console" and login with "admin" user credentials
 
-![](../../../../User/Fullexport2/images/storage/2\_Keycloak\_login.png)
+![](../../../../.gitbook/assets/2\_Keycloak\_login.png)
 
 * Click on "Realm Settings" in the left pane to open the "Sunbird" realm settings page
 
-![](../../../../User/Fullexport2/images/storage/3\_Keycloak\_realm\_settings.png)
+![](../../../../.gitbook/assets/3\_Keycloak\_realm\_settings.png)
 
 * Click on "Security Defenses" tab
 
-![](../../../../User/Fullexport2/images/storage/4\_Keycloak\_security\_defenses.png)
+![](../../../../.gitbook/assets/4\_Keycloak\_security\_defenses.png)
 
 * Click on "Brute Force Detection" tab to configure the brute force detection:
   * Set the **Enabled** flag to **ON**
@@ -27,7 +27,7 @@ This document describes the steps of how to configure brute force login attacks 
   * Set **Wait Increment** to **24 Hours** , this will automatically unlock the user after 24 hours
   * Click on **Save** to save the settings
 
-![](../../../../User/Fullexport2/images/storage/5\_Keycloak\_brute\_force\_detection.png)
+![](../../../../.gitbook/assets/5\_Keycloak\_brute\_force\_detection.png)
 
 More details about brute force configuration are available at [https://www.keycloak.org/docs/2.5/server\_admin/topics/threat/brute-force.html](https://www.keycloak.org/docs/2.5/server\_admin/topics/threat/brute-force.html).
 
@@ -35,40 +35,40 @@ More details about brute force configuration are available at [https://www.keycl
 
 * Switch to **Master** realm by changing the realm in the left pane
 
-![](../../../../User/Fullexport2/images/storage/6\_Keycloak\_master\_realm.png)
+![](../../../../.gitbook/assets/6\_Keycloak\_master\_realm.png)
 
 * Click on **Users** in the left pane and click on **Add user** button in **Users** page to create a new user
 
-![](../../../../User/Fullexport2/images/storage/7\_Keycloak\_master\_realm\_users.png)
+![](../../../../.gitbook/assets/7\_Keycloak\_master\_realm\_users.png)
 
 * Provide a user name for the user (e.g. support\_user) and click on **Save** button
 
-![](../../../../User/Fullexport2/images/storage/8\_Keycloak\_new\_user.png)
+![](../../../../.gitbook/assets/8\_Keycloak\_new\_user.png)
 
 * User is created and the user details page is displayed
 
-![](../../../../User/Fullexport2/images/storage/9\_Keycloak\_new\_user\_2.png)
+![](../../../../.gitbook/assets/9\_Keycloak\_new\_user\_2.png)
 
 * Click on **Role Mappings** tab
 
-![](../../../../User/Fullexport2/images/storage/10\_Keycloak\_user\_roles.png)
+![](../../../../.gitbook/assets/10\_Keycloak\_user\_roles.png)
 
 * Select **sunbird-realm** in the **Client Roles** drop down
 
-![](../../../../User/Fullexport2/images/storage/11\_Keycloak\_sunbird\_realm\_roles.png)
+![](../../../../.gitbook/assets/11\_Keycloak\_sunbird\_realm\_roles.png)
 
 * Select **manage-users** role from **Available Roles** list and click on **Add selected >>** button
 
-![](../../../../User/Fullexport2/images/storage/12\_Keycloak\_assign\_roles.png)
+![](../../../../.gitbook/assets/12\_Keycloak\_assign\_roles.png)
 
 * Click on **Credentials** tab
 
-![](../../../../User/Fullexport2/images/storage/13\_Keycloak\_credentials.png)
+![](../../../../.gitbook/assets/13\_Keycloak\_credentials.png)
 
 * Set a password for the newly created user by providing **New Password** & **Password Confirmation**  values, set the **Temporary** flag to **OFF** and click on **Reset Password**
 * Click Change Password in the confirmation popup to confirm the password change
 
-![](../../../../User/Fullexport2/images/storage/15\_Keycloak\_update\_password\_2.png)
+![](../../../../.gitbook/assets/15\_Keycloak\_update\_password\_2.png)
 
 The newly created user can login to the Keycloak administration console with the username and password set in the creation steps. Note that this user have " **manage-users** " permissions and can perform operations like delete user, change password, etc. This user does not have permission to impersonate other users.
 
@@ -76,19 +76,19 @@ The newly created user can login to the Keycloak administration console with the
 
 * Login to Keycloak administration console with the credentials of the newly created user (using the steps above)
 
-![](../../../../User/Fullexport2/images/storage/16\_Keycloak\_support\_user\_login.png)
+![](../../../../.gitbook/assets/16\_Keycloak\_support\_user\_login.png)
 
 * Go to the users list page by clicking on **Users** in the left pane
 
-![](../../../../User/Fullexport2/images/storage/17\_Keycloak\_users.png)
+![](../../../../.gitbook/assets/17\_Keycloak\_users.png)
 
 * Search for locked out user by typing the username in the search box and press Enter
 
-![](../../../../User/Fullexport2/images/storage/18\_Keycloak\_search\_user.png)
+![](../../../../.gitbook/assets/18\_Keycloak\_search\_user.png)
 
 * Click in the user **ID** to go to the user details page. If the user is locked out, **User Enabled** flag will be set to **OFF**
 
-![](../../../../User/Fullexport2/images/storage/19\_Keycloak\_user\_details.png)
+![](../../../../.gitbook/assets/19\_Keycloak\_user\_details.png)
 
 * Change the **User Enabled** flag to **ON** and click on **Save** . Locked out user will be able to login now.
 

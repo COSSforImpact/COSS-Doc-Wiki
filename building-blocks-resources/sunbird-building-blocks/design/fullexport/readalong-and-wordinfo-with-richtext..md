@@ -6,7 +6,7 @@
 
 Currently users are only allowed to add readalong and wordinfo with plain text, after adding text into the editor and click on readalong then open readalong popup where user can select audio from select audio menu.
 
-![](../../../../Design/FullExport/images/storage/image2018-10-30\_14-47-28.png)
+![](../../../../.gitbook/assets/image2018-10-30\_14-47-28.png)
 
 **Problem Statement:**
 
@@ -29,7 +29,7 @@ Cons:
 1. Every time open richtext editor when user want to edit readalong.
 2. After creating richtext user want to add readalong then need to first open rich text editor then click on readalong icon to add.
 
-![](../../../../Design/FullExport/images/storage/image2018-10-30\_15-53-53.png)
+![](../../../../.gitbook/assets/image2018-10-30\_15-53-53.png)
 
 ### Solution 2 - Using Staging manager to load Readalong plugin.
 
@@ -44,7 +44,7 @@ Cons:
 
 1. User need to first add rich text then add readalong.
 
-![](../../../../Design/FullExport/images/storage/image2018-10-30\_17-55-2.png)
+![](../../../../.gitbook/assets/image2018-10-30\_17-55-2.png)
 
 **Conclusion:**
 

@@ -28,13 +28,13 @@ For the returning the absolute path while reading the data from DB, prefix the b
 * knowledge-platform: [**GraphService** ](https://github.com/project-sunbird/knowledge-platform/blob/master/ontology-engine/graph-core\_2.11/src/main/scala/org/sunbird/graph/GraphService.scala)(in ontology-engine)
 * knowledge-platform-jobs: [**CassandraUtil** ](https://github.com/project-sunbird/knowledge-platform-jobs/blob/master/jobs-core/src/main/scala/org/sunbird/job/util/CassandraUtil.scala), [**Neo4JUtil** ](https://github.com/project-sunbird/knowledge-platform-jobs/blob/master/jobs-core/src/main/scala/org/sunbird/job/util/Neo4JUtil.scala)(in jobs-core)
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/CNAME Knowlg design-Copy of Page-1.drawio.png>)
+![](<../../../../../../.gitbook/assets/CNAME Knowlg design-Copy of Page-1.drawio (1).png>)
 
 #### Solution 2:
 
 Instead of trimming the relative path in [**EkStepTransactionEventHandler** ](https://github.com/project-sunbird/knowledge-platform-db-extensions/blob/release-4.1.0/neo4j-extensions/transaction-event-handler/src/main/java/org/sunbird/kernel/extension/EkStepTransactionEventHandler.java), do it in GraphService only. But in this solution, ES data needs to be handled in the search-indexer job. Reading will be same as solution 1.
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/CNAME Knowlg design-Page-1.drawio.png>)
+![](<../../../../../../.gitbook/assets/CNAME Knowlg design-Page-1.drawio (1).png>)
 
 ### Pros & Cons
 

@@ -2,7 +2,7 @@
 
 **Background:** Sunbird platform is build on micro-service architecture, and has different service layers. Sunbird client application request data from different service based on requirement. Request goes through multiple service layer before its served by service. This increases network overhead and load on services. Sunbird doesn't have proper caching mechanism in place to server different request from clients.
 
-![](<../../../../Design/FullExport/images/storage/Sunbird platform overview.png>)
+![](<../../../../.gitbook/assets/Sunbird platform overview.png>)
 
 **Solutions:** Client request that can be cached can be broadly classified into below categories.
 

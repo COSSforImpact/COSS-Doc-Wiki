@@ -14,7 +14,7 @@ Using the token extract the information from the token decoding the token.
 
 Check if the user information is available in token proceed else call oath API to fetch user information.&#x20;
 
-**Flow Chart :** ![](<../../../../Design/FullExport/images/storage/Google Sign Flow.jpg>)
+**Flow Chart :** ![](<../../../../.gitbook/assets/Google Sign Flow.jpg>)
 
 Sample token fetched from google API
 

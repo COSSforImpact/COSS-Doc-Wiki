@@ -554,7 +554,7 @@ Sample test in playground tool
 * Add context while Generating the dialcodes(if it is common for all dialcodes which are generting)
 * Restrict the context infomation to max(1000 characters).
 
-![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/dialcode\_context\_cassandra.png)
+![](<../../../../../../.gitbook/assets/dialcode\_context\_cassandra (1).png>)
 
 #### APIs:
 
@@ -715,11 +715,11 @@ Separate DIAL code context information from dial-service metadata DB.
 
 #### Post: DIAL code context
 
-![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/dialcode\_context\_Neo4J\_ES.png)
+![](<../../../../../../.gitbook/assets/dialcode\_context\_Neo4J\_ES (1).png>)
 
 #### Get: DIAL code context
 
-![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/dialcode\_context\_ES.png)
+![](<../../../../../../.gitbook/assets/dialcode\_context\_ES (1).png>)
 
 **Pros:**
 

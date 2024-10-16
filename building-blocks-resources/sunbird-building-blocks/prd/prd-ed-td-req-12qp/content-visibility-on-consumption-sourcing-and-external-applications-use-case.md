@@ -102,7 +102,7 @@ Design Flow:[https://docs.google.com/presentation/d/12JW58Iokn-3IdwifUeWab8F8vPC
 
 \*\*Approach 2: \*\*
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/prashnavali\_import\_flow.jpg)
+![](../../../../.gitbook/assets/prashnavali\_import\_flow.jpg)
 
 1. **Importing QuestionSet on Ed Portal**
    1. At the time of publishing a project by SourcingOrg Admin, a copy of the QuestionSets will be created at Ed portal as well using import QuestionSet API(New).

@@ -39,7 +39,7 @@ Keys have the TTL functionality. We will set the key expiry time to average time
 
 For example : Key combination for user read API . userId and singled valued hash for each group (u for User , o  for Org )
 
-![](../../../../Design/FullExport/images/storage/abc.png)
+![](../../../../.gitbook/assets/abc.png)
 
 Following will the scenario:
 

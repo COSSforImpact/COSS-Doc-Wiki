@@ -34,7 +34,7 @@ Contribution can be done either by contributing content to respective node of th
 
 Use Case 1: Content contribution for a textbook through bulk upload.Bulk upload option shall be available for a textbook under program. Bulk upload will be done only for a textbook at a time. A new role "Bulk content publisher" will be created in the system and a user with that role can only do Bulk upload and publishing of content. Textbook for which the bulk upload is being done must be in draft state. Multiple bulk upload can be done for a textbook, but not at the same time. Upon successful upload, content would be created, published and linked to relevant section of the textbook as mentioned in bulk upload file.
 
-Overall Process Workflow![](../../../../PRD/prd-ed-td-req-8bu/images/storage/image2020-2-2\_18-7-14.png)
+Overall Process Workflow![](../../../../.gitbook/assets/image2020-2-2\_18-7-14.png)
 
 User Story: A new role "Bulk Content Publisher" is enabled in the system and a set of users are configured with this role for ETB ProgramSystem will enable a new role called "Bulk Content Publisher". A user with this role can perform the following actions:
 
@@ -266,7 +266,7 @@ Use Case 2: Creation of interactive practice questions and linking to ETBs under
 
 Overall Process WorkflowThe over all workflow process could be broadly viewed in two parts 'contribution' and 'review'.&#x20;
 
-![](<../../../../PRD/prd-ed-td-req-8bu/images/storage/Interactive 2.png>)
+![](<../../../../.gitbook/assets/Interactive 2.png>)
 
 User Story: Contributor logs in to DIKSHA & select the textbook for contributionMain Scenario: User to select the designated textbook for which the contribution has to be made
 

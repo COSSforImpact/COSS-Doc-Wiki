@@ -22,7 +22,7 @@ This wiki details the design of the self serviceable reporting framework by inte
 
 ## Integration Workflow
 
-![](../../../../Analytics/Fullexport/images/storage/34D3FF72-C1B5-404D-9FF4-A16C6E4CA3AB-6228-00000E0AE4E0CB2D.PNG)
+![](../../../../.gitbook/assets/34D3FF72-C1B5-404D-9FF4-A16C6E4CA3AB-6228-00000E0AE4E0CB2D.PNG)
 
 ## Report Service
 

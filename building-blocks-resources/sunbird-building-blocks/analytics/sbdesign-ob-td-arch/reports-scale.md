@@ -10,11 +10,11 @@ TBA
 
 ### Reporting Architecture
 
-![](../../../../Design/sbdesign-ob-td-arch/images/storage/reports.png)
+![](<../../../../.gitbook/assets/reports (1).png>)
 
 ### Druid Architecture
 
-![](../../../../Design/sbdesign-ob-td-arch/images/storage/druid-architecture.png)
+![](<../../../../.gitbook/assets/druid-architecture (1).png>)
 
 ### Druid Data Model
 

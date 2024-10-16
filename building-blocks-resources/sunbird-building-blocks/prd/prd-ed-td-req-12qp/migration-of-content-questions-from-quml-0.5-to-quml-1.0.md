@@ -32,7 +32,7 @@ New Question set collection (to be created) → Question types
 
 #### Proposed Approach
 
-![](<../../../../PRD/prd-ed-td-req-12qp/images/storage/Question Migration.png>) ![](../../../../PRD/prd-ed-td-req-12qp/images/storage/ETL.png)
+![](<../../../../.gitbook/assets/Question Migration.png>) ![](../../../../.gitbook/assets/ETL.png)
 
 #### Open Questions
 

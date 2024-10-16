@@ -60,12 +60,12 @@ Wireframes[Creator Interface V1](https://www.figma.com/proto/BmYK4alJiQKQdPcEoPO
 
 * On uploading video content on the Sunbird platform, the user will get an option to add questions to the video
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210701-154019.png)
+![](../../../../.gitbook/assets/image-20210701-154019.png)
 
 * On clicking , the _browse question dialog box_ will pop up from where the user can select a question/multiple questions from the existing questions created
 * The question will be added at the same timestamp where the user had clicked on the button. They can edit the timestamp in the bottom left corner of the dialog box
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-040459.png)
+![](../../../../.gitbook/assets/image-20210709-040459.png)
 
 * Users can browse through the available questions to add to the video. By default system will show questions relevant to the context of Interactive video (video metadata). Users will also have the option to use multiple filters:
   * Board
@@ -76,7 +76,7 @@ Wireframes[Creator Interface V1](https://www.figma.com/proto/BmYK4alJiQKQdPcEoPO
   * All Questions / My Questions
 * Once a user clicks on a question - they will see a preview of the question on the right side of the dialog box
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-040535.png)
+![](../../../../.gitbook/assets/image-20210709-040535.png)
 
 * To add a question, users will have to click on the green icon on the right side of the question list
 * User can add a single question or multiple questions. If a user chooses to add multiple questions, the questions will clubbed into a _question set_ by the system (and given a default name like custom\_qs\_1). Number of questions added will displayed in the bottom right, below the question box
@@ -84,19 +84,19 @@ Wireframes[Creator Interface V1](https://www.figma.com/proto/BmYK4alJiQKQdPcEoPO
 * The user will also be given the option to configure the question set (only visible when user adds more than one question)
 * The user can now choose to (which will keep the configuration of the question set as default, more details below), or
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-040604.png)
+![](../../../../.gitbook/assets/image-20210709-040604.png)
 
 * If the user chooses to configuretheir question set, a new dialog box will open. The user have the option to:
   * Arrange the questions on the question set _- they can drag and change positions of their questions in the box on the left side of the dialog box. Default arrangement will be the order in which the user added the questions_
   * Show Feedback - Configurable - _This will show/not show the scorecard at the end of the question set. Default will be to show feedback_
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-045505.png) \* Shuffle Questions - Configurable - _This will randomize the arrangement of the questions, and will render the arrangement on the left side box (we can grey it out). Default would be to not shuffle._
+![](../../../../.gitbook/assets/image-20210709-045505.png) \* Shuffle Questions - Configurable - _This will randomize the arrangement of the questions, and will render the arrangement on the left side box (we can grey it out). Default would be to not shuffle._
 
 ```
 * Show X out of total questions - Input -  _this option will only get active if the user select to shuffle the questions (otherwise it will mean the same X questions getting chosen every time to be displayed). Default would be for this to be disabled given default for Shuffle Questions is to not shuffle_ 
 ```
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-045707.png)
+![](../../../../.gitbook/assets/image-20210709-045707.png)
 
 * User can now either go back to the previous dialog box or click on
 * Once the user clicks , the added questions will appear on the right side of the player with the timestamp as a grouped _question set_ . From here, user can edit the question set (if they have added more than one questions) or add more questions (if they have added only one question at that timestamp)
@@ -104,12 +104,12 @@ Wireframes[Creator Interface V1](https://www.figma.com/proto/BmYK4alJiQKQdPcEoPO
 * User can also drag and move the marker on the progress bar to change the timestamp of the question/question set (if they have added more than one question)
 * If the user adds two separate question sets at the same time stamps, it will be considered as one question set at the backend
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210701-155437.png)
+![](../../../../.gitbook/assets/image-20210701-155437.png)
 
 * On clicking the question on the right side of the player, a preview of the question will be visible to the user
 * User can delete a question/entire grouped question set by clicking on the red icon on the right side of the question banner. To delete a specific question in a question set, user will have to click on edit (yellow icon) and then go on to de-select the required question through the dialog box pop-up
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210701-155513.png)
+![](../../../../.gitbook/assets/image-20210701-155513.png)
 
 * User can submit the interactive video for review once they have added all desired questions
 
@@ -117,18 +117,18 @@ Wireframes[Creator Interface V1](https://www.figma.com/proto/BmYK4alJiQKQdPcEoPO
 
 * Timestamps with questions overlayed will be bookmarked with a green marker
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210629-012128.png)
+![](../../../../.gitbook/assets/image-20210629-012128.png)
 
 * The viewer will have the option to skip and revise a question set
   * \- This will allow you to bypass the question and proceed with the video
   * \- This will start playing the video from the last bookmarked timestamp. In case the first question is _revised_ , the video will start from the beginning
   * If the user moves the play cursor beyond the question set marker, the question will be skipped
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210629-012221.png)
+![](../../../../.gitbook/assets/image-20210629-012221.png)
 
 * On submitting the answer, the viewer will have to click on for continuing with the video
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210629-012256.png)
+![](../../../../.gitbook/assets/image-20210629-012256.png)
 
 ScenariosScenario 1: Multiple question sets at the same timestamp.
 
@@ -189,11 +189,11 @@ After enabling consumption in earlier sprints, for sprint 4.3 - we will be build
 
 * A new content creation UI will be created to enable any user of Sunbird to create interactive videos. In the new video upload flow, the creator will have the ability to add _**new**_ questions to specific timestamps on the video. Ability to choose from existing question sets will be enabled in future sprints.
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210701-154019.png)
+![](../../../../.gitbook/assets/image-20210701-154019.png)
 
 * We will use the existing Sunbird Question Set Editor components here while creating new questions
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210701-155513.png)
+![](../../../../.gitbook/assets/image-20210701-155513.png)
 
 * A blue marker will be visible on the progress bar of the player at the timestamp where the question set (if they have added more than one question) is added
 * User can also drag and move the marker on the progress bar to change the timestamp of the question/question set (if they have added more than one question)
@@ -204,7 +204,7 @@ After enabling consumption in earlier sprints, for sprint 4.3 - we will be build
 * When the question set editor opens - the existing filters of Board, Chapter, Grade, Subject etc. should be pre-filled using the video meta-data
 * When the user clicks on → the system auto-decides the category (can be any of the existing categories or a new category by the name of _Interactive Learning)_
 
-![](<../../../../PRD/prd-ed-td-req-13iv/images/storage/Reviewed Design.png>)Creator Interface Updates - 5th Oct’21 **Question Set Category**
+![](<../../../../.gitbook/assets/Reviewed Design.png>)Creator Interface Updates - 5th Oct’21 **Question Set Category**
 
 * Question Sets created inside the Interactive Video flow to not be discoverable
 * Questions used inside Question Sets within Interactive Videos to be public/discoverable for reuse
@@ -247,12 +247,12 @@ User Journey:
 * User sees basic stats that are available as part of the existing Sunbird data product (Views, Avg Rating)
 * Against interactive videos, user sees option to check detailed analytics by clicking the button (This button is only enabled against interactive video content type and not any other content type)
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210915-154600.png)
+![](../../../../.gitbook/assets/image-20210915-154600.png)
 
 * When user clicks the button, the Interactive Video Creator Dashboard opens in a separate window.
 * Below are some mockups inspired by the Plio Dashboard design which we can choose to integrate:
 
-![](<../../../../PRD/prd-ed-td-req-13iv/images/storage/Screenshot 2021-09-15 at 11.15.48 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2021-09-15 at 11.15.48 PM.png>)
 
 * 6 metrics that we track and display:
   * Completion Rate - % of viewers that answered all questions
@@ -276,12 +276,12 @@ For 4.3, we are targeting to enable the creation interface for interactive video
 
 * On uploading video content on the Sunbird platform, the user will get an option to add questions to the video
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210701-154019.png)
+![](../../../../.gitbook/assets/image-20210701-154019.png)
 
 * On clicking , the _browse question dialog box_ will pop up from where the user can select a question/multiple questions from the existing questions created
 * The question will be added at the same timestamp where the user had clicked on the button. They can edit the timestamp in the bottom left corner of the dialog box
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-040459.png)
+![](../../../../.gitbook/assets/image-20210709-040459.png)
 
 * Users can browse through the available questions to add to the video. By default system will show questions relevant to the context of Interactive video (video metadata). Users will also have the option to use multiple filters:
   * Board
@@ -292,7 +292,7 @@ For 4.3, we are targeting to enable the creation interface for interactive video
   * All Questions / My Questions
 * Once a user clicks on a question - they will see a preview of the question on the right side of the dialog box
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-040535.png)
+![](../../../../.gitbook/assets/image-20210709-040535.png)
 
 * To add a question, users will have to click on the green icon on the right side of the question list
 * User can add a single question or multiple questions. If a user chooses to add multiple questions, the questions will clubbed into a _question set_ by the system (and given a default name like custom\_qs\_1). Number of questions added will displayed in the bottom right, below the question box
@@ -300,19 +300,19 @@ For 4.3, we are targeting to enable the creation interface for interactive video
 * The user will also be given the option to configure the question set (only visible when user adds more than one question)
 * The user can now choose to (which will keep the configuration of the question set as default, more details below), or
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-040604.png)
+![](../../../../.gitbook/assets/image-20210709-040604.png)
 
 * If the user chooses to configuretheir question set, a new dialog box will open. The user have the option to:
   * Arrange the questions on the question set _- they can drag and change positions of their questions in the box on the left side of the dialog box. Default arrangement will be the order in which the user added the questions_
   * Show Feedback - Configurable - _This will show/not show the scorecard at the end of the question set. Default will be to show feedback_
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-045505.png) \* Shuffle Questions - Configurable - _This will randomize the arrangement of the questions, and will render the arrangement on the left side box (we can grey it out). Default would be to not shuffle._
+![](../../../../.gitbook/assets/image-20210709-045505.png) \* Shuffle Questions - Configurable - _This will randomize the arrangement of the questions, and will render the arrangement on the left side box (we can grey it out). Default would be to not shuffle._
 
 ```
 * Show X out of total questions - Input -  _this option will only get active if the user select to shuffle the questions (otherwise it will mean the same X questions getting chosen every time to be displayed). Default would be for this to be disabled given default for Shuffle Questions is to not shuffle_ 
 ```
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210709-045707.png)
+![](../../../../.gitbook/assets/image-20210709-045707.png)
 
 * User can now either go back to the previous dialog box or click on
 * Once the user clicks , the added questions will appear on the right side of the player with the timestamp as a grouped _question set_ . From here, user can edit the question set (if they have added more than one questions) or add more questions (if they have added only one question at that timestamp)
@@ -320,12 +320,12 @@ For 4.3, we are targeting to enable the creation interface for interactive video
 * User can also drag and move the marker on the progress bar to change the timestamp of the question/question set (if they have added more than one question)
 * If the user adds two separate question sets at the same time stamps, it will be considered as one question set at the backend
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210701-155437.png)
+![](../../../../.gitbook/assets/image-20210701-155437.png)
 
 * On clicking the question on the right side of the player, a preview of the question will be visible to the user
 * User can delete a question/entire grouped question set by clicking on the red icon on the right side of the question banner. To delete a specific question in a question set, user will have to click on edit (yellow icon) and then go on to de-select the required question through the dialog box pop-up
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210701-155513.png)
+![](../../../../.gitbook/assets/image-20210701-155513.png)
 
 * User can submit the interactive video for review once they have added all desired questions
 
@@ -333,18 +333,18 @@ For 4.3, we are targeting to enable the creation interface for interactive video
 
 * Timestamps with questions overlayed will be bookmarked with a green marker
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210629-012128.png)
+![](../../../../.gitbook/assets/image-20210629-012128.png)
 
 * The viewer will have the option to skip and revise a question set
   * \- This will allow you to bypass the question and proceed with the video
   * \- This will start playing the video from the last bookmarked timestamp. In case the first question is _revised_ , the video will start from the beginning
   * If the user moves the play cursor beyond the question set marker, the question will be skipped
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210629-012221.png)
+![](../../../../.gitbook/assets/image-20210629-012221.png)
 
 * On submitting the answer, the viewer will have to click on for continuing with the video
 
-![](../../../../PRD/prd-ed-td-req-13iv/images/storage/image-20210629-012256.png)
+![](../../../../.gitbook/assets/image-20210629-012256.png)
 
 ***
 

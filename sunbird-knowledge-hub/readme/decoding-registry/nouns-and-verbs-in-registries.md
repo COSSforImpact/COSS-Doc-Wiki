@@ -54,7 +54,7 @@ Adapted and annotated version of [https://www.w3.org/TR/vc-use-cases/#terminolog
 
 Conditionality?
 
-![](<../../../.gitbook/assets/0 (1) (1) (1).png>)
+![](<../../../.gitbook/assets/0 (3).png>)
 
 [https://learn.microsoft.com/en-us/azure/active-directory/verifiable-credentials/how-to-use-quickstart-selfissued](https://learn.microsoft.com/en-us/azure/active-directory/verifiable-credentials/how-to-use-quickstart-selfissued)
 

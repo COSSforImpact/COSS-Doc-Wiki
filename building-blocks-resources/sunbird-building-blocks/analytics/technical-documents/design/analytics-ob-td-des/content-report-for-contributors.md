@@ -79,7 +79,7 @@ Druid Request
 
     A custom data product can be implemented which generates reports only for the contributors who have requested by submitting to the existing data exhaust API.
 
-![](../../../../../../Analytics/analytics-ob-td-des/images/storage/Page-2.png)
+![](<../../../../../../.gitbook/assets/Page-2 (1).png>)
 
 The final csv will have the following columns:
 

@@ -167,7 +167,7 @@ None
 
 Sample Report: &#x20;
 
-![](../../../../../PRD/prd-ed-td-req-4cc/images/storage/image2019-6-18\_13-33-46.png)
+![](../../../../../.gitbook/assets/image2019-6-18\_13-33-46.png)
 
 **JIRA Ticket ID:**
 
@@ -210,7 +210,7 @@ None
 
 Sample Report:
 
-![](../../../../../PRD/prd-ed-td-req-4cc/images/storage/image2019-6-18\_13-38-25.png)
+![](../../../../../.gitbook/assets/image2019-6-18\_13-38-25.png)
 
 JIRA Ticket ID:
 
@@ -251,7 +251,7 @@ None
 
 Sample Report:
 
-![](../../../../../PRD/prd-ed-td-req-4cc/images/storage/image2019-6-18\_13-41-40.png)
+![](../../../../../.gitbook/assets/image2019-6-18\_13-41-40.png)
 
 **JIRA Ticket ID**
 

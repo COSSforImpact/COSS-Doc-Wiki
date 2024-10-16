@@ -86,7 +86,7 @@ storage.upload(BLOB_NAME, BLOB_UPLOAD_PATH + '/' + FILENAME, FILEPATH, {}, (err,
 
 ```
 
-Adding support for New Service Provider![](../../../../Design/FullExport/images/storage/image-20230104-115349.png)
+Adding support for New Service Provider![](../../../../.gitbook/assets/image-20230104-115349.png)
 
 * Sunbird Client Cloud Service(s) are implemented based on interface BaseStorageService
 * Onboarding new service provider must implement all the services (or) methods defined in BaseStorageService

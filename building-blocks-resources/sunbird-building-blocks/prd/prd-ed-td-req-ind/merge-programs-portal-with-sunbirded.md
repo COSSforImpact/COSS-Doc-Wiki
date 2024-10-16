@@ -16,7 +16,7 @@ We will require contribution programs portal to be ready to scale up to multiple
 
 User flow
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image-20191121-101059.png)
+![](../../../../.gitbook/assets/image-20191121-101059.png)
 
 ### Contribute page
 

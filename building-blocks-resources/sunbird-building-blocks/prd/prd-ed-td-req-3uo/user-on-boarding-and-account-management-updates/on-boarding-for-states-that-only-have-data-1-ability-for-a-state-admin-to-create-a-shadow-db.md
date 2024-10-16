@@ -75,7 +75,7 @@ Maximum number of entries per file : 15000&#x20;
 
 See wireframe:
 
-![](<../../../../../PRD/prd-ed-td-req-3uo/images/storage/Screenshot 2019-08-27 at 10.12.18 AM.png>)
+![](<../../../../../.gitbook/assets/Screenshot 2019-08-27 at 10.12.18 AM.png>)
 
 _Validation checks to be carried out on excel/ csv file before bulk listing upload:_
 

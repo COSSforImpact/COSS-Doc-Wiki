@@ -192,7 +192,7 @@ NIC has carried out significant development work in the effort towards creation 
 
 Version 1.0 of the system, which can be accessed at [https://institutes.ndear.gov.in/#/home](https://institutes.ndear.gov.in/#/home) showcases how various federated registries hosted by different entities such as CBSE, State boards etc. can be unified to provide an aggregated, national view for administrators.
 
-![](<../../../.gitbook/assets/0 (2).png>)
+![](<../../../.gitbook/assets/0 (4).png>)
 
 * The Institute Registry employs data from existing institute systems - such as UDISE, various state boards, CBSE etc. to ensure reuse of existing data and systems. The Institute Registry will be populated in a federated manner, driven by the trusted data that is already available in such existing Registries. This is in line with the recommendation of Federated Registries in chapter 4.2.5, page 32 of [InDEA 2.0](https://www.meity.gov.in/writereaddata/files/InDEA%202\_0%20Report%20Draft%20V6%2024%20Jan%2022\_Rev.pdf)
 * The system generates a unique ID for institute entries into the Registry (PIE - Premier Institute Identifier for Education), which can become the Digital Identifier for the entity within the system. This identifier could be used for system to system interactions, and users need not remember such system specific IDs. Usage can be simplified by allowing for linking of existing common Digital IDs that are in use (Aadhaar, PAN, GSTN, for example) to the Registry records, and allowing users to retrieve their data using the common linked IDs. Login into Registry systems can also be simplified using common authentication systems such as SSO or login with Digilocker. (Ref:[ InDEA 2.0](https://www.meity.gov.in/writereaddata/files/InDEA%202\_0%20Report%20Draft%20V6%2024%20Jan%2022\_Rev.pdf), chapter 4.2.4, page 31 & 32)
@@ -206,7 +206,7 @@ Leveraging Federated Registries alongside existing and familiar digital systems 
 * Ensure users do not have to remember multiple IDs, and can use commonly used national IDs and infrastructure to access details and get a unified view.
 * explore and explode the power of trusted, verified and reliable data.
 
-![](<../../../.gitbook/assets/1 (1) (1).png>)
+![](<../../../.gitbook/assets/1 (2).png>)
 
 Federated Registries that are Issuers on Digilocker - thereby allowing users the convenience of leveraging their existing Digilocker accounts to get a unified view of all their credentials from one location. (Edu locker)
 

@@ -18,7 +18,7 @@ We need to bundle plugins along with editor artefact, Let's say if Diksha (or) S
 
 Plugins should follow the release deployment cycle similar to editor's.&#x20;
 
-![](<../../../../../Design/FullExport/images/storage/Screenshot 2018-11-07 at 11.00.12 AM.png>)
+![](<../../../../../.gitbook/assets/Screenshot 2018-11-07 at 11.00.12 AM.png>)
 
 Pros:
 
@@ -36,7 +36,7 @@ Cons:&#x20;
 
 **Proposal:**
 
-![](<../../../../../Design/FullExport/images/storage/Screenshot 2018-11-07 at 3.37.10 PM.png>)
+![](<../../../../../.gitbook/assets/Screenshot 2018-11-07 at 3.37.10 PM.png>)
 
 As soon as the plugin fix is done before plugin get publish the developer must update the version of the plugin, sunbird-player config update and plugin search index update.
 

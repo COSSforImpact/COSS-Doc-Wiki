@@ -23,11 +23,11 @@ Currently, the jobs are extracting the data from the data store from the predefi
 
 #### Current Design:
 
-![](../../../../User/Fullexport2/images/storage/image-20231017-063950.png)
+![](../../../../.gitbook/assets/image-20231017-063950.png)
 
 #### Proposed Design:
 
-![](../../../../User/Fullexport2/images/storage/image-20231017-064014.png)
+![](../../../../.gitbook/assets/image-20231017-064014.png)
 
 ### **Solution for data-products:**
 

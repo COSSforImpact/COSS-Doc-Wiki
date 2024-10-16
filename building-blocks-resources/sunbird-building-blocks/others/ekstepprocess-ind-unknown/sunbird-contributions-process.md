@@ -2,7 +2,7 @@
 
 ## High level flow of the contributions process
 
-![](../../../../Others/ekstepprocess-ind-unknown/images/storage/image-20210115-115446.png)If you are interested in contributing to Sunbird, thank you for taking the first step! This document will help you understand what to do and what to expect in your journey. This is a living document, so please feel free to add any suggestions/comments you have on this **discussion thread** here.
+![](../../../../.gitbook/assets/image-20210115-115446.png)If you are interested in contributing to Sunbird, thank you for taking the first step! This document will help you understand what to do and what to expect in your journey. This is a living document, so please feel free to add any suggestions/comments you have on this **discussion thread** here.
 
 In this document, we cover what to expect at each of the above stages, and frequently asked questions therein.
 

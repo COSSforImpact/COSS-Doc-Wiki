@@ -16,7 +16,7 @@ Jira Link: [SB-17658 System JIRA](https://browse/SB-17658)
 
 **Frequency** : Weekly
 
-![](../../../../../../Analytics/analytics-ob-td-des/images/storage/image2020-1-31\_16-56-48.png)
+![](<../../../../../../.gitbook/assets/image2020-1-31\_16-56-48 (1).png>)
 
 **Output CSV:**
 
@@ -47,7 +47,7 @@ The output for the current report is:
 
 \*\*Proposed Design: \*\* ContentProgressModel:A new data product will be implemented to generate all the content progress reports. There will be one ReportUtils from where we will be getting the tenant information and composite search result for the tenant org id for a state.&#x20;
 
-![](../../../../../../Analytics/analytics-ob-td-des/images/storage/image2020-2-28\_15-17-51.png)
+![](<../../../../../../.gitbook/assets/image2020-2-28\_15-17-51 (1).png>)
 
 Queries:
 
@@ -116,13 +116,13 @@ Jira Link: [SB-17659 System JIRA](https://browse/SB-17659)
 
 On the output of above steps we generate different reports such as detailed and summary reports for DCE and ETB.
 
-![](../../../../../../Analytics/analytics-ob-td-des/images/storage/etb\_design\(1\).jpg)
+![](<../../../../../../.gitbook/assets/etb\_design(1) (1).jpg>)
 
 **Proposed Design:**
 
 A new data product for producing the ETB reports has to be implemented with the defined data product framework. We can use the existing RestUtil method for querying the org search API for fetching the tenant information , content search API for getting all the textbooks and learner service content hierarchy API.
 
-![](../../../../../../Analytics/analytics-ob-td-des/images/storage/etb.jpg)
+![](<../../../../../../.gitbook/assets/etb (1).jpg>)
 
 1. For getting all the textbooks from the druid we will use DruidDataFetcher
 2. For tenant information we will use Cassandra: Organization Table

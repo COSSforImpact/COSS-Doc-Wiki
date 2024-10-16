@@ -6,7 +6,7 @@ icon: elementor
 
 * Whenever toc branch is updated this build pipeline will get triggered.
 
-![](../../../../../../../Design/sbdesign-ed-kn-frameworknbp/images/storage/TOC.png)
+![](<../../../../../../../.gitbook/assets/TOC (1).png>)
 
 Related Jira Issue -[SB-5593 System JIRA](https://browse/SB-5593)
 

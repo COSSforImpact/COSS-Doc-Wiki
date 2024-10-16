@@ -35,7 +35,7 @@ Clicking on "Download Detailed Report", downloads Detailed Report as CSV
 
 #### Wire-frames
 
-![Program Summery Report](<../../../../PRD/prd-ed-td-req-ind/images/storage/image (1).png>)
+![Program Summery Report](<../../../../.gitbook/assets/image (1).png>)
 
 Summary Report
 

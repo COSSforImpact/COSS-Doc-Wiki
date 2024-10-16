@@ -4,11 +4,11 @@ Adding new project for analysis.
 
 Login to sonarcloud with Admin privileges. Click on new project.
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20201123-051638.png)
+![](../../../../.gitbook/assets/image-20201123-051638.png)
 
 Select the github repo and the programming language used and select the CI as CircleCI. Then it will give the sample config and token as below, copy the token and add in circleci env variables for the particular project.
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20201123-052010.png)
+![](../../../../.gitbook/assets/image-20201123-052010.png)
 
 ### Sample sonarcloud config for JS/TS language:
 

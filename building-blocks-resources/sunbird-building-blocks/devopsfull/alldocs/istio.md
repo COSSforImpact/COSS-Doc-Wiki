@@ -8,7 +8,7 @@
 * A service mesh also often has more complex operational requirements, like A/B testing, canary rollouts, rate limiting, access control, and end-to-end authentication.
 *   Usually Service mesh will have one side car container, which intercepts the traffic
 
-    ![](../../../../DevOpsFull/AllDocs/images/storage/sidecar.png)
+    ![](../../../../.gitbook/assets/sidecar.png)
 
 ### What is Istio
 
@@ -17,7 +17,7 @@
 * It is also a platform, including APIs that let it integrate into any logging platform, or telemetry or policy system.
 * Istio’s enables to successfully, and efficiently, run a distributed microservice architecture, and provides a uniform way to secure, connect, and monitor microservices
 
-![](../../../../DevOpsFull/AllDocs/images/storage/istio1.png)
+![](<../../../../.gitbook/assets/istio1 (1).png>)
 
 Benefits/Advantages
 

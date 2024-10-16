@@ -84,7 +84,7 @@ workspace
 
     &#x20;  }
 * if api return values is {locked:false} then editor will be loaded
-* if  api return values is {locked:true} user details will be fetched and error popup will be shown with user name in the popup as shown below.![](<../../../../../Design/FullExport/images/storage/Screen Shot 2018-09-21 at 6.48.52 PM.png>)
+* if  api return values is {locked:true} user details will be fetched and error popup will be shown with user name in the popup as shown below.![](<../../../../../.gitbook/assets/Screen Shot 2018-09-21 at 6.48.52 PM.png>)
 
 **Problem Statement :**
 
@@ -221,13 +221,13 @@ workspace
 
 &#x20;                                                                                  &#x20;
 
-![](<../../../../../Design/FullExport/images/storage/locking\_journey (2).png>)
+![](<../../../../../.gitbook/assets/locking\_journey (2).png>)
 
-![](<../../../../../Design/FullExport/images/storage/heartbeat (3).png>)
+![](<../../../../../.gitbook/assets/heartbeat (3).png>)
 
 &#x20;                                                                                            &#x20;
 
-![](<../../../../../Design/FullExport/images/storage/offline\_handling (1).png>)
+![](<../../../../../.gitbook/assets/offline\_handling (1).png>)
 
 * Existing api changes in content service :
   * /v1/content/update/:contentId api in content service need to be modified middleware checks to allow collaborators to edit.

@@ -33,7 +33,7 @@
 
 **Approach 1 - Question bank as a separate project which has statewide visibility**
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20210317-070708.png)
+![](../../../../.gitbook/assets/image-20210317-070708.png)
 
 In this approach - a common question bank project is created, which is available to all the teachers and it also allows continuous addition of questions. Any question added in this project is accessible to the teachers
 
@@ -46,7 +46,7 @@ In this approach - a common question bank project is created, which is available
 
 **Approach 2 - The questions are visible cross-project**
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20210317-071858.png)
+![](../../../../.gitbook/assets/image-20210317-071858.png)
 
 Another approach that is thought through here is, that we have one common project (let’s call it question bank). This project has visibility of all the questions added in all the question paper projects.
 

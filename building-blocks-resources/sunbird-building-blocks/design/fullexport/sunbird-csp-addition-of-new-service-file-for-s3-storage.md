@@ -20,7 +20,7 @@ The primary objective of this proposal is to extend the functionality of the Man
 
 We are introducing an additional service file designed to operate with S3 protocol-based cloud storage, eliminating the need for a specific region. While primarily intended for compatibility with NIC cloud storage, it is worth noting that this service file can also function with AWS S3, although it is not the recommended use case.
 
-![Screenshot 2024-02-16 at 5.38.54 AM.png](<../../../../Design/FullExport/images/storage/Screenshot 2024-02-16 at 5.38.54 AM.png>)
+![Screenshot 2024-02-16 at 5.38.54 AM.png](<../../../../.gitbook/assets/Screenshot 2024-02-16 at 5.38.54 AM.png>)
 
 ### Custom Configuration Parameters:
 

@@ -247,11 +247,11 @@ group/v1/update
 
 1. Open a group and click on add activity button
 
-![](../../../../Design/FullExport/images/storage/group-details.png)2. Select any activity type u want to add
+![](../../../../.gitbook/assets/group-details.png)2. Select any activity type u want to add
 
-![](<../../../../Design/FullExport/images/storage/activty list.png>)3. Select any activity you want to add and click on Add to group
+![](<../../../../.gitbook/assets/activty list.png>)3. Select any activity you want to add and click on Add to group
 
-![](../../../../Design/FullExport/images/storage/activity-search.png)
+![](../../../../.gitbook/assets/activity-search.png)
 
 ***
 

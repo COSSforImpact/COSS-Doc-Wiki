@@ -16,7 +16,7 @@ The objective of this document is to explain the Project ML Exhaust via Cassandr
 2. Druid will not be used for CSV's
 3. Huge Data Volume failure of CSV will be avoided
 
-![](<../../../../../../Analytics/analytics-ob-td-Improllup/images/storage/Actual Cassandra Arch.drawio (1).drawio (1) (2).png>)
+![](<../../../../../../.gitbook/assets/Actual Cassandra Arch.drawio (1).drawio (1) (2) (1).png>)
 
 **Schema of the Kafka Topic:**
 
@@ -908,7 +908,7 @@ _**Exception Handling**_ :
 
 #### ER diagram :-
 
-![](<../../../../../../Analytics/analytics-ob-td-Improllup/images/storage/Cassandra Schema ER Diagram.drawio (1).png>)
+![](<../../../../../../.gitbook/assets/Cassandra Schema ER Diagram.drawio (1) (1).png>)
 
 #### Cassandra DB Schema :-
 
@@ -1051,7 +1051,7 @@ CREATE TABLE IF NOT EXISTS sunbird_programs.project_sub_task_enrollment (
 
 #### Flow Diagram for Projects Data-product :-
 
-![](<../../../../../../Analytics/analytics-ob-td-Improllup/images/storage/Untitled Diagram.drawio.png>)
+![](<../../../../../../.gitbook/assets/Untitled Diagram.drawio (2).png>)
 
 **Schedular for the Scala Data Product Jobs :** -
 

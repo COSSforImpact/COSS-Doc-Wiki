@@ -26,7 +26,7 @@ how to verify resolution and alignments of content players in mobile devices.
 
 Design:
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/Flowcharts (1).png>)
+![](<../../../../../../.gitbook/assets/Flowcharts (1) (1).png>)
 
 ## Solution:
 
@@ -54,7 +54,7 @@ Design:
 
 ## design:
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/Flowcharts - Page 2.png>)
+![](<../../../../../../.gitbook/assets/Flowcharts - Page 2 (1).png>)
 
 ## Solution:
 
@@ -106,7 +106,7 @@ We can use existing [sunbird mobile application](https://github.com/Sunbird-Ed/S
 
 ## design:
 
-![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/KnowlgPdfPlayerdrawio-Page-4.drawio.png)
+![](<../../../../../../.gitbook/assets/KnowlgPdfPlayerdrawio-Page-4.drawio (1).png>)
 
 ***
 

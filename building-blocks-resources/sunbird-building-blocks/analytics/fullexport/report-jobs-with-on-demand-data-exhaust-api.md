@@ -169,7 +169,7 @@ Sample Response:
 
 ## Report Data Products Flow:
 
-![](../../../../Analytics/Fullexport/images/storage/DataExhaust1.png)
+![](../../../../.gitbook/assets/DataExhaust1.png)
 
 ### Design DataProduct:
 

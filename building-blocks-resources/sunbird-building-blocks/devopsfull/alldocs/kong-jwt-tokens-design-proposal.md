@@ -9,7 +9,7 @@
 
 #### Current Design
 
-![](../../../../DevOpsFull/AllDocs/images/storage/KongArchUpdated-DeviceRegisterV1.jpg) ![API Access Current Flow](../../../../DevOpsFull/AllDocs/images/storage/KongArchUpdated-APIAccessV1.jpg)
+![](../../../../.gitbook/assets/KongArchUpdated-DeviceRegisterV1.jpg) ![API Access Current Flow](../../../../.gitbook/assets/KongArchUpdated-APIAccessV1.jpg)
 
 * Mobile\_device is a consumer (in Kong) and each mobile device is a credential (unique identity - key and secret) under this consumer.
 * Mobile app is embedded with a JWT token which can only be used to invoke the device register api. The device register api will register a new credential under the mobile\_device consumer.
@@ -30,7 +30,7 @@
 
 #### Proposed Design
 
-![](../../../../DevOpsFull/AllDocs/images/storage/KongArchUpdated-DeviceRegisterV2.jpg) ![](../../../../DevOpsFull/AllDocs/images/storage/KongArchUpdated-APIAccessV2.jpg)
+![](../../../../.gitbook/assets/KongArchUpdated-DeviceRegisterV2.jpg) ![](../../../../.gitbook/assets/KongArchUpdated-APIAccessV2.jpg)
 
 * Mobile app is embedded with a JWT token which can invoke only device register api
 * Mobile app sends a request to register the device with KEY being the device id

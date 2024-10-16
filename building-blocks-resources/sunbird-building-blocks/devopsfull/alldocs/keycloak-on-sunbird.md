@@ -9,7 +9,7 @@
 
 #### High level architecture depicting the components connected to Keycloak
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20230114-150152.png)
+![](../../../../.gitbook/assets/image-20230114-150152.png)
 
 * Only a handful of services connect to Keycloak
 * Only nginx public has been allowed and configured to connect to keycloak is the traffic originates from outside VPC
@@ -106,11 +106,11 @@ Known issues
 
 **Current Authentication Architecture** Attached are some diagrams that depict the current authentication architecture
 
-**Email/Phone number based sign up and sign in** ![](../../../../DevOpsFull/AllDocs/images/storage/cbimage.png)![](<../../../../DevOpsFull/AllDocs/images/storage/cbimage (1).png>)
+**Email/Phone number based sign up and sign in** ![](../../../../.gitbook/assets/cbimage.png)![](<../../../../.gitbook/assets/cbimage (1).png>)
 
-**Google based sign in** ![](<../../../../DevOpsFull/AllDocs/images/storage/cbimage (2).png>)
+**Google based sign in** ![](<../../../../.gitbook/assets/cbimage (2).png>)
 
-**State sso sign in** ![](<../../../../DevOpsFull/AllDocs/images/storage/cbimage (3).png>)
+**State sso sign in** ![](<../../../../.gitbook/assets/cbimage (3).png>)
 
 **Mobile refresh token workflow**
 
@@ -121,9 +121,9 @@ Known issues
    * In the state SSO sign in, the app gets redirected to /sso/sign-in/success?id={id}. It invokes a portal endpoint (/v1/sso/create/session?id={extracted\[‘id’]}) to exchange the ID to get the tokens
    * In the google sign in workflow, the app gets the tokens directly as query params
 
-\*\*      \*\*
+\*\* \*\*
 
-![](<../../../../DevOpsFull/AllDocs/images/storage/cbimage (4).png>)
+![](<../../../../.gitbook/assets/cbimage (4).png>)
 
 ***
 

@@ -2,7 +2,7 @@
 
 ### DevOps Tools to manage infra and application life-cycle
 
-![](../../../../DevOpsFull/AllDocs/images/storage/Tools.png)
+![](<../../../../.gitbook/assets/Tools (1).png>)
 
 ### Recommendations
 

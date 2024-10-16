@@ -22,7 +22,7 @@ User login in to his account and starts using application.
 
 Parent’s token is used for managed-user actions.
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram.jpg>) **Change request:**
+![](<../../../../.gitbook/assets/Untitled Diagram.jpg>) **Change request:**
 
 For managed Users’s an extra MUT should be send in API’s.
 
@@ -128,7 +128,7 @@ Current Session object
 
 ### Solution 1:
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram.jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram.jpg>)
 
 1.  user/search API to be intercepted at portal backend.
 
@@ -255,7 +255,7 @@ Proposed changes to session object
 
 ### Solution 2:
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (1).jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram (1).jpg>)
 
 **Pros** :
 
@@ -268,7 +268,7 @@ Proposed changes to session object
 
 ### Solution 3 :
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (2).jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram (2).jpg>)
 
 **Pros** :
 

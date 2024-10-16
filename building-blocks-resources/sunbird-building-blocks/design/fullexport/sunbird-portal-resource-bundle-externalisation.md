@@ -36,7 +36,7 @@ As a adopter of Sunbird;
 
 #### Solution 1
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2023-01-25 at 5.06.57 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2023-01-25 at 5.06.57 PM.png>)
 
 * This approach will
   * Take configuration in the form of JSON object
@@ -171,7 +171,7 @@ Scenario 1 **Configuration**
 
 #### Solution 2
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2023-01-19 at 4.56.35 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2023-01-19 at 4.56.35 PM.png>)
 
 * This approach will
   * Requires manual intervention and processing of all the properties files to JSON conversion

@@ -6,7 +6,7 @@
 
 ### Interface Diagrams
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram.png>) **IBase** if the base interface providing common properties and behaviours.
+![](<../../../../.gitbook/assets/Untitled Diagram.png>) **IBase** if the base interface providing common properties and behaviours.
 
 **IChart** , **ITable** or any report Type interface will extend the **IBase** interface and will add it’s own properties and behaviours with respect to it’s use case.
 
@@ -127,7 +127,7 @@ type UpdateInputParams = {
 * **labelExpr** - refers to the column name or key in the JSON which can be used as x axis labels
 * **dataExpr** - refers to the key in the JSON to be used on y axis as dataset.
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2021-03-19 at 12.06.51 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2021-03-19 at 12.06.51 PM.png>)
 
 ```
 
@@ -428,7 +428,7 @@ Brief Description:- In this chart we’ll plot District on the x-axis and Unique
 
 Chart with Config is as follows:-
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2021-03-24 at 4.59.59 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2021-03-24 at 4.59.59 PM.png>)
 
 ```html
 <sb-dashlet [type]="'line'" [data]="data" [config]="config" (chartClick)="chartClickHandler($event)" (chartHover)="chartHoverHandler($event)"></sb-dashlet>
@@ -482,7 +482,7 @@ Brief Description :- We’ll plot the districts and corresponding info on the Ta
 
 Same can be extended to show complete India Map as well with different states information
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2021-03-24 at 5.01.27 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2021-03-24 at 5.01.27 PM.png>)
 
 ```html
 <sb-dashlet [type]="'map'" [data]="data" [config]="config" (featureClicked)="eventListener($event)">
@@ -525,13 +525,13 @@ Same can be extended to show complete India Map as well with different states in
 
 Other Examples of using India map are as follows:-
 
-\| ![](<../../../../Design/FullExport/images/storage/Screenshot 2020-10-01 at 4.57.04 PM.png>) | ![](<../../../../Design/FullExport/images/storage/Screenshot 2021-01-26 at 2.31.53 PM.png>) |
+\| ![](<../../../../.gitbook/assets/Screenshot 2020-10-01 at 4.57.04 PM.png>) | ![](<../../../../.gitbook/assets/Screenshot 2021-01-26 at 2.31.53 PM.png>) |
 
 ### Table Example using Dashlet Component
 
 This Example will plot the same datasource in Table format as shown in the image below
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2021-03-24 at 5.24.53 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2021-03-24 at 5.24.53 PM.png>)
 
 ```html
 <sb-dashlet type="'table'" [data]="data" [config]="config" (rowClickHandler)="eventListener($click)"> 

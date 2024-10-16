@@ -4,7 +4,7 @@
 
 * This document describes the enhanced/derived Device and Extended User Profile schemas, design of how the profile data is captured and how it can be used across various systems.
 
-**Design Flow:** ![](../../../../Design/FullExport/images/storage/UDP.jpg)
+**Design Flow:** ![](../../../../.gitbook/assets/UDP.jpg)
 
 **Schema Design for User and Device Profile** **Computation Table:** **Device Profile -**
 

@@ -57,11 +57,11 @@ c) LA - (Long Answer)
 
 #### Current Workflow
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/present.png)
+![](<../../../../../../.gitbook/assets/present (1).png>)
 
 #### Solution Proposed
 
-![](<../../../../../../Consumption/consump-ed-td-des/images/storage/image-20230508-072716 (1).png>)
+![](<../../../../../../.gitbook/assets/image-20230508-072716 (1) (1).png>)
 
 #### **Technical Design Details** :
 
@@ -260,7 +260,7 @@ curl 'https://staging.sunbirded.org/content/course/v1/content/state/update' \
 
 Question Set Response Processing flow
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20230509-082808.png)
+![](<../../../../../../.gitbook/assets/image-20230509-082808 (1).png>)
 
 Future Reference : Questions List Validation using back-end persistence Current design validity check of assigned Questions from QuestionSet collection proposes assigned list of questionIds to be added in the JWT during hierarchy call & validate same during New Inquiry Assessment API. Storing same in Redis & Cassandra is an option which currently not considered.
 

@@ -12,7 +12,7 @@ JTBD
 * **User Personas:** Teacher, Student, Cluster Rep
 * **System or Environment:**  Lab or classroom with a desktop/laptop and low/no internet connectivity&#x20;
 
-Workflow![](<../../../../../PRD/prd-ed-td-req-5od/images/storage/Desktop App User Flows (4).png>)
+Workflow![](<../../../../../.gitbook/assets/Desktop App User Flows (4).png>)
 
 \<Story: User sets their profile information to get relevant content> OverviewThe current desktop application is generic for all states - and a user has to spend time filtering through a set of boards, mediums, classes and subjects every time they land on the app to get content that is relevant for them. Since a school is usually associated with only one board, the person setting up the app needs to input the preferences just once. Post that, teachers/students who are accessing the app just need to select their class and scroll through to their subjects to find relevant content. This saves the teacher/student time as they're shown content relevant to them.&#x20;
 

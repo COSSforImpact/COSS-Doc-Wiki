@@ -52,7 +52,7 @@ icon: elementor
 
 ## Process Flowcharts
 
-![](<../../../../Others/ekstepprocess-ind-unknown/images/storage/Test Case Execution.jpeg>)1. Release Scoping: QA role & participation
+![](<../../../../.gitbook/assets/Test Case Execution.jpeg>)1. Release Scoping: QA role & participation
 
 \| Discussions related to scope of a release is the primary trigger here | |
 

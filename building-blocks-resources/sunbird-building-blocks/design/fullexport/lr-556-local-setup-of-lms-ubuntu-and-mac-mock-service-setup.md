@@ -26,7 +26,7 @@ The request path is extracted from the RecordedRequest object. The path is used 
 
 Overall, the ContentSearchMock class provides a convenient way to test HTTP requests made to the content service API by simulating the API behaviour with mock responses.
 
-![](../../../../Design/FullExport/images/storage/Diagram-1.png)
+![](../../../../.gitbook/assets/Diagram-1.png)
 
 **Implementation Steps:**
 
@@ -45,7 +45,7 @@ Overall, the ContentSearchMock class provides a convenient way to test HTTP requ
     a. Send a GET request to the base content read URL using the HttpUtil.sendGet/Post/PatchRequest() method with the specified headers and store the response in the response variable.
 4. Continue with the rest of the code using the response variable.
 
-![](../../../../Design/FullExport/images/storage/Diagram-1-1.png)
+![](../../../../.gitbook/assets/Diagram-1-1.png)
 
 ***
 

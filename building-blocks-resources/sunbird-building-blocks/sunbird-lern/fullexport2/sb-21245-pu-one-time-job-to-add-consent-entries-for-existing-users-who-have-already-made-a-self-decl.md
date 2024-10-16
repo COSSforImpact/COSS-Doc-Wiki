@@ -84,7 +84,7 @@ object SelfDeclarationToConsentMigration extends Serializable {
 
 **Prod-data in pre-prod test env execution output samples:**
 
-![](<../../../../User/Fullexport2/images/storage/Screenshot 2021-01-22 at 8.51.06 PM.png>) ![](<../../../../User/Fullexport2/images/storage/Screenshot 2021-01-22 at 8.52.40 PM.png>) ![](<../../../../User/Fullexport2/images/storage/Screenshot 2021-01-22 at 8.52.02 PM.png>) ![](<../../../../User/Fullexport2/images/storage/Screenshot 2021-01-22 at 8.50.34 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2021-01-22 at 8.51.06 PM.png>) ![](<../../../../.gitbook/assets/Screenshot 2021-01-22 at 8.52.40 PM.png>) ![](<../../../../.gitbook/assets/Screenshot 2021-01-22 at 8.52.02 PM.png>) ![](<../../../../.gitbook/assets/Screenshot 2021-01-22 at 8.50.34 PM.png>)
 
 ***
 

@@ -22,7 +22,7 @@ Groups feature is used in both sunbird mobile and portal. So for any feature we 
 
 High level diagram of **groups npm module**
 
-![](../../../../Design/FullExport/images/storage/groups-npm-module-architecture.drawio.png) **How to pass context and events from module to parent application**
+![](../../../../.gitbook/assets/groups-npm-module-architecture.drawio.png) **How to pass context and events from module to parent application**
 
 * Emit a event from the groups module
 * Pass all required data(group context) as part of the event
@@ -52,7 +52,7 @@ interface Activity {
 
 * handling activity search in parent application and showing specific UI of groups on search page(on mouse over on card show add to group and view activity button)
 
-![](<../../../../Design/FullExport/images/storage/groups-npm-module-search flow.drawio.png>)
+![](<../../../../.gitbook/assets/groups-npm-module-search flow.drawio.png>)
 
 ```
  GroupActionEvent  = {
@@ -70,7 +70,7 @@ interface Activity {
 
 **Open activity Flow**
 
-![](<../../../../Design/FullExport/images/storage/groups-npm-module-Activity open flow.drawio.png>)
+![](<../../../../.gitbook/assets/groups-npm-module-Activity open flow.drawio.png>)
 
 #### How to handle **add to group** button in parent application activity pages ?
 

@@ -9,7 +9,7 @@
 
 &#x20;   \*\*   Event Flow:     \*\*
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2019-04-01 at 3.41.11 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2019-04-01 at 3.41.11 PM.png>)
 
 \*\*      Event Name:   FEATURE\*\*
 

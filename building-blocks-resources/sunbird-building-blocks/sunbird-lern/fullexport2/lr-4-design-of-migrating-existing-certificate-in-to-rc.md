@@ -38,11 +38,11 @@ Certificate Re-Issue will be one option where all the old certificates can be re
 
 As certificate-generator flink job, reissues certificate, we can clone from certificate-generator flink job and with migration changes added, it can issue the certificate with old certificate detail. In the certificate migration process, old certificate generated time will be passed as issued date and old ID will be passed for identification of old certificate.
 
-![](<../../../../User/Fullexport2/images/storage/Old certificate migration.jpeg>) \*\*\*\* To support old QR Codes\*\*
+![](<../../../../.gitbook/assets/Old certificate migration.jpeg>) \*\*\*\* To support old QR Codes\*\*
 
 Due to moving the certificates to RC, old QR code for the certificate verification will become invalid. To make old QR code scans identify RC, the changes can be added to portal service by **Sunbird ED building block**
 
-![](../../../../User/Fullexport2/images/storage/migration.jpeg)
+![](../../../../.gitbook/assets/migration.jpeg)
 
 ### Implementation
 
@@ -98,7 +98,7 @@ Map(
 
 To identify the place when it got failed in flink job’s process, we can maintain status In reason column cert\_registry cassandra table. So, whenever the failure happens, the flink job can resume from the particular stage in the process rather than executing all the stages.
 
-![](<../../../../User/Fullexport2/images/storage/Certificate migration failure scenario.jpeg>)
+![](<../../../../.gitbook/assets/Certificate migration failure scenario.jpeg>)
 
 **Note:** If there are any valid certificate records present in sunbird.cert\_registry which are not revoked, post successful completion of the batch, re-run the job again.
 

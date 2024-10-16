@@ -2,7 +2,7 @@
 
 ### Current Design:
 
-![](../../../../Design/FullExport/images/storage/course-batch-current-design.png)Below are the key design problems:
+![](../../../../.gitbook/assets/course-batch-current-design.png)Below are the key design problems:
 
 1. Remove ES for user enrolment data and use only Cassandra table.
 2. Computation of metrics at Course and CourseUnit Level.
@@ -29,7 +29,7 @@ note **Important changes with this design**
 2. Using **Relation-Cache-Updater Flink** Job to generate and save the required cache for metrics computation.
 3. Replacing **Course-Batch-Updater** Samza Job with **Course-Metrics-Aggregator** Flink Job.
 
-![](<../../../../Design/FullExport/images/storage/2.Course Infra - Proposed Design.png>)
+![](<../../../../.gitbook/assets/2.Course Infra - Proposed Design.png>)
 
 #### Relation Cache Updater:
 
@@ -142,7 +142,7 @@ Have an interface method using which we can filter the baches created for TPD on
 jobConfig.acceptedFrameworks.contains(batch.course.framework)
 ```
 
-![](<../../../../Design/FullExport/images/storage/3. Reports-For-TPD.png>)
+![](<../../../../.gitbook/assets/3. Reports-For-TPD.png>)
 
 ***
 

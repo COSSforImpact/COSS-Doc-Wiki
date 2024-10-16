@@ -12,7 +12,7 @@ The existing implementation of config service integrations in portal are availab
 
 Inorder to fit all js modules we should make changes into the existing config builder/helper implementations and we should convert it into a generic js module which works with portal or content service as a npm package.
 
-&#x20;                                                                                                                                                                ![](<../../../../../../Design/sbdesign-ed-kn-hw2/images/storage/Untitled Diagram.png>)￼&#x20;
+&#x20;                                                                                                                                                                ![](<../../../../../../.gitbook/assets/Untitled Diagram (3).png>)￼&#x20;
 
 The architecture and flow of sdk has been illustrated in the above figure.Sdk basically contains 3 major components namely configbuilder,confighelper and source-adapters.
 

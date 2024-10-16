@@ -26,7 +26,7 @@ To show the v1 and v2 players in portrait mode, we will face some in rendering a
 
 **Portrait and landscape mode button should be part of the Portal**
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/Untitled Diagram-Landscape mode.drawio.png>)![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/Untitled Diagram-Portrait mode.drawio (1).png>)To achieve this, player will rendered in full screen and will change the height and width of the player to show the player in portrait mode.
+![](<../../../../../../.gitbook/assets/Untitled Diagram-Landscape mode.drawio (1).png>)![](<../../../../../../.gitbook/assets/Untitled Diagram-Portrait mode.drawio (1) (1).png>)To achieve this, player will rendered in full screen and will change the height and width of the player to show the player in portrait mode.
 
 There is no config changes in player side.
 
@@ -77,7 +77,7 @@ showLandscape() {
 
 **Portrait and landscape button should be part of the player**
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/Untitled Diagram-Page-3.drawio.png>)The portrait and Landscape button will be appear as a part of the menu config. This config can be change from the sidebar configurations.
+![](<../../../../../../.gitbook/assets/Untitled Diagram-Page-3.drawio (1).png>)The portrait and Landscape button will be appear as a part of the menu config. This config can be change from the sidebar configurations.
 
 Config:
 
@@ -101,13 +101,13 @@ showLandscape() {
 }
 ```
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/Untitled Diagram-Page-3.drawio (4).png>)Changes required in V1 player:
+![](<../../../../../../.gitbook/assets/Untitled Diagram-Page-3.drawio (4) (1).png>)Changes required in V1 player:
 
 * Need to reduce the canvas height and width
 * reduce the frame height and width
 * Overlay navigation height and width need to adjust
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/SunbiredKnowledge (1).png>) **Pros:**
+![](<../../../../../../.gitbook/assets/SunbiredKnowledge (1) (1).png>) **Pros:**
 
 * Config driven implementation to enable disable the portrait/landscape mode orientation
 * Work for V1 player and assessments.
@@ -122,7 +122,7 @@ showLandscape() {
 
 Sample screens of portrait mode of PDF, EPub, video and interactive contents
 
-![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/pdf-player.png) ![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/epub-player.png) ![](../../../../../../Design/sbdesign-kw-td-des3/images/storage/video-player.png) ![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/SunbiredKnowledge (1).png>)
+![](<../../../../../../.gitbook/assets/pdf-player (1).png>) ![](<../../../../../../.gitbook/assets/epub-player (1).png>) ![](<../../../../../../.gitbook/assets/video-player (1).png>) ![](<../../../../../../.gitbook/assets/SunbiredKnowledge (1) (1).png>)
 
 * In PDF and EPub player, font size will show in small. If we increase the font size - horizontal scroll will come, which looks uncomfortable to the reader to scroll horizontally.
 * V1 and V2 Players supports portrait mode with the above limitations. This can be achieve using the solution 1 which is not depend on player.

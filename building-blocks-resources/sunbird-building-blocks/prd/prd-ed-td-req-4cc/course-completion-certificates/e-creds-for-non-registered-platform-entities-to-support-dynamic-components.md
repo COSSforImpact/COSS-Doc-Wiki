@@ -55,9 +55,9 @@ Verify that:
    8. Issuer generates the digital certificate by uploading the CSV file in the defined format for the "Best District" cred type
    9. The rest of the workflow remains the same
 
-![](../../../../../PRD/prd-ed-td-req-4cc/images/storage/image2019-10-30\_14-40-49.png)
+![](../../../../../.gitbook/assets/image2019-10-30\_14-40-49.png)
 
-![](../../../../../PRD/prd-ed-td-req-4cc/images/storage/image2019-10-30\_14-49-55.png)
+![](../../../../../.gitbook/assets/image2019-10-30\_14-49-55.png)
 
 **Alternate work flow**
 

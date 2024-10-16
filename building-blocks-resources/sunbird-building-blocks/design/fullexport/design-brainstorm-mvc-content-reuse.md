@@ -50,7 +50,7 @@ As a Sourcing Org Contributor when I try to Add from Library, I will get the mos
 
 ### Design
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2020-06-23 at 9.57.56 AM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2020-06-23 at 9.57.56 AM.png>)
 
 * Using Elasticsearch 7.4 to make use of vector indexing for semantic search.
 * Using strict mapping for better performance.
@@ -156,7 +156,7 @@ We can use the existing code of Content Search API for MVC Search by following t
    5. Cons
    6. Maintainability would be an issue both at Code and DB level.
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2020-06-23 at 9.57.56 AM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2020-06-23 at 9.57.56 AM.png>)
 
 **API Spec:**
 

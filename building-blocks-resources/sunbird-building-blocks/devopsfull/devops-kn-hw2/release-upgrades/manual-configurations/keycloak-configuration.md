@@ -18,15 +18,15 @@ pg_dump keyclaok > keycloak_backup.db
 
 * Login to admin console and click User Federation tab on left panel of the screen. As shown in fig.
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-3-29\_13-4-51.png)
+![](<../../../../../../.gitbook/assets/image2019-3-29\_13-4-51 (2).png>)
 
 * Select cassandra-storage-provider from Add provider drop down on the screen , then you will be redirected to screen as shown
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-3-29\_13-7-16.png)
+![](<../../../../../../.gitbook/assets/image2019-3-29\_13-7-16 (2).png>)
 
 * Click save button , It will generate one provider id as shown
 
-![](../../../../../../DevOpsFull/devops-kn-hw2/images/storage/image2019-3-29\_13-10-57.png)
+![](<../../../../../../.gitbook/assets/image2019-3-29\_13-10-57 (2).png>)
 
 * Copy the provider id and update the private repo inventory under Core/secrets.yml for the variable **core\_vault\_sunbird\_keycloak\_user\_federation\_provider\_id**
 * Run below SQL queries on Keycloak database after replacing values for placeholders {PROVIDER\_ID} and {realm name} in below query templates. Value of placeholders {PROVIDER\_ID} and {realm name} is based on environment variables _**core\_sunbird\_keycloak\_user\_federation\_provider\_id**_ and _**keycloak\_realm**_ respectively.

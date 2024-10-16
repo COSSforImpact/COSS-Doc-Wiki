@@ -17,7 +17,7 @@ This document explains the step by step process to create the exe file for offli
 
 ### Installation Flow
 
-![](../../../../Design/FullExport/images/storage/InstallationScript.png)
+![](../../../../.gitbook/assets/InstallationScript.png)
 
 1. **Installation** &#x20;
    1. If the windows is pirated version show the warning message &#x20;

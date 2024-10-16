@@ -12,7 +12,7 @@ This document describes the design for productionizing the parallel execution of
 
 ### Current Design:
 
-![](../../../../../../Analytics/analytics-ob-td-des/images/storage/wfs-design.png)Deduplication Samza job:
+![](<../../../../../../.gitbook/assets/wfs-design (1).png>)Deduplication Samza job:
 
 * It pushes events to unique kafka topic using did as partition key.
 
@@ -22,7 +22,7 @@ Unique backup secor process:
 
 ### Enhancements required:
 
-![](../../../../../../Analytics/analytics-ob-td-des/images/storage/WFS-changes.png)
+![](<../../../../../../.gitbook/assets/WFS-changes (1).png>)
 
 #### 1. Secor backup file pattern:
 
@@ -98,7 +98,7 @@ Approach 1.2 is recommended as it works fine for users without any changes and h
 
 #### 2. WFS execution:
 
-![](<../../../../../../Analytics/analytics-ob-td-des/images/storage/wfs-design (2).png>) **Submit script:**
+![](<../../../../../../.gitbook/assets/wfs-design (2) (1).png>) **Submit script:**
 
 * Can be used to execute data product in any mode
 * model - Takes job code wfs, ds etc

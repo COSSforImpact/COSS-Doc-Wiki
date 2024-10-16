@@ -113,15 +113,15 @@ Go to keycloak admin console → Login as admin user → Select Sunbird Realm �
 
 Go to http://keycloak\_ip/auth/admin/master/console/#/realms/sunbird/defense/brute-force → Set the values shows as per the below image
 
-![](<../../../../DevOpsFull/AllDocs/images/storage/Screenshot from 2021-03-17 14-27-46.png>)
+![](<../../../../.gitbook/assets/Screenshot from 2021-03-17 14-27-46.png>)
 
 * Go to http://\{{KEYCLOAK\_IP\}}/auth/admin/master/console/#/realms/sunbird/keys. You will have 3 keys as shown in the below picture
 
-![](<../../../../DevOpsFull/AllDocs/images/storage/Screenshot from 2021-03-30 11-38-05.png>)
+![](<../../../../.gitbook/assets/Screenshot from 2021-03-30 11-38-05.png>)
 
 * Click on **hmac-generated** and set the values as shown in the below image
 
-![](<../../../../DevOpsFull/AllDocs/images/storage/Screenshot from 2021-03-30 11-39-23.png>)
+![](<../../../../.gitbook/assets/Screenshot from 2021-03-30 11-39-23.png>)
 
 * Get this secret key value from the postgres keycloak 7 DB by running the below query
 

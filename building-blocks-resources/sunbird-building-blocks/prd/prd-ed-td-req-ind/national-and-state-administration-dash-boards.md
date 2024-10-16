@@ -32,19 +32,19 @@ Following dashboard need to be enabled in State Dashboards page:
 
 Daily content use (Nationwide): This shows the overall content plays. This graph will be configured in dashboards pages of MHRD and in all the States. This graph is updated on a weekly basis. It will roll over for every 30 days..
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/CM.PNG)
+![](../../../../.gitbook/assets/CM.PNG)
 
 **Per Capita daily content consumption by state**
 
 This shows the number of plays against DISE data for government school teachers and students for grades and subjects using energized textbooks. This graph will be configured in dashboards pages of MHRD and in all the States. It is updated on a weekly basis. It will have the last 30 days data.
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/CM2.png)
+![](../../../../.gitbook/assets/CM2.png)
 
 **Learning Opportunities - daily content use (per state):**
 
 This shows the overall content plays in that specific state. A separate graph is configured in the State Dashboards page of that specific state. it will be updated on a weekly basis and will have last 30 days data.
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/CM.PNG) **GPS of Learning**
+![](../../../../.gitbook/assets/CM.PNG) **GPS of Learning**
 
 GPS of Learning (per state): This shows overall percentage completion of all energized textbooks used in the state. It is updated on a weekly basis.
 
@@ -52,7 +52,7 @@ This report will have current academic year data
 
 Following dashboard need to be enabled in State Dashboards page:
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/L1.3.PNG)
+![](../../../../.gitbook/assets/L1.3.PNG)
 
 **Weekly unique devices by district**
 

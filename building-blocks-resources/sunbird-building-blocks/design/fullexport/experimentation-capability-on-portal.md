@@ -16,7 +16,7 @@ Sunbird should support experimenting with the portal, which allows customers to 
 
 ### **Solution 1:** Get Experiment details on the first load in the browser.
 
-![](../../../../Design/FullExport/images/storage/Loading\_experiment\_first\_time\_device\_register\_Api\_called\_in\_browser.png)
+![](../../../../.gitbook/assets/Loading\_experiment\_first\_time\_device\_register\_Api\_called\_in\_browser.png)
 
 In this approach will load the default app with devicedId generation script that runs before angular files are loaded. This script generates the deviceId and makes Device register API call to the Analytics server. API will return experiment details if any. If the experiment exists set experiment details in the cookie and reload the app. Portal backend will read the cookie and load experiment specific app.
 
@@ -28,7 +28,7 @@ In this approach will load the default app with devicedId generation script that
 
 ### **Solution 2:** Get experiment details in portal backend.
 
-![](<../../../../Design/FullExport/images/storage/Loading\_experiment\_first\_time\_device register called in backend.png>)
+![](<../../../../.gitbook/assets/Loading\_experiment\_first\_time\_device register called in backend.png>)
 
 In this approach when a request comes to the portal, the portal will make an API call to analytics server to get the experiment details with URL and (deviceId and userId if available). If the experiment exist portal backend will send experiment specific app.
 
@@ -39,7 +39,7 @@ In this approach when a request comes to the portal, the portal will make an API
 
 ### \*\*Solution 3: \*\* Get experiment details in static page and store the experiment result in a cookie.
 
-![](<../../../../Design/FullExport/images/storage/Static file logic.png>)
+![](<../../../../.gitbook/assets/Static file logic.png>)
 
 In this approach, we are making device register API call from static pages and storing the experiment result in the cookie and will the user navigate to the portal, the backend will read this cookie and determine which app to load from the cookie.&#x20;
 
@@ -52,7 +52,7 @@ In this approach, we are making device register API call from static pages and s
 
 ### **Solution 1** : Store experiment app build in common blob folder with experiment Id as a folder name.
 
-![](../../../../Design/FullExport/images/storage/Deployment.png)
+![](../../../../.gitbook/assets/Deployment.png)
 
 Each experiment will have its respective repo/branch. Sunbird will have common blob folder for the experiment application folder. Each experiment can be deployed from different branches to a common folder. This isolates a different experiment build. One can happen without affecting other or core build. Deployment steps/config will be same for all experiment only config that changes are branch and dist folder. This should to same as experimentId.
 

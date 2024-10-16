@@ -65,7 +65,7 @@ The above table is a raw table that stores all assessment raw data. The job shou
 
 **Archival Process - High-Level Diagram of Archival Process**
 
-![](<../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/final diagram.png>)
+![](<../../../../../../.gitbook/assets/final diagram (1).png>)
 
 The above diagram illustrates the archival process, generating score metrics. The content state read API which read from the assessment agg table, the assessment flink job which writes the raw data into assessment raw table, aggregated data into assessment agg table and score metrics data into activity agg table.
 

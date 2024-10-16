@@ -7,7 +7,7 @@ problem StatementCurrent system is not event driven. And all background jobs are
 3. &#x20;For each job we are passing different set of data (no predefined event structure)
 4. &#x20;Difficult to generate the audit logs
 
-Solution Approach![](<../../../../Design/FullExport/images/storage/event-producer (2).png>)
+Solution Approach![](<../../../../.gitbook/assets/event-producer (2).png>)
 
 EventPublisher will hold the producer for which the produce calls on event will be made
 

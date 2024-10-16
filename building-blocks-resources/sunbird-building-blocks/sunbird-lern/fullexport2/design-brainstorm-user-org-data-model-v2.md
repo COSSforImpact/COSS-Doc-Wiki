@@ -1,6 +1,6 @@
 # Design-Brainstorm--User---Org-Data-Model-V2
 
-![](../../../../User/Fullexport2/images/storage/User-Org\_DataModel.png) _Data model (not the actual database & column design)_
+![](../../../../.gitbook/assets/User-Org\_DataModel.png) _Data model (not the actual database & column design)_
 
 **Org & Org Membership**
 

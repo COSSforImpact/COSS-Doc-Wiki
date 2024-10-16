@@ -17,7 +17,7 @@ For example, the content object in the Sunbird Knowlg building block stores the 
 
 All these URLs of the files are directly stored in the respective databases in most of the scenarios. The data in this format makes it difficult to switch from one cloud service provider (CSP) to another CSP.
 
-![](../../../../Design/FullExport/images/storage/CSP-Data-Current-Process.png)To switch from one CSP to another CSP, we need to copy the storage data to the new CSP Storage in the same format and migrate the databases. This data migration is a costly operation and involves a lot of engineering effort.
+![](../../../../.gitbook/assets/CSP-Data-Current-Process.png)To switch from one CSP to another CSP, we need to copy the storage data to the new CSP Storage in the same format and migrate the databases. This data migration is a costly operation and involves a lot of engineering effort.
 
 #### Key Design Problems
 
@@ -32,7 +32,7 @@ With the above problem statement, it is clear that we should not use the URLs of
 
 Create a CNAME record in the DNS used for the Sunbird installation with CSP Storage base path as value. Use the CNAME URL as the base path while referring to any object or file in the Cloud Storage.
 
-![](../../../../Design/FullExport/images/storage/CSP-Configure-CNAME.png)
+![](../../../../.gitbook/assets/CSP-Configure-CNAME.png)
 
 With this to change the CSP for storage, just copy the data from the existing CSP Storage to the new CSP Storage in the same structure and update the CNAME with the new CSP Storage base path. There is no data migration required for the existing data in databases.
 

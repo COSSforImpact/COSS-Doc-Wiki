@@ -24,7 +24,7 @@ falseS1 Process - SupportThe S1 process outlines the basis of Severity Classific
 
 To create your process diagram, you may choose to click the required template from the link provided or you may use any tool or your preference. Save the process as an image and insert the image in this section.
 
-![](<../../../../Others/ekstepprocess-ind-unknown/images/storage/New S1 Process - Internal Controls Flowchart ver 1.1.png>)
+![](<../../../../.gitbook/assets/New S1 Process - Internal Controls Flowchart ver 1.1.png>)
 
 ## Appendix:
 
@@ -37,7 +37,7 @@ To create your process diagram, you may choose to click the required template fr
 
 ### &#x20;L2 S1 Rubric:
 
-![](<../../../../Others/ekstepprocess-ind-unknown/images/storage/S1 L2 Rubric.png>)
+![](<../../../../.gitbook/assets/S1 L2 Rubric.png>)
 
 ## 1. Issue Raised
 

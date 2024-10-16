@@ -10,7 +10,7 @@ They have to be modified so that they can be generated through hawkeye infra usi
 
 A new data product combines the data across different postgres tables creating a file with all the necessary fields and uploades it to the azure blob - sourcing-snapshot.csv. ETLJobs then can be used in a similar way as for content model snapshot for indexing the sourcing metrics into druid. A new script will index the metrics into a new druid datasource which can be used for creating hawk eye based reports.
 
-![](../../../../../../Analytics/analytics-ob-td-Implemensorcrep/images/storage/design-hawkeye.png)
+![](<../../../../../../.gitbook/assets/design-hawkeye (1).png>)
 
 * Frequency of the Data Product - Daily
 * Druid Snapshot Schema:
@@ -299,7 +299,7 @@ e. Number of nominations - Total, split by each sourcing org, split by accepted,
 
 The portal will generate audit events based on every create/update event, which will be pushed to learning.graph.events Kafka topic. A new flink job takes input from the Kafka topic and caches the data, along with the Postgres data into Redis. The existing denorm flink job denormalizes the user and org data, after which it is validated by the druid event validator job. The data is then pushed into a new druid audit data source.
 
-![](../../../../../../Analytics/analytics-ob-td-Implemensorcrep/images/storage/design-audit-vdn.png)
+![](<../../../../../../.gitbook/assets/design-audit-vdn (1).png>)
 
 * Sample input event for Audit Event Generation:
 

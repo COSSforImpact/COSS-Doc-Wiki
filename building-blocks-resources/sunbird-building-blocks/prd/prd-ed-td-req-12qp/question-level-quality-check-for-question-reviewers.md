@@ -52,7 +52,7 @@ _Logic: If total score <=15, the following message pops-up:- “Please re-evalua
 
 **Technical solution:**
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20220717-191915.png)
+![](../../../../.gitbook/assets/image-20220717-191915.png)
 
 * We’ll use SB-Forms to create quality-check form.
 * The config will be stored in the category definition and rest data is hardcoded in the popup

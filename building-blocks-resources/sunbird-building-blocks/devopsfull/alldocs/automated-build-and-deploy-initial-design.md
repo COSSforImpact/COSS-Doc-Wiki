@@ -1,6 +1,6 @@
 # Automated-Build-and-Deploy---Initial-Design
 
-![](../../../../DevOpsFull/AllDocs/images/storage/SunbirdCICD-New-approach.png)
+![](../../../../.gitbook/assets/SunbirdCICD-New-approach.png)
 
 The idea is to automate the build and deployment of various Jenkins jobs to a specific environment based on Github tags.
 

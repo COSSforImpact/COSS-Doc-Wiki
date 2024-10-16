@@ -32,7 +32,7 @@ These logs get generated when the app( **Electron** ) crashes. Logs generated wi
 1. API to store minidumps: This API will accept minidumps from apps and stores the same in the blob.
 2. Batch job: This job will retrieve minidumps from the blob and using electron symbols and minidump library will create meaning full data. This data can be stored in Druid or Elastic search for analysis.
 
-![](<../../../../../../Design/sbdesign-ed-td-arch2/images/storage/crash minidump processing.png>)
+![](<../../../../../../.gitbook/assets/crash minidump processing (1).png>)
 
 **Note** : This requires an implementation design review.
 

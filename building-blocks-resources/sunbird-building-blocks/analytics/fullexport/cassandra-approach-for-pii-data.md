@@ -10,7 +10,7 @@ The objective of this document is to explain the PII User Data Report via Cassan
 
 [https://github.com/Sunbird-Lern/Community/discussions/58](https://github.com/Sunbird-Lern/Community/discussions/58)[https://github.com/Sunbird-Lern/Community/discussions/54](https://github.com/Sunbird-Lern/Community/discussions/54)
 
-![](<../../../../Analytics/Fullexport/images/storage/Actual Cassandra Arch.drawio.png>)
+![](<../../../../.gitbook/assets/Actual Cassandra Arch.drawio.png>)
 
 After capturing the data in the Backend - the data in real-time is streamed using Kafka.
 
@@ -196,7 +196,7 @@ The discussion on this can be found here:
 
 #### ER diagram :-
 
-![](<../../../../Analytics/Fullexport/images/storage/Cassandra Schema ER Diagram.drawio (1).drawio (1).drawio (1).png>)
+![](<../../../../.gitbook/assets/Cassandra Schema ER Diagram.drawio (1).drawio (1).drawio (1).png>)
 
 #### Cassandra DB Schema :-
 
@@ -290,7 +290,7 @@ Join all the above 3 dataframe into a single dataframe and store into data into 
 
 #### Program User Custom Data-product :-
 
-![](<../../../../Analytics/Fullexport/images/storage/Untitled Diagram.drawio (1).png>) **Schedular for the Scala Data Product Jobs :** -
+![](<../../../../.gitbook/assets/Untitled Diagram.drawio (1).png>) **Schedular for the Scala Data Product Jobs :** -
 
 [https://github.com/Sunbird-Obsrv/sunbird-data-pipeline/blob/release-5.1.0/ansible/roles/data-products-deploy/templates/model-config.j2#L138-L141](https://github.com/Sunbird-Obsrv/sunbird-data-pipeline/blob/release-5.1.0/ansible/roles/data-products-deploy/templates/model-config.j2#L138-L141)
 

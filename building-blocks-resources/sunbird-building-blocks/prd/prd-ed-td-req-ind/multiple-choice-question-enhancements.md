@@ -22,7 +22,7 @@ Today Multiple Choice Question (MCQ) has 7 layouts to support various question c
 
 Refer to the image:
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image-20200604-093120.png)
+![](../../../../.gitbook/assets/image-20200604-093120.png)
 
 [https://project-sunbird.atlassian.net/browse/SB-19482](https://project-sunbird.atlassian.net/browse/SB-19482)
 
@@ -31,7 +31,7 @@ Refer to the image:
 1. Question should centre align (vertically) & left align (horizontally)
 2. Question should not reserve space for image unless provided by user
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image-20200604-102002.png)[SB-19697 System JIRA](https://browse/SB-19697)
+![](../../../../.gitbook/assets/image-20200604-102002.png)[SB-19697 System JIRA](https://browse/SB-19697)
 
 #### MCQ Layout 1 - Option creation & player experience
 
@@ -44,14 +44,14 @@ Refer to the image:
 2. Should display overflowing text on scroll of the page. Preview should reflect most accurate WYSIWYG for a regular 16:9 or 18:9 screen aspect ratio
 3.
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image-20200604-145238.png) ![](../../../../PRD/prd-ed-td-req-ind/images/storage/image-20200604-145502.png)
+![](../../../../.gitbook/assets/image-20200604-145238.png) ![](../../../../.gitbook/assets/image-20200604-145502.png)
 
 #### MCQ Layout 4 - Option creation & consumption experience
 
 1. Should disable adding text as this only support image options
 2. If user has already entered text and is trying out different layouts - on selecting this layout the text should be preserved (but hidden or disabled from editing)
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image-20200604-145919.png)
+![](../../../../.gitbook/assets/image-20200604-145919.png)
 
 #### Functional Design Challenges
 

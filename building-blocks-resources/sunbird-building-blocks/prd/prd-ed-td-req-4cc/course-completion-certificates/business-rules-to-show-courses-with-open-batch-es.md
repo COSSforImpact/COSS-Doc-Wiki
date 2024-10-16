@@ -46,11 +46,11 @@ Verify that:
 
 **Workflows for various types of users**
 
-![](../../../../../PRD/prd-ed-td-req-4cc/images/storage/image2020-3-4\_9-56-7.png)
+![](../../../../../.gitbook/assets/image2020-3-4\_9-56-7.png)
 
-![](../../../../../PRD/prd-ed-td-req-4cc/images/storage/image2020-3-4\_9-58-30.png)
+![](../../../../../.gitbook/assets/image2020-3-4\_9-58-30.png)
 
-![](../../../../../PRD/prd-ed-td-req-4cc/images/storage/image2020-3-4\_9-58-55.png)
+![](../../../../../.gitbook/assets/image2020-3-4\_9-58-55.png)
 
 **Alternate work flow**
 

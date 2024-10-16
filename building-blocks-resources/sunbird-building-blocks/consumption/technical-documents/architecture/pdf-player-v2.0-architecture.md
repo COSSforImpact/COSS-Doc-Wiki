@@ -19,7 +19,7 @@ icon: elementor
 
 |
 
-![](../../../../../Consumption/consump-ed-td-arch/images/storage/image-20200910-070615.png)
+![](<../../../../../.gitbook/assets/image-20200910-070615 (1).png>)
 
 \| Pros | a) Separation of Concern : With Separation of Concern we will have highly modular and maintainable code . Tight Coupling of Systems ends up constraining the player to put most part of the code which is non functional for itself. Ex: Telemetry event interpretation is one such concern which is refactored and moved into Externalised unit like Common Service Library. b) Any Potential changes to telemetry shouldn’t ideally end up republishing the player. An update on CSL should be enough. Which kind of reduces the risk of regression to Telemetry Only. Ex: An Impression event getting validation failure shouldn’t end us up republishing the player of telemetry. c) Modular Player : Since the entire player is a npm repo. It becomes easy to detach the existing player and move into new one without much hassles. d) It is quite practical to interpret telemetry spec in a very cutomised way for most of the adaptors of Sunbird. This telemetry behaviour should be allowed to override with minimal efforts. Infact, It can go to an extent of raising telemetry events and also events raised to external systems that adaptors might be using. e) Any new players created in future, will be less context aware and more functional in nature. Ex: Unity Games, Animation Players, VR Contents etc. | | Cons | a) Any Player Created in future will have dependency on CSL for default telemetry implementation. Could potentially be source of friction. b) Creating Telemetry Interpreter can be a two step task. |
 

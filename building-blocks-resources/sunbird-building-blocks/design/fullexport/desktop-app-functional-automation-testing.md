@@ -14,7 +14,7 @@ Desktop App testing should be automated by writing integration tests. The benefi
 
 Mocha will be the test runner used and chai will be the assertion library which used in the official documentation and popular libraries for testing BDD or TDD.
 
-![](../../../../Design/FullExport/images/storage/Functional\_automation\_spectron.jpg)
+![](../../../../.gitbook/assets/Functional\_automation\_spectron.jpg)
 
 **Pattern used:** **Page Object Model and Page Factory -** Page object is a design pattern that can be implemented as selenium best practices. The functionality classes (PageObjects) in this design represent a logical relationship between the pages of the application.
 

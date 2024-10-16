@@ -6,7 +6,7 @@
 * \*\*Device Register API Enhancements \*\* - API to save User confirmed location to device\_profile Cassandra table as derived location.
 * \*\*Telemetry Location Updater Samza Job Changes \*\* - To stamp derived location in the telemetry.
 
-![](../../../../Design/FullExport/images/storage/LocationCapture.jpg)
+![](../../../../.gitbook/assets/LocationCapture.jpg)
 
 **Get Device Profile API:** This API returns back IP resolved location details from MaxMind DB.
 

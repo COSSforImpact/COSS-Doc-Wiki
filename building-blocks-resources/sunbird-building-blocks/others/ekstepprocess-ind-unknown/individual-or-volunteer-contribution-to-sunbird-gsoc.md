@@ -24,7 +24,7 @@ As part of GSoC, we are looking at the below ideas for contribution. However, we
 
 As learners play a quiz, worksheet, or practice question set, they would feel motivated to keep on attempting questions if they earned some rewards resulting in instant gratification. Sunbird inQuiry provides a question set player which can be enhanced to provide these instant gratification. Check screenshot below
 
-![](../../../../Others/ekstepprocess-ind-unknown/images/storage/image-20220223-101727.png)
+![](../../../../.gitbook/assets/image-20220223-101727.png)
 
 This would require us to build a configurable points mechanism which can be enabled/disabled for different categories of the question set. The points can be relative to the marks earned by the user.
 

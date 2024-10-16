@@ -12,19 +12,19 @@ For more information on the Jenkinsfile and ansible roles, refer to the pipeline
 
 * Go to the job
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20221220-071304.png)
+![](../../../../.gitbook/assets/image-20221220-071304.png)
 
 * Click on configure and find the repo and Jenkinsfile
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20221220-071327.png) ![](../../../../DevOpsFull/AllDocs/images/storage/image-20221220-071340.png)
+![](../../../../.gitbook/assets/image-20221220-071327.png) ![](../../../../.gitbook/assets/image-20221220-071340.png)
 
 * Go to repo and find the jenkinsfile and ansible playbook
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20221220-071414.png) ![](../../../../DevOpsFull/AllDocs/images/storage/image-20221220-071445.png)
+![](../../../../.gitbook/assets/image-20221220-071414.png) ![](../../../../.gitbook/assets/image-20221220-071445.png)
 
 * Check the ansible playbook to understand what it does
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20221220-071503.png)
+![](../../../../.gitbook/assets/image-20221220-071503.png)
 
 You can use any latest tag or branch to run these jobs. We recommend running the backup jobs from the following tag - [https://github.com/project-sunbird/sunbird-devops/tree/tag-for-backups](https://github.com/project-sunbird/sunbird-devops/tree/tag-for-backups)
 
@@ -32,7 +32,7 @@ You will also find similar backup tag in other repositories [https://github.com/
 
 The backup jobs are run with a cronjob option on jenkins so that automated backups happen on a daily basis or based on the schedule. These can be modified as per need.
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image-20221220-073338.png)There are other set of jobs which are used as part of a release. For example, GraylogMongoImport job will add new dashboards, alerts etc into graylog. These will be run as part of a release with the release tags.
+![](../../../../.gitbook/assets/image-20221220-073338.png)There are other set of jobs which are used as part of a release. For example, GraylogMongoImport job will add new dashboards, alerts etc into graylog. These will be run as part of a release with the release tags.
 
 Below is a one liner description for each of these jobs
 

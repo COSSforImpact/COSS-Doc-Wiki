@@ -80,7 +80,7 @@ _Digitized certificates_ - pdf certificates which are equivalent of a paper base
 
 The scope for this use case is \*\*'Digitized Certificates'. \*\*
 
-Overall Process Workflow![](<../../../../../PRD/prd-ed-td-req-4cc/images/storage/Certificate workflow (1).jpg>)
+Overall Process Workflow![](<../../../../../.gitbook/assets/Certificate workflow (1) (1).jpg>)
 
 Epic JIRA Ticket ID[SB-11097 System JIRA](https://browse/SB-11097)
 

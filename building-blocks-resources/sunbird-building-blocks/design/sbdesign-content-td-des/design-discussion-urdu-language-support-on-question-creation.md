@@ -4,7 +4,7 @@
 
 &#x20; Current Implementation of Question Creation in Question Unit Plugins provides ability add question details through CK-Editor.
 
-Click here to See The Current Implementation![](<../../../../Design/sbdesign-content-td-des/images/storage/Quesiton Creation.png>)
+Click here to See The Current Implementation![](<../../../../.gitbook/assets/Quesiton Creation (1).png>)
 
 ##
 
@@ -28,13 +28,13 @@ Refer the Design Requirement  1 and 2
 
 What languages should be listed out is not defined in the requirement.
 
-To understand item 1 and 2 refer the below Image.![](<../../../../Design/sbdesign-content-td-des/images/storage/Language Select.png>)
+To understand item 1 and 2 refer the below Image.![](<../../../../.gitbook/assets/Language Select (1).png>)
 
 ### Statement 2 : In Question Bank filter there is no Medium field
 
 As per Design requirement 6, When a user selected Medium in Urdu in Question Bank it is required to make the search box to support Right to Left input. But there is no Medium in Filter in Question Bank.
 
-Click Here to see Design Requirement 6![](../../../../Design/sbdesign-content-td-des/images/storage/Filter\_Questionbank.png)
+Click Here to see Design Requirement 6![](<../../../../.gitbook/assets/Filter\_Questionbank (1).png>)
 
 ### Key Design Issue
 

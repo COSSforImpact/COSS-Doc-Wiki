@@ -203,13 +203,13 @@ Open:
 
 A question paper collection is created on the Consumption portal, followed by project creation on sourcing and contribution portals. The life cycle is shown below.
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20210415-020534.png)
+![](../../../../.gitbook/assets/image-20210415-020534.png)
 
 **New Flow:**
 
 The question set is created on the sourcing portal. The new life cycle is shown below
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20210415-020927.png)
+![](../../../../.gitbook/assets/image-20210415-020927.png)
 
 Old Commentsonly for reference
 

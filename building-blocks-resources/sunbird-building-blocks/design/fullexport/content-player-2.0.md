@@ -26,7 +26,7 @@ This documents list the design approach which we are taking to rewrite the conte
 
 Here we want to build one player(Library) for each type of content which is independently built and deployable and can be integrated with other clients like web, mobile, and desktop
 
-![](<../../../../Design/FullExport/images/storage/Content Player High level design.png>)
+![](<../../../../.gitbook/assets/Content Player High level design.png>)
 
 #### List of Libraries
 
@@ -74,7 +74,7 @@ Each Player type will have there own standard config below is the config for PDF
 
 This is the collection of all the players which will take the input as standard collection object handles the to render the TOC view and player view will be extension point where based on the content type we will have the mapping to the player.
 
-![](<../../../../Design/FullExport/images/storage/Content Player High level design-Page-3.png>)
+![](<../../../../.gitbook/assets/Content Player High level design-Page-3.png>)
 
 ### **Controls** :
 
@@ -120,7 +120,7 @@ Here we will have the extension points which player should define to
 }
 ```
 
-![](<../../../../Design/FullExport/images/storage/Content Player Detailed level design-Page-2.png>)
+![](<../../../../.gitbook/assets/Content Player Detailed level design-Page-2.png>)
 
 Event library emits the above events and container should convert them to telemetry events when in standalone mode?
 
@@ -150,7 +150,7 @@ Controls Library
 
 In this approach we are trying to build each element ( ie. StartPage, EndPage, player etc. ) as a library which plays a role in content player life cycle , **without any major changes on existing backend API’s** . This will be built and packaged for Online and offline use.
 
-![Flow Diagram of content lifecycle](../../../../Design/FullExport/images/storage/contracts.png) **Content Lifecycle flow of a player \[ standalone and collection ]**
+![Flow Diagram of content lifecycle](../../../../.gitbook/assets/contracts.png) **Content Lifecycle flow of a player \[ standalone and collection ]**
 
 Below is the description of each section of the diagram \[ Left to Right]
 
@@ -265,7 +265,7 @@ _**@output**_ : Each library emit two types of events \[ Basic player Events and
 
 **Standard library structure:**
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2020-08-12 at 6.58.26 pm.png>)
+![](<../../../../.gitbook/assets/Screenshot 2020-08-12 at 6.58.26 pm.png>)
 
 ### Telemetry Library :
 
@@ -286,7 +286,7 @@ There are two kind of navigation support by this approach
 
 **Internal Navigation** : Each player library may or maynot be having a navigation to walk through the particular content ( ex. PDF needs a internal navigation but video doesn’t )
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram.png>) Visual difference on external and internal navigation
+![](<../../../../.gitbook/assets/Untitled Diagram.png>) Visual difference on external and internal navigation
 
 **How navigation control works ?**
 

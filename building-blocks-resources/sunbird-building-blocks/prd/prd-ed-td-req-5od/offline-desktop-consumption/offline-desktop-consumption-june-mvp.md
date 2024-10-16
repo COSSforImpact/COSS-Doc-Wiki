@@ -23,13 +23,13 @@ Hence, there is a need on the ground to enable consumption of ETB content on a d
 
 * **System or Environment:**
 
-**Process Workflow** ![](../../../../../PRD/prd-ed-td-req-5od/images/storage/ContentPreparation.png)
+**Process Workflow** ![](../../../../../.gitbook/assets/ContentPreparation.png)
 
-![](../../../../../PRD/prd-ed-td-req-5od/images/storage/InstallApp.png)
+![](../../../../../.gitbook/assets/InstallApp.png)
 
-![](../../../../../PRD/prd-ed-td-req-5od/images/storage/PlayContent.png)
+![](../../../../../.gitbook/assets/PlayContent.png)
 
-![](../../../../../PRD/prd-ed-td-req-5od/images/storage/TelemetryUpdates.png)
+![](../../../../../.gitbook/assets/TelemetryUpdates.png)
 
 **Key Assumptions**
 

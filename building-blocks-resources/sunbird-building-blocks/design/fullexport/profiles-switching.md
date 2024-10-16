@@ -30,7 +30,7 @@ Presently only user having email address or phone number can register and use ap
 
 User login in to his account and starts using application.
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram.jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram.jpg>)
 
 **Change request:** As part of [https://project-sunbird.atlassian.net/browse/SH-68](https://project-sunbird.atlassian.net/browse/SH-68) user should be able to switch and create profiles.
 
@@ -162,7 +162,7 @@ It can be handled via 2 different approaches -
 
 Once switch profile is initiated fetch the managed user profile details. Replace the user data in session keeping the parent token as it is.
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (3).jpg>)Things to reinitialise -
+![](<../../../../.gitbook/assets/Untitled Diagram (3).jpg>)Things to reinitialise -
 
 * Telemetry
 * User profile
@@ -279,7 +279,7 @@ Proposed changes to session object
 
 ### Solution 3:
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (9).jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram (9).jpg>)
 
 Things to reinitialise -
 

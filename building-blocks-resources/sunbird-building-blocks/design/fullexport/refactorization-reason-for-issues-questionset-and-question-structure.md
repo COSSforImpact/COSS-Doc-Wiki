@@ -33,7 +33,7 @@ The katex library a renderer dependency of org.ekstep.questionunit library and q
 
 The below screenshot shows the code of org.ekstep.question/editor/question-ctrl.js to understand the code that produced the structure
 
-![](../../../../Design/FullExport/images/storage/media-issue.png)
+![](../../../../.gitbook/assets/media-issue.png)
 
 2.2 New properties getting added after edit and save of questionThe Four new properties which is getting added into metadata Assessment Item are&#x20;
 
@@ -81,7 +81,7 @@ Refer 2.3 For the details
 
 2.3 Recursive Structure of QuestionThe Below Screenshot exists inside $scope.saveMetaData function of file org.ekstep.question-1.0/editor/question-ctrl.js
 
-![](../../../../Design/FullExport/images/storage/data\_problem.png)
+![](../../../../.gitbook/assets/data\_problem.png)
 
 Why the data property only getting added while edit and save, The below code is inside $scope.showQuestionForm function of file org.ekstep.question-1.0/editor/question-ctrl.js,&#x20;
 
@@ -98,7 +98,7 @@ $scope.questionData = questionData1;
 
 The below screenshot is inside $scope.formValidation function of /org.ekstep.questionunit.mcq-1.1/editor/controllers/mcq-controller.js
 
-![](../../../../Design/FullExport/images/storage/MCQ\_redundant\_media.png)
+![](../../../../.gitbook/assets/MCQ\_redundant\_media.png)
 
 ***
 

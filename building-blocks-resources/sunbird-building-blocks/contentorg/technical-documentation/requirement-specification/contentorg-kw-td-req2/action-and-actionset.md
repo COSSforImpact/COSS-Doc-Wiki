@@ -18,7 +18,7 @@ ActionSet is a collection of one or more actions (or action sets) with an associ
 * ActionSets allow enrolled users to add additional Actions specific to them. This is driven by an attribute (“allowExtension“) that can be set by the action set creator.
 * User’s enrolment, usage, progress and score information is captured as part of the consumption. Reports are generated using this information and can be made available to different users based on role & scope assigned to them.
 
-![](../../../../../../ContentOrg/contentorg-kw-td-req2/images/storage/ActionSets.png)
+![](<../../../../../../.gitbook/assets/ActionSets (1).png>)
 
 ### Discovery and Targeting
 

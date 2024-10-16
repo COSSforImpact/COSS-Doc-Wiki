@@ -21,7 +21,7 @@ b) It takes significant time for adopters to identify and debug issues without p
   * If a BB is tagging along with Ed, then they will be part of the one click installer for Ed (example Inquiry, Managed Lern) and one should be able to import them as a depedency
 * Ed BB one click installer will leverage the one click installers of all other dependent BB’s
 
-![Pictorial Representation](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20221213-135349.png)
+![Pictorial Representation](<../../../../.gitbook/assets/image-20221213-135349 (1).png>)
 
 #### Implementation Phases
 
@@ -111,7 +111,7 @@ Implementation Design (Along with Execution Plan):
 
 Phase 1:
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20221127-155547.png)In phase 1, we would like to add few additional functionalities to improve the adoption experience
+![](<../../../../.gitbook/assets/image-20221127-155547 (1).png>)In phase 1, we would like to add few additional functionalities to improve the adoption experience
 
 * Develop a new Jenkins job which an adopter will execute as the first job. This job will check all the variables defined and report errors if any variables are missing or incorrect. This step will greatly reduce the errors at the later stages of installation.
   * For example, if the adopter misses the env variable, almost every job will fail. So we can check for all the mandatory variables before hand and report if any errors. We will use a combination of ansible, python and Jenkins Pipelines to achieve this.
@@ -133,7 +133,7 @@ The Phase 2 activity will be broken down into multiple small phases. We are list
 
 Phase 2.1:
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20221201-045103.png)In phase 2.1, we will mainly focus on running the micro services as an independent module
+![](<../../../../.gitbook/assets/image-20221201-045103 (1).png>)In phase 2.1, we will mainly focus on running the micro services as an independent module
 
 * We will first need to create the standalone helm charts for each micro service. An adopter must be able to take an individual micro service if he desires.
 * We will provide the terraform scripts to create the Kubernetes infra with recommended security configurations and networking rules on the top 3 cloud providers. We can also use terraform to deploy the applications on Kubernetes
@@ -150,7 +150,7 @@ Phase 2.1:
 
 Phase 2.2:
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20221127-135724.png)In phase 2.1, we created individual helm charts along with terraform scripts. In this phase, we will create the umbrella helm charts for each building block
+![](<../../../../.gitbook/assets/image-20221127-135724 (1).png>)In phase 2.1, we created individual helm charts along with terraform scripts. In this phase, we will create the umbrella helm charts for each building block
 
 * An umbrella helm chart installs the entire building block such as knowlg, obsrv etc.
 * We will use the concept of subcharts for the umbrella chart. When an adopter runs the umbrella chart, it will install all the components that are required for a building block.
@@ -161,7 +161,7 @@ Phase 2.2:
 
 Phase 2.3:
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20221127-140037.png)In phase 2.2, we have simplified the overall Ed installation process into 3 main steps
+![](<../../../../.gitbook/assets/image-20221127-140037 (1).png>)In phase 2.2, we have simplified the overall Ed installation process into 3 main steps
 
 * Fill in the required variables
 * Run the terraform script to install the helm chart create and deploy services (on kubernetes and VM)
@@ -184,7 +184,7 @@ In this phase we will focus on a few important things such as
 
 Phase 2.4:
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20221127-140558.png)In phase 2.3, we have achieved true one click install of any building block. In this phase, we will focus on some important enhancements such as
+![](<../../../../.gitbook/assets/image-20221127-140558 (1).png>)In phase 2.3, we have achieved true one click install of any building block. In this phase, we will focus on some important enhancements such as
 
 * Develop different building block installation solutions based on the scale required by the adopters such as 100 users setup, 1k users setup, 10k users setup, 100k users setup etc,.
 * We can achieve this by using helm / terraform templates along few custom scripts.
@@ -195,7 +195,7 @@ Phase 2.4:
 
 Phase 2.5 (Still in ideation):
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20221127-141241.png)In phase 2.4, we have almost achieved what we intended with respect to the installation and upgrade of building blocks. In this phase we will focus on interactive integrations between building blocks such as
+![](<../../../../.gitbook/assets/image-20221127-141241 (1).png>)In phase 2.4, we have almost achieved what we intended with respect to the installation and upgrade of building blocks. In this phase we will focus on interactive integrations between building blocks such as
 
 * Develop a fun and interactive mode for an adopter to pick and choose few building blocks and integrate them together.
 * Provide an interactive mode for an adopter to integrate one or more building blocks into their existing systems.

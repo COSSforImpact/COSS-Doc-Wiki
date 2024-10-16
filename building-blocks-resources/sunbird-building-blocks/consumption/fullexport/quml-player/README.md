@@ -439,11 +439,11 @@ d) \*\*LA     : \*\* Long Answer&#x20;
 }
 ```
 
-![](../../../../../Consumption/Fullexport/images/storage/card-diagram2.png)
+![](../../../../../.gitbook/assets/card-diagram2.png)
 
 &#x20;                   &#x20;
 
-![](../../../../../Consumption/Fullexport/images/storage/image2019-11-21\_19-30-42.png)
+![](../../../../../.gitbook/assets/image2019-11-21\_19-30-42.png)
 
 a) Attribute for  **time** Component For each question is missing for each assessment\_type. (Can be possibility)
 

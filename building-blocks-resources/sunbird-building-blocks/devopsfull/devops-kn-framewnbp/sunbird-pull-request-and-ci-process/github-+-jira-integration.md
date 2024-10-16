@@ -1,6 +1,6 @@
 # GitHub-+-Jira-integration
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200725-075543.png)
+![](<../../../../../.gitbook/assets/image-20200725-075543 (1).png>)
 
 Linking Github with JIRA gives the ability to see branches, commit messages, and pull requests in the Jira tickets the team is working on. On the GitHub side, we can view relevant Jira ticket information in issues and pull requests.
 
@@ -17,25 +17,25 @@ Advantages:
 
 Step 1: Install Github app in jira.
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200810-130529.png)
+![](<../../../../../.gitbook/assets/image-20200810-130529 (1).png>)
 
 Step 2: Add organization and authorzise Jira with github repositories
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200810-130831.png)
+![](<../../../../../.gitbook/assets/image-20200810-130831 (1).png>)
 
 So, the GitHub app is installed and repositories are authorized.
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200810-130848.png)
+![](<../../../../../.gitbook/assets/image-20200810-130848 (1).png>)
 
 Use the issue id with the commit message or while raising a pull request.
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200810-131157.png)
+![](<../../../../../.gitbook/assets/image-20200810-131157 (1).png>)
 
 You should be able to see the commits, branches, pull requests in the respective Jira ticket.
 
 It will also give information about the PR status whether it is open, merged, closed, or declined.
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20200810-131417.png)
+![](<../../../../../.gitbook/assets/image-20200810-131417 (1).png>)
 
 ***
 

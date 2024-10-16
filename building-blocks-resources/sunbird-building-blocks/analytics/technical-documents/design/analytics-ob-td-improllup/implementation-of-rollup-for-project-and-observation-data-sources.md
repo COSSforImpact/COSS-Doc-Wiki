@@ -18,7 +18,7 @@ To avoid complete data restoration every day, the following design is proposed.
 * Since raw data is ingested separately, this can be used for further analysis.
 * Existing transactions are ingested from MongoDB as a one time execution.
 
-![](../../../../../../Analytics/analytics-ob-td-Improllup/images/storage/druid\_changes\_updated.png)
+![](<../../../../../../.gitbook/assets/druid\_changes\_updated (1).png>)
 
 **Project Dimensions :**
 

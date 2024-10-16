@@ -2,11 +2,11 @@
 
 ### Architecture Diagram
 
-![](../../../../Design/FullExport/images/storage/consumption\_architecture\_2.png)
+![](../../../../.gitbook/assets/consumption\_architecture\_2.png)
 
 ### Component Diagram
 
-![](../../../../Design/FullExport/images/storage/consumption\_block\_diagram.png)
+![](../../../../.gitbook/assets/consumption\_block\_diagram.png)
 
 ***
 

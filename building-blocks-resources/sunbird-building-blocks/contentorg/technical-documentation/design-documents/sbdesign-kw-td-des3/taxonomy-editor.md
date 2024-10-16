@@ -14,7 +14,7 @@ creation and association of terms in sun bird is done through postman collection
 
 In proposed the taxonomy editor system under category we can create terms and associate/relate terms belonging to different categories in a visual representation as shown below this.
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/clip-board (1).jpg>)
+![](<../../../../../../.gitbook/assets/clip-board (1) (1).jpg>)
 
 **How it works:**
 

@@ -6,7 +6,7 @@ Problem statementThe SHARE event captures all the contents downloaded on to a de
 
 ### Solution -1: Events Flatten Samza job
 
-![](<../../../../Analytics/Fullexport/images/storage/Screenshot 2019-12-26 at 12.33.28 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2019-12-26 at 12.33.28 PM.png>)
 
 Events Flatten job is responsible for flattening the share events into multiple share events so that  **totalDownloads** metrics can be computed.
 

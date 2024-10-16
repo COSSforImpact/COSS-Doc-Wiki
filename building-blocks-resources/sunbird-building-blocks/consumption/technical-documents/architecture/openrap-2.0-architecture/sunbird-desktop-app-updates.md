@@ -10,7 +10,7 @@ icon: elementor
 
 In this approach, we will provide the latest version of the app to the end-user then he needs to install with the new app which will be as follow
 
-![](<../../../../../../Design/sbdesign-ed-td-arch2/images/storage/App Updates 1.png>)
+![](<../../../../../../.gitbook/assets/App Updates 1 (1).png>)
 
 | Operating System | Works |
 | ---------------- | ----- |
@@ -38,7 +38,7 @@ In this approach, we will provide the latest version of the app to the end-user 
 | Ubuntu           | No    |
 | Mac              | Yes   |
 
-![](<../../../../../../Design/sbdesign-ed-td-arch2/images/storage/App Updates electron builder.png>)
+![](<../../../../../../.gitbook/assets/App Updates electron builder (1).png>)
 
 **Pros**
 
@@ -62,7 +62,7 @@ In this approach, we will provide the latest version of the app to the end-user 
 | Ubuntu           | Yes   |
 | Mac              | Yes   |
 
-![](<../../../../../../Design/sbdesign-ed-td-arch2/images/storage/App Updates Custom.png>)
+![](<../../../../../../.gitbook/assets/App Updates Custom (1).png>)
 
 **Pros**
 

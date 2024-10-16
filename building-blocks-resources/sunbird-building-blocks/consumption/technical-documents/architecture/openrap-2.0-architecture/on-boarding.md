@@ -8,7 +8,7 @@ icon: elementor
 
 The current desktop application is generic for all states - and a user has to spend time filtering through a set of boards, mediums, classes, and subjects every time they land on the app to get content that is relevant for them to solve this problem we will ask the user to input the framework preference and location so that we can show the relevant content to the user. The user location is required to pull the reports of usage of the app by location level.
 
-![](../../../../../../Design/sbdesign-ed-td-arch2/images/storage/Locations.png)
+![](<../../../../../../.gitbook/assets/Locations (1).png>)
 
 ### Schema
 

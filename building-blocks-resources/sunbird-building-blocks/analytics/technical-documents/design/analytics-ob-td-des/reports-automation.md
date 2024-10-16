@@ -6,7 +6,7 @@ The objective of this document is to explain the Automation of creating Reports 
 
 [https://project-sunbird.atlassian.net/browse/ED-2090](https://project-sunbird.atlassian.net/browse/ED-2090)
 
-![](<../../../../../../Analytics/analytics-ob-td-des/images/storage/Screenshot from 2023-05-20 18-53-44.png>)
+![](<../../../../../../.gitbook/assets/Screenshot from 2023-05-20 18-53-44 (1).png>)
 
 ## API Endpoint :
 

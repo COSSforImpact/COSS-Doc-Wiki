@@ -19,7 +19,7 @@ The question paper is divided into 3 sections, style for each section is explain
 
 **Question paper name, Grade, Subject, Max marks, Max time -** has a fixed view&#x20;
 
-![Sample image](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20210413-092449.png)
+![Sample image](../../../../.gitbook/assets/image-20210413-092449.png)
 
 **Question style**
 

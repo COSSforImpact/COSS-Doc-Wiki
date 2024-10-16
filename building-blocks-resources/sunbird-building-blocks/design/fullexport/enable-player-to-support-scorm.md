@@ -21,7 +21,7 @@ A SCORM compliant LMS is required to implement the API (Application Program Inte
 
 The below diagram shows how a SCORM content embedded in the LMS, communicates with the LMS.
 
-![](<../../../../Design/FullExport/images/storage/SCORM Implementation.jpg>)
+![](<../../../../.gitbook/assets/SCORM Implementation.jpg>)
 
 ## What data can SCORM send (Data model)
 

@@ -12,7 +12,7 @@ Design problem - Raise a support ticket
 
 User can raise a support ticket if they won't get a resolution for the queries from FAQ or videos displayed to them as part of this they will raise a fresh desk ticket with the following data here we are assuming that user should be online to raise a support ticket and below is the ticket format
 
-![](../../../../../../Design/sbdesign-ed-td-arch2/images/storage/support\_ticket\_flow.png)
+![](<../../../../../../.gitbook/assets/support\_ticket\_flow (1).png>)
 
 we will be using the [Node Freshdesk SDK](https://www.npmjs.com/package/freshdesk-api) to create the ticket below is the example&#x20;
 
@@ -129,7 +129,7 @@ Design problem - FAQ&#x20;
 
 We will be using the common consumption UI FAQ component and how we can manage and store the FAQ data model and access explained below
 
-![](../../../../../../Design/sbdesign-ed-td-arch2/images/storage/FAQ.png)
+![](<../../../../../../.gitbook/assets/FAQ (1).png>)
 
 ### Schema
 

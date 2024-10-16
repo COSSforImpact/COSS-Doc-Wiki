@@ -25,7 +25,7 @@ InputAs a part of proposed following formats can be inputs :
 * PNG (Need to have some limits on memory size)
 * JPEG
 
-Diagram (Dynamic Canvas Editing from PNG)![](../../../../../../Consumption/consump-ed-td-des/images/storage/PNG\_to\_SVG.png)
+Diagram (Dynamic Canvas Editing from PNG)![](<../../../../../../.gitbook/assets/PNG\_to\_SVG (1).png>)
 
 Tools to be used : FabricFabric provides interactive object model on top of canvas element, also has SVG-to-canvas (and canvas-to-SVG) parser.
 
@@ -127,13 +127,13 @@ Each Template Layout will have a necessary information associated with it.
 }
 ```
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20210601-114027.png)Auto Generate the forms based on template chosen
+![](<../../../../../../.gitbook/assets/image-20210601-114027 (1).png>)Auto Generate the forms based on template chosen
 
 Mapping Logic:
 
 a) Fetch the list of text and image elements and dynamically generate the form.
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20210601-120128.png)
+![](<../../../../../../.gitbook/assets/image-20210601-120128 (1).png>)
 
 b) Dynamically generate the form on the portal based on text and image elements in the svg.
 

@@ -41,11 +41,11 @@ $container/archived-batches/assessment/$batchid.<file-extension>.gz
 
 The scheduled spark job detect the available expired batches which are not archived to generate archival data and store it in cloud storage. Also, it will update the archival status in course\_batch table.
 
-![](../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/d29021e7-e1d8-43cf-ade3-f9af532b305e.png)
+![](<../../../../../../.gitbook/assets/d29021e7-e1d8-43cf-ade3-f9af532b305e (1).png>)
 
 #### Reporting/Exhaust Jobs - Process For Expired/Ongoing Batches
 
-![](../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/exhaust-latest.png)
+![](<../../../../../../.gitbook/assets/exhaust-latest (1).png>)
 
 The reporting/exhaust job will validates the archived status of the batch before processing the request.
 
@@ -65,7 +65,7 @@ The reporting/exhaust job will validates the archived status of the batch before
 
 * Scores aggregates are read from sunbird\_courses.user\_activity\_agg only.
 
-![](../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/Assess\_archival\_API\_changes.png)
+![](<../../../../../../.gitbook/assets/Assess\_archival\_API\_changes (1).png>)
 
 #### Conclusion
 

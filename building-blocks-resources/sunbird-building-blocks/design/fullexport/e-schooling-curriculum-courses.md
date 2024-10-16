@@ -43,9 +43,9 @@ Courses are currently composed of CourseUnit objects which have a limited visibi
 * **Create Batches** for units: with each unit being a batch, mentors can create private batch for any of the curriculum course units.
 * **Trackable** : ability track learners progress at intermediate units level. This is detailed in the next section.
 
-![](../../../../Design/FullExport/images/storage/CurriculumCourseUnits.png) **Version 1:**
+![](../../../../.gitbook/assets/CurriculumCourseUnits.png) **Version 1:**
 
-![](../../../../Design/FullExport/images/storage/CurriculumCourseUnits\_v1.png)
+![](../../../../.gitbook/assets/CurriculumCourseUnits\_v1.png)
 
 * Create only one textbook per course
 * Chapters are created as course units
@@ -67,7 +67,7 @@ In our platform, the **batch** is used to capture and compute the learner progre
 
 When a learner enrols to a course batch and starts consuming the content, client apps send the progress of each resource via content state update API calls. The platform uses this information to compute the progress of the learner in the course.
 
-![](../../../../Design/FullExport/images/storage/Progress\_Computation.png)A course can be classified into three parts. the platform already supports progress computation and saving the data for two parts. In course hierarchy we have,
+![](../../../../.gitbook/assets/Progress\_Computation.png)A course can be classified into three parts. the platform already supports progress computation and saving the data for two parts. In course hierarchy we have,
 
 1. Leaf Nodes (Resource) - The platform receives the progress information of each resource in the course from the client via API.
 2. Root Content (Course) - It is a collection content. The platform uses an async job (Samza) to compute the progress of Root Content. **It uses resource progress update and generates an event to Kafka for refreshing the progress** .

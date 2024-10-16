@@ -49,9 +49,9 @@ Registering by Deep link inside Sunbird
 
 **sunbird://register?name: "Google Corporation", logo: "https://", appName: "Google Bolo", packageId: "com.google.bolo",target:”{}”,appDetails:”{}”**
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20210212-054433.png)
+![](<../../../../../../.gitbook/assets/image-20210212-054433 (1).png>)
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20210212-054636.png)
+![](<../../../../../../.gitbook/assets/image-20210212-054636 (1).png>)
 
 #### Sunbird Third Party App Interaction
 
@@ -96,7 +96,7 @@ Registering by Deep link inside Sunbird
   }
 ```
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20210212-054752.png)
+![](<../../../../../../.gitbook/assets/image-20210212-054752 (1).png>)
 
 ### Vendor registration of Apps to Sunbird
 
@@ -179,7 +179,7 @@ Targeted Application need to respond back with Summary Data
 | resourceID | Content ID of the resource                   |
 | context    | Context of the play - like did, sid, uid etc |
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20210120-110907.png) **Pros**
+![](<../../../../../../.gitbook/assets/image-20210120-110907 (1).png>) **Pros**
 
 It can enable bazaar apps to index the content in their own environment.
 
@@ -206,7 +206,7 @@ Bazaar Apps can launch the artifactUrl directly based on mimeType.
 | mimeType    | Mime type of the content                     |
 | artifactUrl | The URL to download the content              |
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/image-20210120-122907.png)
+![](<../../../../../../.gitbook/assets/image-20210120-122907 (1).png>)
 
 **Pros**
 

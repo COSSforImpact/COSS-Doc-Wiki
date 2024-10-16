@@ -24,7 +24,7 @@ Sunbird should support experimenting with the portal, which allows customers to 
 
 \*\*Solution :- \*\*
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (1) (1) (1) (2).jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram (1) (1) (1) (2).jpg>)
 
 **Workflow for Anonymous users  : -**
 

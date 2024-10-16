@@ -12,7 +12,7 @@ The content state update API capture the content progress and assessment data. I
 
 We have a single API (Content State Update) to capture all the progress information. So, it has a complex logic to identify the given input is for content progress or assessment submission and etc,.
 
-![](../../../../Design/FullExport/images/storage/course-infra-api-current.png)At the end all the clients and report jobs need is the following map for every collection:
+![](../../../../.gitbook/assets/course-infra-api-current.png)At the end all the clients and report jobs need is the following map for every collection:
 
 ```js
 content_status = {
@@ -51,11 +51,11 @@ We have worked around Cassandra scaling issues (read from more than 2 SSTables a
 
 #### Content Consumption APIs
 
-![](<../../../../Design/FullExport/images/storage/Generalisation@2x (1).png>)
+![](<../../../../.gitbook/assets/Generalisation@2x (1).png>)
 
 #### Assessment Consumption APIs
 
-![](../../../../Design/FullExport/images/storage/Generalisation@2x.png)
+![](../../../../.gitbook/assets/Generalisation@2x.png)
 
 #### Viewer Service
 
@@ -124,7 +124,7 @@ The user can consume a content by searching it in our platform (organically) or 
 
 With Viewer-Service, we will support progress monitoring at individual content level as well (i.e.: all types of content can be monitored for progress). Below details explain how the data will be stored for a content consumption in different scenarios.
 
-![](../../../../Design/FullExport/images/storage/content-consumption-scenarios.png)
+![](../../../../.gitbook/assets/content-consumption-scenarios.png)
 
 The below table has various scenarios considering the current and future use cases. Here we defined the database read/write logic to support these use case and fetch the save or fetch the required data from user\_content\_consumption table.
 
@@ -495,7 +495,7 @@ API responses for various other actions done by the user:
 * Mode for any instance will be one to one mapping
 * With the extended design, progress and score monitoring of the user consumption can be done for any new context like program, event etc
 
-![](<../../../../Design/FullExport/images/storage/Generalisation@2x (3).png>)
+![](<../../../../.gitbook/assets/Generalisation@2x (3).png>)
 
 Following are the different modes provided to new instance:
 
@@ -522,24 +522,24 @@ Shall we enable **force ‘view end’** to handle the collection progress updat
 * View Start API should insert the row **only if the row not exists** .
 * View Update and End API should update the row **only if the row exists** .
 
-![](../../../../Design/FullExport/images/storage/content-view-lifecycle-1.png)Handling collection and batch dependencies:For view start, end and update, collectionId and contextId are non-mandatory. This would enable to monitor the progress for any content which is not part of a collection.
+![](../../../../.gitbook/assets/content-view-lifecycle-1.png)Handling collection and batch dependencies:For view start, end and update, collectionId and contextId are non-mandatory. This would enable to monitor the progress for any content which is not part of a collection.
 
 This is handled in two ways:
 
 * If, collectionId and contextId are part of the request, then, individual content progress and overall collection progress is captured and computed.
 
-![](../../../../Design/FullExport/images/storage/content-consumption-with-context.png)
+![](../../../../.gitbook/assets/content-consumption-with-context.png)
 
 * In case of only userId and contentId, the progress is captured only for that content
 
-![](../../../../Design/FullExport/images/storage/content-consumption-without-context.png)
+![](../../../../.gitbook/assets/content-consumption-without-context.png)
 
 #### Handling Collection Data types in DB:
 
 * With normal collection types, the map values gets distributed to multiple sstables with append, which might lead to read latency issues
 * To the handle the scenario, will consider the frozen collection types, which will helpful in avoiding tombstone and multiple sstable reads
 
-![](<../../../../Design/FullExport/images/storage/Cassandra tomsbone@2x.png>)
+![](<../../../../.gitbook/assets/Cassandra tomsbone@2x.png>)
 
 #### Current vs New (Viewer-Service) APIs:
 

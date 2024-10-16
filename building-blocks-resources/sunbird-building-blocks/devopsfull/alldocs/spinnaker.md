@@ -24,7 +24,7 @@
 * View and manage cloud resources
 * Core concepts - Server group, Cluster, Application
 
-![](../../../../DevOpsFull/AllDocs/images/storage/spinnaker.png)
+![](../../../../.gitbook/assets/spinnaker.png)
 
 Server Group:
 

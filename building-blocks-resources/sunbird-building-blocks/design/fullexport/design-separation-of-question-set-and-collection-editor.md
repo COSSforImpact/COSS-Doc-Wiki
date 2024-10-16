@@ -6,7 +6,7 @@ Jira LINK: [SB-28699 System JIRA](https://browse/SB-28699)
 
 **Background** Currently, both collection & questionSet editors are using a single code base. All the BB’s(Knolwg & InQuiry) should work on the same code and follow the same release cycle and github branching strategy(This is very overhead for both teams). Both collection and question-set editors are packaged together. This codebase is currently under Knowlg BB. This design was implemented when both editors were built and maintained by a single team - sourcing circle. Now, the question set editor is part of inQuiry BB.
 
-![](../../../../Design/FullExport/images/storage/image-20221116-054933.png)
+![](../../../../.gitbook/assets/image-20221116-054933.png)
 
 **Problem Statement** How knowlg and inQuiry BB’s can own collection and question set editors independently ?
 
@@ -27,7 +27,7 @@ Jira LINK: [SB-28699 System JIRA](https://browse/SB-28699)
 * Any editors can pick only the components which required from the base editor.
 * Here’s the diagram architecture of the base editor.
 
-![](../../../../Design/FullExport/images/storage/image-20221111-071227.png)
+![](../../../../.gitbook/assets/image-20221111-071227.png)
 
 **Pros:**
 
@@ -46,7 +46,7 @@ Jira LINK: [SB-28699 System JIRA](https://browse/SB-28699)
 
 Here’s sample screenshot:
 
-![](../../../../Design/FullExport/images/storage/image-20221111-044330.png) ![](../../../../Design/FullExport/images/storage/image-20221111-044424.png) ![](../../../../Design/FullExport/images/storage/image-20221111-044517.png)
+![](../../../../.gitbook/assets/image-20221111-044330.png) ![](../../../../.gitbook/assets/image-20221111-044424.png) ![](../../../../.gitbook/assets/image-20221111-044517.png)
 
 **Solution 2: Dynamic loading of the components/fetaures**
 
@@ -59,7 +59,7 @@ Here’s sample screenshot:
 
     For example Hierarchy tree, base service, etc…
 
-![](../../../../Design/FullExport/images/storage/image-20221111-041630.png) **Pros** :
+![](../../../../.gitbook/assets/image-20221111-041630.png) **Pros** :
 
 * Efficiency **:** Reuse markups across components, Future changes are simple
 * Consistency **:** Updating reusable components get affected everywhere it is used
@@ -73,7 +73,7 @@ Here’s sample screenshot:
 
 **Example screenshot:**
 
-![](../../../../Design/FullExport/images/storage/image-20221111-043612.png) ![](../../../../Design/FullExport/images/storage/image-20221111-043912.png) ![](../../../../Design/FullExport/images/storage/image-20221111-044039.png)
+![](../../../../.gitbook/assets/image-20221111-043612.png) ![](../../../../.gitbook/assets/image-20221111-043912.png) ![](../../../../.gitbook/assets/image-20221111-044039.png)
 
 ***
 

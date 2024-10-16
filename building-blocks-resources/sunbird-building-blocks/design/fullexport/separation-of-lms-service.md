@@ -18,7 +18,7 @@ Restructuring of sunbird-utilssunbird-utils needs to hold specific core componen
 
 New structure is as below
 
-![](../../../../Design/FullExport/images/storage/sunbird-utils.png)
+![](../../../../.gitbook/assets/sunbird-utils.png)
 
 Brief description of each module
 

@@ -105,7 +105,7 @@ npm run start
 
 **How bot-client communicate with the server**
 
-![](<../../../../../Design/FullExport/images/storage/Screenshot 2021-12-29 at 4.39.31 PM.png>)
+![](<../../../../../.gitbook/assets/Screenshot 2021-12-29 at 4.39.31 PM.png>)
 
 ***
 

@@ -10,7 +10,7 @@
 
 **Design Flow:**
 
-![](../../../../Design/FullExport/images/storage/sync-device-profile-design.jpg)
+![](../../../../.gitbook/assets/sync-device-profile-design.jpg)
 
 **Solution:** The Device Register API writes the device profile changes to the Cassandra currently. Instead, the DeviceProfileUpdater Samza job will now write the data to Redis as well as Cassandra by reading it from the Kafka topic.
 

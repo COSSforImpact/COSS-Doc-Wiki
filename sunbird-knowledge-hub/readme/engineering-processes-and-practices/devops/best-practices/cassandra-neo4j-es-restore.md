@@ -326,9 +326,9 @@ Refs: [**https://askubuntu.com/questions/1001223/sudo-apt-get-install-tcl8-5-dev
 9. If there are any db’s in the output then use below cmd to get the keys count.
    1. **Select 1** ( where 1 is db1)
    2. **Keys \***
-   3. ![](<../../../../../.gitbook/assets/0 (6).png>)
+   3. ![](<../../../../../.gitbook/assets/0 (8).png>)
 
-![](<../../../../../.gitbook/assets/1 (2).png>)
+![](<../../../../../.gitbook/assets/1 (3).png>)
 
 1. **Document Refs of Restore redis dump:** [**https://www.digitalocean.com/community/tutorials/how-to-back-up-and-restore-your-redis-data-on-ubuntu-14-04**](https://www.digitalocean.com/community/tutorials/how-to-back-up-and-restore-your-redis-data-on-ubuntu-14-04)
 
@@ -336,11 +336,11 @@ Composite Search errors
 
 Production
 
-![](<../../../../../.gitbook/assets/2 (1).png>)
+![](<../../../../../.gitbook/assets/2 (4).png>)
 
 Restoring VM
 
-![](<../../../../../.gitbook/assets/3 (1).png>)
+![](<../../../../../.gitbook/assets/3 (4).png>)
 
 ES-LSM: Prod
 

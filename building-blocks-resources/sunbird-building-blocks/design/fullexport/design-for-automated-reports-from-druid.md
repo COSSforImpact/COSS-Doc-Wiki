@@ -9,7 +9,7 @@ This document describes the design to generate the data for the portal dashboard
 3. **Disable Report API** - This API will mark an existing report as disabled and will be excluded from the list of reports to be executed.
 4. **Report Data Generator** - The report data generator will be a spark job which will generate report data file by executing the query configured in the report configuration against the druid data store. The report data file will then be exported to cloud storage to complete the report execution.
 
-![](../../../../Design/FullExport/images/storage/reports\_from\_druid\_architecture.png)
+![](../../../../.gitbook/assets/reports\_from\_druid\_architecture.png)
 
 ### Configure Report API:
 
@@ -116,7 +116,7 @@ The individual report configurations can be saved to a Cassandra table. The drui
 
 ### Job Scheduler Engine:
 
-![](<../../../../Design/FullExport/images/storage/druid\_reports\_job\_scheduler (1).png>)
+![](<../../../../.gitbook/assets/druid\_reports\_job\_scheduler (1).png>)
 
 * **Input:**      - A list of reports in  **reports\_configuration** Cassandra table with the cron\_expression which falls within the current day of execution and with status as ENABLED.
 * **Algorithm:** \*\*              \*\*

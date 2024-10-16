@@ -19,9 +19,9 @@ Expand for more details
 2. Sunbird Obsrv’s Report Service allows creation of datasets that can be published as reports and charts that can be viewed from Sunbird Portal’s Admin Dashboard web UI. These reports are generated based on the frequency configured while publishing the report.
 3. Other custom data files such as Consent files and master data files (geo data, for example).
 
-![](<../../../../Design/FullExport/images/storage/Data Service (1).png>)
+![](<../../../../.gitbook/assets/Data Service (1).png>)
 
-![](<../../../../Design/FullExport/images/storage/Report Service.png>)
+![](<../../../../.gitbook/assets/Report Service.png>)
 
 **Dataset download considerations:**
 
@@ -42,16 +42,16 @@ In order to enable different types of access, SB will support configurations tha
 
 Below diagram explains the high level working flow on how the reports are rendered on the Portal Admin Dashboard.
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2022-04-20 at 3.57.25 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2022-04-20 at 3.57.25 PM.png>)
 
 * Roles which are supported in Admin Dashboard workflow
   * Report\_Admin
   * Report\_Viewer
   * Super\_Admin - INSTANCE\_ADMIN
 
-| **Pages**                                                                                            | **REPORT\_ADMIN \<SUPER\_ADMIN>**      | **State REPORT\_ADMIN** | **REPORT\_VIEWER** |
-| ---------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------------------- | ------------------ |
-| List Page![](<../../../../Design/FullExport/images/storage/Screenshot 2022-04-20 at 4.24.19 PM.png>) | <ul><li>Can see all Reports.</li></ul> |                         |                    |
+| **Pages**                                                                           | **REPORT\_ADMIN \<SUPER\_ADMIN>**      | **State REPORT\_ADMIN** | **REPORT\_VIEWER** |
+| ----------------------------------------------------------------------------------- | -------------------------------------- | ----------------------- | ------------------ |
+| List Page![](<../../../../.gitbook/assets/Screenshot 2022-04-20 at 4.24.19 PM.png>) | <ul><li>Can see all Reports.</li></ul> |                         |                    |
 
 * If report is parameterized, can see all the resolved parameterized versions of that report.
 * Can see all live, retired and draft reports

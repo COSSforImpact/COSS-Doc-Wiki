@@ -62,7 +62,7 @@ The Sunbird community is growing with adoption and contributions from various in
 
 The Sunbird family of digital public goods that act as building blocks to create solutions and DPIs in skilling and education are described below (also see [sunbird.org](https://sunbird.org/sunbird.org))
 
-![](<../../.gitbook/assets/0 (4).png>)
+![](<../../.gitbook/assets/0 (6).png>)
 
 **VISION**
 

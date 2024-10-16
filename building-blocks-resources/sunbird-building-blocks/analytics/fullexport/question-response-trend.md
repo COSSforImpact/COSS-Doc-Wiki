@@ -8,7 +8,7 @@ Jira Link : need to be updated!!!!
 
 **Proposed Design for Data Product** : This Report is generated based on Demand. This is an modification to the existing data product framework [https://project-sunbird.atlassian.net/wiki/pages/resumedraft.action?draftId=2718564384](https://project-sunbird.atlassian.net/wiki/pages/resumedraft.action?draftId=2718564384). To incorporate a PDF link based on the report type. PDF should contain number of charts based on number of questions, so each question should have different charts for the solution selected on the filter.
 
-![](<../../../../Analytics/Fullexport/images/storage/Question Response Trend.png>)
+![](<../../../../.gitbook/assets/Question Response Trend.png>)
 
 Sample Output PDF :
 

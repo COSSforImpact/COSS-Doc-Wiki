@@ -24,7 +24,7 @@ falseS1 Process - SupportThe S2 process outlines the basis of Severity Classific
 
 To create your process diagram, you may choose to click the required template from the link provided or you may use any tool or your preference. Save the process as an image and insert the image in this section.
 
-![](<../../../../Others/ekstepprocess-ind-unknown/images/storage/S2 MAP (4).png>)
+![](<../../../../.gitbook/assets/S2 MAP (4).png>)
 
 ## Appendix:
 

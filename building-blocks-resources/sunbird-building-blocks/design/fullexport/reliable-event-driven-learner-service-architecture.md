@@ -19,7 +19,7 @@ There are two types of events that Learner Service generates:
 * **Transactional** (generated due to DB update)
 * **Instructional** (e.g. manual sync, badge assertion, manual background job run)
 
-![](../../../../Design/FullExport/images/storage/image2019-3-25\_10-47-9.png)
+![](../../../../.gitbook/assets/image2019-3-25\_10-47-9.png)
 
 ### Audit Logging
 

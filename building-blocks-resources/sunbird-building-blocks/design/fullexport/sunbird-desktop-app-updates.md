@@ -6,7 +6,7 @@
 
 In this approach, we will provide the latest version of the app to the end-user then he needs to install with the new app which will be as follow
 
-![](<../../../../Design/FullExport/images/storage/App Updates 1.png>)
+![](<../../../../.gitbook/assets/App Updates 1.png>)
 
 | Operating System | Works |
 | ---------------- | ----- |
@@ -34,7 +34,7 @@ In this approach, we will provide the latest version of the app to the end-user 
 | Ubuntu           | No    |
 | Mac              | Yes   |
 
-![](<../../../../Design/FullExport/images/storage/App Updates electron builder.png>)
+![](<../../../../.gitbook/assets/App Updates electron builder.png>)
 
 **Pros**
 
@@ -58,7 +58,7 @@ In this approach, we will provide the latest version of the app to the end-user 
 | Ubuntu           | Yes   |
 | Mac              | Yes   |
 
-![](<../../../../Design/FullExport/images/storage/App Updates Custom.png>)
+![](<../../../../.gitbook/assets/App Updates Custom.png>)
 
 **Pros**
 

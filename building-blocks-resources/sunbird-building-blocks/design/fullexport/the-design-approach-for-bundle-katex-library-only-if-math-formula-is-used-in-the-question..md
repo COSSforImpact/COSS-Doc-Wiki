@@ -30,7 +30,7 @@ katex libraries on ECML. If 'data-math' && 'math-text' is available in questions
 
 Workflow:
 
-![](<../../../../Design/FullExport/images/storage/untitled (1).png>)
+![](<../../../../.gitbook/assets/untitled (1).png>)
 
 ***
 

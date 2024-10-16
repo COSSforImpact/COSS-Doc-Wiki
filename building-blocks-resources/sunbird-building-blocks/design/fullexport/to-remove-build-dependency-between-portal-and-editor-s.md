@@ -16,7 +16,7 @@ _Existing Build Process:_
 2. Portal build process downloads that artifact compressed file, uncompress it and stores it as it’s own artifact
 3. portal consumes these editors from its own file system which is currently being generated from portal’s gulp task
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (1).png>)
+![](<../../../../.gitbook/assets/Untitled Diagram (1).png>)
 
 ### Problem Statement:
 
@@ -41,7 +41,7 @@ We need to change the build and consumption process of content Editor(s) so that
 5. We can set the editor(s) endpoint as an environment variables
 6. Portal / Devices will use environment variable values as a source/ Endpoint and always loads the editor(s) from this endpoint
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (2).png>)
+![](<../../../../.gitbook/assets/Untitled Diagram (2).png>)
 
 #### Pros:
 

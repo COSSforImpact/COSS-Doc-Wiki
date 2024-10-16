@@ -11,7 +11,7 @@
 
 #### &#x20;Flowchart
 
-![](../../../../Design/FullExport/images/storage/QA.png)
+![](../../../../.gitbook/assets/QA.png)
 
 Related Jira Issues - [SB-5498 System JIRA](https://browse/SB-5498)
 

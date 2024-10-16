@@ -24,7 +24,7 @@ What is changing?
 
 Deployment planThe picture calls it a blue green deployment only for the purpose of distinction that it is not an in-place upgrade.
 
-![](<../../../../User/Fullexport2/images/storage/KC upgrade 6.0.1-Page-1.png>)
+![](<../../../../.gitbook/assets/KC upgrade 6.0.1-Page-1.png>)
 
 Migration steps **Pre-requisites**
 

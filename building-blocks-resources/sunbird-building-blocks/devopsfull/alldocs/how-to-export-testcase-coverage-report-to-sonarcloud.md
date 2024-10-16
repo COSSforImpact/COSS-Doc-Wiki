@@ -14,19 +14,19 @@ initial _username_ and _password_ will be **admin**
 
 Click on the create new project
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image2019-11-26\_11-6-24.png)
+![](../../../../.gitbook/assets/image2019-11-26\_11-6-24.png)
 
 Give a name for your project and click setup
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image2019-11-26\_11-7-37.png)
+![](../../../../.gitbook/assets/image2019-11-26\_11-7-37.png)
 
 Generate a token
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image2019-11-26\_11-8-37.png)
+![](../../../../.gitbook/assets/image2019-11-26\_11-8-37.png)
 
 Select your language
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image2019-11-26\_11-11-27.png)
+![](../../../../.gitbook/assets/image2019-11-26\_11-11-27.png)
 
 copy the above command and run it in your project(above example is for maven projects)
 
@@ -34,7 +34,7 @@ After that you should see something like this, if your project is analysed prope
 
 Note: you might have to refresh the page
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image2019-11-26\_11-13-55.png)
+![](../../../../.gitbook/assets/image2019-11-26\_11-13-55.png)
 
 If you want to export a specific coverage report
 
@@ -50,11 +50,11 @@ mvn verify sonar:sonar \
 
 Click on **Get project badges**
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image2019-12-16\_12-54-25.png)
+![](../../../../.gitbook/assets/image2019-12-16\_12-54-25.png)
 
 Copy the URL and paste it in the Github repository README file.
 
-![](../../../../DevOpsFull/AllDocs/images/storage/image2019-12-16\_12-52-33.png)
+![](../../../../.gitbook/assets/image2019-12-16\_12-52-33.png)
 
 ***
 

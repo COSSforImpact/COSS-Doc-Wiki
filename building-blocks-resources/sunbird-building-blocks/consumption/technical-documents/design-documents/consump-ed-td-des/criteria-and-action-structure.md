@@ -14,7 +14,7 @@ c) Technographic Segmentation - Mobile Devices, Software, OS, Technologies
 
 d) Behavioral Segmentation - Consumption Habits, BMGS Preferences, Collections Enrolled.
 
-![](../../../../../../Consumption/consump-ed-td-des/images/storage/user-segmentation.png)
+![](<../../../../../../.gitbook/assets/user-segmentation (1).png>)
 
 #### Existing System :
 

@@ -53,11 +53,11 @@ Pre-requisites: Assume that Textbook Framework and Question Meta Data are aligne
 
 **Overall System Level View**
 
-![](<../../../../Design/FullExport/images/storage/EQB Systems View.png>)
+![](<../../../../.gitbook/assets/EQB Systems View.png>)
 
 **CureIt: Ingestion Pipeline**
 
-![](<../../../../Design/FullExport/images/storage/EQB Source to Curation.png>)
+![](<../../../../.gitbook/assets/EQB Source to Curation.png>)
 
 **CureIt : Behavior**
 

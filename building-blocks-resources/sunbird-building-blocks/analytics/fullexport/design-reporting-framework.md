@@ -836,7 +836,7 @@ And the following issues:
 
 **Proposed Solution:** Based on the above observations, we propose to create a Reporting Framework on top of the existing analytics framework which will aid in building reports which are more maintainable, requires little development effort and learning curve and provides more stability.
 
-![](<../../../../Analytics/Fullexport/images/storage/Reporting framework (2).jpg>)
+![](<../../../../.gitbook/assets/Reporting framework (2).jpg>)
 
 ***
 

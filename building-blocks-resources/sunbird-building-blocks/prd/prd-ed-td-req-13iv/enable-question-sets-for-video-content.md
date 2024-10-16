@@ -13,7 +13,7 @@ Interactive Video is nothing but videos embedded with Question-sets. It is made 
 
 **Design:**
 
-![](<../../../../PRD/prd-ed-td-req-13iv/images/storage/Published Document.jpg>) **Solution:**
+![](<../../../../.gitbook/assets/Published Document.jpg>) **Solution:**
 
 We are using the existing [Quml-Player library](https://github.com/project-sunbird/sunbird-quml-player) to implement the Question-Sets on top of the Video along with the Video player library.
 

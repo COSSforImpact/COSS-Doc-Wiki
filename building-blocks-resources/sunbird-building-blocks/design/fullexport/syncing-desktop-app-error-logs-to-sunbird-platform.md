@@ -49,7 +49,7 @@ Cons:&#x20;
 1. The error will be kept in both DB and file system in log folders.
 2. Need to maintain this DB
 
-![](../../../../Design/FullExport/images/storage/error\_logging\_with\_DB.png)
+![](../../../../.gitbook/assets/error\_logging\_with\_DB.png)
 
 **Solution 2: Reading logs from the file system and syncing**
 
@@ -64,7 +64,7 @@ Pros:
 Cons:
 
 1. Logs will only be available for the configured time.
-2. Hard to keep track of which all data is synced.![](../../../../Design/FullExport/images/storage/error\_logging\_without\_DB.png)
+2. Hard to keep track of which all data is synced.![](../../../../.gitbook/assets/error\_logging\_without\_DB.png)
 
 **Telemetry Events**
 

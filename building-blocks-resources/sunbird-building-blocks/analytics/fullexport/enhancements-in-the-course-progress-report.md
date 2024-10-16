@@ -348,7 +348,7 @@ We already get the user’s self declared state as state\_name (point: 2.1) and 
 
 **Current Implementation:**
 
-![](../../../../Analytics/Fullexport/images/storage/image-20200529-052503.png)
+![](../../../../.gitbook/assets/image-20200529-052503.png)
 
 **Configuration:**
 

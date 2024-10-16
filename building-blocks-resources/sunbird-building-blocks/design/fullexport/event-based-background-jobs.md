@@ -9,7 +9,7 @@ Current system is not event driven. And all background jobs are handled by one o
 
 ## &#x20;  Design for handling event based system :
 
-![](<../../../../Design/FullExport/images/storage/Untitled drawing.png>)
+![](<../../../../.gitbook/assets/Untitled drawing.png>)
 
 \[\[Data Persistence while processing events using kafka/ queues.|Data-Persistence-while-processing-events-using-kafka--queues.]].
 
@@ -157,7 +157,7 @@ Pros and Cons for using Samza consumer:
 
 \| | | Samza will work with couple of message source |
 
-![](../../../../Design/FullExport/images/storage/samza-arch4.png)
+![](../../../../.gitbook/assets/samza-arch4.png)
 
 ### Event structure:
 
@@ -291,7 +291,7 @@ Example:
 
 ## Current Relation for Api , Cassandra and ES update:
 
-![](../../../../Design/FullExport/images/storage/Api-cassandra-es.png)
+![](../../../../.gitbook/assets/Api-cassandra-es.png)
 
 ```java
       API:            ES                                   Tables cassandra 
@@ -366,7 +366,7 @@ Option 1:&#x20;
 
 &#x20;Event generation from data access layer.
 
-![](../../../../Design/FullExport/images/storage/eventGenerationFromDao.png)
+![](../../../../.gitbook/assets/eventGenerationFromDao.png)
 
 Create user example:
 

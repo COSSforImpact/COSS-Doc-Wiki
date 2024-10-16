@@ -8,7 +8,7 @@ From this automation implementation, superset core code will be taken upstream r
 
 ### Implementation Workflow
 
-![](<../../../../Design/FullExport/images/storage/Hawkeye Automation.jpeg>)
+![](<../../../../.gitbook/assets/Hawkeye Automation.jpeg>)
 
 ### Hawkeye related files and usages of it
 

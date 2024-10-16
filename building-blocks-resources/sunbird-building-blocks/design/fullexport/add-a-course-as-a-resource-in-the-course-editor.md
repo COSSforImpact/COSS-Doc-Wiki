@@ -18,7 +18,7 @@ _Config:-_
 	}, 
 ```
 
-![](<../../../../Design/FullExport/images/storage/Screenshot\_from\_2020\_05\_23\_13\_36\_34 (1).png>)
+![](<../../../../.gitbook/assets/Screenshot\_from\_2020\_05\_23\_13\_36\_34 (1).png>)
 
 * By clicking on the root node(three dots) - Add “New Child“ and “Add Resource“ will show
 * By selecting on the root node meta form should not show for the root node
@@ -28,7 +28,7 @@ _Config:-_
 * By clicking on the add resource “Latest course“ section will show along with the other resource sections
 * After adding the “Course” in the root node the courseUnit/resource/collection of that course will show in the preview section
 
-![](../../../../Design/FullExport/images/storage/Screenshot\_from\_2020\_05\_23\_14\_06\_16.png)
+![](../../../../.gitbook/assets/Screenshot\_from\_2020\_05\_23\_14\_06\_16.png)
 
 * The new child and new sibling on the selection of any published course/resource/collection will be disabled.
 

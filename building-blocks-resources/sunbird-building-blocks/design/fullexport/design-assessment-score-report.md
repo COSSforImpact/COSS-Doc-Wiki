@@ -19,7 +19,7 @@ Total Score // Total score of the all assessment in a course( Eg: 2/3+3/4+2/3=7/
 
 **Diagram:**
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2019-08-26 at 6.01.37 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2019-08-26 at 6.01.37 PM.png>)
 
 As per the above diagram, Router job should route all ASSESS events into Assessment Samza Job which compute and update the RDBMS table.The assessment data product which read and joins the data from multiple tables and will generates the assessment report per batch and uploads to azure cloud storage.
 
@@ -38,7 +38,7 @@ As per the above diagram, Router job should route all ASSESS events into Assessm
 
 **Solution - 2: API and Data product**
 
-![](<../../../../Design/FullExport/images/storage/Screenshot 2019-08-27 at 11.31.56 AM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2019-08-27 at 11.31.56 AM.png>)
 
 As per the above diagram, End user will sync the assess events through api, which will update the database with computed values. The assessment data product which read data from the database and will generate the reports per batch and uploads to azure cloud storage.
 

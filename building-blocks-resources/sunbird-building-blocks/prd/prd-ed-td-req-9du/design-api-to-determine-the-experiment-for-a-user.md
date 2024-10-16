@@ -10,7 +10,7 @@ Block diagram below shows the high-level design of experimentation service. To d
 
 Spark jobs can populate the experiment data from User/Org/Device database using the "Experiment definition". Whenever there is a change in the definition, the data product should be re-run to refresh the cache.
 
-![](<../../../../PRD/prd-ed-td-req-9du/images/storage/Untitled Diagram.jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram (6).jpg>)
 
 ### API structure:
 

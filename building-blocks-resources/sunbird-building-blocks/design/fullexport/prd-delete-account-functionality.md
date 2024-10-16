@@ -186,7 +186,7 @@ The support/admin will be provided with a script to transfer resources from one 
     2. The pop will have a button to Email Support to initiate a request to revoke access.
     3. The user confirms the email trigger using a One-Time Password (OTP) sent via SMS and email
 
-![Email Support.png](<../../../../Design/FullExport/images/storage/Email Support.png>)
+![Email Support.png](<../../../../.gitbook/assets/Email Support.png>)
 
 ```
 1. Upon confirmation, an email preview will be displayed to the user which the user can edit, and upon confirming which, the email is sent to the support team, indicating the deletion request.

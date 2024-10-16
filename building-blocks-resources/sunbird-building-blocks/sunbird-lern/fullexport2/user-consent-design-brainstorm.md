@@ -37,7 +37,7 @@ The consent is computed for a given user, organisation (subject) and object. The
   * For KA-C3 collection - Consent not provided and its value is false.
   * Consent: false (KA.consent || KA-C3.consent)
 
-![](../../../../User/Fullexport2/images/storage/user-consent-design-1.png)
+![](../../../../.gitbook/assets/user-consent-design-1.png)
 
 The sunbird platform provides the Consent APIs to read or update for a given subject (organisation) and object. The APIs completely use the data available in DB for the read API response and returns 404 (Not Found) in case of the consent data not there in DB.
 

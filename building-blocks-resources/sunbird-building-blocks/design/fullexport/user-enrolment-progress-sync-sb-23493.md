@@ -8,7 +8,7 @@ This document provides API spec for sync API and event structure to be process b
 
 Below diagram depicts the design proposed for the enrolment sync process.
 
-![](../../../../Design/FullExport/images/storage/enrolment\_sync.png)
+![](../../../../.gitbook/assets/enrolment\_sync.png)
 
 | **Enrolment Sync API**                                                                                                                                    | **Enrolment Sync - Spark job**                                                                                                          |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |

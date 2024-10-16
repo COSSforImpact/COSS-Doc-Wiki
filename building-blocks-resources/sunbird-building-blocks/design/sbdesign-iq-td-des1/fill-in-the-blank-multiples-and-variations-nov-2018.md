@@ -94,7 +94,7 @@ Linked responses with 2 or more blanksIf Karnataka then Kannada, and so on..
 
 Scope - KeyboardResponse mechanism for players
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/image2018-12-4\_17-39-46.png)AvailableAndroid keyboard
+![](<../../../../.gitbook/assets/image2018-12-4\_17-39-46 (1).png>)AvailableAndroid keyboard
 
 Custom keyboard - standard Alpha Num
 
@@ -165,7 +165,7 @@ Answer: a = Any of \[Tamilnadu | TN | Tamil nadu, Kerala, Andhra Pradesh | Andhr
 
 \* => the answer or its variations.
 
-Design for Category 1 & 2![](../../../../Design/sbdesign-iq-td-des1/images/storage/image2018-12-4\_17-41-2.png)Editor Capabilities
+Design for Category 1 & 2![](<../../../../.gitbook/assets/image2018-12-4\_17-41-2 (1).png>)Editor Capabilities
 
 1. CKEditor menu will have a toolbar icon to drop a blank on to the question area.
 2. When the blank is inserted, the Answers area will get populated with a field to allow adding one or more answer variations for the blank.
@@ -173,7 +173,7 @@ Design for Category 1 & 2![](../../../../Design/sbdesign-iq-td-des1/images/stora
 
 Design for Category 3 & 4
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/image2018-12-4\_17-42-30.png)Editor Capabilities
+![](<../../../../.gitbook/assets/image2018-12-4\_17-42-30 (1).png>)Editor Capabilities
 
 1. In addition to the capabilities above, when more than one answer is selected (check on the checkbox), user will be able to group the blanks.
 2. Now, the individual fields against the blanks will be hidden, instead a list of such fields will be made available for the user to add answers and the variations.
@@ -190,11 +190,11 @@ The Capital city of India:
 
 Question ModelSolution 1The question model will contain the further details of the blanks.
 
-Category 1 & 2![](../../../../Design/sbdesign-iq-td-des1/images/storage/image2018-12-4\_17-43-35.png)
+Category 1 & 2![](<../../../../.gitbook/assets/image2018-12-4\_17-43-35 (1).png>)
 
 Category 3 & 4
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/image2018-12-4\_17-44-2.png)
+![](<../../../../.gitbook/assets/image2018-12-4\_17-44-2 (1).png>)
 
 Solution 2
 
@@ -342,7 +342,7 @@ TelemetryDevelopment Tasks
 
 Approach 2 - Without significant UI changesIn this approach, we will try to arrive at a design which does not involve too much of UI refresh, but capture the necessary functionalities to achieve the requirement as stated in the JIRA issue.
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/image2018-12-4\_17-45-20.png)
+![](<../../../../.gitbook/assets/image2018-12-4\_17-45-20 (1).png>)
 
 1. Format: \[\[Answer]] instead of \[\[Answer]] . (\[\[Answer]] format will also be supported for ungrouped blanks)
 2. The will allow to group blanks that belong to a group.

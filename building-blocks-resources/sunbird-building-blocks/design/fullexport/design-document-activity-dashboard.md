@@ -186,7 +186,7 @@ getAssessments(hierarchyData) {
 
 Create a NPM package which can be used any where
 
-![](../../../../Design/FullExport/images/storage/dashlets.png)
+![](../../../../.gitbook/assets/dashlets.png)
 
 ***
 

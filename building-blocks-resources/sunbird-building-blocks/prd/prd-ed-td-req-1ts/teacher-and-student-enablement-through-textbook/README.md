@@ -44,21 +44,21 @@ Additionally a teacher may also find useful
 
 Enable teachers and students to engage with a textbook using a variety of resources. Some of the possible JTBDs for a teacher, student, or parent are
 
-![Value for a senior student](<../../../../../PRD/prd-ed-td-req-1ts/images/storage/CBSE Launch\_Value 3.jpg>)
+![Value for a senior student](<../../../../../.gitbook/assets/CBSE Launch\_Value 3.jpg>)
 
-![Value for an experienced teacher](<../../../../../PRD/prd-ed-td-req-1ts/images/storage/CBSE Launch\_Value 1.jpg>)
+![Value for an experienced teacher](<../../../../../.gitbook/assets/CBSE Launch\_Value 1.jpg>)
 
-![Value for a young teacher](<../../../../../PRD/prd-ed-td-req-1ts/images/storage/CBSE Launch\_Value 2.jpg>)
+![Value for a young teacher](<../../../../../.gitbook/assets/CBSE Launch\_Value 2.jpg>)
 
-![Value for a middle school student](<../../../../../PRD/prd-ed-td-req-1ts/images/storage/CBSE Launch\_Value 4.jpg>)
+![Value for a middle school student](<../../../../../.gitbook/assets/CBSE Launch\_Value 4.jpg>)
 
-![Value for a parent (mother)](<../../../../../PRD/prd-ed-td-req-1ts/images/storage/CBSE Launch\_Value 5.jpg>)
+![Value for a parent (mother)](<../../../../../.gitbook/assets/CBSE Launch\_Value 5.jpg>)
 
 #### Resources to enable JTBDs
 
 To deliver these values, following types of resources can be made available using Textbook in SunbirdEd
 
-![](<../../../../../PRD/prd-ed-td-req-1ts/images/storage/CBSE Launch\_Value Resources.png>)
+![](<../../../../../.gitbook/assets/CBSE Launch\_Value Resources.png>)
 
 ### Workflow for creation programmes
 

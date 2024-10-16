@@ -60,7 +60,7 @@ As more states/tenants are coming on-board, user interfaces needs to be translat
   * **Tamil content pieces** - content pieces will be shown in RTL direction with font size 2 points smaller than English font.
   * **Urdu content pieces** - content pieces will be shown in RTL direction.
 
-![](../../../../Design/FullExport/images/storage/RTL-screen-English-min.jpg)
+![](../../../../.gitbook/assets/RTL-screen-English-min.jpg)
 
 (Click on image to view it in full screen)
 

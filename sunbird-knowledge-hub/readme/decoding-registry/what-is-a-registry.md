@@ -12,7 +12,7 @@ This document discusses what a registry is and is not. This document articulates
 
 Ledgers and spreadsheets of master data always existed in some form. These were updated for record keeping purposes and were available only at the hands of the administrator. Then they were made viewable to users via web portals. Even then, these were still closed to edits and programmatic access for inter-department consumptions. When a need arose, a copy was taken and the data was duplicated. What we are about to discuss is the Type 4 of this evolution.
 
-![](<../../../.gitbook/assets/0 (1) (1).png>)
+![](<../../../.gitbook/assets/0 (2).png>)
 
 Until Type-3, it was the ‘closed’ access and ‘control’ that prevented these data from being ‘up-to-date’. After a while, these data became outdated, losing credibility. Once the truth got lost, the usage of such data was lost along, simply because there was no ‘good’ data to verify or there were doubts lingering about its credibility.
 

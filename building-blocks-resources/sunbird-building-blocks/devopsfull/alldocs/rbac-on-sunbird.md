@@ -87,7 +87,7 @@ For the slide deck on RBAC and implementation design, please check out - [https:
 
 * Addminutils will invoke the get user roles API and append the roles and orgs information to JWT token, sign it and then issue it to the user
 
-New flow on Portal and Mobile for anonymous and logged sessions![](<../../../../DevOpsFull/AllDocs/images/storage/RBAC Drawings-Issuing JWT Adminutils-20210729-054419.jpg>)
+New flow on Portal and Mobile for anonymous and logged sessions![](<../../../../.gitbook/assets/RBAC Drawings-Issuing JWT Adminutils-20210729-054419.jpg>)
 
 * The portal and mobile both will do a recaptcha check and pass the recaptcha response to backend for verification (portal backend in case of portal, android recapthca check in case of mobile)
 * Once recaptcha response is verified, an API call is made for anonymous session to fetch a token for the user
@@ -112,7 +112,7 @@ Registered users can obtain a token
   * Second way is to obtain a token first from keycloak, then use the keycloak’s refresh token to obtain a new token from adminutils which will have your roles information. You can use the access token issued by adminutils to invoke APIs using the /api endpoints
 * In either approach, what APIs you can access is decided by what roles you have on the system
 
-![](<../../../../DevOpsFull/AllDocs/images/storage/RBAC Drawings-User Request Tokens-20210729-063002.jpg>)
+![](<../../../../.gitbook/assets/RBAC Drawings-User Request Tokens-20210729-063002.jpg>)
 
 * Note: Kong validating the Keycloak’s refresh token is not yet tested. But since the refresh token from keycloak is of type HS256, and we know the secret to be used to verify the HS256 signature and the iss to be used in Kong for validation (the domain), so we should be able to validate the keycloak token signature in kong also by onboarding a consumer with iss and the secret
 

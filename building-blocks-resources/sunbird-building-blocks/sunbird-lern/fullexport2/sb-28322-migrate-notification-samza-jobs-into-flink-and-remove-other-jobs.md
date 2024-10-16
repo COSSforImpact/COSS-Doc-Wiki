@@ -43,9 +43,9 @@ Using jobs-core/notification-sdk as dependencies
 
 ### Flink module structure vs Samza module structure:
 
-| Flink module                                                                                | Samza Module                                                                                |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| ![](<../../../../User/Fullexport2/images/storage/Screenshot 2022-04-22 at 12.49.11 PM.png>) | ![](<../../../../User/Fullexport2/images/storage/Screenshot 2022-04-22 at 12.52.57 PM.png>) |
+| Flink module                                                                | Samza Module                                                                |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| ![](<../../../../.gitbook/assets/Screenshot 2022-04-22 at 12.49.11 PM.png>) | ![](<../../../../.gitbook/assets/Screenshot 2022-04-22 at 12.52.57 PM.png>) |
 
 ### Technologies upgrade:
 

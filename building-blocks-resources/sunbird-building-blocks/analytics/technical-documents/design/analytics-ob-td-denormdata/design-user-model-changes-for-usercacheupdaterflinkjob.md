@@ -11,9 +11,9 @@ Reference Wiki Links:
 
 Current Design Implementation:
 
-![](../../../../../../Analytics/analytics-ob-td-denormdata/images/storage/5e2eebdd-3941-463c-b485-41c761ceeb55.png) **Proposed Designed:**
+![](<../../../../../../.gitbook/assets/5e2eebdd-3941-463c-b485-41c761ceeb55 (1).png>) **Proposed Designed:**
 
-![](../../../../../../Analytics/analytics-ob-td-denormdata/images/storage/UserCacheUpdatedFlinkJobDesign.png)
+![](<../../../../../../.gitbook/assets/UserCacheUpdatedFlinkJobDesign (1).png>)
 
 User Read API Requestcurl --location --request GET 'http://{Private LB}/learner/private/user/v1/read/:uuid?fields=locations'
 

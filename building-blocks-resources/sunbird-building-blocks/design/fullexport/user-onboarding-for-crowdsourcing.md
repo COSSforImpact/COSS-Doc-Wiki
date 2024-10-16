@@ -22,7 +22,7 @@ Jira Issue ​[SB-16608: User Onboarding for ContributionOpen](https://project-s
 
 ### Workflow:
 
-![](<../../../../Design/FullExport/images/storage/program crowdsourcing.jpg>)
+![](<../../../../.gitbook/assets/program crowdsourcing.jpg>)
 
 ### 1. How to map program & container specific to the program?
 

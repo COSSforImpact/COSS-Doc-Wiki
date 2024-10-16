@@ -25,13 +25,13 @@ This design proposes solutions to make sure the followings are handled
 2. Content which aggregates other content pieces to automatically attribute the entities who created those items.
 3. Content copy to attribute the source of the content where it was copied from.
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram (1).jpg>)
+![](<../../../../.gitbook/assets/Untitled Diagram (1).jpg>)
 
 ### Solution 1 - Using the framework level FormAPI
 
 Sunbird portal, going forward, will give property organisations inside users objects in the window.context.
 
-![](<../../../../Design/FullExport/images/storage/Screen Shot 2018-10-03 at 11.11.12 AM.png>)
+![](<../../../../.gitbook/assets/Screen Shot 2018-10-03 at 11.11.12 AM.png>)
 
 and when the content is created two new properties will be created based on what the creator is choosing from the owner dropdown.
 
@@ -44,7 +44,7 @@ With the already available information about the collection/course, (createdBy, 
 
 It will have the following object structure:-
 
-![](<../../../../Design/FullExport/images/storage/Screen Shot 2018-10-03 at 11.24.00 AM.png>)
+![](<../../../../.gitbook/assets/Screen Shot 2018-10-03 at 11.24.00 AM.png>)
 
 MOM with @santhosh(19th September’18):
 

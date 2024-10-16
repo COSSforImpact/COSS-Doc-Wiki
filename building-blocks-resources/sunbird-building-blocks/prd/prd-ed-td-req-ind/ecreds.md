@@ -30,7 +30,7 @@ OverviewThis use case deals with enabling state to:
 
 Overall Process Workflow
 
-![](<../../../../PRD/prd-ed-td-req-ind/images/storage/Certificate WorkFlow\_v1.1 (1).png>)
+![](<../../../../.gitbook/assets/Certificate WorkFlow\_v1.1 (1).png>)
 
 User Story 1 OverviewAs a course author, for the course authored by me, I want to configure course completion certificate to be issued upon completion of the course.
 
@@ -381,7 +381,7 @@ As a state admin, I should be able to re-issue certificates to state teachers wh
 
 **Workflow**
 
-![](<../../../../PRD/prd-ed-td-req-ind/images/storage/Certificate Reissue WorkFlow\_v1.0.png>)
+![](<../../../../.gitbook/assets/Certificate Reissue WorkFlow\_v1.0.png>)
 
 | Sr No | User Action                                                                        | Expected Result                                                                                                                                                                                                                                                 |
 | ----- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

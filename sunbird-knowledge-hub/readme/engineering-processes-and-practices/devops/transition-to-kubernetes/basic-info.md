@@ -22,13 +22,13 @@ Cons:
 * No way to get realtime telemetry or metrics about the state of infra (especially service communication)
 * No platforms like knative or istio, which is an instant value add-on for both/infra and addon
 
-![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/infra.png)
+![](<../../../../../.gitbook/assets/infra (1).png>)
 
 ### Container Fundamentals
 
 * **VM vs Container**
 
-![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/VM.png) ![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/Container.png)
+![](<../../../../../.gitbook/assets/VM (1).png>) ![](<../../../../../.gitbook/assets/Container (1).png>)
 
 * **Key concepts of container**
   * Containers are applications which is restricted by kernel feature called namespaces

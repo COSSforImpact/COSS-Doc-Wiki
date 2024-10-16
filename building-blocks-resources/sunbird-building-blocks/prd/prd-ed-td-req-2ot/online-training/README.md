@@ -87,7 +87,7 @@ The scope for this use case is \*\*'Digitized Certificates'. \*\*
 
 Epic JIRA Ticket ID[SB-11097 System JIRA](https://browse/SB-11097)
 
-Use Case 1: Issue of Course Completion Certificate - Overall Process Workflow![](<../../../../../PRD/prd-ed-td-req-2ot/images/storage/Certificate workflow (1).jpg>)
+Use Case 1: Issue of Course Completion Certificate - Overall Process Workflow![](<../../../../../.gitbook/assets/Certificate workflow (1).jpg>)
 
 Use Case 1: Issue of Course Completion Certificate: Assertion of certificate to a course - OverviewMain Scenario:Assertion of a certificate to a course will be done using a API from the back end. API will be used to carry out the following functions:
 

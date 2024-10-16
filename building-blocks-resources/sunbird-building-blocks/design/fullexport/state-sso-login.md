@@ -46,7 +46,7 @@ Now based on new requirement there are some changes in new request body and stat
 
 ### Current SSO login work flow:
 
-![](../../../../Design/FullExport/images/storage/SSO.png)
+![](../../../../.gitbook/assets/SSO.png)
 
 Here loginId is **userName@channel** value.
 

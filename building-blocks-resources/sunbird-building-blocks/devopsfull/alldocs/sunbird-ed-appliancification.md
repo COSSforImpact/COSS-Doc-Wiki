@@ -6,7 +6,7 @@ This document details out the approach and design to setup Sunbird Ed for differ
 
 Leverage Easy installer (cli mode) to setup all containerised and non-containerised workloads in kuberentes cluster where all the non-containerised workloads like databases to be run in in HA mode using the respective kubernetes operators. Provide Rancher as part of setup to manage the k8s clsuter
 
-![](../../../../DevOpsFull/AllDocs/images/storage/Ed-Prodsetup-k8s.png)Advantages:
+![](../../../../.gitbook/assets/Ed-Prodsetup-k8s.png)Advantages:
 
 * Installation and upgrade process will be easy
 * Cost of infra will be less as all the stateful workloads also run in k8s cluster
@@ -28,7 +28,7 @@ Challenges:
 
 Leverage the Jenkins setup where containerised services are deployed to the kuberentes cluster and non-containerised services are deployed on to Virtual machines. Create wrapper jenkins jobs to provision & configure the services and deploy the services
 
-![](../../../../DevOpsFull/AllDocs/images/storage/Ed-ProdSetup-k8s-VM.png)Advantages:
+![](../../../../.gitbook/assets/Ed-ProdSetup-k8s-VM.png)Advantages:
 
 * Leverage existing ansible scripts to setup databases on Virtual Machines (Compute instances)
 * Jenkins based installation which user can visualise the builds and deployments

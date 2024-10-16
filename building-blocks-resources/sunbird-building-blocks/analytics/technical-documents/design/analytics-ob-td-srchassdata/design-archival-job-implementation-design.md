@@ -24,7 +24,7 @@ Below are the key design problems
 
 The archival task is a generic job that may be extended and implemented by any other job in order to archive and delete records from a specified table.
 
-![](../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/data-archival.png)
+![](<../../../../../../.gitbook/assets/data-archival (1).png>)
 
 **Job configuration**
 
@@ -65,7 +65,7 @@ CREATE TABLE archival_metadata (
 
 **Flow Chart**
 
-![](../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/a6d256e9-abf8-4538-9e72-b0c61fb8bf5c.png)
+![](<../../../../../../.gitbook/assets/a6d256e9-abf8-4538-9e72-b0c61fb8bf5c (1).png>)
 
 **To Discuss:**
 

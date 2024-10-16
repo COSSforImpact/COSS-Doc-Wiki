@@ -2,7 +2,7 @@
 
 This document explains what components of Sunbird inQuiry (version: **release-5.2.0** ) uses Cloud Storage and how to integrate new Cloud Storage.
 
-![](../../../../Design/sbdesign-iq-td-des1/images/storage/inq\_2.jpeg)
+![](<../../../../.gitbook/assets/inq\_2 (1).jpeg>)
 
 * Above diagram shows inQuiry components (marked in yellow colour) and its connections with cloud storage.
 * As of now inQuiry supports cloud storage operations with Azure, Aws, Google Storage.

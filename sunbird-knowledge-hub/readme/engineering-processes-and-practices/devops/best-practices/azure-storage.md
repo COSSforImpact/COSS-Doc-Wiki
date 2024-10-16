@@ -15,7 +15,7 @@ Massively scalable and secure object storage for cloud-native workloads, archive
 * Setup alert notifications for Create/Update storage accounts to detect unauthorized and suspicious activity
 * Enable immutable blob storage feature for blob containers that hold sensitive and business critical data. This makes the data non-erasable and non-modifiable.
 * Limit the storage account access by IP
-  * ![](<../../../../../.gitbook/assets/0 (5).png>)
+  * ![](<../../../../../.gitbook/assets/0 (7).png>)
 * Rotate storage account keys periodically
 * Encrypt the storage account using BYOK (Bring your own keys)
 

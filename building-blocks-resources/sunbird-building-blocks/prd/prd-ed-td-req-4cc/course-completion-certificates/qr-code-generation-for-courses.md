@@ -86,7 +86,7 @@ None
 
 **UI design**
 
-![](<../../../../../PRD/prd-ed-td-req-4cc/images/storage/Download course QR code.png>)
+![](<../../../../../.gitbook/assets/Download course QR code.png>)
 
 Button active state  \*\*#07BC81 \*\* use this color code
 

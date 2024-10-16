@@ -12,7 +12,7 @@ Whenever the content editor will create content as self-assessment content, we w
 
 If content editor edits the same content we will hide the stage from the content editor and after saving we will add the stage again.
 
-![](../../../../Design/FullExport/images/storage/editor.png)
+![](../../../../.gitbook/assets/editor.png)
 
 Stage ECML sample
 
@@ -48,7 +48,7 @@ Stage ECML sample
 
 **Solution 2:** Handling on consumption side as an end-page plugin(merging summary plugin & end page)we can club the summary and end page plugin which will behave as an assessment end page plugin. Based on the config received by the player we will switch the end page.
 
-![](../../../../Design/FullExport/images/storage/playerside\_changes.png)
+![](../../../../.gitbook/assets/playerside\_changes.png)
 
 **Pros:**
 

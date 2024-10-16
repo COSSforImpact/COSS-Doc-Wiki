@@ -15,7 +15,7 @@ icon: elementor
 
 #### &#x20;Flowchart
 
-![](../../../../../../../Design/sbdesign-ed-kn-frameworknbp/images/storage/QA.png)
+![](<../../../../../../../.gitbook/assets/QA (1).png>)
 
 Related Jira Issues - [SB-5498 System JIRA](https://browse/SB-5498)
 

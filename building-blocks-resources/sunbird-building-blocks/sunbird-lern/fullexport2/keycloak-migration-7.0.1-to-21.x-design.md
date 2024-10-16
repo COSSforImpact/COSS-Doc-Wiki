@@ -158,7 +158,7 @@ user-org, lms services related keycloak-admin-cleint 21.1.1 dependency jar insid
 
 **High Level Diagram**
 
-![](../../../../User/Fullexport2/images/storage/image.png)Migrating Keycloak sever in local:
+![](../../../../.gitbook/assets/image.png)Migrating Keycloak sever in local:
 
 1. Install keycloak-7.0.1 server in local
 2. keycloak-7.0.1 connected to postgres server and postgres is loaded with dev data.

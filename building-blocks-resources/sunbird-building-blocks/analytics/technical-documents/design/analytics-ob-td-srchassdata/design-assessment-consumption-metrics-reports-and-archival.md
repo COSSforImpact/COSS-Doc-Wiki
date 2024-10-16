@@ -19,7 +19,7 @@ But, after archival also, we should be able to generate the reports and APIs sho
 
 **API Changes - Viewing Service Assess Update API**
 
-![](<../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/81b14053-b86d-4ab4-a697-fa1a130e5d24 copy.png>)Both viewing services assess update API and content state update API will push the ASSESS telemetry
+![](<../../../../../../.gitbook/assets/81b14053-b86d-4ab4-a697-fa1a130e5d24 copy (1).png>)Both viewing services assess update API and content state update API will push the ASSESS telemetry
 
 events to Kafka service. The assessment aggregator Flink job reads from Kafka which computes the best attempt score and updates into the user\_activity\_aggregator table, assessment consumption data into assessment\_aggregator table and the best\_score, max\_score & last\_attempted\_score, etc like (min\_score & average\_score) will update into the assessment\_aggregator\_v2 table.
 
@@ -91,7 +91,7 @@ The viewing service assesses read API which reads the aggregated assessment data
 
 **Assessment Data Archival:** **Archival Data Product**
 
-![](../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/81b14053-b86d-4ab4-a697-fa1a130e5d24.png)The assessment archival data product runs once a week, fetches assessment consumption data from the assessment aggregator tables, and creates the partition batch report based on the batch identifier, Year & Week number from the last updated column.
+![](<../../../../../../.gitbook/assets/81b14053-b86d-4ab4-a697-fa1a130e5d24 (1).png>)The assessment archival data product runs once a week, fetches assessment consumption data from the assessment aggregator tables, and creates the partition batch report based on the batch identifier, Year & Week number from the last updated column.
 
 Once the partition reports are generated, it will upload those partition files into cloud storage below format and the data in the table will be cleared.
 
@@ -99,7 +99,7 @@ $container/archived-batches/assessment/$batchid-$year-$week-num-.
 
 **Response Exhaust Job**
 
-![](../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/response-exhaust-changes.png)The Response Exhaust Job for a particular batch identifier will fetches and merge both archived data from cloud storage which is being uploaded by archival data product and assessment \_aggregate tables.
+![](<../../../../../../.gitbook/assets/response-exhaust-changes (1).png>)The Response Exhaust Job for a particular batch identifier will fetches and merge both archived data from cloud storage which is being uploaded by archival data product and assessment \_aggregate tables.
 
 On the success of merge, it will generate the response exhaust report and uploads it into cloud storage.
 

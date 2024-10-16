@@ -5,7 +5,7 @@
 * Tightening to control the traffic flow between internal services
 * Setting inbound and outbound rules and restricting ports
 
-![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/NSGFinetuning-min.jpg)
+![](<../../../../../.gitbook/assets/NSGFinetuning-min (1).jpg>)
 
 #### Multi Factor Authentication
 

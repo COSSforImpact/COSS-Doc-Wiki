@@ -137,7 +137,7 @@ Any community member can bring in a need and anyone can develop or implement the
 
 The different types of contributions and the workflow, processes and tools involved are detailed in the next sections
 
-![](<../../../../../.gitbook/assets/0 (8).png>)
+![](<../../../../../.gitbook/assets/0 (10).png>)
 
 ### &#x20;<a href="#wy9ay2kxda9d" id="wy9ay2kxda9d"></a>
 
@@ -209,7 +209,7 @@ Before bringing up a need in the discussion forum, contributor(s) are recommende
 
 Below diagram details the workflow for the need contribution
 
-![](<../../../../../.gitbook/assets/1 (4).png>)
+![](<../../../../../.gitbook/assets/1 (5).png>)
 
 * Exceptions to the above workflow
   * Bug/Documentation/Installation issues can directly be reported in the Issue tracker in below cases
@@ -230,7 +230,7 @@ Below diagram details the workflow for the need contribution
 
 The below diagram captures a very high level workflow of how an issue flows between various stages.
 
-![](<../../../../../.gitbook/assets/2 (3).png>)
+![](<../../../../../.gitbook/assets/2 (6).png>)
 
 #### How to start ? <a href="#id-1gla9g70avh0" id="id-1gla9g70avh0"></a>
 

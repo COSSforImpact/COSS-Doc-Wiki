@@ -70,7 +70,7 @@ _Private Public_
 
 _Pictorial representation_
 
-![](../../../../../DevOpsFull/devops-kn-hw2/images/storage/Workflow.png)
+![](<../../../../../.gitbook/assets/Workflow (2).png>)
 
 _How will an adopter run this process?_
 

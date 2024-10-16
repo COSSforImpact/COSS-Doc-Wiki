@@ -60,7 +60,7 @@ JIRA LINK: [SB-16574 System JIRA](https://browse/SB-16574)
 
     The course consumption job will take the metrics from BaseCourseMetrics and query druid to get the total Timespent per course(in mins) and generate output csv grouping by slug.
 
-![](../../../../Analytics/Fullexport/images/storage/updated-TPD-design.png)
+![](../../../../.gitbook/assets/updated-TPD-design.png)
 
 **Queries:**
 

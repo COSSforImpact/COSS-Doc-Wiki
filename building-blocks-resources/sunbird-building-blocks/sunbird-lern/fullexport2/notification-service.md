@@ -37,7 +37,7 @@ Sunbird Notification service is a micro-service, responsible for reaching out to
 
 ### Architecture diagram
 
-![](../../../../User/Fullexport2/images/storage/Notification\_service.png)
+![](../../../../.gitbook/assets/Notification\_service.png)
 
 ### Release plan
 

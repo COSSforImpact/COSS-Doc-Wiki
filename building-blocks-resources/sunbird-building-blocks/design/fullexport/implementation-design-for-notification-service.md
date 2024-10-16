@@ -21,7 +21,7 @@
 
 **Implementation Architecture**
 
-![](<../../../../Design/FullExport/images/storage/Notification-Service (5).png>)
+![](<../../../../.gitbook/assets/Notification-Service (5).png>)
 
 The above figure  illustrates the components of notification service.Notification Service should be implemented with the following technical stacks:
 
@@ -33,7 +33,7 @@ Samza Processor
 
 **Sequence Diagram**
 
-![](<../../../../Design/FullExport/images/storage/Notifcation Scheduling & Delivery Sequence (6).png>)
+![](<../../../../.gitbook/assets/Notifcation Scheduling & Delivery Sequence (6).png>)
 
 **Components Description** Notification Service contains the following blocks.
 

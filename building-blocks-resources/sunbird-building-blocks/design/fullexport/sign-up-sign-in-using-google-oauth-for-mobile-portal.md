@@ -13,7 +13,7 @@ Google SignIn feature should solve below problems
 
 #### Solution:&#x20;
 
-![](../../../../Design/FullExport/images/storage/SignIn\_SignUp\_using\_Google.png)
+![](../../../../.gitbook/assets/SignIn\_SignUp\_using\_Google.png)
 
 In this approach google signIn buttons are integrated in Keycloak page. When user clicks signIn with google button state information are passed to portal, same are passed to google as well and they will be retrieved back from google after authentication. After successful google Authentication, If user mailed dosnt exist in sunbird system they are created. Based on the state information obtained from google callback user redirected to Portal/mobile. If the google authentication fails they will be redirected to error page.&#x20;
 

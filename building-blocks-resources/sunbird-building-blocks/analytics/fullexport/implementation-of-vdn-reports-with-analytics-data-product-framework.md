@@ -15,7 +15,7 @@ The VDN reports are for the states to track their data for necessary actions to 
 
 **Implementation:**
 
-![](../../../../Analytics/Fullexport/images/storage/vdn-2\(2\).png)
+![](../../../../.gitbook/assets/vdn-2\(2\).png)
 
 **Queries:**
 

@@ -2,7 +2,7 @@
 
 **Introduction:** This wiki explains how to use public & external videos(Google Drive, Youtube & local etc.,) in ECML content.
 
-**Background:** ![](../../../../Design/FullExport/images/storage/Current\_implementation.jpg)
+**Background:** ![](../../../../.gitbook/assets/Current\_implementation.jpg)
 
 Currently, the creator can add a video into an ECML content by adding a Youtube URL/Google Drive URL.
 
@@ -31,7 +31,7 @@ To add an image into ECML content we should create an asset of type image (image
 
 Similarly, if we should create any public video (local, youtube, google-drive etc,.) as an asset of type video (video asset) and enable the creator to browse and add it to ECML content. With this, all the videos will be available in the Sunbird Blob Storage
 
-![](../../../../Design/FullExport/images/storage/proposed\_solution.jpg)Below is the change in ECML to support video as an asset and streamingUrl.
+![](../../../../.gitbook/assets/proposed\_solution.jpg)Below is the change in ECML to support video as an asset and streamingUrl.
 
 1. Added **asset** attribute in the org.ekstep.video tag
 2. Video renderer will play video based on the media tag’s attribute src/streamingUrl

@@ -5,7 +5,7 @@ Problem StatementIn the existing app, there are several sync processes running i
 1. All these sync events works on single thread which decreases the current app’s performance.
 2. Telemetry , course progress and course assessment has seperate implementaion in different parts of the app.
 
-**Previous Implementaion of telemetry sync flow.** ![](../../../../Design/FullExport/images/storage/telemetry\_sync-Page-2.png) **Proposed Solution for the problem** ![](../../../../Design/FullExport/images/storage/telemetry\_sync-Page-1.png)
+**Previous Implementaion of telemetry sync flow.** ![](../../../../.gitbook/assets/telemetry\_sync-Page-2.png) **Proposed Solution for the problem** ![](../../../../.gitbook/assets/telemetry\_sync-Page-1.png)
 
 Create a custom Cordova plugin which will isolate all sync processes and use a separate DB instance for persistence. This will be natively handled, as a result, the app performance will increase and loosely coupled.
 
@@ -13,7 +13,7 @@ Create a custom Cordova plugin which will isolate all sync processes and use a s
 
 A full-featured embedded NoSQL database that runs locally on mobile devices which will store the data and sync it to the temporary server, and from temporary server will sync to Platform after that it removes it and so .
 
-![](../../../../Design/FullExport/images/storage/telemetry\_sync-Page-3.png)
+![](../../../../.gitbook/assets/telemetry\_sync-Page-3.png)
 
 ## Pros:
 
@@ -24,7 +24,7 @@ A full-featured embedded NoSQL database that runs locally on mobile devices whic
 
 **WorkManager :** Work Manager library does everything for you. It creates the database of your Request and Runs them accordingly.
 
-**Architecture:** ![](../../../../Design/FullExport/images/storage/workManager.jpeg) there is no need to handle the OS Version checks  **i-e**  if OS version is greater then  **14**  and lower than  **21**  then use the Job Scheduler Or Service Or Alarm Manager or if OS version is greater than  **22**  then go for Firebase Job Dispatcher or may you have many other ways like  **Alarm Manager + Broadcast Receiver**  to handle your background work but all of them have pros and cons
+**Architecture:** ![](../../../../.gitbook/assets/workManager.jpeg) there is no need to handle the OS Version checks  **i-e**  if OS version is greater then  **14**  and lower than  **21**  then use the Job Scheduler Or Service Or Alarm Manager or if OS version is greater than  **22**  then go for Firebase Job Dispatcher or may you have many other ways like  **Alarm Manager + Broadcast Receiver**  to handle your background work but all of them have pros and cons
 
 Some of the other key features of WorkManager include:
 

@@ -12,9 +12,9 @@
 2. Create providers folder inside keycloak
 3. Copy built jar (i.e.keycloak-email-phone-autthenticator-1.0-SNAPSHOT.jar) to providers folder
 4. Run the keycloak
-5. Login to admin console and click User Federation tab on left panel of the screen. As shown in fig. ![](../../../../Design/FullExport/images/storage/image2019-3-29\_13-4-51.png)
-6. Select cassandra-storage-provider from Add provider drop down on the screen , then you will be redirected to screen as shown ![](../../../../Design/FullExport/images/storage/image2019-3-29\_13-7-16.png)
-7. Click save button , It will generate one provider id as shown                                                                                                               ![](../../../../Design/FullExport/images/storage/image2019-3-29\_13-10-57.png)
+5. Login to admin console and click User Federation tab on left panel of the screen. As shown in fig. ![](../../../../.gitbook/assets/image2019-3-29\_13-4-51.png)
+6. Select cassandra-storage-provider from Add provider drop down on the screen , then you will be redirected to screen as shown ![](../../../../.gitbook/assets/image2019-3-29\_13-7-16.png)
+7. Click save button , It will generate one provider id as shown                                                                                                               ![](../../../../.gitbook/assets/image2019-3-29\_13-10-57.png)
 8.  Copy this provider id and save this as env variable ( in learner-service) \*\*sunbird\_keycloak\_user\_federation\_provider\_id  , \*\* along with                                                                                                                                                **sunbird\_authorization**
 
     **sunbird\_cassandra\_host**

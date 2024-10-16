@@ -641,7 +641,7 @@ Signed Document Credential Template :
 
 #### Template SAmple
 
-![](../../../../User/Fullexport2/images/storage/TrainingCertificate.svg)
+![](../../../../.gitbook/assets/TrainingCertificate.svg)
 
 #### Proposed Schema for if heirarchy level Search doesn’t support
 

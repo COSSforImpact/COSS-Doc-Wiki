@@ -29,7 +29,7 @@ QR codes without any content linked to them result in bad user experience. This 
 
 **Situation-** Currently, different states are following a different structure to define the digital TOC for their textbooks. Given below is an example of Rajasthan textbook structure. There is a Level 1 node, which is at the Chapter level followed by Topics or Sections within the chapter denoted by Node 2, 3 and 4.
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/Cap1.PNG)
+![](../../../../.gitbook/assets/Cap1.PNG)
 
 Similarly, Tamil Nadu and Maharashtra follow different structures to define their digital TOC. The purpose of this report is to provide a list of QR codes within a Textbook which have missing content irrespective of the structure being followed by the State.
 

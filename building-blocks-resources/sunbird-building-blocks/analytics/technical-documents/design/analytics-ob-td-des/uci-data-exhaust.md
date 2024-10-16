@@ -64,7 +64,7 @@ Sample Request :Sample Request
 
 ### UCI Data Products design:
 
-![](../../../../../../Analytics/analytics-ob-td-des/images/storage/UCI-DP.png)
+![](<../../../../../../.gitbook/assets/UCI-DP (1).png>)
 
 #### Response Exhaust
 

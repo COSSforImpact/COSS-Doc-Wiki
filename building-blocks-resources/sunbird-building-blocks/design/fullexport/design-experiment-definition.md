@@ -6,7 +6,7 @@
 * Design the experiment definition schema
 * Design Data product  to map  the users/devices to experiments
 
-**Design Flow :** ![](../../../../Design/FullExport/images/storage/Experiment\_Update.jpg) **Experiment API :** **CREATE API  :** **URL** :  POST  /experiment/create **Input :** **Sample User Criteria Input Request:**
+**Design Flow :** ![](../../../../.gitbook/assets/Experiment\_Update.jpg) **Experiment API :** **CREATE API  :** **URL** :  POST  /experiment/create **Input :** **Sample User Criteria Input Request:**
 
 ```
   "request": {

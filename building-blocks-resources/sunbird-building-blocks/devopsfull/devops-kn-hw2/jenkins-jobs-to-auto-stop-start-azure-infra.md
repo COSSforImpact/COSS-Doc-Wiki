@@ -59,9 +59,9 @@ VDN Dev:
 
 If needed job timings can be updated in the job configuration. Go to the respective Job → Configure → Build Triggers
 
-![](<../../../../DevOpsFull/devops-kn-hw2/images/storage/Screenshot from 2023-08-31 18-50-47.png>)Currently the pipeline script is as part of the Job itself ( TODO : move to github repo)
+![](<../../../../.gitbook/assets/Screenshot from 2023-08-31 18-50-47 (1).png>)Currently the pipeline script is as part of the Job itself ( TODO : move to github repo)
 
-![](../../../../DevOpsFull/devops-kn-hw2/images/storage/image-20230831-132833.png)
+![](<../../../../.gitbook/assets/image-20230831-132833 (1).png>)
 
 Jobs can also be ran on-demand basis by just triggering **Build Now**
 

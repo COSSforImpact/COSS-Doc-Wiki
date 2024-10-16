@@ -56,11 +56,11 @@ Ex: Model can be as follows:
 
 Structure Diagram:
 
-![](<../../../../../../Consumption/consump-ed-td-des/images/storage/Untitled Diagram.drawio.png>)
+![](<../../../../../../.gitbook/assets/Untitled Diagram.drawio (4).png>)
 
 Flow Diagram:
 
-![](<../../../../../../Consumption/consump-ed-td-des/images/storage/Untitled Diagram.drawio1.drawio.png>)
+![](<../../../../../../.gitbook/assets/Untitled Diagram.drawio1.drawio (1).png>)
 
 Use Cases and API required
 

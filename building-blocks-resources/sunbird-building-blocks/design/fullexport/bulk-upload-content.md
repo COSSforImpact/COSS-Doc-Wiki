@@ -67,7 +67,7 @@ Data related validations to be done are,
 4. For LINK operation-mode, get draft hierarchy of Textbooks mentioned in CSV and cache the dialCode-TextBookUnitDoId mapping in Redis
 5. Push events to Kafka with Textbook Id as partition key for LINK operation-mode. Use hashed-value generated during duplicity check as partition key for other operation modes.
 
-![](<../../../../Design/FullExport/images/storage/Untitled Diagram.png>)
+![](<../../../../.gitbook/assets/Untitled Diagram.png>)
 
 **3. Asynchronous Processing - Samza**
 

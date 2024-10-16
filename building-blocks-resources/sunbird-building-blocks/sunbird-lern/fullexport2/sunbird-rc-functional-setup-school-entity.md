@@ -6,7 +6,7 @@ Once the Sunbird-RC setup is successful, Execute the following commands in the s
 
 1. List all the images started. **sudo docker ps**
 
-![](../../../../User/Fullexport2/images/storage/image-20220308-090559.png)We need to make sure the configuration files \[ Teacher.json, Student.json and Common.json ] are in the container.
+![](../../../../.gitbook/assets/image-20220308-090559.png)We need to make sure the configuration files \[ Teacher.json, Student.json and Common.json ] are in the container.
 
 The first column is the CONTAINER-ID. Copy the container-ID of Sunbird-RC core
 
@@ -20,7 +20,7 @@ once you are inside the system,
 
 The above command should return a list of files on that location
 
-![](../../../../User/Fullexport2/images/storage/image-20220308-091918.png)In case this command does return any listing, we are missing the configuration files.
+![](../../../../.gitbook/assets/image-20220308-091918.png)In case this command does return any listing, we are missing the configuration files.
 
 The required configuration files are attached at the end of this document.
 

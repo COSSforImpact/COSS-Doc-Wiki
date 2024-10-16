@@ -8,7 +8,7 @@ This wiki explains the design for fetching QR code images via DIAL Service
 
 At the moment LERN Batch Service is connecting to cassandra ‘dialcodes.dialcode\_images’ table for fetching QR Code Image URLs and also resolve image BLOB URL which is currently relative path. Ideally this information should be fetched from DIAL service owned by Knowlg BB as this keyspace is owned by knowlgBB. Hence, an API is to be developed where an image or multiple QR code Images information can be fetched from DIAL service.
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/LERN DESIGN Diagram.drawio.png>)
+![](<../../../../../../.gitbook/assets/LERN DESIGN Diagram.drawio (2).png>)
 
 ## Design
 
@@ -16,7 +16,7 @@ To resolve above problem,
 
 **Solution 1:** New API can be published in DIAL Service (\{{host\}}/api/dialcode/v2/image/list) which will accept request in below format, reads data from cassandra ‘dialcodes.dialcode\_images’ table and provides response in below format. Number of QR Codes as input to be controlled via a configuration 'qrimage\_request\_limit'.
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/LERN DESIGN Diagram.drawio (1).png>)
+![](<../../../../../../.gitbook/assets/LERN DESIGN Diagram.drawio (1) (1).png>)
 
 ```json
 {
@@ -63,7 +63,7 @@ To resolve above problem,
 
 Sync Jenkins job should be able to update the DIAL Code document to Elastic Search by reading DIAL code details from ‘dialcode\_store.dial\_code’ table and imageURL details from 'dialcodes.dialcode\_images’ table.
 
-![](<../../../../../../Design/sbdesign-kw-td-des3/images/storage/LERN DESIGN Diagram.drawio (4).png>)End DIAL Search Response:
+![](<../../../../../../.gitbook/assets/LERN DESIGN Diagram.drawio (4) (1).png>)End DIAL Search Response:
 
 ```
 {

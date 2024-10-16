@@ -4,7 +4,7 @@
 
 **Background & Problem statement:** The diagram below describes the process of capturing the users' attempts data at answering questions, as well as the data and the services that are dependent on the assessment table.
 
-![](<../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/Assessment Consumption Archival@2x.png>)When users attempt questions for a certain course/batch, we created a data store to keep all of the attempted records for analytics purposes.
+![](<../../../../../../.gitbook/assets/Assessment Consumption Archival@2x (4).png>)When users attempt questions for a certain course/batch, we created a data store to keep all of the attempted records for analytics purposes.
 
 As the number of users grows, the amount of data generated grows as well, and some services rely on reading only aggregate score metrics rather than the entire raw assessment data. As a result, the cost of the data store is rising, and maintenance is becoming more difficult.
 
@@ -28,7 +28,7 @@ The services which are dependent on the tables will use these attempts data unti
 
 **Archiving of the data:** The data archival data product runs every start of the week to archival the previous week data or the job which runs at the start of the week to archive the previous N weeks data.
 
-![](<../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/Assessment Consumption Archival@2x (1).png>)
+![](<../../../../../../.gitbook/assets/Assessment Consumption Archival@2x (1) (1).png>)
 
 * The archival job is designed in such a way that any additional archival job may be implemented simply by extending the base archival and modifying the functionality as needed to build custom archival functionality..
 * The default archival job archives data each week; if another archival job needs to archive data for a different period, simply override the method.
@@ -45,7 +45,7 @@ PATH = reports/archival-store/$batch\_id\_$collection\_id/$archival\_job\_date\_
 
 **Deleting of Archived Data:** After the data was successfully archived, the data archival job began deleting the archived data. It loads the metadata store for archived success batches into memory and deletes only the success archived data from the assessment agg table.
 
-![](<../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/Assessment Consumption Archival@2x (2).png>)
+![](<../../../../../../.gitbook/assets/Assessment Consumption Archival@2x (2) (1).png>)
 
 Once all of the archived batches' data has been successfully deleted, the DB admin must manually run the Cassandra compaction operation to remove the tombstone data from the assessment agg table.
 
@@ -108,7 +108,7 @@ Once the data is got archived from the respective table there are a few services
 
 These dependents jobs should not get affected and should not cause any performance issues if the data is got archived from the archival table.
 
-![](<../../../../../../Analytics/analytics-ob-td-srchassdata/images/storage/Assessment Consumption Archival@2x (3).png>)
+![](<../../../../../../.gitbook/assets/Assessment Consumption Archival@2x (3) (1).png>)
 
 * The progress exhaust V2 Job will fetch the score metrics related data from the activity aggregator table going forward instead of loading from the assessment agg table
 * The Response Exhaust V2 Job will fetch from both archival blob store and assessment agg table for a specific batch and merge those records and generate a report with distinct values.

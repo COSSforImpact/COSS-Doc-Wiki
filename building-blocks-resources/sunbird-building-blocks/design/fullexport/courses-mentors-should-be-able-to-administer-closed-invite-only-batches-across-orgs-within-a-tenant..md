@@ -18,7 +18,7 @@ In the proposed new design, batch creation is simplified by logically breaking i
 
 **Module structure:**
 
-![](../../../../Design/FullExport/images/storage/Screenshot.png)
+![](../../../../.gitbook/assets/Screenshot.png)
 
 **Module:**
 

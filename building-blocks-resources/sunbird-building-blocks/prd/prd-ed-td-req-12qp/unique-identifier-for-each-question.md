@@ -39,7 +39,7 @@ When a contribution reviewer opens the list of questions submitted for review, t
 
 <
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20211004-085240.png)Problem: Typically for a single question paper there are 2 or 3 reviewers who are supposed to review the questions contributed for a question paper.
+![](../../../../.gitbook/assets/image-20211004-085240.png)Problem: Typically for a single question paper there are 2 or 3 reviewers who are supposed to review the questions contributed for a question paper.
 
 Out of 50 questions they distribute 25 questions each amongst themselves to review.
 

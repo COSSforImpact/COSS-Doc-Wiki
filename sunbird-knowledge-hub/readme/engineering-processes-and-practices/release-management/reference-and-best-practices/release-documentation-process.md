@@ -22,7 +22,7 @@ icon: elementor
 
 ## Process Diagram
 
-![](../../../../../Others/ekstepprocess-ind-unknown/images/storage/RelProcDoc.jpg)
+![](../../../../../.gitbook/assets/RelProcDoc.jpg)
 
 ## Requirement Analysis
 

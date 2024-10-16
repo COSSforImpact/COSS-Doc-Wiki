@@ -66,7 +66,7 @@ The results of the spike on rollups are listed below.
 
 &#x20;&#x20;
 
-![](../../../../../../Analytics/analytics-ob-td-druidrollups/images/storage/DruidRollupProposalDesign\_2jpg.jpeg)
+![](<../../../../../../.gitbook/assets/DruidRollupProposalDesign\_2jpg (1).jpeg>)
 
 **Challenges** Rollups have challenges with cardinal data fields. Following are the cardinal data fields, that can explode as there is no governance of the values that can come in.
 

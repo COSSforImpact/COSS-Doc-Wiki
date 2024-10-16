@@ -20,7 +20,7 @@ We want to start issuing credentials for all, including _non_ on-boarded users. 
 
 #### Solution diagram
 
-![](<../../../../User/Fullexport2/images/storage/eCreds\_solution\_and\_arch-Page-2 - proposed (1).png>)
+![](<../../../../.gitbook/assets/eCreds\_solution\_and\_arch-Page-2 - proposed (1).png>)
 
 #### Certificate Registry
 

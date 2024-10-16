@@ -42,22 +42,22 @@ Password policy types (Default provided by keycloak)  Ref :  [https://www.keyclo
 
 Steps for setting password policy in keycloak
 
-| SNo. | Steps                                                   | Screen                                                                        |
-| ---- | ------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| 1    | Login to admin console                                  | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-9-29.png)  |
-| 2    | Select the Realm                                        | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-17-1.png)  |
-| 3    | Go to Authentication tab on left side of admin console  | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-15-51.png) |
-| 4    | Go to Password Policy tab on top of Authentication page | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-21-58.png) |
+| SNo. | Steps                                                   | Screen                                                        |
+| ---- | ------------------------------------------------------- | ------------------------------------------------------------- |
+| 1    | Login to admin console                                  | ![](../../../../.gitbook/assets/image2019-9-25\_15-9-29.png)  |
+| 2    | Select the Realm                                        | ![](../../../../.gitbook/assets/image2019-9-25\_15-17-1.png)  |
+| 3    | Go to Authentication tab on left side of admin console  | ![](../../../../.gitbook/assets/image2019-9-25\_15-15-51.png) |
+| 4    | Go to Password Policy tab on top of Authentication page | ![](../../../../.gitbook/assets/image2019-9-25\_15-21-58.png) |
 
-\| | 5 | Click on Add Policy drop down menu and add the policy | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-24-51.png)
+\| | 5 | Click on Add Policy drop down menu and add the policy | ![](../../../../.gitbook/assets/image2019-9-25\_15-24-51.png)
 
-\| | 6 | Add Minimum Length policy | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-25-42.png)
+\| | 6 | Add Minimum Length policy | ![](../../../../.gitbook/assets/image2019-9-25\_15-25-42.png)
 
-\| | 7 | Add Digits Policy | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-26-26.png)
+\| | 7 | Add Digits Policy | ![](../../../../.gitbook/assets/image2019-9-25\_15-26-26.png)
 
-\| | 8 | Add Special Character Policy | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-27-11.png)
+\| | 8 | Add Special Character Policy | ![](../../../../.gitbook/assets/image2019-9-25\_15-27-11.png)
 
-\| | 9 | Click on save Button | ![](../../../../User/Fullexport2/images/storage/image2019-9-25\_15-28-49.png)
+\| | 9 | Click on save Button | ![](../../../../.gitbook/assets/image2019-9-25\_15-28-49.png)
 
 |
 

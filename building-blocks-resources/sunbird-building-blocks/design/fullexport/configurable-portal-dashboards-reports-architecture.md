@@ -4,7 +4,7 @@
 
 **Overview** Currently, the data team generates the data for the weekly reports in Diksha and the reports are being sent out as an html file. The configurable reports feature helps embedding these reports into the portal. This provides the capability to add a new report or modify an existing report configuration without any downtime to the Diksha systems. The power of the feature lies in the configuration of the reports that defines how the report will be visualised from the portal.
 
-**Reporting Architecture** ![](../../../../Design/FullExport/images/storage/configurable\_reports\_architecture.png)
+**Reporting Architecture** ![](../../../../.gitbook/assets/configurable\_reports\_architecture.png)
 
 The data team runs scheduled jobs to generate various daily and weekly reports such as total active devices over time, total number of sessions over time etc. The generated reports will be in csv format. If necessary, the csv reports can be converted to json formats using open source tools. The report data are then uploaded to a cloud storage and isolated by the channel to which the report belongs to. Channel is analogous to isolation of the report data for each State separately. Each report will have an unique identifier and also a report configuration. The path or location on cloud storage will be prefixed with the report identifier and also the channel identifier. The reports are rendered on the portal using the report configuration which also specifies the location of the data for the report.
 

@@ -4,17 +4,17 @@ Sunbird Mobile Sdk serves as the single module for all the business logic of sun
 
 The sdk is built using a layered architecture which is described in the following diagram -&#x20;
 
-![](../../../../../../Design/sbdesign-ed-td-des/images/storage/sdk.png)
+![](<../../../../../../.gitbook/assets/sdk (1).png>)
 
 All the services are exposed through the SunbirdSdk class. SunbirdSdk should be initialised (with calling init()) at the very beginning of the app launch; whenever the app receives the cordova platform ready event.  &#x20;
 
-![](../../../../../../Design/sbdesign-ed-td-des/images/storage/sunbirdsdk\_api.png)
+![](<../../../../../../.gitbook/assets/sunbirdsdk\_api (1).png>)
 
 **DbService** This provides an interface to perform CRUD operation in SQlite database. It uses a custom cordova plugin which provides the native interfaces for mobile devices.
 
 **sunbird-plugin-db:** A custom cordova plugin which uses the native sdk to provide CRUD operation in sqlite database.
 
-![](../../../../../../Design/sbdesign-ed-td-des/images/storage/db\_1.png)
+![](<../../../../../../.gitbook/assets/db\_1 (1).png>)
 
 **ApiService**
 

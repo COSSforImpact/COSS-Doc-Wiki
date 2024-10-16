@@ -7,9 +7,9 @@
 * Open batches that allow any user to enrol for a course
 * Private batches which allow only select users to be enrolled into a course
 
-![](../../../../Design/FullExport/images/storage/Current\_Batch\_Functionality.png)The current “batch” functionality suffices simple use cases of learning, but it needs to be enhanced to support advanced and more complex scenarios of learning (which are more prevalent in real world). For example, a batch can be currently associated with one course only and if a mentor wants to monitor multiple batches, it requires context switching. Similarly, if there are thousands of learners in a batch (e.g. open batches which enable organic learning), it is practically impossible for a mentor to track and guide one or more specific learners (who are the mentees of the mentor) to complete the course.
+![](../../../../.gitbook/assets/Current\_Batch\_Functionality.png)The current “batch” functionality suffices simple use cases of learning, but it needs to be enhanced to support advanced and more complex scenarios of learning (which are more prevalent in real world). For example, a batch can be currently associated with one course only and if a mentor wants to monitor multiple batches, it requires context switching. Similarly, if there are thousands of learners in a batch (e.g. open batches which enable organic learning), it is practically impossible for a mentor to track and guide one or more specific learners (who are the mentees of the mentor) to complete the course.
 
-![](../../../../Design/FullExport/images/storage/Batch\_limitations.png)
+![](../../../../.gitbook/assets/Batch\_limitations.png)
 
 #### Future Capabilities
 
@@ -26,13 +26,13 @@ To serve a variety of learning and tutoring needs, there is a need to enhance th
 * In an open batch, multiple sub-groups can be created and supplementary learning material, or assessments can be provided for each sub-group. For example, a sub-group could be the learners who scored less in an assessment and another sub-group could be of learners who enrolled into the course recently & needs to catch-up with the rest of the learners.
 * A parent or a tuition teacher or a student can create a group of learners (who are taking multiple courses via different batches) to track, mentor or collaborate with the group in learning.
 
-![](../../../../Design/FullExport/images/storage/Personalised\_Mentoring.png)
+![](../../../../.gitbook/assets/Personalised\_Mentoring.png)
 
 #### Program/Learning Journey
 
 Currently, a batch can be created for only one course. This will be enhanced to enable a batch for a set of courses using a Program (or Learning Journey). It is a collection of courses and a mentor can create one batch for multiple courses. A learner gets enrolled to the complete collection but has the option to start/complete any course in the collection.
 
-![](../../../../Design/FullExport/images/storage/LearningJourney.png)
+![](../../../../.gitbook/assets/LearningJourney.png)
 
 #### Group
 
@@ -60,7 +60,7 @@ One of the important learning scenarios is to enable teachers, tutors, and paren
 * This plugin will also have metadata like board, medium, gradeLevel and subject to search for courses.
 * The plugin config (along with the plugin Id) will be stored in the group metadata.
 
-![](../../../../Design/FullExport/images/storage/Tutoring\_Batch\_Functionality.png)
+![](../../../../.gitbook/assets/Tutoring\_Batch\_Functionality.png)
 
 * In the first version, “Progress Report” plugin will be implemented as a tab in the group page. It will have options to:
   * view courses and add more courses to the list for tracking
@@ -76,7 +76,7 @@ Currently, when a learner consumes a content, the corresponding content state up
 * Compute the progress at course units level also. This is to enable progress view at a unit level.
 * In addition to writing the aggregate data into the primary database (cassandra), the job should index the unit and course level progress info into elastic search also. ES aggregation queries can then be used to create a view to track the progress of learners across multiple courses.
 
-![](../../../../Design/FullExport/images/storage/e-schooling-batches-components.png)An alternate approach is to leverage the telemetry pipeline and druid infra for this. If the audit event is generated with required rollup information (module, course and batch ids), then we can aggregate the progress at different levels using druid queries.
+![](../../../../.gitbook/assets/e-schooling-batches-components.png)An alternate approach is to leverage the telemetry pipeline and druid infra for this. If the audit event is generated with required rollup information (module, course and batch ids), then we can aggregate the progress at different levels using druid queries.
 
 #### Group Plugins
 

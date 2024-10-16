@@ -8,7 +8,7 @@ The objective of this document is to provide a comprehensive overview of the eas
 
 The design encompasses the execution of three distinct workflows: Build, Deploy, and Execute workflows.
 
-![Sunbird Ed Obsrv 2.0 Batch Job Design](../../../../../../Analytics/analytics-ob-td-des/images/storage/obsrv-2.png)Build WorkflowThe build workflow remains unchanged and will utilize the existing build system. All necessary JAR files will be uploaded to cloud storage. The system will initiate the building of specific components from the provided repository via a Jenkins job and subsequently upload all essential artefacts to the cloud storage platform.
+![Sunbird Ed Obsrv 2.0 Batch Job Design](<../../../../../../.gitbook/assets/obsrv-2 (1).png>)Build WorkflowThe build workflow remains unchanged and will utilize the existing build system. All necessary JAR files will be uploaded to cloud storage. The system will initiate the building of specific components from the provided repository via a Jenkins job and subsequently upload all essential artefacts to the cloud storage platform.
 
 Deploy WorkflowThroughout this procedure, the system will establish the necessary infrastructure components essential for batch job execution. This entails the creation of a Spark cluster, configuration of a Virtual Private Cloud (VPC), setup of subnets, establishment of network connections, and seamless integration of the Livy service within the Kubernetes cluster. Concurrently, it will ensure dependent systems provision as well.
 

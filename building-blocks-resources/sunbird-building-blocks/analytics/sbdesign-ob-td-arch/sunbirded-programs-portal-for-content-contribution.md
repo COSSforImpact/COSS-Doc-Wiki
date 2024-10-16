@@ -127,7 +127,7 @@ View designs here [https://invis.io/ZMU48UESHCF](https://invis.io/ZMU48UESHCF)
 
 Below is a workflow diagram with some sample content types
 
-![](../../../../Design/sbdesign-ob-td-arch/images/storage) ![](../../../../Design/sbdesign-ob-td-arch/images/storage/image-20191122-054000.png)
+![](../../../../Design/sbdesign-ob-td-arch/images/storage) ![](<../../../../.gitbook/assets/image-20191122-054000 (13).png>)
 
 Select TextbookEasily select textbooks to contribute to. Contributor / Reviewer will see textbooks listed in grid view and grouped by specific category (as applicable). User will also be able to filter textbooks / courses using any two of the taxonomy framework categories (e.g. Class, Subject)
 
@@ -235,7 +235,7 @@ Upload
 
 #### Review
 
-![](../../../../Design/sbdesign-ob-td-arch/images/storage) ![](../../../../Design/sbdesign-ob-td-arch/images/storage/image-20191122-054146.png)
+![](../../../../Design/sbdesign-ob-td-arch/images/storage) ![](<../../../../.gitbook/assets/image-20191122-054146 (13).png>)
 
 Reviewer onboarding![](../../../../Design/sbdesign-ob-td-arch/images/storage)
 
@@ -347,7 +347,7 @@ Program user journeys
 
 Proposed workflow:
 
-![](<../../../../Design/sbdesign-ob-td-arch/images/storage/Course Creation Workflow.png>)
+![](<../../../../.gitbook/assets/Course Creation Workflow (13).png>)
 
 ArchitectureProgram Definition - Purpose and scope of the program.
 

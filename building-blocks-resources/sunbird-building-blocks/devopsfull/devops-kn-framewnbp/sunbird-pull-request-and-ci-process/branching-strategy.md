@@ -14,7 +14,7 @@ Project-Sunbird / Sunbird-Ed repos adhere to generalized branching strategy.
 
     For example release-3.0.1
 
-![](../../../../../DevOpsFull/devops-kn-framewnbp/images/storage/3D-JPnaVJWUYBf1JVkJkC-cK\_hHqUnBZwq42\_6LpUxnaD4aTnTtBKqqKat09OA9QcaD9QL9Lj3Br3gWlVxrQHK0uMcINFHVC6jYusABAHJ3DSak0UzjJF3JF7y2Mc1dwsbLZHRhVLpA)
+![](<../../../../../.gitbook/assets/3D-JPnaVJWUYBf1JVkJkC-cK\_hHqUnBZwq42\_6LpUxnaD4aTnTtBKqqKat09OA9QcaD9QL9Lj3Br3gWlVxrQHK0uMcINFHVC6jYusABAHJ3DSak0UzjJF3JF7y2Mc1dwsbLZHRhVLpA (1)>)
 
 ## Pull Requests
 

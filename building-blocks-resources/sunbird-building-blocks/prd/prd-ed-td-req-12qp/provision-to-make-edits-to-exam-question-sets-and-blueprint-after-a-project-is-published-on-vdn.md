@@ -24,7 +24,7 @@ For creation of projects prior to each assessment cycle, the sourcing org admin 
 
 The project is then published and made live. (as shown in the workflow)
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/image-20220105-190616.png)
+![](../../../../.gitbook/assets/image-20220105-190616.png)
 
 **Many times, there is a need to make changes to the text fields (name, description, instructions) or TOC details to a question set due to manual error or updates in the question set.**
 

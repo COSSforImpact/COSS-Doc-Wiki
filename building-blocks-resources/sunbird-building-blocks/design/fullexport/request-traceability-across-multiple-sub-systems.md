@@ -29,7 +29,7 @@ Jira Issue [https://project-sunbird.atlassian.net/browse/SB-17028](https://proje
 
 1. How to associate/relate the request across multiple sub-systems?
 
-**Workflow of QR-Code scan:** ![](<../../../../Design/FullExport/images/storage/Request Tracebility.jpg>)
+**Workflow of QR-Code scan:** ![](<../../../../.gitbook/assets/Request Tracebility.jpg>)
 
 ### Solution 1:
 
@@ -227,7 +227,7 @@ TraceService.endTrace()
 
 Use the decorator design pattern to add trace information in the requests. Call the
 
-![](<../../../../Design/FullExport/images/storage/Screenshot from 2020-02-11 11-26-42.png>)Back-end implementation:refer: Best practices of open-tracing back-end implementation [https://opentracing.io/docs/best-practices/](https://opentracing.io/docs/best-practices/)
+![](<../../../../.gitbook/assets/Screenshot from 2020-02-11 11-26-42.png>)Back-end implementation:refer: Best practices of open-tracing back-end implementation [https://opentracing.io/docs/best-practices/](https://opentracing.io/docs/best-practices/)
 
 Any API is called from front-end pass the below details in the request headers.
 
@@ -265,7 +265,7 @@ Integrate with external distributed tracing tools like [Zipkin](https://zipkin.i
 
 **JAEGER:** Architecture diagram:
 
-![](<../../../../Design/FullExport/images/storage/Screenshot from 2020-02-11 13-09-28.png>)
+![](<../../../../.gitbook/assets/Screenshot from 2020-02-11 13-09-28.png>)
 
 * Integration with spring application: Video- [https://www.youtube.com/watch?v=hpnLUFRY4\_Y](https://www.youtube.com/watch?v=hpnLUFRY4\_Y)
 * Integration with NodeJs application: [https://blog.risingstack.com/distributed-tracing-opentracing-node-js/](https://blog.risingstack.com/distributed-tracing-opentracing-node-js/)
@@ -305,7 +305,7 @@ Jaeger UI setup: [https://www.scalyr.com/blog/jaeger-tracing-tutorial/](https://
 
 Jaeger Client node: [https://github.com/jaegertracing/jaeger-client-node](https://github.com/jaegertracing/jaeger-client-node)
 
-![](<../../../../Design/FullExport/images/storage/Screenshot from 2020-02-11 13-09-11.png>) ![](<../../../../Design/FullExport/images/storage/Screenshot from 2020-02-11 13-09-28.png>)
+![](<../../../../.gitbook/assets/Screenshot from 2020-02-11 13-09-11.png>) ![](<../../../../.gitbook/assets/Screenshot from 2020-02-11 13-09-28.png>)
 
 ### Related articles
 

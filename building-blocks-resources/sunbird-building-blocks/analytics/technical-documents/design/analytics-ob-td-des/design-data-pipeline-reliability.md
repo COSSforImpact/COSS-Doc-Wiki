@@ -10,7 +10,7 @@ The reliability of data is crucial for business and other stakeholders. The accu
 
 ## High-level design
 
-![](<../../../../../../Analytics/analytics-ob-td-des/images/storage/Untitled Diagram (5).png>)
+![](<../../../../../../.gitbook/assets/Untitled Diagram (5) (1).png>)
 
 The high-level diagram shows the different systems generating and pushing metrics to the common Kafka topic. Metrics from Kafka can be pushed to Prometheus to set rules and to manage alerts. We can set up dashboards to visualize on Grafana. Alerting mechanism happens in streaming fashion, meaning as and when we get the metric into the monitoring system.
 
@@ -69,7 +69,7 @@ Job Status can be tracked using LOG events using the below LOG event spec. &#x20
 
 ## Job execution based on health check metrics:
 
-![](<../../../../../../Analytics/analytics-ob-td-des/images/storage/Untitled Diagram (4).png>)
+![](<../../../../../../.gitbook/assets/Untitled Diagram (4) (1).png>)
 
 As of now, Data products(Job) are run as scheduled without checking the health of data. This causes incorrect results in data product output when the health of data is poor. To avoid this, we can check the health of data using pre-defined rules in the audit job. The Audit job also helps to validate the overall health of data in the system and it can be used by Job-manager to stop executing the other jobs if the health check fails.  The health check report from Audit job can be used to check the rules against the individual data product prerequisite (rules) before executing the job.
 

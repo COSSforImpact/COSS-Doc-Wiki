@@ -56,7 +56,7 @@ Within each bar graph in the course show the total number of enrollments for tha
 
 Sample Report: . Also show the count of enrollments per course within the bar graph.
 
-![](<../../../../../../PRD/prd-ed-td-req-4cc/images/storage/Screen Shot 2019-03-22 at 10.17.24 AM.png>)
+![](<../../../../../../.gitbook/assets/Screen Shot 2019-03-22 at 10.17.24 AM.png>)
 
 Report 2:Purpose of this report is to show the enrollments by course as a timeline graph.&#x20;
 
@@ -86,7 +86,7 @@ In this report only include teachers who belong to the same tenant ID as the rep
 
 Sample Report: . Also show the count of enrollments per course within the bar graph.
 
-![](<../../../../../../PRD/prd-ed-td-req-4cc/images/storage/Screen Shot 2019-03-22 at 10.46.08 AM.png>)
+![](<../../../../../../.gitbook/assets/Screen Shot 2019-03-22 at 10.46.08 AM.png>)
 
 Exception ScenariosIn the scenario where a state teacher has district information not mapped, please tag all of them to 'Others' District. Show this district in the 'Enrollment by District' report.
 
@@ -108,7 +108,7 @@ Raw information in a tabular format needs to be provided which can be downloaded
 
 Sample Report: . Also show the count of enrollments per course within the bar graph.
 
-![](<../../../../../../PRD/prd-ed-td-req-4cc/images/storage/Screen Shot 2019-03-22 at 11.16.40 AM.png>)
+![](<../../../../../../.gitbook/assets/Screen Shot 2019-03-22 at 11.16.40 AM.png>)
 
 In this report only include teachers who belong to the same tenant ID as the report viewer’s tenant id.
 
@@ -126,7 +126,7 @@ Raw information in a tabular format needs to be provided which can be downloaded
 
 Sample Report: . Also show the count of enrollments per course within the bar graph.
 
-![](<../../../../../../PRD/prd-ed-td-req-4cc/images/storage/Screen Shot 2019-03-22 at 11.25.44 AM.png>)
+![](<../../../../../../.gitbook/assets/Screen Shot 2019-03-22 at 11.25.44 AM.png>)
 
 In this report only include teachers who belong to the same tenant ID as the report viewer’s tenant id.
 
@@ -150,7 +150,7 @@ Raw information in a tabular format needs to be provided which can be downloaded
 
 Sample Report: . Also show the count of enrollments per course within the bar graph.
 
-![](<../../../../../../PRD/prd-ed-td-req-4cc/images/storage/Screen Shot 2019-03-22 at 11.53.22 AM.png>)
+![](<../../../../../../.gitbook/assets/Screen Shot 2019-03-22 at 11.53.22 AM.png>)
 
 Report 2Purpose of this report is to provide course completion count by district. Any state teacher who does not have district mapped in their profile need to be tagged to 'Others' district and shown in this report.
 
@@ -164,7 +164,7 @@ Within each bar graph show course wise completion. Each individual course has an
 
 Raw information in a tabular format needs to be provided which can be downloaded.
 
-![](<../../../../../../PRD/prd-ed-td-req-4cc/images/storage/Screen Shot 2019-03-22 at 12.00.57 PM.png>)
+![](<../../../../../../.gitbook/assets/Screen Shot 2019-03-22 at 12.00.57 PM.png>)
 
 JIRA Ticket ID[SB-11304 System JIRA](https://browse/SB-11304)
 

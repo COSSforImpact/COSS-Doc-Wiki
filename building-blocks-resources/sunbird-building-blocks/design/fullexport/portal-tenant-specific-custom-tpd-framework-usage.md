@@ -23,7 +23,7 @@ Presently any tenant is using the framework as customization list of tenant-spec
 
 ### Existing workflow:
 
-![](../../../../Design/FullExport/images/storage/image-20200512-091634.png) **Change request:** As part of [https://project-sunbird.atlassian.net/browse/SH-3](https://project-sunbird.atlassian.net/browse/SH-3) we have split creation workflow into 2 parts(in Workspace => Create)
+![](../../../../.gitbook/assets/image-20200512-091634.png) **Change request:** As part of [https://project-sunbird.atlassian.net/browse/SH-3](https://project-sunbird.atlassian.net/browse/SH-3) we have split creation workflow into 2 parts(in Workspace => Create)
 
 1. Textbook
 2. Training
@@ -36,7 +36,7 @@ Any resource/content created in Trainings section should use TPD framework defin
 
 Get all framework details in the channel read API call(all framework-types).
 
-![](../../../../Design/FullExport/images/storage/image-20200512-092909.png)Channel read API should return the frameworks for this channel. Each framework will be having **“frameworkType“** that will define where to use this framework.
+![](../../../../.gitbook/assets/image-20200512-092909.png)Channel read API should return the frameworks for this channel. Each framework will be having **“frameworkType“** that will define where to use this framework.
 
 Presently there are 2 frameworks types supported/defined in the platform
 
@@ -134,7 +134,7 @@ Assuming the default framework for **Library/Textbook=NCF** & **Training/Course=
 
 Use form read API call to get which framework to use for create conent/resources.
 
-![](../../../../Design/FullExport/images/storage/image-20200512-141612.png)
+![](../../../../.gitbook/assets/image-20200512-141612.png)
 
 **Request:**
 

@@ -90,7 +90,7 @@ The older Self Assess content will retain the existing behavior
 
 **Flow diagram**
 
-![](<../../../../PRD/prd-ed-td-req-ind/images/storage/Create Course Assessment.png>)
+![](<../../../../.gitbook/assets/Create Course Assessment.png>)
 
 **UI Design**
 
@@ -98,7 +98,7 @@ The older Self Assess content will retain the existing behavior
 
 Edit details page for Assessment is not included in the invision link. Hence calling this out separately
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image2020-1-14\_8-39-28.png)
+![](../../../../.gitbook/assets/image2020-1-14\_8-39-28.png)
 
 Ability for the Content creator to search & add Self-Assess content during course creation - User Story 3 OverviewJIRA Ticket ID[SB-16723 System JIRA](https://browse/SB-16723)
 
@@ -166,11 +166,11 @@ When editing Question set:
 
 **When selecting Question/s from the existing list:**
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image2020-2-4\_17-0-33.png)
+![](../../../../.gitbook/assets/image2020-2-4\_17-0-33.png)
 
 **When creating a new Question:**
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image2020-2-7\_15-26-15.png)
+![](../../../../.gitbook/assets/image2020-2-7\_15-26-15.png)
 
 Localization RequirementsUse this section to provide requirements to localize static content and/or design elements that are part of the UI in the following table. Localization of either the framework, content or search elements should be elaborated as a user story. To add or remove rows in the table, use the table functionality from the toolbar.  &#x20;
 

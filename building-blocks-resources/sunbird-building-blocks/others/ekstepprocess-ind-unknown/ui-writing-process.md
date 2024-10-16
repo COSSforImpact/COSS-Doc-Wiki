@@ -40,7 +40,7 @@
 
 ## Process Diagram
 
-![](<../../../../Others/ekstepprocess-ind-unknown/images/storage/UI text process.png>)
+![](<../../../../.gitbook/assets/UI text process.png>)
 
 ## User Story Walkthrough
 

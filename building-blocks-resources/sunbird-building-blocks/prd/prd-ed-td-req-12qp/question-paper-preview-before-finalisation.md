@@ -8,7 +8,7 @@ An admin is able to duplicate an already created question set within a project a
 
 In the current flow, each question undergoes the following steps:-&#x20;
 
-![](../../../../PRD/prd-ed-td-req-12qp/images/storage/u5\_ggJle3d3l4nYFTNvkyrMdr\_VcxRvxbFqh01MTV6AE3igmKMDspZJNK8ixgYA4fK-4KDHjVaNAy6jkt\_juzHGyCRaLi0-YVaqUju0yE8KOiGaO3JR7QmWge3oo7mNT512y3Pfu0OevKonJ1q4)
+![](../../../../.gitbook/assets/u5\_ggJle3d3l4nYFTNvkyrMdr\_VcxRvxbFqh01MTV6AE3igmKMDspZJNK8ixgYA4fK-4KDHjVaNAy6jkt\_juzHGyCRaLi0-YVaqUju0yE8KOiGaO3JR7QmWge3oo7mNT512y3Pfu0OevKonJ1q4)
 
 In the third stage, where a question is getting selected to be added in a question paper a preview of the list of questions is not available at one place. This creates an issue for the question paper creator as he/she is unable to gauge two things:-
 

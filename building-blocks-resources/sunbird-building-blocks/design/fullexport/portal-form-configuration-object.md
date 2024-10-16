@@ -1115,7 +1115,7 @@
 
 ### Schema JSON graph
 
-![](../../../../Design/FullExport/images/storage/01-Copy.png)
+![](../../../../.gitbook/assets/01-Copy.png)
 
 ***
 

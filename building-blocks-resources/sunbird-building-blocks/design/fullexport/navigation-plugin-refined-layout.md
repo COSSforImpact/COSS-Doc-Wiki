@@ -37,7 +37,7 @@ In the second approach, we could change the appearance of navigation buttons spe
 
 * We have to move navigation plugin form content-plugins to player core-plugins in order to use and bundle it.
 
-Diagram illustrating the First approach: ![](../../../../Design/FullExport/images/storage/Navigation\_plugin\_changes.jpeg)
+Diagram illustrating the First approach: ![](../../../../.gitbook/assets/Navigation\_plugin\_changes.jpeg)
 
 ### \*\*Approach - 2 \*\* **:**  \[ Plugin specific modifications ]
 
@@ -55,7 +55,7 @@ Diagram illustrating the First approach: ![](../../../../Design/FullExport/image
 
 \*\*Diagram illustrating the Second Approach : \*\*
 
-![](../../../../Design/FullExport/images/storage/4.jpg)
+![](../../../../.gitbook/assets/4.jpg)
 
 ***
 

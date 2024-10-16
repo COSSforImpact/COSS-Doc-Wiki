@@ -8,7 +8,7 @@ The two data products CourseMetricsJob and AssessmentMetricsJob depends on the u
 
 We will be fetching the informations from cassandra table , compute all the required fields in the flink job (user-cache-updater job) and update all the fields to the redis cache.
 
-![](../../../../Analytics/Fullexport/images/storage/image-20200629-050537.png)
+![](../../../../.gitbook/assets/image-20200629-050537.png)
 
 #### Design for the fields to be fetched:
 

@@ -5,7 +5,7 @@
 * Tightening to control the traffic flow between internal services
 * Setting inbound and outbound rules and restricting ports
 
-![](../../../../DevOpsFull/AllDocs/images/storage/NSGFinetuning-min.jpg)
+![](../../../../.gitbook/assets/NSGFinetuning-min.jpg)
 
 #### Multi Factor Authentication
 
@@ -21,8 +21,8 @@
 #### Other Security aspects
 
 * Allowing Blob storage access only from internal network and specific VM's instead of using keys
-* Kibana, superset and yarn dashboard are accessibly only via VPN&#x20;
-* Grafana is accessible from public internet. Only viewer credentials are shared with users&#x20;
+* Kibana, superset and yarn dashboard are accessibly only via VPN
+* Grafana is accessible from public internet. Only viewer credentials are shared with users
 
 ***
 

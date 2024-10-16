@@ -6,7 +6,7 @@
 
 [Jira ticket](https://project-sunbird.atlassian.net/browse/SB-7813)
 
-Click here see keyboard to current implementation![](../../../../Design/FullExport/images/storage/examples.png)
+Click here see keyboard to current implementation![](../../../../.gitbook/assets/examples.png)
 
 ## Problem Statement
 
@@ -14,7 +14,7 @@ Click here see keyboard to current implementation![](../../../../Design/FullExpo
 
 In the current keyboard layout implementation, All the keys fixed to the same width. The disadvantage of it is when applying a fixed width for a key which has many characters in it, The key wraps inside the fixed width. Because of that the keyboard layout breaks.
 
-![](../../../../Design/FullExport/images/storage/current\_implementation.png)
+![](../../../../.gitbook/assets/current\_implementation.png)
 
 ## Key Design Issues
 
@@ -77,7 +77,7 @@ Each Key is a single character in the below example. ( In Javascript the total l
 
 Rendering of the above input in keyboard
 
-![](<../../../../Design/FullExport/images/storage/worst Case scenario Tamil.png>)
+![](<../../../../.gitbook/assets/worst Case scenario Tamil.png>)
 
 ### Solution for design Issue 2
 
@@ -97,7 +97,7 @@ flex-grow : 1;
 min-width: 7%;
 ```
 
-![](../../../../Design/FullExport/images/storage/solution\_for\_problem\_statement\_2.png)
+![](../../../../.gitbook/assets/solution\_for\_problem\_statement\_2.png)
 
 ***
 

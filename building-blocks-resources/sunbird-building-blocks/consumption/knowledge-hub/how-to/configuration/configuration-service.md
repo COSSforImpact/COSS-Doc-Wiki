@@ -177,7 +177,7 @@ Following enhancements can be planned in the future:
 
 Integrity of configuration dataThe changes made using admin APIs should also reflect in the base config file to maintain integrity of configuration data. In case the base configuration file is maintained at a GIT repository, it is suggested to send a PR with the changes. In case the base configuration file is maintained as a regular file on cloud (or any other accessible storage), a patch file should be written to the same storage space. This PR / patch file should be merged manually by admin to ensure there is a scrutiny to the changes being made.
 
-![](../../../../../../Design/sbdesign-ed-kn-hw2/images/storage/config\_service.png)
+![](<../../../../../../.gitbook/assets/config\_service (1).png>)
 
 ### Guidelines
 

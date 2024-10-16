@@ -63,7 +63,7 @@ Here is a sample
 
 This report summarises performance of all users across learning objectives covered in the test prep content
 
-![](../../../../PRD/prd-ed-td-req-ind/images/storage/image-20191018-084831.png)
+![](../../../../.gitbook/assets/image-20191018-084831.png)
 
 #### Content Usage report
 
@@ -77,7 +77,7 @@ Report sample 1Report 1 [https://docs.google.com/spreadsheets/d/1Z8RJBZfjpHKHKGu
 4. Use low usage for Maths as reason to say more "practice" content is needed for Maths. (Am assuming almost all content linked in ETBs are videos)
 5. Use overall usage of Diksha for exams as reason to increase scope for next year amongst more grades.
 
-![](<../../../../PRD/prd-ed-td-req-ind/images/storage/Screenshot 2019-09-18 at 12.14.56.png>) ![](<../../../../PRD/prd-ed-td-req-ind/images/storage/Screenshot 2019-09-18 at 12.15.05.png>)
+![](<../../../../.gitbook/assets/Screenshot 2019-09-18 at 12.14.56.png>) ![](<../../../../.gitbook/assets/Screenshot 2019-09-18 at 12.15.05.png>)
 
 ***
 

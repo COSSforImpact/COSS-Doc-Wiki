@@ -77,13 +77,13 @@ Course enrolments, progress, assessments must be identified with a user. The JWT
 
 #### Managed user
 
-![](<../../../../User/Fullexport2/images/storage/UserProfiles@HomeSchooling-Copy of v2.png>)
+![](<../../../../.gitbook/assets/UserProfiles@HomeSchooling-Copy of v2.png>)
 
 1. A managed user is conceptually same as user, except that there is no email or phone identifier.
 2. A managed user can have certain new attributes like managedBy, PIN.
 3. A managed user doesn't inherit attribute values from the parent account automatically. Location, for example, is defaulted to as the managedBy, but they are asked to confirm.
 
-Experience ![](<../../../../User/Fullexport2/images/storage/UserProfiles@HomeSchooling-JWT creation.png>)
+Experience ![](<../../../../.gitbook/assets/UserProfiles@HomeSchooling-JWT creation.png>)
 
 #### New functionalities enabled
 
@@ -139,7 +139,7 @@ User addition telemetry goes as previous for any other user - No new flag/tags p
 
 ### Groups
 
-![](../../../../User/Fullexport2/images/storage/UserProfiles@HomeSchooling-Groups.png)
+![](../../../../.gitbook/assets/UserProfiles@HomeSchooling-Groups.png)
 
 #### What is a group?
 
@@ -160,7 +160,7 @@ Activity require support from an ‘instance’ to realise itself and we call th
 
 #### Database
 
-ER diagram![](<../../../../User/Fullexport2/images/storage/UserProfiles@HomeSchooling-ER diagram.png>)
+ER diagram![](<../../../../.gitbook/assets/UserProfiles@HomeSchooling-ER diagram.png>)
 
 Group - Cassandra
 

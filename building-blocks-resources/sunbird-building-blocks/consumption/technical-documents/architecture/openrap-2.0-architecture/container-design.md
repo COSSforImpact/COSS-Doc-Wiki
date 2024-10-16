@@ -11,7 +11,7 @@ icon: elementor
 
 Following is the high level component diagram of OpenRAP 2.0
 
-![](../../../../../../Design/sbdesign-ed-td-arch2/images/storage/openrap2.0\_container.png)
+![](<../../../../../../.gitbook/assets/openrap2.0\_container (1).png>)
 
 **SDK** Following are SDK's built into the container.
 
@@ -417,7 +417,7 @@ Below explains the process of downloading content when a user request for it, th
 4. &#x20;It will raise an event and plugin will listen to that event
 5. With event data it will extract the ECAR and index the content in content database
 
-![](<../../../../../../Design/sbdesign-ed-td-arch2/images/storage/Download Manager-Download Manager High Level.png>)
+![](<../../../../../../.gitbook/assets/Download Manager-Download Manager High Level (1).png>)
 
 At low level the download manager works as
 
@@ -428,9 +428,9 @@ At low level the download manager works as
 
 For more details you can refer [su-downloader3](https://www.npmjs.com/package/su-downloader3)
 
-![](<../../../../../../Design/sbdesign-ed-td-arch2/images/storage/Download Manager-Download Manager In depth.png>)
+![](<../../../../../../.gitbook/assets/Download Manager-Download Manager In depth (1).png>)
 
-**Telemetry Sync** ![](<../../../../../../Design/sbdesign-ed-td-arch2/images/storage/Telemetry Sync-Telemetry-final.png>)
+**Telemetry Sync** ![](<../../../../../../.gitbook/assets/Telemetry Sync-Telemetry-final (1).png>)
 
 **Telemetry Events**
 

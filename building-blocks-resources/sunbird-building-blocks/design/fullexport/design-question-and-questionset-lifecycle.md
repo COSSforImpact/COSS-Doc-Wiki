@@ -15,7 +15,7 @@ This wiki explains the current design of the Question and QuestionSet objects an
    1. No APIs to manage lifecycle.
    2. Once created it is Live.
 
-![](../../../../Design/FullExport/images/storage/current-question-questionset.png) **Key Design Problems:**
+![](../../../../.gitbook/assets/current-question-questionset.png) **Key Design Problems:**
 
 1. Question - Define lifecycle with its status and enable APIs.
 2. QuestionSet - Define lifecycle with its status and enable APIs.
@@ -35,7 +35,7 @@ We will define behaviour of the Question and QuestionSet as below.
 * Question is compared with Content. But, Question is not a object to directly use.
 * QuestionSet is compared with Collection.
 
-![](../../../../Design/FullExport/images/storage/qustion-questionset-lifecycle.png)
+![](../../../../.gitbook/assets/qustion-questionset-lifecycle.png)
 
 |            | **Content & Collection**                                                               | **Question & QuestionSet**                                                      |
 | ---------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -62,7 +62,7 @@ Below micro-services handles the Question and QuestionSet Objects.
 * **QuestionSet-Publisher** Flink job will publish the QuestionSet and generate the ECAR file.
 * The data and metadata of the objects stored in **Neo4J, Cassandra and Cloud-Storage** similar to Content and Collection.
 
-![](../../../../Design/FullExport/images/storage/question-questionset-deployment.png)
+![](../../../../.gitbook/assets/question-questionset-deployment.png)
 
 #### QuestionSet - As an independently consumable object
 
@@ -832,7 +832,7 @@ hierarchy.json
 
 We are enabling QuestionSet as individually consumable object in sunbird platform. So, allowing them to add as children to the Collection object will support features like, Assignment in between Course/TextBook, QuestionPaper end of the Course etc,.
 
-![](../../../../Design/FullExport/images/storage/collection-with-questionset.png)
+![](../../../../.gitbook/assets/collection-with-questionset.png)
 
 noteWith this design and implementation, we are enabling most of the capabilities and behaviour to Question and QuestionSet object which are already exists for Content and Collection.
 

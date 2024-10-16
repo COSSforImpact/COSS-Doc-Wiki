@@ -13,7 +13,7 @@ icon: elementor
 
 #### High level architecture depicting the components connected to Keycloak
 
-![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/image-20230114-150152.png)
+![](<../../../../.gitbook/assets/image-20230114-150152 (1).png>)
 
 * Only a handful of services connect to Keycloak
 * Only nginx public has been allowed and configured to connect to keycloak is the traffic originates from outside VPC
@@ -110,11 +110,11 @@ Known issues
 
 **Current Authentication Architecture** Attached are some diagrams that depict the current authentication architecture
 
-**Email/Phone number based sign up and sign in** ![](../../../../DevOpsFull/devops-kn-framewnbp/images/storage/cbimage.png)![](<../../../../DevOpsFull/devops-kn-framewnbp/images/storage/cbimage (1).png>)
+**Email/Phone number based sign up and sign in** ![](<../../../../.gitbook/assets/cbimage (5).png>)![](<../../../../.gitbook/assets/cbimage (1) (1).png>)
 
-**Google based sign in** ![](<../../../../DevOpsFull/devops-kn-framewnbp/images/storage/cbimage (2).png>)
+**Google based sign in** ![](<../../../../.gitbook/assets/cbimage (2) (1).png>)
 
-**State sso sign in** ![](<../../../../DevOpsFull/devops-kn-framewnbp/images/storage/cbimage (3).png>)
+**State sso sign in** ![](<../../../../.gitbook/assets/cbimage (3) (1).png>)
 
 **Mobile refresh token workflow**
 
@@ -127,7 +127,7 @@ Known issues
 
 \*\* \*\*
 
-![](<../../../../DevOpsFull/devops-kn-framewnbp/images/storage/cbimage (4).png>)
+![](<../../../../.gitbook/assets/cbimage (4) (1).png>)
 
 ***
 

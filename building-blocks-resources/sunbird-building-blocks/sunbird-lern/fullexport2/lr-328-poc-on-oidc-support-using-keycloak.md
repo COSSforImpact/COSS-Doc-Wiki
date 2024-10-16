@@ -6,7 +6,7 @@ In this POC we are trying to configure Google OIDC and save the users in our eco
 
 As of now we are trying to leverage the OpenID connect with google , flow-chart was mentioned in the doc: [https://docs.google.com/document/d/1dRHyorJUD1VHxL219yreyV9irCsJBrJNV\_pcPFDARNc/edit#heading=h.1tl58f2emzss](https://docs.google.com/document/d/1dRHyorJUD1VHxL219yreyV9irCsJBrJNV\_pcPFDARNc/edit#heading=h.1tl58f2emzss)
 
-![](<../../../../User/Fullexport2/images/storage/Screenshot 2023-03-24 at 11.01.00 AM.png>)Once the user is authenticated, we can get user details and as of now it is getting saved in the keycloak own database, this need to be customised.
+![](<../../../../.gitbook/assets/Screenshot 2023-03-24 at 11.01.00 AM.png>)Once the user is authenticated, we can get user details and as of now it is getting saved in the keycloak own database, this need to be customised.
 
 Customisation can be done with the support of spi’s provided by the Keycloak.
 
@@ -29,15 +29,15 @@ Methods need to override for this activity is:
 
 Add customised user-fedaration which is “cassandra-storage-provider” in our sunbird. If we are creating a new realm make sure it is not missed.
 
-![](<../../../../User/Fullexport2/images/storage/Screenshot 2023-11-17 at 1.06.32 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2023-11-17 at 1.06.32 PM.png>)
 
 After Integrating _**Google as Identity provider**_ , we can see google login for user to login into keycloak.
 
 steps can be followed from : [https://www.keycloak.org/docs/latest/server\_admin/#\_google](https://www.keycloak.org/docs/latest/server\_admin/#\_google)
 
-![](<../../../../User/Fullexport2/images/storage/Screenshot 2023-04-03 at 11.26.54 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2023-04-03 at 11.26.54 PM.png>)
 
-![](<../../../../User/Fullexport2/images/storage/Screenshot 2023-04-03 at 11.27.19 PM.png>)
+![](<../../../../.gitbook/assets/Screenshot 2023-04-03 at 11.27.19 PM.png>)
 
 _Flow chart will be added soon…_
 

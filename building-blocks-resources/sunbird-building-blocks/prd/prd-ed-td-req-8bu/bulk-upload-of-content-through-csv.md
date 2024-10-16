@@ -14,7 +14,7 @@ Requirement SpecificationsBulk Upload of Content - OverviewIn order to ensure ef
 
 Bulk Upload of Content - Overall Process Workflow
 
-![](../../../../PRD/prd-ed-td-req-8bu/images/storage/Workflow.png)
+![](../../../../.gitbook/assets/Workflow.png)
 
 Bulk Upload of Content  - User StoryMain Scenario: Upload and Publish Content and Link it to TextbookThis scenario is uploading content, publishing it as well as linking the content to relevant textbook sections based on the QR code. The pre-requisite for this:
 

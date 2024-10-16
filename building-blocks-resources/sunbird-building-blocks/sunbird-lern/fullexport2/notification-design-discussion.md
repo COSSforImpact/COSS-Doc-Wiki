@@ -91,7 +91,7 @@ The following are key design problems for the implementation.
 
 #### PROPOSED SOLUTION :
 
-Architecture![](../../../../User/Fullexport2/images/storage/test.jpg)
+Architecture![](../../../../.gitbook/assets/test.jpg)
 
 Database DesignThe following are the database design needed to support the notification service.
 
@@ -895,7 +895,7 @@ Based on _template.Id_ and _Lang_ will get the respective language template. Tem
 
 The architecture to support backward compatibility.
 
-![](<../../../../User/Fullexport2/images/storage/Notifications Migrartion (1).jpg>)
+![](<../../../../.gitbook/assets/Notifications Migrartion (1).jpg>)
 
 * As a part of this change , _**/user/feed/v1/create**_ will internally call the new notifications _**v2/notification/send**_ and the **v1** feed format will be stored in both **v1** and **v2** format.
 * The _**/user/v1/feed**_ will get the data all the **v1** formatted data from the new notification table by using the new end points.
@@ -1047,7 +1047,7 @@ Json Structure to be pushed as events to Kafka.
 
 #### Proposed ASYNC Notification Support
 
-![](../../../../User/Fullexport2/images/storage/untitled.png)Events structure:The events can be send in two format : -
+![](../../../../.gitbook/assets/untitled.png)Events structure:The events can be send in two format : -
 
 * Complete information in the events with notification specified schema which will be processed by default job
 * Events information with context which will be processed by specific flink job written to process it.
