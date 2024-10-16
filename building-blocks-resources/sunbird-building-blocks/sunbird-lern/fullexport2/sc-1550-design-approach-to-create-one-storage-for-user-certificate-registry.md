@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SC-1550-Design-approach-to-create-one-storage-for-user-certificate-registry
 
 * [Problem statement:](sc-1550-design-approach-to-create-one-storage-for-user-certificate-registry.md#problem-statement:)

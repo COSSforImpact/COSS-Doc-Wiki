@@ -1,7 +1,10 @@
+---
+icon: elementor
+---
 
-## Curl to update System Setting table for smsTemplateConfig
+# SB-26932 System Settings config curl for NIC SMS Provide integration
 
-
+Curl to update System Setting table for smsTemplateConfig
 
 ```
 curl --location --request POST '{{host}}/api/data/v1/system/settings/set' \
@@ -19,12 +22,6 @@ curl --location --request POST '{{host}}/api/data/v1/system/settings/set' \
 
 ```
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

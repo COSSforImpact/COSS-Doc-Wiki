@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SB-21245-PU---One-time-job-to-add-consent-entries-for-existing-users-who-have-already-made-a-self-de
 
 As a part of the task [SB-21245](https://project-sunbird.atlassian.net/browse/SB-21245), following steps need to be executed on the requirement basis.

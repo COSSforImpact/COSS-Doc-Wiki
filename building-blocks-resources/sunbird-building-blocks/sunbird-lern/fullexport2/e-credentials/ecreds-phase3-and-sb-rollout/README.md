@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Ecreds---Phase3-and-SB-rollout
 
 ### \*
@@ -32,7 +36,7 @@ In 2.3.5, a bunch of steps need to be executed by Devops/Dev/Impl team before ce
 
 ### Component interaction
 
-![](<../../../../../.gitbook/assets/eCreds\_solution\_and\_arch-Page-1 -existing.png>)
+![](<../../../../../../.gitbook/assets/eCreds\_solution\_and\_arch-Page-1 -existing.png>)
 
 ### Open questions
 

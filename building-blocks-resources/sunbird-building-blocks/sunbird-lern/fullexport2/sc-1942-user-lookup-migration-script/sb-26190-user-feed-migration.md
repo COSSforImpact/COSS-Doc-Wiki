@@ -1,7 +1,12 @@
+---
+icon: elementor
+---
 
-## Overview
-Notification service  has been redesigned to store in-app notification for the users .Hence all user notification will be stored in the notification_feed table in sunbird_notifications keyspace. Also to support the older mobile apps also the redirection of the api call to user feed creation has been moved to new notification_feed. So as a part of this change, the old notifications generated for a user will be moved to new notification table. The old user feed will be stored in new notification_feed table in both v1 and v2 format.
+# SB-26190---User-Feed-Migration
 
+### Overview
+
+Notification service has been redesigned to store in-app notification for the users .Hence all user notification will be stored in the notification\_feed table in sunbird\_notifications keyspace. Also to support the older mobile apps also the redirection of the api call to user feed creation has been moved to new notification\_feed. So as a part of this change, the old notifications generated for a user will be moved to new notification table. The old user feed will be stored in new notification\_feed table in both v1 and v2 format.
 
 ```
 Validate keyspace and table exists
@@ -24,8 +29,8 @@ CREATE TABLE sunbird_notifications.notification_feed(
     primary key(userid,id)
 );
 ```
-Run Migration script:
 
+Run Migration script:
 
 ```
 vi UserFeedMigration.scala
@@ -36,9 +41,7 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 UserFeedMigration.main("{cassandra ip}")
 ```
 
-
-Script :  
-
+Script :
 
 ```scala
 import com.typesafe.config.{Config, ConfigFactory}
@@ -177,9 +180,7 @@ def migrateData()(implicit spark: SparkSession) {
 }
 ```
 
-
-
-## Analysis  :  
+### Analysis :
 
 ```
 //Get one notification from user_feed table :
@@ -221,8 +222,6 @@ id                                   | action                                   
 
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

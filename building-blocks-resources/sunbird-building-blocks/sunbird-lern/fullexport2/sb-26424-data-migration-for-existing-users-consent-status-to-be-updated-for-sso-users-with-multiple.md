@@ -1,17 +1,22 @@
+---
+icon: elementor
+---
+
+# SB-26424---Data-migration-for-existing-users---Consent-status-to-be-updated-for-sso-users-with-multi
+
 Release: 4.4.0
 
 SB-ticket: [https://project-sunbird.atlassian.net/browse/SB-26424](https://project-sunbird.atlassian.net/browse/SB-26424)
 
-For sso-users the external-id in user-declarations is properly aligned according to usr_external_identity entries
+For sso-users the external-id in user-declarations is properly aligned according to usr\_external\_identity entries
 
-Consent status to be updated for custodian users with missing entries in user_consent table(which are present in user_declarations)
+Consent status to be updated for custodian users with missing entries in user\_consent table(which are present in user\_declarations)
 
-In this script we are correcting the user_consent data.
+In this script we are correcting the user\_consent data.
 
-Recently release-4.4.0 we done design changes to user_consent table, now at organisation level user can revoke consent, so according existing data for sso and custodain users who have multiple and wrong data in user_consent are modified accordingly.
+Recently release-4.4.0 we done design changes to user\_consent table, now at organisation level user can revoke consent, so according existing data for sso and custodain users who have multiple and wrong data in user\_consent are modified accordingly.
 
-The below script deals with sso users details for correcting right externalid in the user_declaration which is matching from usr_external_identity entries
-
+The below script deals with sso users details for correcting right externalid in the user\_declaration which is matching from usr\_external\_identity entries
 
 ```
 vi SSOUserDeclarationUpdate.scala
@@ -128,16 +133,14 @@ object SSOUserDeclarationUpdate extends Serializable {
     val updateUserInfo = udf[Map[String, String], Map[String, String], String](updateUserInfoFunction)
 }
 ```
+
 Tested the above in test-cluster with prod-data
 
 Time taken to run this script: 138130 ms
 
-Total number of  entries updated into user_declaration: 70554
+Total number of entries updated into user\_declaration: 70554
 
-
-
-This below script deals with custodian users for revoking invalid consent entries and inserting proper details based on user_declaration data.
-
+This below script deals with custodian users for revoking invalid consent entries and inserting proper details based on user\_declaration data.
 
 ```
 vi UserConsentRevokeUpdate.scala
@@ -267,21 +270,17 @@ object UserConsentRevokeUpdate extends Serializable {
     }
 }
 ```
+
 Tested the above in test-cluster with prod-data
 
 Time taken to run this script: 11736175 ms
 
-Total number of new entries made into user_consent: 341436
-
-
+Total number of new entries made into user\_consent: 341436
 
 Note: Tested the prod-data in test-cluster environment with ram capacity 120g and allocated spark-driver memory -100g
 
 The machine took almost around 127.3222 minutes to execute the script.
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

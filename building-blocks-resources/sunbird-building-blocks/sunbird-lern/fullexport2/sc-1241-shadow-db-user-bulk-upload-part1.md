@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SC-1241-Shadow-DB---User-Bulk-Upload---part1
 
 ### \*

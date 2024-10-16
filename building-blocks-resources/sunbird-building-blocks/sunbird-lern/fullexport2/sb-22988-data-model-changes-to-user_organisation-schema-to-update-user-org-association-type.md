@@ -1,4 +1,10 @@
-As part of user-org refactoring to suit manage learn use cases, from 3.7 release system should be able to capture user-org association type and user validation status in user_organisation table.
+---
+icon: elementor
+---
+
+# SB-22988---Data-model-changes-to-user\_organisation-schema-to-update-user-org-association-type
+
+As part of user-org refactoring to suit manage learn use cases, from 3.7 release system should be able to capture user-org association type and user validation status in user\_organisation table.
 
 Association Types
 
@@ -14,20 +20,19 @@ Bit position 1 => 1 - implies user supplied, 0 - org supplied
 
 11 (3 in decimal) - user supplied + validated (we will not have this association type now as there is no way to validate an association)
 
+### Problem statement
 
-## Problem statement
-Currently user_organisation table is having the association with user and organisation. But the kind of association or whether it is validated or not, is not stored. 
+Currently user\_organisation table is having the association with user and organisation. But the kind of association or whether it is validated or not, is not stored.
 
+### Solution
 
-## Solution
-In release 3.7, as part of user-org refactoring, below change is proposed to update the association type in the user_organisation table.
+In release 3.7, as part of user-org refactoring, below change is proposed to update the association type in the user\_organisation table.
 
-Add associationtype column and make it a part of primary key. Store the current asociation types as org/state supplied and validated (1 in decimal),  user supplied and non-validated(2 in decimal). In future there can be 2 more association types. org supplied + non validated(0 in decimal) and user supplied + validated (3 in decimal).
+Add associationtype column and make it a part of primary key. Store the current asociation types as org/state supplied and validated (1 in decimal), user supplied and non-validated(2 in decimal). In future there can be 2 more association types. org supplied + non validated(0 in decimal) and user supplied + validated (3 in decimal).
 
 As the state user also can edit the school from profile, there is going to be multiple org association for them. One will be state/org supplied and another will be updated by user from profile.
 
 Table structure with new approach:
-
 
 ```
 CREATE TABLE sunbird.user_organisation (
@@ -53,41 +58,21 @@ CREATE TABLE sunbird.user_organisation (
 )
 ```
 
-
 Impacted Areas:
 
 APIs
 
-
 1. /v1/user/update - associationtype to be updated.
+2. /v3/user/read/ - associationtype to be read.
+3. /v3/user/create - associationtype to be updated if user-org association is getting added.
+4. /v1/user/signup - associationtype to be updated if user-org association is getting added
+5. /v1/user/search - associationtype to be read.
+6. /private/user/v1/lookup- associationtype to be read if user-org association is fetched
 
-
-1. /v3/user/read/ - associationtype to be read.
-
-
-1. /v3/user/create - associationtype to be updated if user-org association is getting added.
-
-
-1. /v1/user/signup - associationtype to be updated if user-org association is getting added
-
-
-1. /v1/user/search - associationtype to be read.
-
-
-1. /private/user/v1/lookup- associationtype to be read if user-org association is fetched
-
-
-
-Analytics  - logic to pull associationtype in user cache updater
-
+Analytics - logic to pull associationtype in user cache updater
 
 1. User Cache Updater
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

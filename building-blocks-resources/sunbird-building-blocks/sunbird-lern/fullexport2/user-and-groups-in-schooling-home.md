@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # User-and-Groups-in-Schooling@Home
 
 * [Intent](user-and-groups-in-schooling-home.md#intent)

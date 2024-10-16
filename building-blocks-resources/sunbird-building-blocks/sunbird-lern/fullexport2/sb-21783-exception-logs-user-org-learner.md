@@ -1,9 +1,12 @@
-Below are the different type of logs which is generated from learner service. 
+---
+icon: elementor
+---
+
+# SB-21783---Exception-logs---User,-Org-learner
+
+Below are the different type of logs which is generated from learner service.
 
 what-ever mentioned in the [ticket](https://project-sunbird.atlassian.net/browse/SB-21783) SB-21783 is already getting in the below logs, do we need to add any further?
-
-
-
 
 ```json
 {"timestamp":"2021-11-16T13:06:49.300Z","msg":"{\"eid\":\"ERROR\",\"ets\":1637068009300,\"ver\":\"3.0\",\"mid\":\"7d2fce08d3e7fabd2b0be1807e485dc8\",\"actor\":{\"id\":\"8153b9ef-6d13-4bab-aada-1e3a6f6e229e\",\"type\":\"User\"},\"context\":{\"channel\":\"0126796199493140480\",\"pdata\":{\"id\":\"staging.diksha.app\",\"pid\":\"learner-service\",\"ver\":\"4.4.0\"},\"env\":\"User\",\"did\":\"d2942ce5ce87680b0c024074deea3b2fb29c4a9b\",\"cdata\":[{\"id\":\"7d2fce08d3e7fabd2b0be1807e485dc8\",\"type\":\"Request\"}],\"rollup\":{}},\"edata\":{\"err\":\"500\",\"stacktrace\":\"controllers.BaseController.createCommonExceptionResponse(BaseController.java:530)\\ncontrollers.BaseCo\",\"errtype\":\"INTERNAL_ERROR\"}}","lname":"TelemetryEventLogger","tname":"Thread-107232","level":"INFO","HOSTNAME":"learner-7b698ffbdb-6dj26","application.home":"/home/sunbird/learner/learning-service-1.0-SNAPSHOT"}
@@ -23,13 +26,11 @@ what-ever mentioned in the [ticket](https://project-sunbird.atlassian.net/browse
 {"timestamp":"2021-11-17T07:57:23.815Z","msg":"Cassandra query : SELECT * FROM sunbird.user_consent WHERE consumer_id=? AND user_id=? AND object_id=?;","lname":"org.sunbird.cassandraimpl.CassandraOperationImpl","tname":"application-akka.actor.rr-usr-dispatcher-51009","level":"INFO","HOSTNAME":"learner-7b698ffbdb-6dj26","application.home":"/home/sunbird/learner/learning-service-1.0-SNAPSHOT","uid":"08631a74-4b94-4cf7-a818-831135248a4a","op":"getUserConsent","appVer":null,"appId":"dev.sunbird.portal","did":"1726023c0f4e4f17b2c956c412fd5859","sid":"mDPCn4Cs6i4vWnXCvjrfSKKPdNEqEGJy","reqId":"0090d1c8237cd92dae6efe572589a508"}
 ```
 
-
 Learner-service already had many error-codes if we need to change anything now, portal and APP may get affect a lot.
 
 As of now we are using logback.xml with slf4j for logging purpose, below given sample config for logging and telemetry.
 
-Eg: 
-
+Eg:
 
 ```
 <appender name="defaultLoggerAppender" class="ch.qos.logback.core.ConsoleAppender">
@@ -90,11 +91,9 @@ Eg:
   </appender>
 ```
 
-
 After code change:
 
 Below are the logs from staging environment.
-
 
 ```
 {"timestamp":"2021-12-08T11:37:47.083Z","msg":"{\"eid\":\"ERROR\",\"ets\":1638963467083,\"ver\":\"3.0\",\"mid\":\"c2e253f4-f3bc-43ad-8b12-dbf223cabe02\",\"actor\":{\"id\":\"internal\",\"type\":\"Consumer\"},\"context\":{\"channel\":\"0126796199493140480\",\"pdata\":{\"id\":\"staging.sunbird.learning.service\",\"pid\":\"learner-service\",\"ver\":\"4.5.0\"},\"env\":\"Organisation\",\"cdata\":[{\"id\":\"c2e253f4-f3bc-43ad-8b12-dbf223cabe02\",\"type\":\"Request\"}],\"rollup\":{}},\"edata\":{\"err\":\"INVALID_PARAMETER_VALUE\",\"stacktrace\":\"BaseController:handleSearchRequest: Exception occurred with error message = Invalid value null for parameter hashTagId. Please provide a valid value. org.sunbird.validator.BaseRequestValidator.lambda$validateListValues$6(BaseRequestValidator.java:293)java.base/java.util.ArrayList.forEach(ArrayList.java:1541)org.sunbird.validator.BaseRequestValidator.validateListValues(BaseRequestValidator.java:287)org.sunbird.validator.BaseRequestValidator.lambda$validateSearchRequestFiltersValues$4(BaseRequestValidator.java:259)java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)org.sunbird.validator.BaseRequestValidator.validateSearchRequestFiltersValues(BaseRequestValidator.java:249)org.sunbird.validator.BaseRequestValidator.validateSearchRequest(BaseRequestValidator.java:217)controllers.organisationmanagement.OrgController.lambda$search$4(OrgController.java:85)controllers.BaseController.handleSearchRequest(BaseController.java:307)controllers.organisationmanagement.OrgController.search(OrgController.java:80)router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$64$$anonfun$apply$210$$anonfun$apply$211.apply(Routes.scala:2321)router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$64$$anonfun$apply$210$$anonfun$apply$211.apply(Routes.scala:2321)play.core.routing.HandlerInvokerFactory$$anon$6.resultCall(HandlerInvoker.scala:155)play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$10$$anon$2$$anon$1.invocation(HandlerInvoker.scala:116)play.core.j.JavaAction$$anon$1.call(JavaAction.scala:131)play.mvc.Action.lambda$call$0(Action.java:89)java.base/java.util.Optional.map(Optional.java:265)play.mvc.Action.call(Action.java:81)modules.OnRequestHandler$1.call(OnRequestHandler.java:87)play.core.j.JavaAction$$anonfun$10.apply(JavaAction.scala:191)play.core.j.JavaAction$$anonfun$10.apply(JavaAction.scala:191)scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)play.core.j.HttpExecutionContext$$anon$2.run(HttpE\",\"errtype\":\"api_access\",\"requestid\":\"c2e253f4-f3bc-43ad-8b12-dbf223cabe02\"}}","lname":"TelemetryEventLogger","tname":"application-akka.actor.default-dispatcher-4","level":"INFO","HOSTNAME":"learner-77446bc9cb-xf4km","application.home":"/home/sunbird/learner/learning-service-1.0-SNAPSHOT"}
@@ -102,8 +101,6 @@ Below are the logs from staging environment.
 {"timestamp":"2021-12-08T11:46:07.637Z","msg":"{\"eid\":\"LOG\",\"ets\":1638963967637,\"ver\":\"3.0\",\"mid\":\"d4f1803d-c8fc-6a90-31cd-717a3ccaa6c5\",\"actor\":{\"id\":\"91a81041-bbbd-4bd7-947f-09f9e469213c\",\"type\":\"User\"},\"context\":{\"channel\":\"01269878797503692810\",\"pdata\":{\"id\":\"staging.sunbird.portal\",\"pid\":\"learner-service\",\"ver\":\"4.5.0\"},\"env\":\"User\",\"did\":\"ce7e52e72032b6241b55ece9d349b94a\",\"cdata\":[{\"id\":\"d4f1803d-c8fc-6a90-31cd-717a3ccaa6c5\",\"type\":\"Request\"}],\"rollup\":{}},\"edata\":{\"level\":\"info\",\"requestid\":\"d4f1803d-c8fc-6a90-31cd-717a3ccaa6c5\",\"type\":\"Api_access\",\"message\":\"\",\"params\":[{\"method\":\"GET\"},{\"url\":\"/v1/user/managed/91a81041-bbbd-4bd7-947f-09f9e469213c?sortBy=createdDate&order=desc?sortBy=createdDate&order=desc\"},{\"duration\":0},{\"status\":\"OK\"}]}}","lname":"TelemetryEventLogger","tname":"Thread-855","level":"INFO","HOSTNAME":"learner-77446bc9cb-xf4km","application.home":"/home/sunbird/learner/learning-service-1.0-SNAPSHOT"}
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

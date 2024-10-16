@@ -1,71 +1,50 @@
-    * [release-3.2 ](#release-3.2-)
-  * [Pre-Reads](#pre-reads)
-  * [API endPoint](#api-endpoint)
-  * [SVG template variables](#svg-template-variables)
-This is taken as part of an effort to move away from HTML templates to SVG templates. The PDF generation in the backend with nodeJs and JAVA scripts took time of about 1-2s, thereby limiting our issue rate. We believe SVG templates can save 60-70 of that time.
+---
+icon: elementor
+---
+
+# SC-1855-Certificate-@-Scale
+
+```
+* [release-3.2 ](#release-3.2-)
+```
+
+* [Pre-Reads](sc-1855-certificate-scale.md#pre-reads)
+* [API endPoint](sc-1855-certificate-scale.md#api-endpoint)
+* [SVG template variables](sc-1855-certificate-scale.md#svg-template-variables) This is taken as part of an effort to move away from HTML templates to SVG templates. The PDF generation in the backend with nodeJs and JAVA scripts took time of about 1-2s, thereby limiting our issue rate. We believe SVG templates can save 60-70 of that time.
 
 The SVG template characteristics are as follows:
 
-
-### release-3.2 
+#### release-3.2
 
 1. All font, logos, images are absolute referenced - ‘http://’ , rather than local references.
 
+### Pre-Reads
 
-
-
-## Pre-Reads
-
-1. [[Ecreds - Phase3 and SB rollout|Ecreds---Phase3-and-SB-rollout]]
-
-
-1. [[Credentials for everyone|Credentials-for-everyone]]
-
-
-1. [https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/edit-v2/1583677441](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/edit-v2/1583677441)  - how tenant pref APIs are used to store these values 
-
-
-
-
+1. \[\[Ecreds - Phase3 and SB rollout|Ecreds---Phase3-and-SB-rollout]]
+2. \[\[Credentials for everyone|Credentials-for-everyone]]
+3. [https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/edit-v2/1583677441](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/edit-v2/1583677441) - how tenant pref APIs are used to store these values
 
 The following enhancements shall support these:
 
-
-1. v2/certs/generate 
+1.  v2/certs/generate
 
     Existing (v1) cert generate api, returns pdfUrl, cert data, access code , where pdf is generated using print service and uploaded to cloud. So we have to cut off the pdf generation in cert-service. Instead of sending pdfUrl in response, embed the SVG image in printURI field.
 
     The qrCodeImage will be base64 converted and embedded in the SVG image itself - completely self-contained.
+2.  /certs/v2/registry/download/{id}
 
+    Existing (v1) api expects pdfUrl.
+3.  /certs/v2/registry/add
 
-1. /certs/v2/registry/download/{id}
+    Existing (v1) Api expects pdfUrl, In v2 no need of sending pdfUrl, as in jsonData we embeded the SVG image in printURI field
 
-    Existing (v1) api expects pdfUrl. 
+### API endPoint
 
-
-1. /certs/v2/registry/add
-
-    Existing (v1) Api expects pdfUrl, In v2 no need of sending  pdfUrl, as in jsonData we embeded the SVG image in printURI field
-
-
-
-
-
-
-## API endPoint
 POST /v2/certs/generateRequestThe request will be the same as v1 cert generate with the following differences:
 
-
 1. htmlTemplate is removed
-
-
-1. svgTemplate is added
-
-
-1. Allowing  API to accept dynamic template attributes key-value pairs, the attributes must be passed in the related object(data.releated)
-
-
-
+2. svgTemplate is added
+3. Allowing API to accept dynamic template attributes key-value pairs, the attributes must be passed in the related object(data.releated)
 
 ```json
 {
@@ -105,8 +84,8 @@ POST /v2/certs/generateRequestThe request will be the same as v1 cert generate w
     }
 }
 ```
-Response:Note: pdfURL will not appear in response.
 
+Response:Note: pdfURL will not appear in response.
 
 ```json
 {
@@ -128,9 +107,11 @@ Response:Note: pdfURL will not appear in response.
     }
 }
 ```
-GET /certs/v2/registry/download/{id} This will be available in /certreg - cert_registry_service_prefix in the api gateway.
+
+GET /certs/v2/registry/download/{id} This will be available in /certreg - cert\_registry\_service\_prefix in the api gateway.
 
 Response
+
 ```json
 
 {
@@ -144,7 +125,9 @@ Response
     }
 }
 ```
+
 POST /certs/v2/registry/addRequest
+
 ```json
 {
     "request": {
@@ -166,7 +149,9 @@ POST /certs/v2/registry/addRequest
     }
 }
 ```
+
 Response
+
 ```json
 {
    ""id": "api.certs.registry.add",
@@ -181,32 +166,26 @@ Response
 }
 ```
 
-## SVG template variables
-Syntax - ${variable_name}
+### SVG template variables
 
+Syntax - ${variable\_name}
 
+| **variable name**          | **Description** |
+| -------------------------- | --------------- |
+| ${certificateName}         |                 |
+| ${$certificateDescription} |                 |
+| ${recipientName}           |                 |
+| ${recipientId}             |                 |
+| ${issuedDate}              |                 |
+| ${expiryDate}              |                 |
+| ${signatory0Image}         |                 |
+| ${signatory0Designation}   |                 |
+| ${signatory1Image}         |                 |
+| ${signatory1Designation}   |                 |
+| ${courseName}              |                 |
+| ${qrCodeImage}             |                 |
+| ${issuerName}              |                 |
 
-|  **variable name**  |  **Description**  | 
-|  --- |  --- | 
-| ${certificateName} |  | 
-| ${$certificateDescription} |  | 
-| ${recipientName} |  | 
-| ${recipientId} |  | 
-| ${issuedDate} |  | 
-| ${expiryDate} |  | 
-| ${signatory0Image} |  | 
-| ${signatory0Designation} |  | 
-| ${signatory1Image} |  | 
-| ${signatory1Designation} |  | 
-| ${courseName} |  | 
-| ${qrCodeImage} |  | 
-| ${issuerName} |  | 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

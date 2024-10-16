@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SC-2184---Data-model-changes-to-user-schema-to-store-location,-persona,-subpersona-in-generic-way
 
 As part of user-org refactoring to suit manage learn use cases, 3.6 release onwards profile/user locations and userType & userSubType are configurable for each state.

@@ -1,6 +1,12 @@
+---
+icon: elementor
+---
+
+# User-Org-Release-3.8.0-
+
 Technical design document for changes related to release-3.8.0.
 
- **SB-22745 Backend: Store Minor_flag against user's profile** :
+**SB-22745 Backend: Store Minor\_flag against user's profile** :
 
 Task created for this [https://project-sunbird.atlassian.net/browse/SB-22745](https://project-sunbird.atlassian.net/browse/SB-22745)
 
@@ -10,17 +16,10 @@ If the user is minor we will sent in read api response as “isMinor”: true el
 
 Note: While saving to backend we will saving dob to “yyyy-MM-dd” format, in-order to modify to the mentioned format we are going to add “-12-31” default to all dob values.
 
+\[\[SC-2190 : Data model changes to organisation schema to store schools as organisations|SC-2190---Data-model-changes-to-organisation-schema-to-store-schools-as-organisations]]
 
+\[\[SC-2184 : Data model changes to user schema to store location, persona, subpersona in generic way|SC-2184---Data-model-changes-to-user-schema-to-store-location,-persona,-subpersona-in-generic-way]]
 
-[[SC-2190 : Data model changes to organisation schema to store schools as organisations|SC-2190---Data-model-changes-to-organisation-schema-to-store-schools-as-organisations]]
+***
 
-
-
-[[SC-2184 : Data model changes to user schema to store location, persona, subpersona in generic way|SC-2184---Data-model-changes-to-user-schema-to-store-location,-persona,-subpersona-in-generic-way]]
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,11 +1,12 @@
+---
+icon: elementor
+---
+
+# SB-26822-Cassandra-data-migration-from-userProfileType-to-userProfileTypes
+
 This script will update the userProfileTypes from userProfileType data.
 
-
-
-
-## Steps to run the script:
-
-
+### Steps to run the script:
 
 ```
 vi UserTypeMigration.scala
@@ -15,8 +16,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of UserTypeMigration.scala}}
 UserTypeMigration.main("{cassandra ip}")
 ```
-
-
 
 ```
 import org.apache.spark.sql.functions.col
@@ -80,8 +79,6 @@ object UserTypeMigration extends Serializable {
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

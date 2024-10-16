@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SB-16500-Design-document-for-sending--certificate-of-achievement--notification-in-user-service
 
 * [Problem statement:](sb-16500-design-document-for-sending-certificate-of-achievement-notification-in-user-service.md#problem-statement:)

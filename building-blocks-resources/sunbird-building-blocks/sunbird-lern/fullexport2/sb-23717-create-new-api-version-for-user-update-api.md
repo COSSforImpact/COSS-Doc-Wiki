@@ -1,9 +1,14 @@
+---
+icon: elementor
+---
+
+# SB-23717---Create-new-API-version-for-user-update-API
+
 End-point: /v2/user/update
 
 Method: POST
 
 Request:
-
 
 ```
 {
@@ -14,9 +19,7 @@ Request:
 }
 ```
 
-
 Response:
-
 
 ```
 {
@@ -38,10 +41,6 @@ Response:
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

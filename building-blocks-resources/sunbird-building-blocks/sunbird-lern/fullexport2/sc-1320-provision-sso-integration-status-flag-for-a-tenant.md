@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SC-1320-Provision-SSO-integration-status-flag-for-a-tenant
 
 * [Problem statement:](sc-1320-provision-sso-integration-status-flag-for-a-tenant.md#problem-statement:-)

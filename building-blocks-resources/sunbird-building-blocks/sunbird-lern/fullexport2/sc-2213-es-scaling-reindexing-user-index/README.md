@@ -1,21 +1,22 @@
+---
+icon: folder-open
+---
 
-## About
+# SC-2213---ES-scaling---reindexing-user-index
+
+### About
+
 The user index is around 1.5 TB (3 TB with replication) in our load testing environment with just 10 million users and this is taking up most of the ES disc space. The user index mapping has been reviewed and optimised to reduce the index size without limiting any of the search capabilities.
 
+### Steps to re-index the data with the new mapping:
 
-## Steps to re-index the data with the new mapping:
-
-1. First check the number of  **number_of_shards**  &  **number_of_replicas**  from old user index by running below curl 
-
-    
-
+1. First check the number of **number\_of\_shards** & **number\_of\_replicas** from old user index by running below curl
 
 ```
 curl --location --request GET 'http://localhost:9200/_cat/indices/%2A?v=&s=index:desc'
 ```
 
-1. Create new user index with name as userv{x} // x is version number , by running the below curl 
-
+1. Create new user index with name as userv{x} // x is version number , by running the below curl
 
 ```
 curl --location --request PUT 'localhost:9200/{new_index_name}?pretty' \
@@ -70,11 +71,9 @@ curl --location --request PUT 'localhost:9200/{new_index_name}?pretty' \
 }'
 ```
 
-
 Note : Verify the index settings from the given [link](https://github.com/project-sunbird/sunbird-lms-service/blob/release-3.7.0/actors/sunbird-lms-mw/actors/sunbird-utils/sunbird-es-utils/src/main/resources/indices/user.json)
 
-3.  Once index created , update the mapping by running below curl
-
+3. Once index created , update the mapping by running below curl
 
 ```
 curl --location --request PUT 'localhost:9200/{new_index_name}/_mapping/_doc' \
@@ -862,10 +861,10 @@ curl --location --request PUT 'localhost:9200/{new_index_name}/_mapping/_doc' \
   }
 }'
 ```
+
 Note : Verify the index mapping settings from the given [link](https://github.com/project-sunbird/sunbird-lms-service/blob/release-3.7.0/actors/sunbird-lms-mw/actors/sunbird-utils/sunbird-es-utils/src/main/resources/mappings/user-mapping.json)
 
-4. Once mapping update, run the reindex curl  
-
+4. Once mapping update, run the reindex curl
 
 ```
 curl --location --request POST 'localhost:9200/_reindex?pretty' \
@@ -879,8 +878,8 @@ curl --location --request POST 'localhost:9200/_reindex?pretty' \
   }
 }'
 ```
-5. After reindexing , update the index with correct number of replica and refresh interval, by below curl
 
+5. After reindexing , update the index with correct number of replica and refresh interval, by below curl
 
 ```
 curl --location --request PUT 'localhost:9200/{new_index_name}/_settings?pretty' \
@@ -892,29 +891,21 @@ curl --location --request PUT 'localhost:9200/{new_index_name}/_settings?pretty'
   }
 }'
 ```
-6.  After updating replica , add alias to the new index with alias name as  **user_alias**  , by below curl
 
-
-
+6. After updating replica , add alias to the new index with alias name as **user\_alias** , by below curl
 
 ```
 curl --location --request PUT 'localhost:9200/{new_index_name}/_alias/user_alias?pretty'
 ```
-Note : If alias name changed other than  **user_alias,** update the learner env for  **user_index_alias** 
 
-
+Note : If alias name changed other than **user\_alias,** update the learner env for **user\_index\_alias**
 
 7. Deploy the learner (release-3.7.0) and check the disk usage , replica number for the new index by running the below curl
-
 
 ```
 curl --location --request GET 'http://localhost:9200/_cat/indices/%2A?v=&s=index:desc'
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

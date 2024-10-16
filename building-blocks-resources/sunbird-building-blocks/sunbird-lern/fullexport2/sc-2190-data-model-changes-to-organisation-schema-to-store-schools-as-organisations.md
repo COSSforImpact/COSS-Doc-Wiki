@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SC-2190---Data-model-changes-to-organisation-schema-to-store-schools-as-organisations
 
 As part of user-org refactoring to suit manage learn use cases, from 3.8 release :

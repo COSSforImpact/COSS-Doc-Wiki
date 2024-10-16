@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Keycloak--Managing-brute-force-login-attacks
 
 This document describes the steps of how to configure brute force login attacks management in keycloak, and how to create user accounts in keycloak with manage-users permission so that they unlock the locked users (because of a brute force attack on their account).

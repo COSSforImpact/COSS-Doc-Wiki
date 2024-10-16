@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # User-All-TnC-acceptance-Design
 
 To support multiple type of terms and condition we have designed a global acceptance fields in the user table. A user might have to accept multiple terms and conditions to access the diksha platform. Hence, as it will be specific to each user, we have created a new field allTncAccepted fields to store those values.

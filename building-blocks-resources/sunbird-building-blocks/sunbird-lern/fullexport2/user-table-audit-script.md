@@ -1,21 +1,17 @@
+---
+icon: elementor
+---
+
+# User-Table-Audit-Script
+
 OverviewThe purpose of this script to find the below details:
 
-
 * Duplicate counts - email, phone, username
-
-
 * Display which two users collide on this - createdOn, updatedOn timestamps can help which is active - not always correct, but gives a rough idea
-
-
 * usernames blank is not expected at all
-
-
 * How many users are in non-custodian org, but are not marked 'stateValidated' (true)? What are their details?
 
-
-
 Steps to run:
-
 
 ```
 vi UserAudit.scala
@@ -25,8 +21,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of UserAudit.scala}}
 UserAudit.main("{cassandra ip}")
 ```
-
-
 
 ```scala
 import com.typesafe.config.{Config, ConfigFactory}
@@ -190,12 +184,10 @@ def auditData()(implicit spark: SparkSession) {
   }
 }
 ```
-Check for files audit_\*.txt or audit_\*.csv for analysis.
 
-
+Check for files audit\_\*.txt or audit\_\*.csv for analysis.
 
 SB-21007 : Self declared User Issue Audit Scripts
-
 
 ```
 import com.typesafe.config.{Config, ConfigFactory}
@@ -334,12 +326,6 @@ def notNullAndEmpty(c:Column): Column ={
 }
 ```
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

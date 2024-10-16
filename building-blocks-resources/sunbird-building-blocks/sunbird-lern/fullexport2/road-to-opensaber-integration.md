@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Road-to-OpenSABER-integration
 
 Document status: Draft

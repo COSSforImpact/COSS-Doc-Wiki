@@ -1,15 +1,18 @@
+---
+icon: elementor
+---
 
+# SB-23720---Create-new-API-version-for-user-read-API
 
-[[SC-2184 : Data model changes to user schema to store location, persona, subpersona in generic way|SC-2184---Data-model-changes-to-user-schema-to-store-location,-persona,-subpersona-in-generic-way]]
+\[\[SC-2184 : Data model changes to user schema to store location, persona, subpersona in generic way|SC-2184---Data-model-changes-to-user-schema-to-store-location,-persona,-subpersona-in-generic-way]]
 
+### New API Version :
 
-## New API Version : 
 End-point : /v4/user/read/:uid
 
 Method: GET
 
-Response: 
-
+Response:
 
 ```
 {
@@ -146,12 +149,6 @@ Response:
 }
 ```
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

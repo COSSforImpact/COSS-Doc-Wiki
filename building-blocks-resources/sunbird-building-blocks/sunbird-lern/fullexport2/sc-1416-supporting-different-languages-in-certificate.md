@@ -1,4 +1,12 @@
-# Problem statement: SC-1416
+---
+icon: elementor
+---
+
+# SC-1416 supporting different languages in certificate
+
+
+
+## Problem statement: SC-1416
 
 In the current system for certificate generation, it is not supporting fully for Indic language's. As of now we are using basic itext module for converting html to pdf generation, so here and there glyphs was not converting properly.
 

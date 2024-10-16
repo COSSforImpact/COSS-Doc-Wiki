@@ -1,41 +1,37 @@
+---
+icon: folder-open
+---
 
-# About
+# SC-2190 : sync tool for learner-service
+
 This sync tool , reads a csv file containing objectIds (ids of user, org or location) and make call to learner-service sync API which index cassandra data to ES.
-
 
 ## Steps to use sync tool:
 
 1. Create a separate instance for learner , so other API will not get affected with this long run.
-
 
 ```
 create a separate learner replica with 4 or more pods with different labels and expose them as nodeport
 ```
 
 1. Create a new VM or use any existing VM (like jenkins), from where we can connect to learner-service to run the sync tool.
-
-
-1. Download the java executible jar ([SyncUserOrgDataToES.jar](https://github.com/project-sunbird/sunbird-utils/blob/release-3.8.0/data_correction_script/SyncUserOrgDataToES.jar)) from the [https://github.com/project-sunbird/sunbird-utils/tree/release-3.8.0/data_correction_script](https://github.com/project-sunbird/sunbird-utils/tree/release-3.8.0/data_correction_script) .
-
+2. Download the java executible jar ([SyncUserOrgDataToES.jar](https://github.com/project-sunbird/sunbird-utils/blob/release-3.8.0/data\_correction\_script/SyncUserOrgDataToES.jar)) from the [https://github.com/project-sunbird/sunbird-utils/tree/release-3.8.0/data\_correction\_script](https://github.com/project-sunbird/sunbird-utils/tree/release-3.8.0/data\_correction\_script) .
 
 ```
 wget https://github.com/project-sunbird/sunbird-utils/blob/release-3.8.0/data_correction_script/SyncUserOrgDataToES.jar?raw=true
 mv SyncUserOrgDataToES.jar\?raw\=true SyncUserOrgDataToES.jar
 ```
 
-1. Get the csv file of objectIds (without any header) from cassandra.
+1.  Get the csv file of objectIds (without any header) from cassandra.
 
     To generate csv file use the below cql query .
-
-
-
 
 ```
 COPY sunbird.organisation (id) TO '/home/loggedUser/orgids.csv' WITH HEADER = False ;
 COPY sunbird.user (id) TO '/home/loggedUser/userids.csv' WITH HEADER = False ;
 ```
- **Note :** split csv file to 10 separate csv file for parallelism and associate each csv file to one sync tool instance. use below cmd to split csv file based on the number of records.
 
+**Note :** split csv file to 10 separate csv file for parallelism and associate each csv file to one sync tool instance. use below cmd to split csv file based on the number of records.
 
 ```
 split -l 50000 file.csv fileChanged -d --additional-suffix=.csv
@@ -44,8 +40,8 @@ split -l 50000 file.csv fileChanged -d --additional-suffix=.csv
 file.csv // path of csv file
 fileChanged //new csv filename prefix 
 ```
-  5. Run the below java command to sync the data in each (split) csv file
 
+5. Run the below java command to sync the data in each (split) csv file
 
 ```
 Command to run the jar:
@@ -69,16 +65,8 @@ Note:
 2. batch_count is the count of ids it will read from csv file to sync user/org in one API call.
 ```
 
+**Note :** Run the sync tool as a seperate java process on same machine for more parallelism(We can run 5-10 sync tool parallelly)
 
- **Note :** Run the sync tool as a seperate java process on same machine for more parallelism(We can run 5-10 sync tool parallelly)
+***
 
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

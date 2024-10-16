@@ -1,15 +1,18 @@
+---
+icon: elementor
+---
 
-## Overview
+# TG-442-Migration-guide-for-user\_org-table-(release-3.2.0)
+
+### Overview
+
 User Org data is always read based on userId , orgId and isDeleted which all are secondary indexed column in cassandra , which causing cpu usage spike on high load.
 
 To reduce the cassandra cpu usage , we restructured the user org table to use userId as partition key and organisationId as cluster key.
 
-Note: we created new table user_organisation with same column set in user_org.
+Note: we created new table user\_organisation with same column set in user\_org.
 
-
-### Old user_org table schema:
-
-
+#### Old user\_org table schema:
 
 ```
 CREATE TABLE sunbird.user_org (
@@ -33,11 +36,7 @@ CREATE TABLE sunbird.user_org (
 )
 ```
 
-
-
-### New user_organisation schema:
-
-
+#### New user\_organisation schema:
 
 ```
 CREATE TABLE sunbird.user_organisation (
@@ -62,32 +61,15 @@ CREATE TABLE sunbird.user_organisation (
 ) WITH CLUSTERING ORDER BY (organisationid ASC)
 ```
 
+### Steps for data Migration from user\_org table to user\_organisation table
 
-
-## Steps for data Migration from user_org table to user_organisation table
-
-
-
-1. Run the cassandra migration job to create user_organisation table.
-
-
-1. check for table in cassandra by running query :  **desc sunbird.user_organisation** 
-
-
-1. bring down sunbird-lms-service 
-
-
-1. validate data count in user_org table
-
-
-1. If spark is available, login to spark machine. Else, download spark from [here](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.0/spark-3.0.0-bin-hadoop2.7.tgz), to the preferred instance.
-
-
+1. Run the cassandra migration job to create user\_organisation table.
+2. check for table in cassandra by running query : **desc sunbird.user\_organisation**
+3. bring down sunbird-lms-service
+4. validate data count in user\_org table
+5. If spark is available, login to spark machine. Else, download spark from [here](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.0/spark-3.0.0-bin-hadoop2.7.tgz), to the preferred instance.
 
 Follow the below mentioned steps for data migration.
-
-
-
 
 ```
 vi UserOrgDataMigration.scala 
@@ -97,12 +79,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of UserOrgDataMigration.scala}}
 UserOrgDataMigration.main("{{cassandra_host}}:{{cassandra_port}}")
 ```
-
-
-
-
-
-
 
 ```
 UserOrgDataMigration.scala
@@ -161,8 +137,6 @@ def migrateData()(implicit spark: SparkSession) {
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

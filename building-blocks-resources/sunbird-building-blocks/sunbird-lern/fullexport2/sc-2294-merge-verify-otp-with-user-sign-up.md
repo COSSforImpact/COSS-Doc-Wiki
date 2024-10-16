@@ -1,20 +1,22 @@
+---
+icon: elementor
+---
 
-### About
+# SC-2294 Merge verify OTP with User sign-up
+
 OTP verify API is called before user registration, to verify the user’s email/phone. Once email/phone verified, portal is making call to user registration API to create user in our system.
 
 This flow of user registration has one issue i.e user can change their verified email/phone before calling user create API. Currently portal is hashing the user request to verify the email/phone after OTP verification is done by the user. Now this hashing and verification flow will be handled by user-org service.
 
+**Solution**
 
-## Solution
+1.  For user self sign-up & state sso:
 
-1. For user self sign-up & state sso:
-
-
-
-       user-org service will send the encrypted or hashed value of email/phone in OTP verify response and use the same to verify the email/phone from user registration request body.
+    ```
+    user-org service will send the encrypted or hashed value of email/phone in OTP verify response and use the same to verify the email/phone from user registration request body.
+    ```
 
 OTP verify Response:
-
 
 ```
 {
@@ -35,10 +37,8 @@ OTP verify Response:
     }
 }
 ```
+
 User create Request:
-
-
-
 
 ```
 {
@@ -51,38 +51,23 @@ User create Request:
     }
 }
 ```
- **Note** : user-org service will use the token value in the above user create request to validate the email/phone, else will throw the 401 Unauthorized error.
 
-2. Google SO:
+**Note** : user-org service will use the token value in the above user create request to validate the email/phone, else will throw the 401 Unauthorized error.
 
-     Once the user successfully signs in , portal will get the user's ID token. And send this to user-org service, using this token, user-org service will fetch the user details and will call user registration API internally.
+2.  Google SO:
+
+    Once the user successfully signs in , portal will get the user's ID token. And send this to user-org service, using this token, user-org service will fetch the user details and will call user registration API internally.
 
 This need new user registration API to support user creation via google sign on, this will require only user’s ID token in request body.
 
+**Note** : Same flow should be used to update user’s email\phone.
 
-
- **Note** : Same flow should be used to update user’s email\phone.
-
-
-
-
-## Queries:
+**Queries:**
 
 1. Do we need new version of all the user registration APIs to implement these changes? (only portal is using user registration related APIs and app is using portal for the same.)
+2. Can we depreciate the older version of user registration APIs?
+3. Update API need newer version if we have to implement this flow.
 
+***
 
-1. Can we depreciate the older version of user registration APIs? 
-
-
-1. Update API need newer version if we have to implement this flow.
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

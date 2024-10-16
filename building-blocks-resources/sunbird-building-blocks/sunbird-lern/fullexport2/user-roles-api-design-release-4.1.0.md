@@ -1,13 +1,18 @@
-User roles were removed from user and user-organisation entity and added to user_roles table, as part of the user-org generalization changes ([[User/Org Data Model Changes for 3.9|User-Org-Data-Model-Changes-for-3.9]]). This change was done in release-4.0.0 and backward compatibility is maintained in user related api’s. Now in release-4.1.0 the request and response structure is going to change for assign roles api. Also for user read api and user search api.
+---
+icon: elementor
+---
 
- **Build release version: 4.1.0** 
+# User-Roles---Api-Design---release-4.1.0
 
- **Assign Role API changes:** 
+User roles were removed from user and user-organisation entity and added to user\_roles table, as part of the user-org generalization changes (\[\[User/Org Data Model Changes for 3.9|User-Org-Data-Model-Changes-for-3.9]]). This change was done in release-4.0.0 and backward compatibility is maintained in user related api’s. Now in release-4.1.0 the request and response structure is going to change for assign roles api. Also for user read api and user search api.
 
- **Existing assign role api version 1** : /v1/user/assign/role
+**Build release version: 4.1.0**
 
-Request: 
+**Assign Role API changes:**
 
+**Existing assign role api version 1** : /v1/user/assign/role
+
+Request:
 
 ```json
 {
@@ -18,9 +23,10 @@ Request:
     }
 }
 ```
+
 This request does not support the new role structure with scope.
 
- **New V2 version of Assign Role API :** 
+**New V2 version of Assign Role API :**
 
 In new version, v2 assign roles api, request will have the option to pass scope along with role. The scope is currently supporting organisationId, later it can be extended to support programId or location or language as per the requirement.
 
@@ -28,22 +34,12 @@ V2 API endpoint: /v2/user/assign/role
 
 Two different approaches are proposed for assign role api request. “PUBLIC” role is not saved to DB.
 
- **Approach 1: Request with out operation type** : 
+**Approach 1: Request with out operation type** :
 
-
-* Assume that the user is already having existing roles - “ORG_ADMIN” and “CONTENT_CREATOR”. With this request the scope of existing roles that are present will be updated and remaining will be deleted. If any new roles, those will be added to the DB. 
-
-
-* In below example, ORG_ADMIN will be deleted, ”CONTENT_CREATOR” will be updated and “COURSE_CREATOR” will be added. 
-
-
-* ”CONTENT_CREATOR” role is being updated means, the scope is getting replaced with the new scope that is coming in request.
-
-
+* Assume that the user is already having existing roles - “ORG\_ADMIN” and “CONTENT\_CREATOR”. With this request the scope of existing roles that are present will be updated and remaining will be deleted. If any new roles, those will be added to the DB.
+* In below example, ORG\_ADMIN will be deleted, ”CONTENT\_CREATOR” will be updated and “COURSE\_CREATOR” will be added.
+* ”CONTENT\_CREATOR” role is being updated means, the scope is getting replaced with the new scope that is coming in request.
 * If we want to remove all roles, we need to pass “PUBLIC” as default role. But this will delete all roles, but will not add public to DB.
-
-
-
 
 ```json
 {
@@ -69,16 +65,11 @@ Two different approaches are proposed for assign role api request. “PUBLIC” 
 	}
 }
 ```
- **Approach 2: Request with operation type** :   
 
+**Approach 2: Request with operation type** :
 
-*  **add**  operation will contain scope w.r.t the roles. if not already existing, the role will be added. If already existing ignore it.
-
-
-*  **remove**  operation will remove the scope of the existing role. If there is no scope in a role, then the role itself will be deleted.
-
-
-
+* **add** operation will contain scope w.r.t the roles. if not already existing, the role will be added. If already existing ignore it.
+* **remove** operation will remove the scope of the existing role. If there is no scope in a role, then the role itself will be deleted.
 
 ```json
 {
@@ -111,14 +102,14 @@ Two different approaches are proposed for assign role api request. “PUBLIC” 
 	}
 }
 ```
- **Accepted Solution :** Opting for approach 2, as per the new UI design.
 
- **User-search API changes:** 
+**Accepted Solution :** Opting for approach 2, as per the new UI design.
+
+**User-search API changes:**
 
 In user-search API, the request and response is going to have change according to the new role structure:
 
 User-search api version 2, request for searching users based on roles is as below:
-
 
 ```json
 {
@@ -131,10 +122,10 @@ User-search api version 2, request for searching users based on roles is as belo
     }
 }
 ```
+
 In user-search api version 2, roles are returned in the organisation sub-entity in the user entity as shown below.
 
 Existing search api response: /v2/user/search/
-
 
 ```json
 {
@@ -237,10 +228,10 @@ Existing search api response: /v2/user/search/
     }
 }
 ```
-In release-4.1.0, new user-search api version 3 is getting added, in which the request and response is going to change as per the new role structure. 
+
+In release-4.1.0, new user-search api version 3 is getting added, in which the request and response is going to change as per the new role structure.
 
 User-search api version 3, request for searching users based on roles is as below:
-
 
 ```json
 {
@@ -253,10 +244,10 @@ User-search api version 3, request for searching users based on roles is as belo
     }
 }
 ```
-In user-search api version 3, roles are returned in the  user entity as shown below.
+
+In user-search api version 3, roles are returned in the user entity as shown below.
 
 Version 3 user-search api response: /v3/user/search/
-
 
 ```json
 {
@@ -367,13 +358,11 @@ Version 3 user-search api response: /v3/user/search/
 }
 ```
 
+**User-read API changes:**
 
- **User-read API changes:** 
-
-In earlier releases roles data use to come in roles attribute in user entity and the same data comes in roles attribute of organisations sub-entity. 
+In earlier releases roles data use to come in roles attribute in user entity and the same data comes in roles attribute of organisations sub-entity.
 
 Read api: /v4/user/read/:uid
-
 
 ```json
 {
@@ -484,11 +473,9 @@ Read api: /v4/user/read/:uid
 }
 ```
 
-
-In the upcoming release-4.1.0 the roles attribute will be removed from organisations sub-entity and it will be in the  user main entity with following structure.
+In the upcoming release-4.1.0 the roles attribute will be removed from organisations sub-entity and it will be in the user main entity with following structure.
 
 New version 5 read api response : /v5/user/read/:uid
-
 
 ```json
 {
@@ -606,12 +593,6 @@ New version 5 read api response : /v5/user/read/:uid
 }
 ```
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

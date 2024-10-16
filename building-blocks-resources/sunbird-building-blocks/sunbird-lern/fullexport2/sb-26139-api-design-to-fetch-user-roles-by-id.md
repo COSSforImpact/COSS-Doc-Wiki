@@ -1,17 +1,22 @@
+---
+icon: elementor
+---
 
-## Overview
+# SB-26139-API-Design-To-Fetch-User-Roles-By-ID
+
+### Overview
+
 [https://project-sunbird.atlassian.net/browse/SB-26139](https://project-sunbird.atlassian.net/browse/SB-26139)
 
 To implement RBAC , sunbird-apimanager-util need an API to fetch user roles to append in auth token. And we also have one requirement where Portal need only user roles data along with some other org details like orgName to display on assign role page.
 
+### API Details:
 
-## API Details:
-URI : {{host}}[/private/user/v1/role/read/](http://localhost:9000/v1/user/role/read/0e70f455-8a9d-495e-a03b-6398c6ccfedc){{userId}}?fields=orgName
+URI : \{{host\}}[/private/user/v1/role/read/](http://localhost:9000/v1/user/role/read/0e70f455-8a9d-495e-a03b-6398c6ccfedc)\{{userId\}}?fields=orgName
 
+#### Request:
 
-### Request:
-CURL : 
-
+CURL :
 
 ```
 curl --location --request GET '{{host}}/private/user/v1/role/read/{{userId}}?fields=orgName' \
@@ -21,7 +26,7 @@ curl --location --request GET '{{host}}/private/user/v1/role/read/{{userId}}?fie
 --header 'x-authenticated-user-token: {{keycloak_access_token}}'
 ```
 
-### Response:
+#### Response:
 
 ```
 {
@@ -69,14 +74,8 @@ curl --location --request GET '{{host}}/private/user/v1/role/read/{{userId}}?fie
 }
 ```
 
-### Note:   For Any client (Portal) which need org details along with user roles , they can pass fields as query param to fetch extra details like orgName
+#### Note: For Any client (Portal) which need org details along with user roles , they can pass fields as query param to fetch extra details like orgName
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

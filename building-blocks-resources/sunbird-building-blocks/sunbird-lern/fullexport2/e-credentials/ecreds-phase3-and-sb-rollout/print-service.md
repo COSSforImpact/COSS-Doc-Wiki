@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Print-Service
 
 * [Problem](print-service.md#problem)
@@ -18,7 +22,7 @@
 
 ### Consumption Diagram
 
-![](../../../../../.gitbook/assets/cert-print.png)
+![](../../../../../../.gitbook/assets/cert-print.png)
 
 ### Solution/Capabilities
 

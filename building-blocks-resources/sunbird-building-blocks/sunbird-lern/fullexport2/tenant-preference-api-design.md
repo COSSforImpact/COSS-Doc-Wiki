@@ -1,14 +1,22 @@
-  * [Intent](#intent)
-  * [API endpoints (proposed and enhancements)](#api-endpoints-(proposed-and-enhancements))
-    * [POST v2/org/preferences/create](#post-v2/org/preferences/create)
-  * [Legacy - Existing table structure:](#legacy---existing-table-structure:)
+---
+icon: elementor
+---
 
-## Intent
-We have an existing tenant preferences API’s read, add, and update. This can be enhanced for storing tenant specific settings. One such could be the certificate templates, such as SVG/HTML and issuer details. These are completely going to be managed by consumption and implementation teams - pretty much like form-config APIs. 
+# Tenant-Preference-API-design
+
+* [Intent](tenant-preference-api-design.md#intent)
+* [API endpoints (proposed and enhancements)](tenant-preference-api-design.md#api-endpoints-\(proposed-and-enhancements\))
+  * [POST v2/org/preferences/create](tenant-preference-api-design.md#post-v2/org/preferences/create)
+* [Legacy - Existing table structure:](tenant-preference-api-design.md#legacy---existing-table-structure:)
+
+### Intent
+
+We have an existing tenant preferences API’s read, add, and update. This can be enhanced for storing tenant specific settings. One such could be the certificate templates, such as SVG/HTML and issuer details. These are completely going to be managed by consumption and implementation teams - pretty much like form-config APIs.
 
 Note form-config gives the illusion of ‘form’ and UI specific artifacts. This is one of the reason we wanted to shift away from and create these.
 
 Table (proposed in 3.2.)
+
 ```sql
 CREATE TABLE IF NOT EXISTS sunbird.tenant_preference_v2 (
 data text,
@@ -22,10 +30,12 @@ PRIMARY KEY (orgid, key)
 );
 ```
 
-## API endpoints (proposed and enhancements)
+### API endpoints (proposed and enhancements)
 
-### POST v2/org/preferences/create
+#### POST v2/org/preferences/create
+
 Request :
+
 ```json
 {
     "request": {
@@ -35,11 +45,10 @@ Request :
     }
 }
 ```
+
 Response:
-* Success Response 
 
-
-
+* Success Response
 
 ```json
 {
@@ -64,9 +73,6 @@ Response:
 
 * Missing Mandatory param
 
-
-
-
 ```json
 {
     "id": "api.org.preferences.create",
@@ -85,9 +91,6 @@ Response:
 ```
 
 * Data type error
-
-
-
 
 ```json
 {
@@ -108,9 +111,6 @@ Response:
 
 * Preference already exists
 
-
-
-
 ```json
 {
     "id": "api.org.preferences.create",
@@ -127,11 +127,10 @@ Response:
     "result": {}
 }
 ```
+
 POST v2/org/preferences/readRequest
-* Success Response 
 
-
-
+* Success Response
 
 ```json
 {
@@ -141,7 +140,9 @@ POST v2/org/preferences/readRequest
    }
 }
 ```
-Response 
+
+Response
+
 ```json
 {
    "id": "api.org.preferences.read",
@@ -173,9 +174,6 @@ Response
 
 * Failure Response
 
-
-
-
 ```json
 {
    "id": "api.org.preferences.read",
@@ -193,7 +191,9 @@ Response
 }
 
 ```
+
 PATCH: v2/org/preferences/updateRequest
+
 ```json
 {
     "request":{
@@ -204,11 +204,10 @@ PATCH: v2/org/preferences/updateRequest
     }
 }
 ```
+
 Response
+
 * Success Response
-
-
-
 
 ```json
 {
@@ -231,9 +230,6 @@ Response
 
 * Failure Response:
 
-
-
-
 ```json
 {
     "id": "api.org.preferences.update",
@@ -251,7 +247,7 @@ Response
 }
 ```
 
-## Legacy - Existing table structure:
+### Legacy - Existing table structure:
 
 ```sql
 CREATE TABLE sunbird.tenant_preference (
@@ -266,8 +262,6 @@ CREATE INDEX inx_tp_key ON sunbird.tenant_preference (key);
 CREATE INDEX inx_tp_userid ON sunbird.tenant_preference (orgid);
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

@@ -1,11 +1,14 @@
+---
+icon: elementor
+---
 
-## SB-22986 : New API version - User Signup
+# SB-22986 : New API version - User Signup
+
 End-point: /v2/user/signup
 
 Method: POST
 
 Request:
-
 
 ```
 {
@@ -21,8 +24,8 @@ Request:
   }
 }
 ```
-Response:
 
+Response:
 
 ```
 {
@@ -45,13 +48,11 @@ Response:
 }
 ```
 
-
 End-point: /v1/manageduser/create
 
 Method: POST
 
 Request:
-
 
 ```
 {
@@ -73,9 +74,7 @@ Request:
 }
 ```
 
-
 Response:
-
 
 ```
 {
@@ -97,12 +96,6 @@ Response:
 }
 ```
 
+***
 
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

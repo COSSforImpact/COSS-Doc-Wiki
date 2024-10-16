@@ -1,9 +1,10 @@
+---
+icon: folder-open
+---
 
-### Overview
-To avoid the usage of secondary index and provide a better performance the user related identifiers are getting to a new table  _user_lookup._ As a part of this migration script it will externalId, email, phone and username will be moved to  _user_lookup_ table.
+# SC-1942 User Lookup Migration Script
 
-
-
+To avoid the usage of secondary index and provide a better performance the user related identifiers are getting to a new table _user\_lookup._ As a part of this migration script it will externalId, email, phone and username will be moved to _user\_lookup_ table.
 
 ```sql
 CREATE TABLE IF NOT EXISTS sunbird.user_lookup(
@@ -13,8 +14,8 @@ CREATE TABLE IF NOT EXISTS sunbird.user_lookup(
  primary key((type,value))
 );
 ```
-Follow the step to run manually:
 
+Follow the step to run manually:
 
 ```
 check table exists: user_lookup
@@ -180,17 +181,13 @@ def migrateData()(implicit spark: SparkSession) {
   }
 }
 ```
+
 Check for Analysis Files created
-
-
-
 
 ```
 validation_count.txt
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

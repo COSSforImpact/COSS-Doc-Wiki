@@ -1,27 +1,21 @@
+---
+icon: elementor
+---
 
-## About:
+# Sunbird-Lern-Data-Migration-For-CSP-(Cloud-Service-Provider)
+
+### About:
+
 We need to migrate and update the data for Lern BB to support different CSPs.
 
+### Data that need to be Migrated:
 
-## Data that need to be Migrated:
-
-1. Certificate template url needs to be updated in course_batch table 
-
-
-    1.  Certificate template url  of course batch table will be migrated using spark-scala scripts
-
-
-    1. steps:
-
-
-    1. Get the latest cloud service provider hostname into input value.
-
-
-    1. load the course_batch table data with necessary columns into spark dataframe
-
-
-    1. structure of cert_templatescolumn is
-
+1. Certificate template url needs to be updated in course\_batch table
+   1. Certificate template url of course batch table will be migrated using spark-scala scripts
+   2. steps:
+   3. Get the latest cloud service provider hostname into input value.
+   4. load the course\_batch table data with necessary columns into spark dataframe
+   5. structure of cert\_templatescolumn is
 
 ```
 {
@@ -37,47 +31,39 @@ We need to migrate and update the data for Lern BB to support different CSPs.
 }
 ```
 
-    1.  iterate the cert_templatescolumn data and get values of “url" , “previewUrl" and update to new value with new hostname.
+```
+1.  iterate the cert_templatescolumn data and get values of “url" , “previewUrl" and update to new value with new hostname.
 
 
-    1. Update the cert_templates column
-
-
-
-    
-
-    
-    1.  ES data will be updated using ingest pipeline
-
-      Steps mentioned here :  [[CSP Changes for Course Batch and RC|CSP-Changes-for-Course-Batch-ES-and-RC-ES]]
+1. Update the cert_templates column
 
 
 
-    
+
+
+
+1.  ES data will be updated using ingest pipeline
+
+  Steps mentioned here :  [[CSP Changes for Course Batch and RC|CSP-Changes-for-Course-Batch-ES-and-RC-ES]]
+
+
+
+```
+
 1. Certificate template url needs to be updated in Certificate Obj in RC registry
-
-
-    1.  Certificate template url  of Certificate table will be migrated using spark-scala scripts
-
-
-    1. steps:
-
-
-    1. Get the latest cloud service provider hostname into input value.
-
-
-    1. load the TrainingCertificate table data with necessary columns into spark dataframe
-
-
-    1. structure of templateUrl is
-
+   1. Certificate template url of Certificate table will be migrated using spark-scala scripts
+   2. steps:
+   3. Get the latest cloud service provider hostname into input value.
+   4. load the TrainingCertificate table data with necessary columns into spark dataframe
+   5. structure of templateUrl is
 
 ```
 "templateUrl": "https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/do_3135540347292221441497/artifact/do_3135540347292221441497_1654545255646_certificate_2022-06-07_01_24.svg"
 ```
 
-    1. structure of _ossigneddata is 
-
+```
+1. structure of _ossigneddata is 
+```
 
 ```
 {"@context":["https://ntpproductionall.blob.core.windows.net/ntp-content-production/schema/v1_context.json","https://ntpproductionall.blob.core.windows.net/ntp-content-production/schema/sunbird_context.json"],"type":["VerifiableCredential"],"id":"did:sunbird:","issuanceDate":"2022-09-01T18:23:30.171Z","credentialSubject":{"type":"CERTIFICATE OF COMPLETION","recipientName":"<E0><B2><AE><E0><B3><87><E0><B2><B0><E0><B2><BF> <E0><B2><B0><E0><B3><8B><E0><B2><9C><E0><B3><8D> <E0><B2><9C><E0><B2><BF>","trainingName":"KA_NEP_GC_131_<E0><B2><95><E0><B2><B2><E0><B2><BF><E0><B2><95><E0><B2><BE> <E0><B2><AB><E0><B2><B2><E0><B2><97><E0><B2><B3><E0><B3><81> <E0><B2><B9><E0><B2><BE><E0><B2><97><E0><B3><82> <E0><B2><A4><E0><B2><B0><E0><B2><97><E0><B2><A4><E0><B2><BF> <E0><B2><AA><E0><B3><8D><E0><B2><B0><E0><B2><95><E0><B3><8D><E0><B2><B0><E0><B2><BF><E0><B2><AF><E0><B3><86> <E0><B2><AA><E0><B3><82><E0><B2><B0><E0>
@@ -85,76 +71,51 @@ We need to migrate and update the data for Lern BB to support different CSPs.
 <87> <E0><B2><A4><E0><B2><B0><E0><B2><97><E0><B2><A4><E0><B2><BF> <E0><B2><B5><E0><B2><BF><E0><B2><B7><E0><B2><AF> <E0><B2><95><E0><B2><A8><E0><B3><8D><E0><B2><A8><E0><B2><A1> ","trainingId":"do_3135509218938961921559"},"issuer":{"id":"https://raw.githubusercontent.com/project-sunbird/sunbird-devops/release-4.8.0/kubernetes/helm_charts/sunbird-RC/registry/templates/READ.md#Issuer","type":["Issuer"],"name":"ka","url":"https://diksha.gov.in/ka/","publicKey":["b8ae162e-4df5-40d3-938e-42eb1cb8f0ef"]},"proof":{"type":"RsaSignature2018","created":"2022-09-01T18:23:30Z","verificationMethod":"did:india","proofPurpose":"assertionMethod","jws":"eyJhbGciOiJQUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..paG-a2XwYswIWs5-OWNhtiFzfQi9mW0E5aQ5YeIcP57X2xnsdnqCzPd2vY5r5TVZ5CMk166z74yAmfcTcc1F9S4L9xdQms4wHjQUtOzcAKrAcjXiu-n6LeZAbz1vpaO20crmw4RzEJWKEZwKC0zbyiTrr2lJI-ggLsExlFcUDGLi-HhR45Xhdf0q12Gd6mkPuVAblgkqMu5MMXdbfKZM3wCSHmDTpyJnc-a5IDU_ZzNn3CORvbIB5HoleT8EJ4suIqicTdBxUUrkoGOcgn7cXCfQLfPP0-YrQtztWzMUpD-RFpKqFXDTa5pLbyH5To1dD-Z4cAISEXLGEtJ1-9lfLw"}}
 ```
 
-    1. Update all records  templateUrl, _ossigneddata columns.
+```
+1. Update all records  templateUrl, _ossigneddata columns.
 
 
 
-    
-
-    
-    1.   ES data will be updated using ingest pipeline
-
-      Steps mentioned here :  [[CSP Changes for Course Batch and RC|CSP-Changes-for-Course-Batch-ES-and-RC-ES]]
 
 
 
-    
-1. Existing reports need to be migrated 
+1.   ES data will be updated using ingest pipeline
 
-          => Copy all the reports from one CSP to another in same folder structure
-
-
-1. Credential template, context files to be stored in to new CSP 
-
-         => Copy all the templates from one CSP to another in same folder structure
-
-
-1. Old Certificates in Azure needs to be migrated
-
-         => Copy all the certificates from one CSP to another in same folder structure
-
-
-1. Exisisting Certificate templates needs to be migrated.
-
-         => Copy all the templates from one CSP to another in same folder structure
-
-
-1. Postgres job_request table data updating
-
-
-    1. Update the blob URLs base path of the report files using spark-scala script
-
-
-    1. Get the latest cloud service hostname to access blob file through storage container
-
-
-    1. load the job_request table data with necessary columns into spark dataframe
-
-
-    1. Iterate through download_urls and processed_batches and update the hostname as per input for latest CSP.
-
-
-    * table details
-
-
-    * DB name: analytics
-
-
-    * Table name: {{env}}_job_request
+  Steps mentioned here :  [[CSP Changes for Course Batch and RC|CSP-Changes-for-Course-Batch-ES-and-RC-ES]]
 
 
 
-    
-    * Sample Record from Job_request table
+```
 
+1.  Existing reports need to be migrated
 
+    ```
+       => Copy all the reports from one CSP to another in same folder structure
+    ```
+2.  Credential template, context files to be stored in to new CSP
 
-    
+    ```
+      => Copy all the templates from one CSP to another in same folder structure
+    ```
+3.  Old Certificates in Azure needs to be migrated
 
-    
+    ```
+      => Copy all the certificates from one CSP to another in same folder structure
+    ```
+4.  Exisisting Certificate templates needs to be migrated.
 
-    
-
+    ```
+      => Copy all the templates from one CSP to another in same folder structure
+    ```
+5. Postgres job\_request table data updating
+   1. Update the blob URLs base path of the report files using spark-scala script
+   2. Get the latest cloud service hostname to access blob file through storage container
+   3. load the job\_request table data with necessary columns into spark dataframe
+   4. Iterate through download\_urls and processed\_batches and update the hostname as per input for latest CSP.
+   5. table details
+   6. DB name: analytics
+   7. Table name: \{{env\}}\_job\_request
+   8. Sample Record from Job\_request table
 
 ```
                                 tag                                 |            request_id            |      job_id      |   status   |           request_data            |             requested_by             |  requested_channel   |    dt_job_submitted     |                                                                       download_urls                                                                       | dt_file_created |    dt_job_completed     | execution_time | err_message | iteration | encryption_key | batch_number |                                                                                                                   processed_batches                                                                                                                   
@@ -163,16 +124,8 @@ We need to migrate and update the data for Lern BB to support different CSPs.
 
 ```
 
+The scala scripts for tables migration is mentioned here: \[\[CSP changes in Lern related tables:|CSP-changes-tables-and-ES-in-Lern]]
 
-The scala scripts for tables migration is mentioned here: [[CSP changes in Lern related tables:|CSP-changes-tables-and-ES-in-Lern]]
+***
 
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]
