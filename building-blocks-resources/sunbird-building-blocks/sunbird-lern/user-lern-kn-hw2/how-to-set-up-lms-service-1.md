@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # How-to--Set-up-lms-service
 
 This Document provides steps for setting-up lms service in local.

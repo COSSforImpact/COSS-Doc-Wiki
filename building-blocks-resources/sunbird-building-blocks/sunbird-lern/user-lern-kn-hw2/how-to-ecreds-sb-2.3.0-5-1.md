@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # How-to--ECreds---SB-2.3.0-5
 
 SB introduced eCreds in v2.3.0/5 as an experiment with bare minimal UI support. Most of the activities, prerequisites are done in backend with help of implementation and devops team. It is advised that this is done in the supervision of engineering or implementation cum devops monitor engineering. Since certificate generation is not an automated thing, this can be done in a day-light at the request of PM.
