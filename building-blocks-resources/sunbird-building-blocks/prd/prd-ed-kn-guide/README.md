@@ -1,2 +1,0 @@
-# prd-ed-kn-guide
-
