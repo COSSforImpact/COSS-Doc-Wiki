@@ -1,2 +1,6 @@
+---
+icon: dungeon
+---
+
 # Sunbird Lern
 
