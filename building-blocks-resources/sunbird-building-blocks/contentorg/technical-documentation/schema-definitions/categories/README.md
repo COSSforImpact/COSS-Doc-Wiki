@@ -2,5 +2,5 @@
 icon: folder-open
 ---
 
-# Tech Documentation
+# Categories
 

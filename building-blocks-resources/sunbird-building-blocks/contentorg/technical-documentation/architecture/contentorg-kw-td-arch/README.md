@@ -1,2 +1,0 @@
-# contentorg-kw-td-arch
-
