@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SC-1851-Declaration-form-configuration
 
 #### Requirement:

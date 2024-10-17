@@ -8,7 +8,7 @@ This document details how to integrate a new CSP provider with the Sunbird-Lern 
 
 Below diagram depicts the LERN components using cloud services
 
-![](../../../../../.gitbook/assets/LERN.png)
+![](../../../../../../.gitbook/assets/LERN.png)
 
 * Sunbird-Lern supports some of most of the popular CSPs, including _Amazon S3_ , _Azure Blob Storage and Google cloud_ .
 * Lern has below flink jobs which interact with cloud storage for upload/download operation ([GitHub - Sunbird-Lern/data-pipeline](https://github.com/Sunbird-Lern/data-pipeline) ):

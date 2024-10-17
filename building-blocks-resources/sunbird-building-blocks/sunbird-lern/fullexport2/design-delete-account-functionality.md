@@ -34,7 +34,7 @@ User should not able to do the following things after successful deletion of acc
 
 #### Delete User <a href="#id-design-deleteaccountfunctionality-deleteuser" id="id-design-deleteaccountfunctionality-deleteuser"></a>
 
-![](../../../.gitbook/assets/3360751621.png)
+![](../../../../.gitbook/assets/3360751621.png)
 
 * Send the OTP to the user’s email/phone to validate the user. (OTP templates for user account deletion verification)
 
@@ -71,7 +71,7 @@ Sync
 
 **User delete API:**
 
-![](<../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)DELETE '\{{host\}}/api/user/v1/delete/\{{userId\}}'
+![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)DELETE '\{{host\}}/api/user/v1/delete/\{{userId\}}'
 
 ```
 curl --location --request DELETE '{{host}}/api/user/v1/delete/{{userId}}' \
@@ -80,7 +80,7 @@ curl --location --request DELETE '{{host}}/api/user/v1/delete/{{userId}}' \
 --header 'x-authenticated-user-token: {{user_token}}'
 ```
 
-![](<../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Response
+![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Response
 
 ```
 {
@@ -110,7 +110,7 @@ curl --location --request DELETE '{{host}}/api/user/v1/delete/{{userId}}' \
 | userId          | Deleted user id                                                                                                      |
 | suggested\_user | If user have role other than PUBLIC, than suggested user list can be send in the event for each role user is having. |
 
-![](<../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Sample event
+![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Sample event
 
 ```
 {
@@ -158,7 +158,7 @@ curl --location --request DELETE '{{host}}/api/user/v1/delete/{{userId}}' \
 
 User search API can be used to get the more detail about user. e.g. name.
 
-![](<../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Curl
+![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Curl
 
 curl --location '\{{host\}}/api/user/v3/search' \\\
 \--header 'Authorization: \{{kong\_api\_key\}}' \\\
@@ -174,7 +174,7 @@ curl --location '\{{host\}}/api/user/v3/search' \\\
 
 **OTP Template**
 
-![](<../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Email Template
+![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Email Template
 
 \<html>\<head>\<meta name="viewport" content="width=device-width">\<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\<title>\</title>\<style>@media only screen and (max-width:620px){table\[class=body] h1{font-size:28px!important;margin-bottom:10px!important}table\[class=body] a,table\[class=body] ol,table\[class=body] p,table\[class=body] span,table\[class=body] td,table\[class=body] ul{font-size:16px!important}table\[class=body] .article,table\[class=body] .wrapper{padding:10px!important}table\[class=body] .content{padding:0!important}table\[class=body] .container{padding:0!important;width:100%!important}table\[class=body] .main{border-left-width:0!important;border-radius:0!important;border-right-width:0!important}table\[class=body] .btn table{width:100%!important}table\[class=body] .btn a{width:100%!important}table\[class=body] .img-responsive{height:auto!important;max-width:100%!important;width:auto!important\}}@media all{.ExternalClass{width:100%\}.ExternalClass,.ExternalClass div,.ExternalClass font,.ExternalClass p,.ExternalClass span,.ExternalClass td{line-height:100%\}.apple-link a{color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;text-decoration:none!important\}}\</style>\</head>\<body class="" style="color:#000!important;background-color:#f6f6f6;font-family:sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.4;margin:0;padding:0;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%">\<table border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse:separate;mso-table-lspace:0;mso-table-rspace:0;width:100%;background-color:#f6f6f6">\<tbody>\<tr>\<td style="font-family:sans-serif;font-size:14px;vertical-align:top"> \</td>\<td class="container" style="font-family:sans-serif;font-size:14px;vertical-align:top;display:block;Margin:0 auto;max-width:580px;padding:10px;width:580px">\<div class="content" style="box-sizing:border-box;display:block;Margin:0 auto;max-width:580px;padding:10px">\<span class="preheader" style="color:transparent;display:none;height:0;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;visibility:hidden;width:0">\</span>\<table class="main" style="border-collapse:separate;mso-table-lspace:0;mso-table-rspace:0;width:100%;background:#fff;border-radius:3px">\<tbody>\<tr>\<td class="wrapper" style="font-family:sans-serif;font-size:14px;vertical-align:top;box-sizing:border-box;padding:20px">\<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate;mso-table-lspace:0;mso-table-rspace:0;width:100%">\<tbody>\<tr>\<td style="font-family:sans-serif;font-size:14px;vertical-align:top">\<table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse:separate;mso-table-lspace:0;mso-table-rspace:0;width:100%;box-sizing:border-box">\<tbody>\<tr>\<td align="left" style="font-family:sans-serif;font-size:14px;vertical-align:top;font-family:sans-serif;font-size:14px;font-weight:400;margin:0;Margin-bottom:15px">Hello User,\<br>\<p>To confirm the deletion of your $installationName account, please enter the following OTP: $otp.\</p>\<p>This OTP is valid for the next $otpExpiryInMinutes.\</p>\<p>If you did not request this account deletion, please ignore this message or contact our support team immediately at $supportEmail.\</p>\<p>Thank you for using $installationName.\</p>Best regards,\<br>The $installationName Team\</td>\</tr>\</tbody>\</table>\</td>\</tr>\</tbody>\</table>\</td>\</tr>\</tbody>\</table>\</div>\</td>\<td style="font-family:sans-serif;font-size:14px;vertical-align:top"> \</td>\</tr>\</tbody>\</table>\</body>\</html>
 

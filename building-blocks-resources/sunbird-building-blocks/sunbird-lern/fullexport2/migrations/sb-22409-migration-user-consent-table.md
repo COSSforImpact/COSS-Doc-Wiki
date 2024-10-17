@@ -1,7 +1,10 @@
+---
+icon: elementor
+---
+
+# SB-22409---Migration-user-consent-table
+
 As discussed organisation level consent needs to updates ‘Organisation’ from ‘global’.
-
-
-
 
 ```
 vi ConsentMigration.scala
@@ -59,9 +62,10 @@ object ConsentMigration extends Serializable {
     }
 }
 ```
-Logs will be available in the path: /mount/data/analytics/spark-2.4.4-bin-hadoop2.7/consent_validation_count.txt
 
-Dev Details are: 
+Logs will be available in the path: /mount/data/analytics/spark-2.4.4-bin-hadoop2.7/consent\_validation\_count.txt
+
+Dev Details are:
 
 Consent Table Row Count Before Update: 110
 
@@ -70,8 +74,6 @@ Consent Table Row Count Contains 'global': 43
 Consent Table Row Count After Update : 110
 
 Dev Logs:
-
-
 
 Staging Details:
 
@@ -83,9 +85,6 @@ Consent Table Row Count Contains 'global': 217
 
 Consent Table Row Count After Update : 1463
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

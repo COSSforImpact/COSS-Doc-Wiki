@@ -1,20 +1,18 @@
-For Cloud Service Provider(CSP) related change, we need to update the certificate template urls in course_batch index for sunbird-RC service.
+---
+icon: elementor
+---
 
- **NOTE:** 
+# CSP-changes-for-TrainingCertificate
 
+For Cloud Service Provider(CSP) related change, we need to update the certificate template urls in course\_batch index for sunbird-RC service.
+
+**NOTE:**
 
 1. Take the backup of trainingcertificate index.
+2. During testing doc count in trainingcertificate index was 6393483.
+3. Total time taken to complete the steps was approx 2Hr.
 
-
-1. During testing doc count in trainingcertificate index was 6393483.
-
-
-1. Total time taken to complete the steps was approx 2Hr.
-
-
-
- **pre-requisite:**  Execute below command to get few sample records and compare the data before and after the whole task is completed.
-
+**pre-requisite:** Execute below command to get few sample records and compare the data before and after the whole task is completed.
 
 ```
 curl --location --request GET 'localhost:9200/trainingcertificate/_search' \
@@ -27,26 +25,19 @@ curl --location --request GET 'localhost:9200/trainingcertificate/_search' \
 '
 ```
 
-### Steps for trainingcertificate index update:
+#### Steps for trainingcertificate index update:
 
 1. First create a temporary index (trainingcertificatev3)
-
-    
-
 
 ```
 curl -X PUT "localhost:9200/trainingcertificatev3?pretty"
 ```
 
-1. create ingest pipeline using below given curl
-
+1.  create ingest pipeline using below given curl
 
     1. From the search api response get the old blob host value from “templateUrl” field and keep the old blob host value in below contains method and in replace method first parameter and enter the second parameter with the cname value.
 
-     **NOTE:** Update the new csp domain url in below curl (replace new url in below curl mentioned at [ **new.csp.domain.url.net** ](http://new.csp.domain.url.net))
-
-    
-
+    **NOTE:** Update the new csp domain url in below curl (replace new url in below curl mentioned at [**new.csp.domain.url.net** ](http://new.csp.domain.url.net))
 
 ```
 curl --location --request PUT 'localhost:9200/_ingest/pipeline/update-rc-template-url?pretty' \
@@ -64,12 +55,7 @@ curl --location --request PUT 'localhost:9200/_ingest/pipeline/update-rc-templat
 }'
 ```
 
-
-    
 1. reindex the data using below given curl
-
-    
-
 
 ```
 curl --location --request POST 'localhost:9200/_reindex?pretty' \
@@ -87,9 +73,6 @@ curl --location --request POST 'localhost:9200/_reindex?pretty' \
 
 1. run the below curl and match the count of doc in both the index for verification, it should be same
 
-    
-
-
 ```
 curl --location --request GET 'http://localhost:9200/_cat/indices?v'
 
@@ -97,17 +80,11 @@ curl --location --request GET 'http://localhost:9200/_cat/indices?v'
 
 1. run the below curl to verify the url modification
 
-    
-
-
 ```
 curl -X GET "localhost:9200/trainingcertificatev3/_doc/3fe70c0b-c238-4475-96d6-c231b87d8853?pretty" -H 'Content-Type: application/json'
 ```
 
 1. delete the original index (as per current release we are not using alisa feature in sunbird-RC)
-
-    
-
 
 ```
 curl --location --request DELETE 'localhost:9200/trainingcertificate?pretty'
@@ -116,17 +93,11 @@ curl --location --request DELETE 'localhost:9200/trainingcertificate?pretty'
 
 1. create index trainingcertificate
 
-    
-
-
 ```
 curl -X PUT "localhost:9200/trainingcertificate?pretty"
 ```
 
 1. run the reindex curl mentioned below
-
-    
-
 
 ```
 curl --location --request POST 'localhost:9200/_reindex?pretty' \
@@ -143,17 +114,10 @@ curl --location --request POST 'localhost:9200/_reindex?pretty' \
 
 1. verify the doc count, the count of the documents must be same before and after reindex.
 
-    
-
-
 ```
 curl --location --request GET 'http://localhost:9200/_cat/indices?v'
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

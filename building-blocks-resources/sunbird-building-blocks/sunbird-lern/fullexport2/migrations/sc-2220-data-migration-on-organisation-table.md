@@ -1,18 +1,14 @@
+---
+icon: elementor
+---
+
+# SC-2220---Data-Migration-on-Organisation-Table
+
 In this ticket we are doing the following data migration on the organisation table
 
-
 * Data migration to update isRootOrg flag to istenant flag
-
-
 * Data migration to update org type
-
-
 * Data migration to restructure location ids in organisation table
-
-    
-
-
-
 
 ```
 vi OrgLocationAndOrgTypeMigration.scala
@@ -142,11 +138,9 @@ def migrateData()(implicit spark: SparkSession) {
 }
 ```
 
-
- **Verification of migration script data:** 
+**Verification of migration script data:**
 
 After migrating both user and organisation scripts, we are creating script for verifying the data:
-
 
 ```
 vi UserOrgMigrationDataCheck.scala
@@ -156,8 +150,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of UserOrgMigrationDataCheck.scala}}
 UserOrgMigrationDataCheck.main("{cassandra ip}")
 ```
-
-
 
 ```scala
 import java.io.{File, PrintWriter}
@@ -237,8 +229,6 @@ def verifyMigratedData()(implicit spark: SparkSession) {
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

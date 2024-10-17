@@ -1,20 +1,18 @@
-For Cloud Service Provider(CSP) related change, we need to update the certificate template urls in course_batch index for course-service.
+---
+icon: elementor
+---
 
- **NOTE:** 
+# CSP-changes-for-coursebatch-index
 
+For Cloud Service Provider(CSP) related change, we need to update the certificate template urls in course\_batch index for course-service.
+
+**NOTE:**
 
 1. Take the backup of course-batch index.
+2. During testing doc count in course-batch index was 10400.
+3. Total time taken to complete the steps was approx 40min.
 
-
-1. During testing doc count in course-batch index was 10400.
-
-
-1. Total time taken to complete the steps was approx 40min.
-
-
-
- **pre-requisite:**  Execute below command to get few sample records and compare the data before and after the whole task is completed.
-
+**pre-requisite:** Execute below command to get few sample records and compare the data before and after the whole task is completed.
 
 ```
 curl --location --request GET 'localhost:9200/course-batch/_search' \
@@ -35,12 +33,9 @@ curl --location --request GET 'localhost:9200/course-batch/_search' \
 '
 ```
 
-### Steps for courseBatch index update:
+#### Steps for courseBatch index update:
 
-1. First create a temporary index (coursebatch_v3) 
-
-    
-
+1. First create a temporary index (coursebatch\_v3)
 
 ```
 curl --location --request PUT 'localhost:9200/coursebatch_v3?pretty' \
@@ -94,10 +89,7 @@ curl --location --request PUT 'localhost:9200/coursebatch_v3?pretty' \
 }'
 ```
 
-1.  update the mapping using below given curl
-
-    
-
+1. update the mapping using below given curl
 
 ```
 curl --location --request PUT 'localhost:9200/coursebatch_v3/_mapping/_doc' \
@@ -371,13 +363,15 @@ curl --location --request PUT 'localhost:9200/coursebatch_v3/_mapping/_doc' \
 }'
 ```
 
-1.    create ingest pipeline using below given curl
+1. create ingest pipeline using below given curl
 
+```
+1. found the search api response, get the value of “cert_templates” which is old blob url and the host-name of them need to be replaced with new cname, it will be varies wrto environment.
+```
 
-    1. found the search api response, get the value of “cert_templates” which is old blob url and the host-name of them need to be replaced with new cname, it will be varies wrto environment.
-
-     **NOTE:**   Update the new csp domain url in below curl (replace new url in below curl mentioned at  **new.csp.domain.url.net** )
-
+```
+ **NOTE:**   Update the new csp domain url in below curl (replace new url in below curl mentioned at  **new.csp.domain.url.net** )
+```
 
 ```
 curl --location --request PUT 'localhost:9200/_ingest/pipeline/update-course-batch-template-url?pretty' \
@@ -395,12 +389,7 @@ curl --location --request PUT 'localhost:9200/_ingest/pipeline/update-course-bat
 }'
 ```
 
-
-    
-1.    reindex the data using below given curl
-
-    
-
+1. reindex the data using below given curl
 
 ```
 curl --location --request POST 'localhost:9200/_reindex?pretty' \
@@ -416,35 +405,25 @@ curl --location --request POST 'localhost:9200/_reindex?pretty' \
 }'
 ```
 
-1.   run the below curl and match the count of doc in both the index for verification, it should be same
-
-    
-
+1. run the below curl and match the count of doc in both the index for verification, it should be same
 
 ```
 curl --location --request GET 'http://localhost:9200/_cat/indices?v'
 ```
 
-1.   run the below curl to verify the url modification, check the field “cert_templates” contains the new cname.
-
+1. run the below curl to verify the url modification, check the field “cert\_templates” contains the new cname.
 
 ```
  curl -X GET "localhost:9200/coursebatch_v3/_doc/0131595144460451844?pretty" -H 'Content-Type: application/json'
 ```
 
-1.   delete the original index (as per current release we are not using alias feature in course service)
-
-    
-
+1. delete the original index (as per current release we are not using alias feature in course service)
 
 ```
 curl --location --request DELETE 'localhost:9200/course-batch?pretty'
 ```
 
-1. create index course-batch 
-
-    
-
+1. create index course-batch
 
 ```
 curl --location --request PUT 'localhost:9200/course-batch?pretty' \
@@ -499,9 +478,6 @@ curl --location --request PUT 'localhost:9200/course-batch?pretty' \
 ```
 
 1. update mapping of course-batch index
-
-    
-
 
 ```
 curl --location --request PUT 'localhost:9200/course-batch/_mapping/_doc' \
@@ -775,10 +751,7 @@ curl --location --request PUT 'localhost:9200/course-batch/_mapping/_doc' \
 }'
 ```
 
-1. run the reindex curl mentioned below 
-
-    
-
+1. run the reindex curl mentioned below
 
 ```
 curl --location --request POST 'localhost:9200/_reindex?pretty' \
@@ -793,19 +766,12 @@ curl --location --request POST 'localhost:9200/_reindex?pretty' \
 }'
 ```
 
-1.  verify the doc count, which shows total document counts not altered during reindexing.
-
-    
-
+1. verify the doc count, which shows total document counts not altered during reindexing.
 
 ```
 curl --location --request GET 'http://localhost:9200/_cat/indices?v'
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

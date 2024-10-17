@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Certificate-Schema-Definition
 
 The new certificate Schema definition for the rc core setup.
@@ -641,7 +645,7 @@ Signed Document Credential Template :
 
 #### Template SAmple
 
-![](../../../../../.gitbook/assets/TrainingCertificate.svg)
+![](../../../../../../.gitbook/assets/TrainingCertificate.svg)
 
 #### Proposed Schema for if heirarchy level Search doesn’t support
 

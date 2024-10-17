@@ -1,12 +1,14 @@
- **release-4.0.0** 
+---
+icon: elementor
+---
 
-In this ticket we are doing the following data migration on the user_role table, Moving roles related data to user_roles table.
+# SB-23168---Data-migration-to-user\_role-table-from-user\_organisation-table
 
+**release-4.0.0**
 
-* Data migration to add data from user_organisation table to user_roles table regarding roles data
+In this ticket we are doing the following data migration on the user\_role table, Moving roles related data to user\_roles table.
 
-
-
+* Data migration to add data from user\_organisation table to user\_roles table regarding roles data
 
 ```
 vi UserOrgToUserRolesMigration.scala
@@ -16,8 +18,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of UserOrgToUserRolesMigration.scala}}
 UserOrgToUserRolesMigration.main("{cassandra ip}")
 ```
-
-
 
 ```
 
@@ -108,10 +108,6 @@ object UserOrgToUserRolesMigration extends Serializable {
 
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

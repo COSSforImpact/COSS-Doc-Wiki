@@ -95,7 +95,7 @@ Sunbird consumption app will implement the following verification behaviour in t
 * if the QR code is in “W3C-VC“ format, the app validates the certificate signature & data encoded in the QR code. This is to ensure that the Sunbird consumption app is compliant with both types of QR codes supported by Sunbird RC.
 * else, if the QR code contains any other URL, the app shall redirect the user to the specified URL.
 
-![](../../../.gitbook/assets/3096215559.png)
+![](../../../../.gitbook/assets/3096215559.png)
 
 ### Conclusion: <a href="#sunbirdrcqrcodebackwardcompatibilitysupportforsunbirded-conclusion" id="sunbirdrcqrcodebackwardcompatibilitysupportforsunbirded-conclusion"></a>
 

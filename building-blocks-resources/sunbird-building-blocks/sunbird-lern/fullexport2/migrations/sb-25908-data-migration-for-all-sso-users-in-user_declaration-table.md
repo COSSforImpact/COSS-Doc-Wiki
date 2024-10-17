@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SB-25908: Data migration for all sso users in user\_declaration table
 
 **release-4.2.0**:\

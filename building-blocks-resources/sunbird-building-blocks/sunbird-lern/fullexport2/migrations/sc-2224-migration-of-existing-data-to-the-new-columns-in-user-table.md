@@ -1,5 +1,10 @@
-In this ticket we are adding usertype, usersubstype to profileusertype and locationids to profilelocation columns in the user table.
+---
+icon: elementor
+---
 
+# SC-2224--Migration-of-existing-data-to-the-new-columns-in-user-table
+
+In this ticket we are adding usertype, usersubstype to profileusertype and locationids to profilelocation columns in the user table.
 
 ```
 vi UserLocationAndUserTypeMigration.scala
@@ -9,8 +14,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of UserLocationAndUserTypeMigration.scala}}
 UserLocationAndUserTypeMigration.main("{cassandra ip}")
 ```
-
-
 
 ```scala
 import java.io.{File, PrintWriter}
@@ -150,8 +153,6 @@ def migrateData()(implicit spark: SparkSession) {
 
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

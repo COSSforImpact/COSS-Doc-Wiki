@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # SC-1877 and SB-19960: New Self Declared update and read API
 
 ### Background <a href="#sc-1877andsb-19960-newselfdeclaredupdateandreadapi-background" id="sc-1877andsb-19960-newselfdeclaredupdateandreadapi-background"></a>
@@ -12,7 +16,7 @@ Link: [SC-1848 Refactor user self-declaration implementation](https://project-su
 
 URL: [http://localhost:9000/v1/user/declarations](http://localhost:9000/v1/user/declarations)
 
-![](../../../../../.gitbook/assets/grey\_arrow\_down.png)Request: PATCH: v1/user/declarations
+![](../../../../../../.gitbook/assets/grey\_arrow\_down.png)Request: PATCH: v1/user/declarations
 
 ```
 {

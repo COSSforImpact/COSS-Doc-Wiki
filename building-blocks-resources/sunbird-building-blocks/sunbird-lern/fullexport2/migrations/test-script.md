@@ -1,5 +1,10 @@
-Test script for checking csv output.
+---
+icon: elementor
+---
 
+# Test-Script-
+
+Test script for checking csv output.
 
 ```
 vi OrgLocationAndOrgTypeMigration.scala
@@ -9,8 +14,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of OrgLocationAndOrgTypeMigration.scala}}
 OrgLocationAndOrgTypeMigration.main("{cassandra ip}")
 ```
-
-
 
 ```
 import java.io.{File, PrintWriter}
@@ -109,8 +112,6 @@ def migrateData()(implicit spark: SparkSession) {
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

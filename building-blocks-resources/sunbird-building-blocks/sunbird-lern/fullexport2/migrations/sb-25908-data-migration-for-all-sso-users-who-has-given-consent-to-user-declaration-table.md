@@ -1,13 +1,16 @@
- **release-4.1.0** :
+---
+icon: elementor
+---
+
+# SB-25908---Data-migration-for-all-sso-users-who-has-given-consent-to-user-declaration-table
+
+**release-4.1.0** :
 
 This script will insert missed sso user-declarations entries of the users from user-consent table.
 
 we are doing based on organisation-id.
 
-
-### Steps to add sso user-declarations of user-consent:
-
-
+#### Steps to add sso user-declarations of user-consent:
 
 ```
 vi ConsentIssue.scala
@@ -18,9 +21,7 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 ConsentIssue.main("{cassandra ip}")
 ```
 
-
 Replace the organisation-id before running the script
-
 
 ```
 import org.apache.spark.sql.functions.{col, _}
@@ -121,8 +122,6 @@ object ConsentIssue extends Serializable {
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

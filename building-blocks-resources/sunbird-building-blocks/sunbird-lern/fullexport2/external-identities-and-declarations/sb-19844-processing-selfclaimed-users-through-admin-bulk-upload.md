@@ -1,19 +1,24 @@
+---
+icon: elementor
+---
+
+# SB-19844-Processing-SelfClaimed-users-through-admin-bulk-upload
+
 Processing Self-Claimed users when state-admin bulk-upload the details, Presently we have 2 api’s for uploading users, one is for uploading sso users and another one is for shadow-user bulk-upload. Both have 2 different end points.
 
 /v2/bulk/user/upload → shadow-user bulk-upload
 
- /v1/bulk/user/upload → sso users.
+/v1/bulk/user/upload → sso users.
 
+### solution 1:
 
-## solution 1:
-Use the existing  **/v2/bulk/user/upload**  end-point by adding new attribute in the call, preferable name is operation or  type.
+Use the existing **/v2/bulk/user/upload** end-point by adding new attribute in the call, preferable name is operation or type.
 
 It is easy for maintenance.
 
 Not much code changes from the controller part and on-boarding the api.
 
 Request api details:
-
 
 ```json
 curl --location --request POST 'https://dev.sunbirded.org/api/user/v2/bulk/upload' \
@@ -23,72 +28,40 @@ curl --location --request POST 'https://dev.sunbirded.org/api/user/v2/bulk/uploa
 --form 'user=@/Users/harikumarpalemkota/Downloads/self-declared_user_upload_dev.csv' \
 --form 'operation=selfdeclared'
 ```
-operation value can be saved in the field objecttype (bulk_upload_process). 
 
+operation value can be saved in the field objecttype (bulk\_upload\_process).
 
+### Solution 2:
 
-
-## Solution 2:
 Use a new end point.
 
 Easy to use but difficult for maintain, since the same kind of activity is performed by existing api’s.
 
-
-
 Fields for uploading data:
 
-Mandatory fields :  **Diksha UUID** ,  **Status** ,  **State provided ext. ID, Channel, Organisation Id, Persona** 
+Mandatory fields : **Diksha UUID** , **Status** , **State provided ext. ID, Channel, Organisation Id, Persona**
 
-Optional fields :  **School Name** ,  **School UDISE ID** ,  **Phone number** ,  **Email ID** ,  **Diksha Sub-Org ID, Error Type.** 
+Optional fields : **School Name** , **School UDISE ID** , **Phone number** , **Email ID** , **Diksha Sub-Org ID, Error Type.**
 
 Process:
 
-
 1. Validating the mandatory fields.
-
-
-1. Save the uploaded data to bulk_upload_process table
-
-
-1. Need to call back-ground actor for processing the uploaded-details
-
-
-1. Based on the status field value, operation will be vary on the usr_external_identity table.
-
-
-    1. status = VALIDATED, migrate the user.
-
-
-    1. status = REJECTED, delete the declaration.
-
-
-    1. status = ERROR, look for error-type - modify the declaration to reflect errors reported by admin.
-
-
-    1. status = PENDING, do nothing
-
-
-
-    
-1. Once the whole process is completed, process-id set to completed in the bulk_upload_process table.
-
-    
-
-
+2. Save the uploaded data to bulk\_upload\_process table
+3. Need to call back-ground actor for processing the uploaded-details
+4. Based on the status field value, operation will be vary on the usr\_external\_identity table.
+   1. status = VALIDATED, migrate the user.
+   2. status = REJECTED, delete the declaration.
+   3. status = ERROR, look for error-type - modify the declaration to reflect errors reported by admin.
+   4. status = PENDING, do nothing
+5. Once the whole process is completed, process-id set to completed in the bulk\_upload\_process table.
 
 Note: All the processing activity is done on the fly in background. There will be no schedulers involved in this.
 
+####
 
-
-
-### 
-
-Errors :
-Possible errors while uploading the bulk-user-selfdeclaration.
-
+Errors : Possible errors while uploading the bulk-user-selfdeclaration.
 
 1. When csv data is empty :
-
 
 ```json
 {
@@ -107,9 +80,7 @@ Possible errors while uploading the bulk-user-selfdeclaration.
 }
 ```
 
-
 2. When csv data missed mandatory param header field in the csv :
-
 
 ```json
 {
@@ -127,8 +98,8 @@ Possible errors while uploading the bulk-user-selfdeclaration.
     "result": {}
 }
 ```
-3. when csv data missed mandatory param value in the csv :
 
+3. when csv data missed mandatory param value in the csv :
 
 ```
 {
@@ -147,10 +118,6 @@ Possible errors while uploading the bulk-user-selfdeclaration.
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

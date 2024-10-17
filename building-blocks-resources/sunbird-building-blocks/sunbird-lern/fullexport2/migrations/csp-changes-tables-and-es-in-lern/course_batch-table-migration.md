@@ -2,9 +2,9 @@
 icon: elementor
 ---
 
-# Course\_batch table migration
+# Course\_batch-table-migration
 
-**Course-Batch migration**: Scala script for course\_batch table migration from cassandra.
+**Course-Batch migration** : Scala script for course\_batch table migration from cassandra.
 
 This is used to update the certificate template url in course\_batch table and append with variable.
 
@@ -20,34 +20,55 @@ to
 
 Steps to execute:
 
-1. Copy the below script to `UpdateLinksInCB`.scala file
+1. Copy the below script to UpdateLinksInCB.scala file
 2. Go to spark home, for eg: spark-2.4.4-bin-hadoop2.7
-3.  Run below command in terminal
+3. Run below command in terminal
 
-    `bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-connector_2.11:2.5.0`
-4.  Run below command in spark shell
+```
+bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-connector_2.11:2.5.0
+```
 
-    `:load {{complete relative path of UpdateLinksInCB.scala file}}`
-5.  Run below command in spark shell
+1. Run below command in spark shell
 
-    `UpdateLinksInCB.main(Array("{{cassandra-host}}", "{{old_cloud_base_path}", "{{new_cloud_base_path}"))`
+```
+:load {{complete relative path of  UpdateLinksInCB.scala file}}
+```
 
-    1. Replace the parameters as below
-       1. \{{cassandra-host\}} with `[cassandra-1]` In Core/hosts inventory
-       2. \{{old\_cloud\_base\_path} with `cloud_storage_base_url`+`cloud_storage_content_bucketname` from ansible inventory
-       3. \{{new\_cloud\_base\_path\}} with `CLOUD_BASE_PATH`
+1. Run below command in spark shell
+
+```
+UpdateLinksInCB.main(Array("{{cassandra-host}}", "{{old_cloud_base_path}", "{{new_cloud_base_path}"))
+```
+
+```
+1. Replace the parameters as below
+
+
+1. {{cassandra-host}} with \[cassandra-1] In Core/hosts inventory
+
+
+1. {{old_cloud_base_path} with cloud_storage_base_url+cloud_storage_content_bucketname from ansible inventory
+
+
+1. {{new_cloud_base_path}} with CLOUD_BASE_PATH
+
+
 
 
 
 ```
-// Some code
+
+```
 import org.apache.spark.sql.functions.{col, _}
 import org.apache.spark.sql.{Encoders, SaveMode, SparkSession}
 import org.apache.spark.storage.StorageLevel
+
 import java.io.File
 import java.io.PrintWriter
 import scala.collection.immutable.HashMap
+
 object UpdateLinksInCB extends Serializable {
+    
     def main(args: Array[String]): Unit = {
         implicit val spark: SparkSession =
             SparkSession
@@ -58,12 +79,16 @@ object UpdateLinksInCB extends Serializable {
                 .config("spark.cassandra.output.batch.size.rows", "10000")
                 .config("spark.cassandra.read.timeoutMS", "60000")
                 .getOrCreate()
+        
         val oldBasepath = args(1)
         val newBasepath = args(2)
         val res = time(updateLinksInCB(oldBasepath, newBasepath));
+
+        
         Console.println("Time taken to execute script", res._1);
         spark.stop();
     }
+    
     def updateLinksInCB(oldBasepath: String, newBasepath: String)(implicit spark: SparkSession) {
         import spark.implicits._
         val sparkContext = spark.sparkContext
@@ -77,8 +102,9 @@ object UpdateLinksInCB extends Serializable {
         updatedCertDF.show(10, false)
         updatedCertDF.write.format("org.apache.spark.sql.cassandra").option("keyspace", "sunbird_courses").option("table", "course_batch").mode(SaveMode.Append).save();
     }
-    def updateCertMapFunction(oldUserCertInfo: Map[String, Map[String, String]], oldBase: String, newBase: String): Map[String, Map[String, String]] = {
-        var updatedUserCertInfo = new HashMap[String, HashMap[String, String]]()
+
+    def updateCertMapFunction(oldUserCertInfo: Map[String, Map[String, String]] , oldBase: String, newBase: String): Map[String, Map[String, String]]  = {
+        var updatedUserCertInfo = new HashMap[String, HashMap[String, String]] ()
         for(certInfo <- oldUserCertInfo) {
             val innercertInfo = certInfo._2
             var updatedInnercertInfo = new HashMap[String, String]()
@@ -93,7 +119,9 @@ object UpdateLinksInCB extends Serializable {
         }
         updatedUserCertInfo
     }
-    val certInfoMap = udf[Map[String, Map[String, String]], Map[String, Map[String, String]], String, String](updateCertMapFunction)
+
+    val certInfoMap = udf[Map[String, Map[String, String]] , Map[String, Map[String, String]] , String, String](updateCertMapFunction)
+    
     def time[R](block: => R): (Long, R) = {
         val t0 = System.currentTimeMillis()
         val result = block // call-by-name
@@ -107,6 +135,12 @@ Observations: Script ran over 10244 records, it took around less than 4 mins
 
 Verification Query:
 
-`select * from sunbird_courses.course_batch limit 10;`
+```
+select * from sunbird_courses.course_batch limit 10;
+```
 
-Run above query and select the data from `course_batch` table in sunbird\_courses Cassandra keyspace and verify the `cert_templates` column to make sure the cloud base path is update with CLOUD\_BASE\_PATH.
+Run above query and select the data from course\_batch table in sunbird\_courses Cassandra keyspace and verify the cert\_templatescolumn to make sure the cloud base path is update with CLOUD\_BASE\_PATH.
+
+***
+
+\[\[category.storage-team]] \[\[category.confluence]]

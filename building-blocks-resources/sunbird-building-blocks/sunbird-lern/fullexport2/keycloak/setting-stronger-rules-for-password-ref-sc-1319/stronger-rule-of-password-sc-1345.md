@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Stronger-rule-of-password-(SC-1345)
 
 ### \*

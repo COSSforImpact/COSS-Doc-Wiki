@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # KeyCloak-configurations
 
 Current to: release-2.6.5

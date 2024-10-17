@@ -1,9 +1,14 @@
-Jira ticket: [SB-28196 System JIRA](https:///browse/SB-28196)
+---
+icon: elementor
+---
+
+# SB-28196---User-org-association-issue---Data-correction
+
+Jira ticket: [SB-28196 System JIRA](https://browse/SB-28196)
 
 release:4.5.0
 
-Context: while user creation we use to map the user to the corresponding root-org id, but there is a issue in recent time where the mapping to user-organisation was missed, so records were missing in the user_organisation table. Now with this script we are adding the missing user-org association to the user_organisation table.
-
+Context: while user creation we use to map the user to the corresponding root-org id, but there is a issue in recent time where the mapping to user-organisation was missed, so records were missing in the user\_organisation table. Now with this script we are adding the missing user-org association to the user\_organisation table.
 
 ```
 vi UserOrgMissingRecords.scala
@@ -86,16 +91,13 @@ object UserOrgMissingRecords extends Serializable {
 }
 ```
 
-
 Tested with prod data in test-cluster:
 
 time taken: 5.2 min
 
 Output file path: /tmp/misseduserorg/
 
-Output from missed_user_org_audit.txt : total number of missing user-org records: 376253
-
-
+Output from missed\_user\_org\_audit.txt : total number of missing user-org records: 376253
 
 In Production:
 
@@ -103,9 +105,6 @@ Time taken : 1.44 min
 
 Total number of records : 4,93,065
 
+***
 
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

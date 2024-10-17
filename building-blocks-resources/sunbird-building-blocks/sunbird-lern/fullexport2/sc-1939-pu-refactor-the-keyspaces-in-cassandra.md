@@ -1,38 +1,26 @@
-As a part of Refactoring cassandra keyspaces, Groups service tables are moving from  **sunbird**  keyspace to  **sunbird_groups** .
+---
+icon: elementor
+---
 
-Choosing spark for doing this activity. group, user_group, group_member are the tables selected to move in this activity.
+# SC-1939-PU---Refactor-the-Keyspaces-in-cassandra
 
+As a part of Refactoring cassandra keyspaces, Groups service tables are moving from **sunbird** keyspace to **sunbird\_groups** .
 
+Choosing spark for doing this activity. group, user\_group, group\_member are the tables selected to move in this activity.
 
 Table schemas are mentioned in:
 
-[https://github.com/project-sunbird/sunbird-utils/blob/release-3.3.0/sunbird-cassandra-migration/cassandra-migration/src/main/resources/db/migration/cassandra/V1.108_cassandra.cql](https://github.com/project-sunbird/sunbird-utils/blob/release-3.3.0/sunbird-cassandra-migration/cassandra-migration/src/main/resources/db/migration/cassandra/V1.108_cassandra.cql)
+[https://github.com/project-sunbird/sunbird-utils/blob/release-3.3.0/sunbird-cassandra-migration/cassandra-migration/src/main/resources/db/migration/cassandra/V1.108\_cassandra.cql](https://github.com/project-sunbird/sunbird-utils/blob/release-3.3.0/sunbird-cassandra-migration/cassandra-migration/src/main/resources/db/migration/cassandra/V1.108\_cassandra.cql)
 
+### Steps for data Migration tables to **sunbird\_groups**
 
-
-
-## Steps for data Migration tables to  **sunbird_groups** 
-
-
-
-1. Run the cassandra migration job to create group, user_group, group_member tables.
-
-
-1. check for table in cassandra by running query :  **desc**  **_table_name_** 
-
-
-1. bring down groups service
-
-
-1. validate data count in respective table
-
-
-1. If spark is available, login to spark machine. Else, download spark from [here](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.0/spark-3.0.0-bin-hadoop2.7.tgz), to the preferred instance.
-
-
+1. Run the cassandra migration job to create group, user\_group, group\_member tables.
+2. check for table in cassandra by running query : **desc** _**table\_name**_
+3. bring down groups service
+4. validate data count in respective table
+5. If spark is available, login to spark machine. Else, download spark from [here](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.0/spark-3.0.0-bin-hadoop2.7.tgz), to the preferred instance.
 
 Follow the below mentioned steps for data migration:
-
 
 ```js
 vi GroupsServiceTablesMigration.scala 
@@ -42,8 +30,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of GroupsServiceTablesMigration.scala}}
 GroupsServiceTablesMigration.main("{cassandra ip}")
 ```
-
-
 
 ```scala
 import com.typesafe.config.{Config, ConfigFactory}
@@ -108,10 +94,6 @@ object GroupsServiceTablesMigration extends Serializable {
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

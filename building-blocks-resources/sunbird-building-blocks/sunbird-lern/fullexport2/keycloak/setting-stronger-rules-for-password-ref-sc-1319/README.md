@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Setting-stronger-rules-for-password-(Ref--SC-1319)
 
 ### About&#x20;

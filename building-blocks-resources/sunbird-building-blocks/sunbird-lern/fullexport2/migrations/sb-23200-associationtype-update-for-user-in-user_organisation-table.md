@@ -1,11 +1,14 @@
- **release-4.0.0** :
+---
+icon: elementor
+---
+
+# SB-23200---AssociationType-update-for-user-in-user\_organisation-table
+
+**release-4.0.0** :
 
 This script will update associationType of the user based on their orgJoinDate.
 
-
-### Steps to add associationType of the user
-
-
+#### Steps to add associationType of the user
 
 ```
 vi UserOrgAssociationTypeUpdate.scala
@@ -15,8 +18,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of UserOrgAssociationTypeUpdate.scala}}
 UserOrgAssociationTypeUpdate.main("{cassandra ip}")
 ```
-
-
 
 ```
 import org.apache.spark.sql.functions.{col, _}
@@ -97,8 +98,6 @@ def migrateData()(implicit spark: SparkSession) {
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

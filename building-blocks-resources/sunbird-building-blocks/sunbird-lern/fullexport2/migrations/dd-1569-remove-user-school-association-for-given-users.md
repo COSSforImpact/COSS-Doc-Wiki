@@ -1,9 +1,12 @@
-Creating a spark script for removing users associated to UP related schools from user_organisation tables.
+---
+icon: elementor
+---
+
+# DD-1569-Remove-user-school-association-for-given-users
+
+Creating a spark script for removing users associated to UP related schools from user\_organisation tables.
 
 Before running the script create a csv with “organisationid.csv” with organisationid as header and provide the organisation-id's as values, for examples provided below.
-
-
-
 
 ```
 vi UserOrgIssue.scala
@@ -70,8 +73,6 @@ object UserOrgIssue extends Serializable {
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

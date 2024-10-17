@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SC-1848-and-SC--1942-Refactor-user-self-declaration-implementation
 
 ```

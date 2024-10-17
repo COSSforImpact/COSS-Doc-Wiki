@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # SB-16478 - Load testing changes
 
 #### SummaryAPI changesNew APIsChanged APIsInfra/config changes doneInfra/config changes attempted and revertedSummary <a href="#sb-16478-loadtestingchanges-summary" id="sb-16478-loadtestingchanges-summary"></a>

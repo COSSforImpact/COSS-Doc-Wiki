@@ -1,9 +1,12 @@
+---
+icon: elementor
+---
+
+# DIK-5839-User-profile-location-audit
+
 Before running the script create a csv with “userIds.csv” with id as header and provide the user-id's as values. And update the location of this file in below script at line number 31.
 
-
-
 Steps to run
-
 
 ```
 vi UserProfileLocationAudit.scala
@@ -13,8 +16,6 @@ bin/spark-shell --master local[*] --packages com.datastax.spark:spark-cassandra-
 :load {{absolute path of UserProfileLocationAudit.scala}}
 UserProfileLocationAudit.main("{cassandra ip}")
 ```
-
-
 
 ```
 import org.apache.spark.sql.functions.{col, _}
@@ -68,8 +69,6 @@ object UserProfileLocationAudit extends Serializable {
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]
