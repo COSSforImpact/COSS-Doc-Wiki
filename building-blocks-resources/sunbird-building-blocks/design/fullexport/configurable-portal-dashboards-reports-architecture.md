@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Configurable-Portal-Dashboards-Reports-Architecture
 
 **Introduction** This wiki details out the architecture of the configurable reports for portal dashboard and also serves as an implementation guide to configure and set up a report.

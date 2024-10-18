@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Consumption-Architecture
 
 ### Architecture Diagram
