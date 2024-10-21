@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Enable-player-to-support-scorm
 
 ## How does SCORM Work

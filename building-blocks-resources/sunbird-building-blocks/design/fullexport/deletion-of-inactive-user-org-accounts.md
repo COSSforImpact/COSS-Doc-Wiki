@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Deletion-of-inactive-user-Org-accounts
 
 ### Overview :

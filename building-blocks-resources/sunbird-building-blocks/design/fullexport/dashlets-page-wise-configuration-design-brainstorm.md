@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Dashlets-Page-Wise-Configuration-Design-Brainstorm
 
 \| **Title** | Dashlet Page Wise Configuration. | | **Problem Statement** | Ability to inject dashlets widgets into any page via configuration. |

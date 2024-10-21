@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Design--Separation-of-question-set-&-collection-editor
 
 **Introduction** This document describes the key design problem statement and design for the separation of the question set and collection editor.

@@ -1,39 +1,35 @@
+---
+icon: elementor
+---
 
-# Requirement
+# API-for-Metrics-Summary
 
+## Requirement
 
-Ref: [SB-8988 System JIRA](https:///browse/SB-8988)
+Ref: [SB-8988 System JIRA](https://browse/SB-8988)
 
 Scope is :
 
 1. This will expose one end point to show all metrics summary
-
 2. Internally it will make call to analytics team and merge both static data and data got from analytics team.
-
 3. Since Analytics data will change once in 24 hours, so sunbird will do the data cache and use it , only first time it will make call to analytics api.
-
 4. Sunbird should have cache ttl as well, so that after x hours it should reload data.
 
-
-# Problem Statements
+## Problem Statements
 
 1. Design a way to handle the data, metrics summary, onboard status and etb status that will be captured manually to the system
-1. Design a service to read the static data mentioned above and dynamic data from analytics server and cache it with ttl for refresh and retrieval
-1. Design an API to retrieve cached metrics data and return it in response
+2. Design a service to read the static data mentioned above and dynamic data from analytics server and cache it with ttl for refresh and retrieval
+3. Design an API to retrieve cached metrics data and return it in response
 
+## Design
 
-# Design
+#### Capturing static data
 
-### Capturing static data
+| Metrics Summary           | Onboard Status data                                    | ETB Status data                                                                    |
+| ------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| Metrics Key Metrics Value | Tenant NameTenant IdChannelOnboard StatusAcademic Year | Tenant NameTenant IdChannelBoardGradeSubjectETB Print CountAcademic YearETB Status |
 
-
-| Metrics Summary | Onboard Status data | ETB Status data | 
-|  --- |  --- |  --- | 
-| Metrics Key Metrics Value | Tenant NameTenant IdChannelOnboard StatusAcademic Year | Tenant NameTenant IdChannelBoardGradeSubjectETB Print CountAcademic YearETB Status | 
-
-
-
- **Approach 1:** 
+**Approach 1:**
 
 Capture the static data in cassandra by running CQL queries directly in cassandra. The cache refresh service has to read the data from cassandra.
 
@@ -41,7 +37,7 @@ Pros:
 
 Cassandra is the primary datastore in sunbird platform. Easier for adopters(implementation teams) to update the static data with CQL queries.
 
- **Approach 2:** 
+**Approach 2:**
 
 Capture the static data in elastic search directly using ES rest calls. The cache refresh service has to read the data from elastic search.
 
@@ -49,7 +45,7 @@ Pros:
 
 No rework is needed at cache refresh service, if CRUD APIs are implemented with data being stored at both cassandra and elastic search
 
- **Approach 3:** 
+**Approach 3:**
 
 Develop an API for CRUD operations on the static data. This is planned for release-1.13
 
@@ -57,16 +53,11 @@ Pros:
 
 No access to datastore is needed to configure the static data
 
-
-
 Cassandra Table Design:
 
-
-
-| Metrics Summary | Onboard Metrics | ETB Metrics | 
-|  --- |  --- |  --- | 
-| 
-
+| Metrics Summary | Onboard Metrics | ETB Metrics |
+| --------------- | --------------- | ----------- |
+|                 |                 |             |
 
 ```
 CREATE TABLE sunbird.metrics_summary (
@@ -76,9 +67,7 @@ CREATE TABLE sunbird.metrics_summary (
 );
 ```
 
-
- | 
-
+|
 
 ```
 CREATE TABLE sunbird.metrics_tenant_onboard_status (
@@ -91,9 +80,7 @@ CREATE TABLE sunbird.metrics_tenant_onboard_status (
 );
 ```
 
-
- | 
-
+|
 
 ```
 CREATE TABLE sunbird.metrics_tenant_etb_status (
@@ -110,48 +97,36 @@ CREATE TABLE sunbird.metrics_tenant_etb_status (
 );
 ```
 
+|
 
- | 
+#### Service to cache data
 
-
-### Service to cache data
 A service needs to be written to retrieve the static data from local datastore and dynamic data from the analytics server. The service should aggregate the data and cache it in memory with a expiry time.
 
 The service should be called in two circumstances
 
-
 1. Scheduled to be called at the end cache expiry time.
-1. Should be triggered by set static data API, once it is implemented.
+2. Should be triggered by set static data API, once it is implemented.
 
+#### Metrics API
 
-
-
-### Metrics API
 Metrics API to provide following details
 
-
 1. Metrics Summary
-1. Onboard Status drilldown data
-1. ETB Status drilldown data
-1. Content Creation drilldown data
-1. Content Consumption drilldown data(To be implemented in June-2019)
+2. Onboard Status drilldown data
+3. ETB Status drilldown data
+4. Content Creation drilldown data
+5. Content Consumption drilldown data(To be implemented in June-2019)
 
-
-
- **Request** :
+**Request** :
 
 metricsType : metricsSummary, onboardMetrics, etbPrintMetrics, contentCreationMetrics
 
+**Response** :
 
-
- **Response** :
-
-
-
-|  **metricsTypes**  | sample response | 
-|  --- |  --- | 
-| metricsSummary | 
-
+| **metricsTypes** | sample response |
+| ---------------- | --------------- |
+| metricsSummary   |                 |
 
 ```
 {
@@ -178,10 +153,7 @@ metricsType : metricsSummary, onboardMetrics, etbPrintMetrics, contentCreationMe
 }
 ```
 
-
- | 
-| onboardMetrics | 
-
+\| | onboardMetrics |
 
 ```
 {
@@ -204,10 +176,7 @@ metricsType : metricsSummary, onboardMetrics, etbPrintMetrics, contentCreationMe
 }
 ```
 
-
- | 
-| etbPrintMetrics | 
-
+\| | etbPrintMetrics |
 
 ```
 {
@@ -239,10 +208,7 @@ metricsType : metricsSummary, onboardMetrics, etbPrintMetrics, contentCreationMe
 }
 ```
 
-
- | 
-| contentCreationMetrics | 
-
+\| | contentCreationMetrics |
 
 ```
 {
@@ -267,21 +233,15 @@ metricsType : metricsSummary, onboardMetrics, etbPrintMetrics, contentCreationMe
 }
 ```
 
-
- | 
-
-
+|
 
 Open Questions:
 
-
 1. Should tenant id and channel be captured at tenant level for onboard and etb metrics?
-1. Store static data in cassandra or ES?
-1. Should multiple values in a column be stored as a list or comma separated string?
-1. Can a tenant have multiple onboarding statuses?
-1. Can a board be associated to multiple tenants?
-
-
+2. Store static data in cassandra or ES?
+3. Should multiple values in a column be stored as a list or comma separated string?
+4. Can a tenant have multiple onboarding statuses?
+5. Can a board be associated to multiple tenants?
 
 Accepted Solution
 
@@ -289,13 +249,8 @@ In the meeting with design council, following approach has been finalised.
 
 Since this design is only for static data and this being a adopter specific requirement, the static data can be configured in a json file which would be parsed and presented by static pages.
 
-The format of the json file is designed in [[Static data - JSON format|Static-data---JSON-format]]
+The format of the json file is designed in \[\[Static data - JSON format|Static-data---JSON-format]]
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

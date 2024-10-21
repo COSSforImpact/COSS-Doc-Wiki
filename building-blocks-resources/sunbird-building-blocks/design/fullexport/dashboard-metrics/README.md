@@ -1,12 +1,12 @@
+---
+icon: folder-open
+---
 
+# Dashboard-Metrics
 
+* \[\[API for Metrics Summary|API-for-Metrics-Summary]]
+* \[\[Static data - JSON format|Static-data---JSON-format]]
 
-* [[API for Metrics Summary|API-for-Metrics-Summary]]
-* [[Static data - JSON format|Static-data---JSON-format]]
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

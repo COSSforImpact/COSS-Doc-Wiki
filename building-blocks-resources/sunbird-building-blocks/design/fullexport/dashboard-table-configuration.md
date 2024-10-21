@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Dashboard-Table-configuration
 
 ### Problem Statement

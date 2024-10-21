@@ -1,4 +1,8 @@
-# Background
+---
+icon: elementor
+---
+
+# EQB Architecture
 
 **Problem** : Questions are fundamental to learning -- both in terms of assessing learner's progress as well as in terms of generating curiosity. Boards like CBSE have repository of questions, which are so far accessible to just the affiliated schools and a select few, and in a closed system. How can we open up these assets to all, and provide value added services on the top.&#x20;
 

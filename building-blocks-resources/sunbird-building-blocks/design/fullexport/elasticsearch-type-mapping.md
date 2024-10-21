@@ -1,4 +1,8 @@
-# Overview :
+---
+icon: elementor
+---
+
+# Elasticsearch Type Mapping
 
 &#x20;Type mapping inside **elasticsearch** can be dynamic or static. Both mapping has it's own pros and cons. For initial usage dynamic mapping is fine, because we won't have complete knowledge of data model and it's usability. But for production, dynamic mapping upper limit can get consumed very quickly.
 

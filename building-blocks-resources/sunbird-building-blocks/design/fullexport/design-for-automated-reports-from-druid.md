@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Design-for-automated-reports-from-Druid
 
 ### Introduction:

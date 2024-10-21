@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Default-Profile-Visibility-Configuration
 
 ### Introduction

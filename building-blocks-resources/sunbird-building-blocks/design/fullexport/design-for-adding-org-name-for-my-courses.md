@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Design-for-adding-org-name-for-'my-courses'
 
 #### Problem Statement

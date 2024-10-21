@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Design-Brainstorm--Migrating-all-the-content's-previewUrl-to-streamingUrl-based-on-the-mimeType
 
 **Introduction:** Video file of all the content with mimeType:video, is streamed and uploaded into cloud store. The streamed file url is getting updated into _**streamingUrl**_  field of content metadata.
