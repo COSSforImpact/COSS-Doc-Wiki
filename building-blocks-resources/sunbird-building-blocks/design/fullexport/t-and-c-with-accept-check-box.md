@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # T\&C---with-‘accept’-check-box
 
 \| 1.13 | | [SB-9571 System JIRA](https://browse/SB-9571) | | DONE | |

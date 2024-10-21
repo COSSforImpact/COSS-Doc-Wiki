@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Reduce-content-consumption-load-time-for-Question-Set
 
 Presently, any content having a question set load [Katex](https://ckeditor.com/cke4/addon/katex) library on its consumption. in the platform, Katex is CKEditor add-ons which enables math rendering. Even if a question is not using math, the platform still bundles the Katex assets ( 650 KB ) which take more than 7 seconds to load in the browser.

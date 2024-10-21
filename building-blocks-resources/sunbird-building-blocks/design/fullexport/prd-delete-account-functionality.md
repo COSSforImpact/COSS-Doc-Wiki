@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # \[PRD]-Delete-Account-functionality
 
 * [Overview](https://project-sunbird.atlassian.net/wiki/spaces/SBDES/pages/3351969808/PRD+Delete+Account+functionality#Overview%3A)

@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Textbook-as-a-Map----for-a-fluid-experience
 
 (Parking some thoughts on this metaphor here).

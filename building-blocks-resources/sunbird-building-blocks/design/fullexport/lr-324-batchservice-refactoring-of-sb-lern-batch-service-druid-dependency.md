@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # LR-324--BatchService--Refactoring-of-SB-Lern-Batch-Service---Druid-Dependency
 
 ## Introduction

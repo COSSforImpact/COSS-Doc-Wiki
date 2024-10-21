@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Synchronisation-of-timestamp-param(ets)-of-telemetry-event-data-with-backend-for-Sunbird-Editors-and
 
 ### Background

@@ -1,4 +1,11 @@
- **Proposed Solution for offline desktop telemetry events**  **Use cases for plugin installation flow :** 
+---
+icon: elementor
+---
+
+# Sunbird-offline-desktop-application---Telemetry-events-spec
+
+**Proposed Solution for offline desktop telemetry events** **Use cases for plugin installation flow :**
+
 ```js
 {
   "eid": "START",
@@ -24,8 +31,6 @@
   }
 }
 ```
-
-
 
 ```js
 {
@@ -53,9 +58,7 @@
 }
 ```
 
-
- **Use cases for Network Connection flow :** 
-
+**Use cases for Network Connection flow :**
 
 ```js
 {
@@ -80,8 +83,6 @@
 }
 ```
 
-
-
 ```js
 {
   "eid": "AUDIT",
@@ -105,9 +106,7 @@
 }
 ```
 
-
- **Use cases for changing settings flow :** 
-
+**Use cases for changing settings flow :**
 
 ```js
 {
@@ -131,8 +130,8 @@
   }
 }
 ```
- **Use cases for searching flow :** 
 
+**Use cases for searching flow :**
 
 ```js
 {
@@ -161,9 +160,7 @@
 }
 ```
 
-
- **Use cases for each and every API call flow :** 
-
+**Use cases for each and every API call flow :**
 
 ```js
 {
@@ -190,8 +187,6 @@
 }
 ```
 
-
-
 ```js
 {
   "eid": "LOG",
@@ -211,8 +206,8 @@
   }
 }
 ```
- **Use cases for Downloading content flow :** 
 
+**Use cases for Downloading content flow :**
 
 ```js
 {
@@ -236,8 +231,6 @@
 }
 ```
 
-
-
 ```js
 {
   "eid": "AUDIT",
@@ -260,8 +253,6 @@
    }
 }
 ```
-
-
 
 ```js
 {
@@ -288,8 +279,6 @@
 }
 ```
 
-
-
 ```js
 {
   "eid": "LOG",
@@ -314,8 +303,6 @@
    }
 }
 ```
-
-
 
 ```js
 {
@@ -342,8 +329,6 @@
 }
 ```
 
-
-
 ```js
 {
   "eid": "LOG",
@@ -369,10 +354,6 @@
 }
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

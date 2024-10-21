@@ -1,22 +1,26 @@
- **Introduction:** This document describes the design for enhancing Core Fetcher framework to support Druid as one of the input source. This enhancements to the framework enables data product creation from druid.
+---
+icon: elementor
+---
 
- **Current Fetcher Framework:** Following are the supported fetch types in the framework abstracted by DataFetcher:
+# \[Design]-Druid-Fetcher-Framework
 
+**Introduction:** This document describes the design for enhancing Core Fetcher framework to support Druid as one of the input source. This enhancements to the framework enables data product creation from druid.
+
+**Current Fetcher Framework:** Following are the supported fetch types in the framework abstracted by DataFetcher:
 
 1. S3 - Fetch data from S3
-1. Azure - Fetch data from azure
-1. Local - Fetch data from local file. Using the local file one can fetch data from hdfs too.
+2. Azure - Fetch data from azure
+3. Local - Fetch data from local file. Using the local file one can fetch data from hdfs too.
 
 Following are the APIs available in the DataFetcher
-
 
 ```scala
 // API to fetch data. Fetch the data as an RDD when an explicit type parameter is passed.
 val rdd:RDD[T] = DataFetcher.fetchBatchData[T](search: Fetcher);
 
 ```
-A Fetcher object should be passed to the DataFetcher along with the type the data should be serialized to. Following are the example structures of the Fetcher object.
 
+A Fetcher object should be passed to the DataFetcher along with the type the data should be serialized to. Following are the example structures of the Fetcher object.
 
 ```scala
 // Example fetcher to fetch data from S3
@@ -60,13 +64,12 @@ val localFetcher = Fetcher("local", Option(Query(None, None, None, None, None, N
 }
 
 ```
- **Enhancements - Support for new fetcher type** 
-* 
-###  **Druid**  - Fetch data from druid
 
+**Enhancements - Support for new fetcher type** \*
+
+#### **Druid** - Fetch data from druid
 
 Druid Fetcher is used to get results from druid for a specific query. It queries druid DB to fetch the results
-
 
 ```scala
 // Example fetcher to fetch data from Druid
@@ -98,7 +101,9 @@ val druidFetcher = Fetcher("druid", None, None, Option(DruidQuery("<querytype>",
 }
 
 ```
+
 DruidQuery model:
+
 ```scala
 #Schema of DruidQuery:
 {
@@ -148,10 +153,6 @@ DruidQuery model:
 
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

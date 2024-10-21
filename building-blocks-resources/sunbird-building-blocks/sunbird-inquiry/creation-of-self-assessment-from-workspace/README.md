@@ -25,7 +25,7 @@ Whenever the content editor will create content as self-assessment content, we w
 
 If content editor edits the same content we will hide the stage from the content editor and after saving we will add the stage again.
 
-![](../../../../.gitbook/assets/1213137170.png)![](<../../../../.gitbook/assets/grey\_arrow\_down (1).png>)Stage ECML sample
+![](../../../../.gitbook/assets/1213137170.png)![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Stage ECML sample
 
 ```
 <stage w="100" x="0" h="100" y="0" id="3a52e8ee-349c-49de-b5da-a6a47b268218">

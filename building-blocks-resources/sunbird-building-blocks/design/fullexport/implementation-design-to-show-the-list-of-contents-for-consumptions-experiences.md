@@ -1,47 +1,33 @@
+---
+icon: elementor
+---
 
-# Background 
+# \[Implementation-design]--To-show-the-list-of-contents-for-consumptions-experiences
+
+## Background
+
 Currently, When we click on the player list item - it redirects to the default content without showing the list of live contents of a specific player.
 
+## Design
 
-# Design
+### playerList component
 
-## playerList component
-
-* navigateToPdf() -  redirect to playerContentList component - this.router.navigate(\['players/player-content-list/:mimeType']); mimeType = pdf
-
-
+* navigateToPdf() - redirect to playerContentList component - this.router.navigate(\['players/player-content-list/:mimeType']); mimeType = pdf
 * navigateToEpub() - redirect to playerContentList component - this.router.navigate(\['players/player-content-list/:mimeType']); mimeType = epub
-
-
 * navigateToVideo() - redirect to playerContentList component - this.router.navigate(\['players/player-content-list/:mimeType']); mimeType = video
-
-
 * navigateToEcml() - redirect to playerContentList component - this.router.navigate(\['players/player-content-list/:mimeType']); mimeType = ecml
-
-
 * naviagteToCollectionPlayer()- redirect to playerContentList component - this.router.navigate(\['players/player-content-list/:mimeType']); mimeType = collection
 
-
-
-
-## playerContentList component  (New component)
+### playerContentList component (New component)
 
 * Add and import lib-contentList
-
-
-
 
 ```
 <lib-contentlist [contentList]="contentList" (contentSelect)= "navigateToPlayer($event)"> </lib-contentlist>
 ```
 
 * ngOnInit - get the query param player and set the player for redirect
-
-
 * contentSearch() - to search the live contents of the player and set contnetList
-
-
-
 
 ```
 contentSearch() {
@@ -50,9 +36,6 @@ contentSearch() {
 ```
 
 * navigateToPlayer()- To navigate to the player by passing the content id
-
-
-
 
 ```
 navigateToPlayer() {
@@ -63,9 +46,6 @@ navigateToPlayer() {
 
 * goBack() - To return to the player's list
 
-
-
-
 ```
 goBack() {
     // redirect to the players list
@@ -73,9 +53,6 @@ goBack() {
 ```
 
 * Integrate the pagination component in lib-contentList
-
-
-
 
 ```
 import {PageEvent} from '@angular/material/paginator';
@@ -92,26 +69,17 @@ import {PageEvent} from '@angular/material/paginator';
 
 * handlePageEvent()- To handle the pagination events
 
-
-
-
 ```
 handlePageEvent(event: PageEvent) {
    // search the content based on the paginations events
   }
 ```
 
-* Generate telemetry on events 
+* Generate telemetry on events
 
-
-
-
-## Collection-player component
+### Collection-player component
 
 * goBack() - To return to the player's list
-
-
-
 
 ```
 goBack() {
@@ -119,12 +87,9 @@ goBack() {
   }
 ```
 
-## Players header component
+### Players header component
 
 * goBack() - To return to the player's list
-
-
-
 
 ```
 goBack() {
@@ -132,15 +97,10 @@ goBack() {
   }
 ```
 
-## Lib-contentList component
+### Lib-contentList component
 
 * Adjust the card as per the screen sizes
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

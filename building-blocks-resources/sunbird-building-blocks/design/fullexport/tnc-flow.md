@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # TNC-flow
 
 **Overview:** Currently, the system enforces the acceptance of T\&C \* after the user registers (submits all their information), and logs in. This acceptance of T\&C has to happen before/ alongside the submission of the users information (on the registration form).

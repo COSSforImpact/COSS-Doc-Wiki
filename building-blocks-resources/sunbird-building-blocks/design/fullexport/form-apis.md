@@ -1,42 +1,43 @@
+---
+icon: elementor
+---
 
-# Update on Form Service
+# Form API's
+
+### Update on Form Service
 
 ### Schema
 
+| Current Column                 | Proposed Columns               |
+| ------------------------------ | ------------------------------ |
+| type (varchar)                 | type (varchar)                 |
+| subtype (varchar)              | subtype (varchar)              |
+| action (varchar)               | action (varchar)               |
+| component (varchar)            | component (varchar)            |
+| root\_org (varchar)            | root\_org (varchar)            |
+| framework (varchar)            | framework (varchar)            |
+| data (varchar)                 | data (varchar)                 |
+| created\_on (timestamp)        | created\_on (timestamp)        |
+| last\_modified\_on (timestamp) | last\_modified\_on (timestamp) |
+|                                | isretired (varchar) NEW        |
+|                                | version (varchar) NEW          |
+|                                | versionhistory (varchar) NEW   |
 
-| Current Column | Proposed Columns | 
-|  --- |  --- | 
-| type (varchar) | type (varchar) | 
-| subtype (varchar) | subtype (varchar) | 
-| action (varchar) | action (varchar) | 
-| component (varchar) | component (varchar) | 
-| root_org (varchar) | root_org (varchar) | 
-| framework (varchar) | framework (varchar) | 
-| data (varchar) | data (varchar) | 
-| created_on (timestamp) | created_on (timestamp) | 
-| last_modified_on (timestamp) | last_modified_on (timestamp) | 
-|  | isretired (varchar) NEW | 
-|  | version (varchar) NEW | 
-|  | versionhistory (varchar) NEW | 
+Existing Key in the tableroot\_org, framework, type, subtype, action, component
 
-
-
-Existing Key in the tableroot_org, framework, type, subtype, action, component
-
-New Key for the tableroot_org, framework, type, subtype, action, component, isretired, version
-
+New Key for the tableroot\_org, framework, type, subtype, action, component, isretired, version
 
 ### API's
+
 /read
 
 will only read a form if the form is not retired
 
-`v1/form/read
+\`v1/form/read
 
-`
+\`
 
 request object
-
 
 ```
 {
@@ -51,6 +52,7 @@ request object
 }
 
 ```
+
 /create
 
 creates a form if the same form is not available in the DB
@@ -58,7 +60,6 @@ creates a form if the same form is not available in the DB
 v1/form/create
 
 request Object
-
 
 ```
 
@@ -107,7 +108,6 @@ request Object
 
 ```
 
-
 /update
 
 update will retire the existing form and creates a new form entry in the DB
@@ -115,7 +115,6 @@ update will retire the existing form and creates a new form entry in the DB
 v1/form/update
 
 request Object
-
 
 ```
 {
@@ -163,9 +162,8 @@ request Object
 
 ```
 
-
-
 ### New API's
+
 /list
 
 will list all the forms in the DB
@@ -173,7 +171,6 @@ will list all the forms in the DB
 v1/form/list
 
 request Object
-
 
 ```
 {
@@ -187,14 +184,14 @@ request Object
     }        
 }
 ```
+
 /retire
 
 will retire a form from the DB
 
-`v1/form/retire'
+\`v1/form/retire'
 
 request Object
-
 
 ```
 {
@@ -209,6 +206,7 @@ request Object
     }        
 }
 ```
+
 /restore
 
 will restore a specific version of form and will make a new copy of the form with new version number
@@ -216,7 +214,6 @@ will restore a specific version of form and will make a new copy of the form wit
 v1/form/restore
 
 request object
-
 
 ```
 {
@@ -232,8 +229,6 @@ request object
 }
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

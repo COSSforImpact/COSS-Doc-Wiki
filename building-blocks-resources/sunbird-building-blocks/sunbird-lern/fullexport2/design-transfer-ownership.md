@@ -137,7 +137,7 @@ Once OrgAdmin selects the fromUser,
 
 **Ownership transfer API**
 
-![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)'\{{host\}}/api/user/v1/ownership/transfer'
+![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1) (1).png>)'\{{host\}}/api/user/v1/ownership/transfer'
 
 ```
 curl --location --request POST '{{host}}/api/user/v1/ownership/transfer' \
@@ -187,7 +187,7 @@ curl --location --request POST '{{host}}/api/user/v1/ownership/transfer' \
 }'
 ```
 
-![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Response
+![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1) (1).png>)Response
 
 ```
 {
@@ -221,7 +221,7 @@ curl --location --request POST '{{host}}/api/user/v1/ownership/transfer' \
 | toUserProfile    | User Profile Information of the user to whom ownership of the assets needs to be transferred to. |
 | assetInformation | Assets' metadata information passed in the API body                                              |
 
-![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1).png>)Sample event
+![](<../../../../.gitbook/assets/grey\_arrow\_down (1) (1) (1).png>)Sample event
 
 {\
 "eid": "BE\_JOB\_REQUEST",\

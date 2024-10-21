@@ -1,9 +1,14 @@
+---
+icon: elementor
+---
 
-## Change Log
+# Telemetry-V3.1-Specifications
+
+### Change Log
+
 The latest version of telemetry event contains device profile, user profile, content model and dialcode metadata added from pipeline jobs.
 
-
-## Telemetry V3.1 Envelope
+### Telemetry V3.1 Envelope
 
 ```
 {
@@ -132,10 +137,6 @@ The latest version of telemetry event contains device profile, user profile, con
 
 ```
 
+***
 
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

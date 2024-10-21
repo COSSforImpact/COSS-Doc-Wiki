@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Licensing-and-Attribution-on-DIKSHA-for-Resources-and-Textbooks
 
 ## Problem Definition:

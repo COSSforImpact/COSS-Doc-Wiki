@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # \[Brainstorm]-Caching-Data-to-increase-performance,-responsiveness-and-decrease-network-cost.
 
 **Background:** Sunbird platform is build on micro-service architecture, and has different service layers. Sunbird client application request data from different service based on requirement. Request goes through multiple service layer before its served by service. This increases network overhead and load on services. Sunbird doesn't have proper caching mechanism in place to server different request from clients.

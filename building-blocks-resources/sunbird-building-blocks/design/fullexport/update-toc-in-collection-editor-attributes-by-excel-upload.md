@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Update-ToC-in-Collection-editor-attributes-by-excel-upload
 
 BackgroundThe textbook creator should be able to update the existing Text book unit attributes in the TOC by uploading the excel (CSV) file.

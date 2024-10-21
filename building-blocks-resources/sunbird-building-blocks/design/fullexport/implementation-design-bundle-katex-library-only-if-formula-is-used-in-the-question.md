@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # \[Implementation-Design]---Bundle-Katex-library-only-if-formula-is-used-in-the-question
 
 **Problem Statement** At present when a question is bundled to an ECML content all thee katex library dependencies like CSS, js, fonts etc are getting bundled even though the questions added to the stages does not contain any Formula(Equation) with it. But we need katex library only when a math text or formulas are presented on the question. So Katex library dependencies should be ignored on ECML generation if no questions with formulae are present on any of the stages.

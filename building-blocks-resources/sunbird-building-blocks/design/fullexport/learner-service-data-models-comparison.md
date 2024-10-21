@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Learner-Service-Data-Models-Comparison
 
 The purpose of this document is to review schema of data synched between Cassandra and Elasticsearch by Learner Service. Also, this would serve the purpose of identifying unused or irrelevant fields that can be removed. The fields requiring discussion are highlighted in red font color.

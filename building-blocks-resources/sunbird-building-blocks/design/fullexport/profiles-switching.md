@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Profiles-Switching
 
 ### Introduction:

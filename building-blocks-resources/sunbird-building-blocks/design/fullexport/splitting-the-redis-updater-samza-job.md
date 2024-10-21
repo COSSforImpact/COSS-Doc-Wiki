@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Splitting-the-Redis-Updater-samza-job
 
 **Purpose:** **Currently** , the Redis Updater job updates all three: User Cache, Content Cache and Dialcode Cache. The events it processes are:

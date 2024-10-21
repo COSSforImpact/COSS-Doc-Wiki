@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # content-player--Telemetry-event-details-for-NCERT-quiz---PlaySession
 
 Jira Story: [SB-16193 System JIRA](https://browse/SB-16193)Telemetry information to track a play session

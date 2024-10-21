@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Implementation-design-for-Location-Capture--Device-and-User
 
 **Introduction:** This documents describes the design for capturing Device and User location. This design requires following changes

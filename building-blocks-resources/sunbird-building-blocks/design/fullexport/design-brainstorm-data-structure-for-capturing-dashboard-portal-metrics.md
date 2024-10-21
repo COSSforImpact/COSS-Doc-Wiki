@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # \[Design-Brainstorm]-Data-structure-for-capturing-dashboard-portal-metrics
 
 #### Background

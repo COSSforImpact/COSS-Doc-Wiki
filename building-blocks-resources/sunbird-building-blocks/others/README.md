@@ -1,2 +1,6 @@
-# Others
+---
+icon: disease
+---
+
+# Miscellaneous
 

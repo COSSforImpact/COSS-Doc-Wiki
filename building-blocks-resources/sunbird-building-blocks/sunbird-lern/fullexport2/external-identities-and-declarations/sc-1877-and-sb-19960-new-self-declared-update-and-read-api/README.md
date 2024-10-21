@@ -16,7 +16,7 @@ Link: [SC-1848 Refactor user self-declaration implementation](https://project-su
 
 URL: [http://localhost:9000/v1/user/declarations](http://localhost:9000/v1/user/declarations)
 
-![](../../../../../../.gitbook/assets/grey\_arrow\_down.png)Request: PATCH: v1/user/declarations
+![](<../../../../../../.gitbook/assets/grey\_arrow\_down (1).png>)Request: PATCH: v1/user/declarations
 
 ```
 {

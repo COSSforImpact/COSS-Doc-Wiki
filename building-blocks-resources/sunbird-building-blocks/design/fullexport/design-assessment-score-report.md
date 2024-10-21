@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # \[Design]-Assessment-score-report
 
 **Introduction:** This documentation describes about the generation of the batch wise assessment report within the course. The report should generate with below fields. For more detail refer this \[\[ PRD|Assessment-Score-Report]].

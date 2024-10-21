@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Indexing-Content-Model-to-Druid
 
 **Introduction:** In this wiki, we are going to discuss methods to index Content model to Druid and its challenges. Since the content model is not time series data, updating the indexed data in Druid is not possible and this would pose challenges to query data, we will discuss more on this in the following sections.

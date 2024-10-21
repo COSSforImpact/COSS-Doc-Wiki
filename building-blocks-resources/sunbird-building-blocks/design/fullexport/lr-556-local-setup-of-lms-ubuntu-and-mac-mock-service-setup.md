@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # LR-556-Local-setup-of-LMS---Ubuntu-&-Mac---Mock-service-setup
 
 ## Introduction

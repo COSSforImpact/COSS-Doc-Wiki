@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Portal---Form-Configuration-Object
 
 * [Schema](portal-form-configuration-object.md#schema)

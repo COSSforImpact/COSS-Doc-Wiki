@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # \[Design]-Bulk-Upload-Questions
 
 **Introduction** This wiki explains the design and implementation of bulk upload of questions.

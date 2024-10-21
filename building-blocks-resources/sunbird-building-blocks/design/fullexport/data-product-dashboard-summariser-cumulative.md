@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # \[Data-Product]-Dashboard-summariser---Cumulative
 
 #### Summary:

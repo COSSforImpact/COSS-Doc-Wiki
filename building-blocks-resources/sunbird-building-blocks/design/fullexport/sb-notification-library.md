@@ -1,9 +1,14 @@
- **Background** 
+---
+icon: elementor
+---
+
+# SB-Notification-library
+
+**Background**
 
 The notification feature is being used by both mobile and the portal. The same boilerplate code is there in both, so to reduce the boilerplate code “sb-notification“ library is created.
 
- **Implementation** 
-
+**Implementation**
 
 ```typescript
 export interface SbNotificationService {
@@ -17,33 +22,19 @@ export interface SbNotificationService {
 }
 ```
 
-* The library requires  NotificationService implementation to handle all the notification functionality. 
-
-
+* The library requires NotificationService implementation to handle all the notification functionality.
 * It's the client’s responsibility to provide all the data required by the “sb-notiifcation” library to perform an action on the notifications.
 
-
-
- **Methods** 
-
+**Methods**
 
 * getNotifications: Required to render the notification list
-
-
 * handleNotification: Required to handle the notification
-
-
 * deleteNotification: Required to delete a notification
-
-
 * clearAllNotifications: Required to clear all the notifications
 
-
-
- **Usage** 
+**Usage**
 
 Create a class that implements NotificationService from the notification library.
-
 
 ```
 @Injectable({
@@ -68,8 +59,8 @@ export class NotificationServiceImpl implements NotificationService {
   }
 }
 ```
-In the app module import the NotificationModule and declare   NotificationServiceImpl as a provider like following
 
+In the app module import the NotificationModule and declare NotificationServiceImpl as a provider like following
 
 ```typescript
 @NgModule({
@@ -91,8 +82,6 @@ In the app module import the NotificationModule and declare   NotificationServic
 })
 ```
 
+***
 
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

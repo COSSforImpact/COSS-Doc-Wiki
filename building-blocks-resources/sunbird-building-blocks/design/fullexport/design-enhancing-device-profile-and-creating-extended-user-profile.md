@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # \[Design]Enhancing-Device-Profile-and-Creating-Extended-User-Profile
 
 **Introduction:**

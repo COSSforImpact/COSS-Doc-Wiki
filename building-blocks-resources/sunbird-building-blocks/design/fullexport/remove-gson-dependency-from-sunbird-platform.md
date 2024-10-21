@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Remove-GSON-dependency-from-Sunbird-Platform
 
 **Overview** Remove GSON dependency from Sunbird Platform. Instead, use Jackson which is used at several places already within Sunbird. The main motivation for this task is to minimize the dependency between Sunbird and Open Saber Client (which uses gson and resulted in exceptions during integration).

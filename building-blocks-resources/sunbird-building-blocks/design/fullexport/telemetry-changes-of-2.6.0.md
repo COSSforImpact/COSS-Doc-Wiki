@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Telemetry-Changes-of-2.6.0
 
 ### District Mapping (SC-1373)

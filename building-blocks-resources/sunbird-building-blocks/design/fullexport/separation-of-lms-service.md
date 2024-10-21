@@ -1,4 +1,8 @@
-# Problem Statement
+---
+icon: elementor
+---
+
+# Separation of LMS Service
 
 Till release 2.0.0, LMS service was used for all the flows i.e. user, org, course batch, toc etc. There is a need to separate the LMS service to be used for flows related to course, batch, pages, toc etc.
 

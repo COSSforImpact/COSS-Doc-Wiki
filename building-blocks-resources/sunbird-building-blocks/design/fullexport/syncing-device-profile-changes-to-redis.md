@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Syncing-device-profile-changes-to-Redis
 
 **Overview:**

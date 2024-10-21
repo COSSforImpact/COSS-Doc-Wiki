@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Menu-configuration-deploy-to-blob-steps
 
 This wiki help QA team to verify below ticket and also

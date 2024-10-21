@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Vocabulary,-FrameWork,-and-Taxonomy-Equivalence-Design
 
 **Background**

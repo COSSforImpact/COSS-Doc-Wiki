@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Hide-buttons-'Sign-in-with-Google'-and-'Sign-Up'-for-older-mobile-app-version.
 
 **Problem** Hide buttons 'Sign in with Google' and 'Sign Up' for older version mobile app on the login page.

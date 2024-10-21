@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # V1-Templates-in-Ekstep
 
 This document contains details about the older v1 templates available in ekstep. It provides information about how to
