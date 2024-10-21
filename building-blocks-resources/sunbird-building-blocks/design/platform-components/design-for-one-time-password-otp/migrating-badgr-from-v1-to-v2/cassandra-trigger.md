@@ -1,25 +1,22 @@
- **Problem Statement:-** 
+---
+icon: elementor
+---
+
+# Cassandra-trigger
+
+**Problem Statement:-**
 
 How to record any insert/update/delete i.e.(write) operation in cassandra as an event?
 
- **Proposed Solution 1** 
-
-
+**Proposed Solution 1**
 
 Cassandra trigger can be used for this purpose. We need to create trigger on particular table which will write into another table for audit or write into file on any such write operations.
 
-
-
-To create a trigger, you must first build a jar( **with all dependencies** ) with a class implementing the ITrigger and put it into the triggers directory on every node, then perform a CQL3 CREATE TRIGGER request to tie your trigger to a Cassandra table (or several tables). 
+To create a trigger, you must first build a jar( **with all dependencies** ) with a class implementing the ITrigger and put it into the triggers directory on every node, then perform a CQL3 CREATE TRIGGER request to tie your trigger to a Cassandra table (or several tables).
 
 Once the trigger is set, restart the cassandra so that the new trigger is implied to the subjected table.
 
-
-
 Source Code:-
-
-
-
 
 ```
 public class AuditTrigger implements ITrigger
@@ -71,20 +68,11 @@ public class AuditTrigger implements ITrigger
 }
 ```
 
-
- **Questions:-** 
-
+**Questions:-**
 
 1. How to differentiate between Insert and update in cassandra trigger as there is no way we could distinguish during trigger creation. We can only get the recent data which is acceptable in case of insert but couldn’t retrieve the field and its values on which update operation is applied.
+2. Cassandra trigger is deprecated in the version 5.4 and hence it would be futile exercise if we migrate to the latest cassandra install.
 
+***
 
-1. Cassandra trigger is deprecated in the version 5.4 and hence it would be futile exercise if we migrate to the latest cassandra install.
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

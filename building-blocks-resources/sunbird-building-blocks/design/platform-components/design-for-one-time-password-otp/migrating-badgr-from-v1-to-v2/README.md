@@ -1,17 +1,15 @@
+---
+icon: folder-open
+---
+
+# Migrating-Badgr-from-V1-to-V2
 
 1. Download and install PostgreSQL ([https://www.postgresql.org/download/).](https://www.postgresql.org/download/).) Create a database using pgAdmin 4 (e.g. ‘badgrDB’).
-
-
-1. Install virtualenv.
-
-
+2. Install virtualenv.
 
 sudo pip install virtualenv virtualenvwrapper
 
-
 1. Run following commands to setup badgr.
-
-
 
 mkdir badgr && cd badgr
 
@@ -25,14 +23,13 @@ cd code
 
 pip install -r requirements.txt
 
-cp apps/mainsite/settings_local.py.example apps/mainsite/settings_local.py
+cp apps/mainsite/settings\_local.py.example apps/mainsite/settings\_local.py
 
-Edit the settings_local.py file and insert local credentials for DATABASES
+Edit the settings\_local.py file and insert local credentials for DATABASES
 
 e.g.
 
 DATABASES = {
-
 
 ```
 'default': {
@@ -54,54 +51,37 @@ DATABASES = {
     }
 ```
 
-
-put this line on top in code/apps/mainsite/settings_local.py
+put this line on top in code/apps/mainsite/settings\_local.py
 
 import string
 
 pip install psycopg2
 
-#Before running this -- (make sure you set security_key in apps/mainsite/settings.py )
+\#Before running this -- (make sure you set security\_key in apps/mainsite/settings.py )
 
 ./manage.py migrate
 
 ./manage.py createsuperuser
 
-###Generate swagger file
+\###Generate swagger file
 
 ./manage.py dist
 
-4) Run badgr server.
+4. Run badgr server.
 
-Before running badgr server, we need to put the host in settings_local.py at line 117, for local use below line
+Before running badgr server, we need to put the host in settings\_local.py at line 117, for local use below line
 
-ALLOWED_HOSTS = \[u'localhost', ]
+ALLOWED\_HOSTS = \[u'localhost', ]
 
 ./manage.py runserver
 
-
 1. Navigate to [http://localhost:8000/accounts/login.](http://localhost:8000/accounts/login.) Login, verify email address. (Note: Verify link is present in badgr server log).
-
-
-1. API reference is available at [http://127.0.0.1:8000/docs/](http://127.0.0.1:8000/docs/)
-
-
-
-
-
-
-
-
+2. API reference is available at [http://127.0.0.1:8000/docs/](http://127.0.0.1:8000/docs/)
 
 Important Docs:-
 
 [https://badgr.org/app-developers/api-guide/](https://badgr.org/app-developers/api-guide/)
 
+***
 
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

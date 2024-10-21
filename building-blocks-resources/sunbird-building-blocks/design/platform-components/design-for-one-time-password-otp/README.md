@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Design-for-One-time-password-(OTP)
 
 **Problem statement:** \*\* \*\* As a sunbird system it should have capability to generate and validate generated OTP.  As per current requirement OTP can be generated for mobile number or email.

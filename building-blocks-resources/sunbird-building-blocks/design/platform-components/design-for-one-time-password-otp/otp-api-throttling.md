@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # OTP-API-Throttling
 
 **Overview** We need to restrict number of OTP message generated for particular e-mail or mobile.

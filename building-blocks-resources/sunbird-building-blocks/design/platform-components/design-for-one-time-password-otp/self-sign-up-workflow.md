@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Self-sign-up-workflow
 
 ## Problem statement:

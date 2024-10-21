@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # User-sign-up-Telemetry-events
 
 **Overview** As part of the user self-sign up - we are verifying the users validity through OTP. As  a result - 2 end-points will be introduced, i.e. Generate OTP and Verify OTP.

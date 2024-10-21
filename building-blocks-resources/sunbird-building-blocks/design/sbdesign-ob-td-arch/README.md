@@ -1,2 +1,0 @@
-# sbdesign-ob-td-arch
-

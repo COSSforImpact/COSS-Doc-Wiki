@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Open-for-enrollment-course-batch-test-to-supporting-100K-Participant--
 
 This documents is about the POC done on limitation of course batch. By term " limitation of course batch" here we  mean how many participants can enroll in an open-batch.
