@@ -58,3 +58,7 @@ layout:
 {% content-ref url="sunbird-knowledge-hub/readme/test-prep-story.md" %}
 [test-prep-story.md](sunbird-knowledge-hub/readme/test-prep-story.md)
 {% endcontent-ref %}
+
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}
