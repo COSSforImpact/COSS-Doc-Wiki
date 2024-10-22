@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # ETL-job-to-add-state,-district-of-non-custodian-user-into-user-DB
 
 **System JIRAkey,summary,type,created,updated,due,assignee,reporter,priority,status,resolution2207a759-5bc8-39c5-9cd2-aa9ccc1f65ddSC-888** **Overview** As part of enhancing the user profile data and having the location data available along with user profile, we need to update the existing user location data. Currently we allow custodian org users to update their state and district after registering. This migration job will enable to update the old available data for non-custodian user's based on their associated organizations.

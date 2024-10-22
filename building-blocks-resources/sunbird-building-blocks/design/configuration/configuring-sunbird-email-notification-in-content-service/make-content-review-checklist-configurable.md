@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Make-Content-Review-Checklist-configurable
 
 **Background:** Make Content Review Checklist is not configurable in the portal.

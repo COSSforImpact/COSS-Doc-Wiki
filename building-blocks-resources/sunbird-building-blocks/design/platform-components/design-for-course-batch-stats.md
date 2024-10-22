@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Design for course batch stats
 
 **Approach 1**

@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # User-Search-with-email-or-phone
 
 Problem statementCurrently search uses filters which are joined with  AND ('&&') operator by default. Hence It is not possible to search with OR ('||') condition. Hence to search a user by either an email or phone number, It requires to make two different calls, one with phone and if result is empty then another call with email. This process is inefficient. Hence there should be a way that a user can be searched by email or phone. It requires to create a structure in filter where we need to provide if we want to call with and or or or both together.

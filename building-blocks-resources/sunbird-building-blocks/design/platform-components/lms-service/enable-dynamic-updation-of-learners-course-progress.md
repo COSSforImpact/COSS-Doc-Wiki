@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Enable-dynamic-updation-of-learners'-course-progress
 
 **Introduction** This wiki explains current design of course batches, problems with it and proposed changes to the design and implementation to resolve the current issues and able to handle scale.

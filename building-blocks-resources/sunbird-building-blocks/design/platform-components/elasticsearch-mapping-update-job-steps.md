@@ -1,32 +1,34 @@
+---
+icon: elementor
+---
 
-### Problem Statement
+# Elasticsearch-mapping-update-job-steps
+
+#### Problem Statement
+
 Since we are moving to multi index format and static mapping there should be a way in accordance with CI/CD to update mapping whenever a new field is added as required.
 
-[SB-11346 System JIRA](https:///browse/SB-11346)
+[SB-11346 System JIRA](https://browse/SB-11346)
 
+#### Solution Approach
 
-### Solution Approach
 A jenkins job can be added to update mapping for indexes. The jenkins needs to be configured to perform below steps
 
-
 1. verify if the index exists or not?
-1. if index does not exists, create index with create file.
-1. If index is available it calls the update mapping.
+2. if index does not exists, create index with create file.
+3. If index is available it calls the update mapping.
 
+#### Job Path
 
-### Job Path
 job path[/job/OpsAdministration/job/staging/job/Core/job/EsMapping/](http://10.20.0.9:8080/job/OpsAdministration/job/staging/job/Core/job/EsMapping/)
 
+#### Problem Statement
 
-
-
-### Problem Statement
 How to verify if an index exists or not
 
+#### Solution Approach
 
-### Solution Approach
 A HEAD http call can be used to verify if index exists or not
-
 
 ```js
 Request
@@ -46,13 +48,13 @@ curl --head http://{es-ip}:{es-port}/user
 
 ```
 
-### Problem Statement
+#### Problem Statement
+
 How to create an index?
 
+#### Solution Approach
 
-### Solution Approach
 An index can be created by providing settings and mapping arguments as below
-
 
 ```js
 Request
@@ -7254,7 +7256,6 @@ curl -X PUT \
 }'
 ```
 
-
 Job cURL commandsINLINEcd sunbird-utils/elasticsearch-util/src/main/resources/indices
 
 curl -X PUT [http://{es-ip}:{es-port}/user](http://localhost:9200/user) -H 'Content-Type: application/json' -d @user.json
@@ -7269,7 +7270,7 @@ curl -X PUT [http://{es-ip}:{es-port}/badgeassociations](http://localhost:9200/b
 
 curl -X PUT [http://{es-ip}:{es-port}/cbatch](http://localhost:9200/cbatch) -H 'Content-Type: application/json' -d @cbatch.json
 
-curl -X PUT [http://{es-ip}:{es-port}/cbatc](http://localhost:9200/cbatch)hstats -H 'Content-Type: application/json' -d @cbatchstats.json
+curl -X PUT [http://{es-ip}:{es-port}/cbatc](http://localhost:9200/cbatch)hstats -H 'Content-Type: application/json' -d @cbatchstats.json
 
 curl -X PUT [http://{es-ip}:{es-port}/userprofilevisibility](http://localhost:9200/userprofilevisibility) -H 'Content-Type: application/json' -d @userprofilevisibility.json
 
@@ -7281,16 +7282,13 @@ curl -X PUT [http://{es-ip}:{es-port}/announcementtype](http://localhost:9200/an
 
 curl -X PUT [http://{es-ip}:{es-port}/metrics](http://localhost:9200/metrics) -H 'Content-Type: application/json' -d @metrics.json
 
+#### Problem Statement
 
-
-
-### Problem Statement
 How to call update mapping API
 
+#### Solution Approach
 
-### Solution Approach
 update mapping can be called with a PUT mapping call on index
-
 
 ```js
 Request
@@ -14399,56 +14397,40 @@ curl -X PUT \
 
 ```
 
-
 job cURL commands for update mappingsINLINEcd sunbird-utils/elasticsearch-util/src/main/resources/mappings
 
-curl -X PUT [http://{es-ip}:{es-port}/user/_mapping/_doc](http://localhost:9200/user/_mapping/_doc) -H 'Content-Type: application/json' -d @user-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/user/\_mapping/\_doc](http://localhost:9200/user/\_mapping/\_doc) -H 'Content-Type: application/json' -d @user-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/org/_mapping/_doc](http://localhost:9200/org/_mapping/_doc) -H 'Content-Type: application/json' -d @org-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/org/\_mapping/\_doc](http://localhost:9200/org/\_mapping/\_doc) -H 'Content-Type: application/json' -d @org-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/location/_mapping/_doc](http://localhost:9200/location/_mapping/_doc) -H 'Content-Type: application/json' -d @location-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/location/\_mapping/\_doc](http://localhost:9200/location/\_mapping/\_doc) -H 'Content-Type: application/json' -d @location-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/usernotes/_mapping/_doc](http://localhost:9200/usernotes/_mapping/_doc) -H 'Content-Type: application/json' -d @usernotes-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/usernotes/\_mapping/\_doc](http://localhost:9200/usernotes/\_mapping/\_doc) -H 'Content-Type: application/json' -d @usernotes-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/badgeassociations/_mapping/_doc](http://localhost:9200/badgeassociations/_mapping/_doc) -H 'Content-Type: application/json' -d @badgeassociations-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/badgeassociations/\_mapping/\_doc](http://localhost:9200/badgeassociations/\_mapping/\_doc) -H 'Content-Type: application/json' -d @badgeassociations-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/cbatch/_mapping/_doc](http://localhost:9200/cbatch/_mapping/_doc) -H 'Content-Type: application/json' -d @cbatch-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/cbatch/\_mapping/\_doc](http://localhost:9200/cbatch/\_mapping/\_doc) -H 'Content-Type: application/json' -d @cbatch-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/cbatchstats/_mapping/_doc](http://localhost:9200/cbatch/_mapping/_doc) -H 'Content-Type: application/json' -d @cbatchstats-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/cbatchstats/\_mapping/\_doc](http://localhost:9200/cbatch/\_mapping/\_doc) -H 'Content-Type: application/json' -d @cbatchstats-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/userprofilevisibility/_mapping/_doc](http://localhost:9200/userprofilevisibility/_mapping/_doc) -H 'Content-Type: application/json' -d @userprofilevisibility-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/userprofilevisibility/\_mapping/\_doc](http://localhost:9200/userprofilevisibility/\_mapping/\_doc) -H 'Content-Type: application/json' -d @userprofilevisibility-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/usercourses/_mapping/_doc](http://localhost:9200/usercourses/_mapping/_doc) -H 'Content-Type: application/json' -d @usercourses-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/usercourses/\_mapping/\_doc](http://localhost:9200/usercourses/\_mapping/\_doc) -H 'Content-Type: application/json' -d @usercourses-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/announcement/_mapping/_doc](http://localhost:9200/announcement/_mapping/_doc) -H 'Content-Type: application/json' -d @announcement-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/announcement/\_mapping/\_doc](http://localhost:9200/announcement/\_mapping/\_doc) -H 'Content-Type: application/json' -d @announcement-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/announcementtype/_mapping/_doc](http://localhost:9200/announcementtype/_mapping/_doc) -H 'Content-Type: application/json' -d @announcementtype-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/announcementtype/\_mapping/\_doc](http://localhost:9200/announcementtype/\_mapping/\_doc) -H 'Content-Type: application/json' -d @announcementtype-mapping.json
 
-curl -X PUT [http://{es-ip}:{es-port}/metrics/_mapping/_doc](http://localhost:9200/metrics/_mapping/_doc) -H 'Content-Type: application/json' -d @metrics-mapping.json
+curl -X PUT [http://{es-ip}:{es-port}/metrics/\_mapping/\_doc](http://localhost:9200/metrics/\_mapping/\_doc) -H 'Content-Type: application/json' -d @metrics-mapping.json
 
-
-
-
-### Create index files
-
+#### Create index files
 
 250250250250250250250250250250250
 
-
-### mapping update files
-
+#### mapping update files
 
 250250250250250250250250250250250
 
+***
 
-
-
-
-
-
-
-
-*****
-
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

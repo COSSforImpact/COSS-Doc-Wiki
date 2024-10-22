@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Updating-User's-Root-Organisation
 
 **Overview** As, most of the users will be doing self sign-up into the sunbird platform, all users will by default belong to default organisation/channel, i.e. Custodian channel. Currently, we do not allow to change the user's root organisation from update user api. As, most user will be now created through self sign-up we need a way to change user's root-org, so that user can be associated with state's root-org, and contribute in the platform based on membership.

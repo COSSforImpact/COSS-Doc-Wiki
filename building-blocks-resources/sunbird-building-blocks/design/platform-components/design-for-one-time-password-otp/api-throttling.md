@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # API throttling
 
 #### Problem statement <a href="#apithrottling-problemstatement" id="apithrottling-problemstatement"></a>

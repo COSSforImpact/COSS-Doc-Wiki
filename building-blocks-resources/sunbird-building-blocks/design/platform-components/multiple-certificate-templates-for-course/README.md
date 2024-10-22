@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Multiple-Certificate-Templates-for-Course
 
 **Problem Statement :**

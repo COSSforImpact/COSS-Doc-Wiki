@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Config-Service-JS-client-sdk---Implemenetation-design
 
 **Existing Solution:**

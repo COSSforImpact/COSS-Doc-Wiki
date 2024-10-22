@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Mapping-type-removal-in-Elasticsearch
 
 #### Problem Statement

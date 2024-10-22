@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # A/B Testing framework design
 
 ## **Overview** <a href="#a-btestingframeworkdesign-overview" id="a-btestingframeworkdesign-overview"></a>

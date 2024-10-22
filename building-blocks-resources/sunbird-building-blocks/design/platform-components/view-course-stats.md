@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # View-course-stats
 
 Problem Statement 1As of now we are showing all records , once we have more data api call , page loading will take more time, so we need to introduce pagination here

@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Configuration-service
 
 \| 1.10 | | [SB-3303 System JIRA](https://browse/SB-3303) | | YellowREVIEWED | |

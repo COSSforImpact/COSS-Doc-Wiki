@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Sunbird-Email-Notification-Service
 
 **Overview:**    Sunbird email notification service is built to send an email. Any other service can call this service to notify the user.AS of now email service is configured by installation,

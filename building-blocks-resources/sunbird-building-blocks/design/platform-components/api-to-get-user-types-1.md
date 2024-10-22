@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # API to get user types
 
 [SC-880](https://project-sunbird.atlassian.net/browse/SC-880?src=confmacro)

@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Design-for-easy-way-to-update-content
 
 Problem StatementCurrently to update the content implementation team needs to make multiple calls, which makes it a difficult process. Additionally there is no auditing in place to track as content was updated by whom. There should be an easier way to update the content.

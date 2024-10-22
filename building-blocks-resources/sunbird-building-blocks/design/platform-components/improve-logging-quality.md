@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Improve logging quality
 
 ### **Jira Ticket:** [**SB-9772**](https://project-sunbird.atlassian.net/browse/SB-9772?src=confmacro) <a href="#improveloggingquality-jiraticket-systemjirakey-summary-type-created-updated-due-assignee-reporter-pr" id="improveloggingquality-jiraticket-systemjirakey-summary-type-created-updated-due-assignee-reporter-pr"></a>

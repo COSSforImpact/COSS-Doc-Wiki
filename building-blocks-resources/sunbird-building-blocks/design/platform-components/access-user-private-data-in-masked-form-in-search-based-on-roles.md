@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Access User private data in masked form in search based on roles
 
 **Problem Statement**

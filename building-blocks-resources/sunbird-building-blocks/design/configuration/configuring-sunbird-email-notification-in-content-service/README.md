@@ -1,3 +1,7 @@
+---
+icon: folder-open
+---
+
 # Configuring-Sunbird-Email-Notification-in-Content-service
 
 ## Background:

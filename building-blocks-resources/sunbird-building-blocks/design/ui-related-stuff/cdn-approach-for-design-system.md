@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # CDN-Approach-for-design-system
 
 ### Problem Statement
