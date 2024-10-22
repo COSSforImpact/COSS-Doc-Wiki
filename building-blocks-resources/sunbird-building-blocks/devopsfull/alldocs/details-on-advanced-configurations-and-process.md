@@ -1,14 +1,17 @@
-[[Creating new folders for Jenkins jobs|Creating-new-folders-for-Jenkins-jobs]]
+---
+icon: elementor
+---
 
-[[Removing folders for Jenkins jobs|Removing-folders-for-Jenkins-jobs]]
+# Details-on-advanced-configurations-and-process
 
-[[Other Jenkins configurations|Other-Jenkins-configurations]]
+\[\[Creating new folders for Jenkins jobs|Creating-new-folders-for-Jenkins-jobs]]
 
-[[Jenkins scripts, Jenkins variable and Jenkins parameters details|Jenkins-scripts,-Jenkins-variable-and-Jenkins-parameters-details]]
+\[\[Removing folders for Jenkins jobs|Removing-folders-for-Jenkins-jobs]]
 
+\[\[Other Jenkins configurations|Other-Jenkins-configurations]]
 
+\[\[Jenkins scripts, Jenkins variable and Jenkins parameters details|Jenkins-scripts,-Jenkins-variable-and-Jenkins-parameters-details]]
 
-*****
+***
 
-[[category.storage-team]] 
-[[category.confluence]] 
+\[\[category.storage-team]] \[\[category.confluence]]

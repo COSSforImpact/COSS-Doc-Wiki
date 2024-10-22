@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Ansible-Variables-Updates
 
 **Steps to follow:** **Updating variables**
@@ -6,7 +10,7 @@
 2. **git checkout tags/release-1.14.0 -b release-1.14.0**
 3. **git checkout tags/release-2.0.0 -b release-2.0.0**
 4. **cd sunbird-devops/private\_repo**
-5. \*\*git diff release-1.14.0 ansible \*\*   OR  **git diff --word-diff=porcelain release-1.14.0 ansible**
+5. \*\*git diff release-1.14.0 ansible \*\* OR **git diff --word-diff=porcelain release-1.14.0 ansible**
 
 This will show the differences in variables between release-2.0.0 and release-1.14.0. If the line is in green, it means its newly added. If the line is in red, it means it has been removed.
 

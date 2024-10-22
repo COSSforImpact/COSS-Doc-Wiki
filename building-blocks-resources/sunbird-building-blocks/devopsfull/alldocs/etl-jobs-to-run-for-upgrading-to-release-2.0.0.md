@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # ETL-jobs-to-run-for-upgrading-to-release-2.0.0
 
 **Cassandra User Email and Phone number masking:**
@@ -20,7 +24,7 @@ Please refer to this document to understand and run the script - [https://github
 
 **Course batch sync:**
 
-Please refer to this document to run the command  \*\*(Only Step 3 and Step 4 needs to be run) \*\* - [https://github.com/manzarul/sunbird.org-docs/blob/e6caf3226dbe8173c93becf6679529ba850c3900/developer-docs/configuring\_sunbird/elasticsearch\_static\_mapping\_course\_batch.md](https://github.com/manzarul/sunbird.org-docs/blob/e6caf3226dbe8173c93becf6679529ba850c3900/developer-docs/configuring\_sunbird/elasticsearch\_static\_mapping\_course\_batch.md)
+Please refer to this document to run the command \*\*(Only Step 3 and Step 4 needs to be run) \*\* - [https://github.com/manzarul/sunbird.org-docs/blob/e6caf3226dbe8173c93becf6679529ba850c3900/developer-docs/configuring\_sunbird/elasticsearch\_static\_mapping\_course\_batch.md](https://github.com/manzarul/sunbird.org-docs/blob/e6caf3226dbe8173c93becf6679529ba850c3900/developer-docs/configuring\_sunbird/elasticsearch\_static\_mapping\_course\_batch.md)
 
 **User course sync:**
 

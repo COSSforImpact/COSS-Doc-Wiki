@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Build-and-Deploy
 
 * **IMPORTANT: Take a backup of all your databases by running backup jobs located under OpsAdministration → Core / KnowledgePlatform / DataPipeline → BackupJobs OR You can use VM Disk Snapshots from your cloud provider**
@@ -5,14 +9,14 @@
 * Build all the services mentioned in the table below.
 * Ensure you provide the \*\*github\_release\_tag \*\* for Build jobs as per the tags mentioned in this sheet - \[\[Current Release Tags and Jenkins Jobs Reference|Current-Release-Tags-and-Jenkins-Jobs-Reference]].
 * Ensure all ArtificatUpload Jobs as successful.
-* Deploy services which are mentioned in the table below.  **IMPORTANT: The order of deployment for jobs in deploy directory should be same as mentioned in the below table.**
+* Deploy services which are mentioned in the table below. **IMPORTANT: The order of deployment for jobs in deploy directory should be same as mentioned in the below table.**
 * If some build and deploy jobs are not relevant to your setup, you can skip them.
-* Ensure you provide **branch\_or\_tag** as per the data mentoined in this sheet - \[\[Current Release Tags and Jenkins Jobs Reference|Current-Release-Tags-and-Jenkins-Jobs-Reference]] under  \*\*Jobs which use this repository \*\* column.
+* Ensure you provide **branch\_or\_tag** as per the data mentoined in this sheet - \[\[Current Release Tags and Jenkins Jobs Reference|Current-Release-Tags-and-Jenkins-Jobs-Reference]] under \*\*Jobs which use this repository \*\* column.
 * Once all services are deployed, please perform the manaual configurations mentioned in this sheet - \[\[Manual configurations|Manual-configurations]]
 
 **Optional:**
 
-* You can run the Logging job if required which is located under  **Core → Deploy → Logging**
+* You can run the Logging job if required which is located under **Core → Deploy → Logging**
 * The Logging jobs will provision Kibana and provide you access to containr logs. But this will consume additional resources in your Swarm machines and we do not recommend to run this job if you have a single swarm machine.
 
 Here is the list of jobs that are required to be built and deployed for your reference

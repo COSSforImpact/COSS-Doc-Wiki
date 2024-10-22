@@ -1,14 +1,18 @@
+---
+icon: elementor
+---
+
 # Core-Elasticsearch-upgrade
 
 Core Elasticsearch has been upgraded from 5.x version to 6.x. This is done in order to remove overheads in maintaining two versions of elasticsearch - One for Core services and other for Knowledge Platform. With this upgrade, we will be able to use a single elasticsearch cluster for both Core services and Knowledge Platform thereby benefitting in cost and maintenance. Please follow the below steps for this process.
 
-Backup:Take backup of Core elasticsearch indexes&#x20;
+Backup:Take backup of Core elasticsearch indexes
 
 Switch to root user and ensure you have these values available in elasticsearch.yml file under **/etc/elasticsearch/your\_node\_name/elasticseach.yml**
 
-**cloud.azure.storage.default.account:              # Your azure backup account name**
+**cloud.azure.storage.default.account: # Your azure backup account name**
 
-**cloud.azure.storage.default.key:                     # Your azure backup account key**
+**cloud.azure.storage.default.key: # Your azure backup account key**
 
 Install elastisearch azure plugin if its not already installed
 
@@ -18,7 +22,7 @@ Install elastisearch azure plugin if its not already installed
 
 **bin/elasticsearch-plugin install repository-azure**
 
-Restart elasticsearch service&#x20;
+Restart elasticsearch service
 
 **sudo systemctl restart your\_node\_name\_elasticsearch.service**
 
@@ -30,11 +34,11 @@ Install jq
 
 **sudo apt-get install jq**
 
-Verify your backup was successful -  **curl http://localhost:9200/\_snapshot/azurebackup/\_all | jq**
+Verify your backup was successful - **curl http://localhost:9200/\_snapshot/azurebackup/\_all | jq**
 
 The above command will give you the snapshot name - "snapshot": "snapshot\_1563878417" and "state": "SUCCESS"
 
-Or you can use this command to check status -&#x20;
+Or you can use this command to check status -
 
 **curl -XPUT http://localhost:9200/\_snapshot/azurebackup/snapshot\_back\_name/\_status | jq**
 
@@ -46,9 +50,9 @@ Go to the Knowledge platform elasticsearch machine machine and restore the index
 
 Switch to root user and ensure you have these values available in elasticsearch.yml file under **/etc/elasticsearch/your\_node\_name/elasticseach.yml**
 
-**cloud.azure.storage.default.account:              # Your azure backup account name**
+**cloud.azure.storage.default.account: # Your azure backup account name**
 
-**cloud.azure.storage.default.key:                     # Your azure backup account key**
+**cloud.azure.storage.default.key: # Your azure backup account key**
 
 **Note: The account and key should be same as the one used for backup**
 
@@ -60,7 +64,7 @@ Install elastisearch azure plugin if its not already installed
 
 **bin/elasticsearch-plugin install repository-azure**
 
-Restart elasticsearch service&#x20;
+Restart elasticsearch service
 
 **sudo systemctl restart your\_node\_name\_elasticsearch.service**
 
@@ -80,7 +84,7 @@ The above command will give you the snapshot name - "snapshot": "snapshot\_15638
 
 Ensure your core inventory is updated with the IP of the new Elasticsearch cluster (Knowledge platform ES cluster)
 
-Go to jenkins and run the job ESMapping located under  **Deploy → Core → ESMapping**
+Go to jenkins and run the job ESMapping located under **Deploy → Core → ESMapping**
 
 For more information on what this job does, take a loot at this reference \[\[Elasticsearch mapping update job steps|Elasticsearch-mapping-update-job-steps]].
 

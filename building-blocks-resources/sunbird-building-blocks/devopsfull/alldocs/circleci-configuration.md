@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # CircleCI-Configuration-
 
 Create a CircleCi configuration in the repository root directory. i.e _**.circleci/config.yml**_
@@ -159,7 +163,7 @@ workflows:
       - ep-build
 ```
 
-\*\*Links for reference:  \*\*
+\*\*Links for reference: \*\*
 
 **https://circleci.com/docs/2.0/config-intro/**
 

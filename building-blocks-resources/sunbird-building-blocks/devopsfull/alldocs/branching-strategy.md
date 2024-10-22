@@ -1,3 +1,7 @@
+---
+icon: elementor
+---
+
 # Branching-strategy
 
 Project-Sunbird / Sunbird-Ed repos adhere to generalized branching strategy.
