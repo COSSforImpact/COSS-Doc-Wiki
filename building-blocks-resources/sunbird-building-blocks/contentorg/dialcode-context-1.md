@@ -4,35 +4,35 @@ icon: elementor
 
 # Dialcode-context
 
-* [Introduction:](dialcode-context.md#introduction:)
-* [Background:](dialcode-context.md#background:)
-* [Problem Statement:](dialcode-context.md#problem-statement:)
-* [Key design problems:](dialcode-context.md#key-design-problems:)
-* [Design:](dialcode-context.md#design:)
-  * [How to define JSON-LD schema?](dialcode-context.md#how-to-define-json-ld-schema?)
-* [JSON-LD Samples](dialcode-context.md#json-ld-samples)
-  * [Textbook](dialcode-context.md#textbook)
-  * [Certificate](dialcode-context.md#certificate)
-  * [Pros:](dialcode-context.md#pros:)
-  * [Cons:](dialcode-context.md#cons:)
-  * [Textbook](dialcode-context.md#textbook)
-  * [Certificate](dialcode-context.md#certificate)
-  * [Pros:](dialcode-context.md#pros:)
-  * [Cons:](dialcode-context.md#cons:)
-  * [JSON-LD Frame](dialcode-context.md#json-ld-frame)
-  * [JSON-LS Input](dialcode-context.md#json-ls-input)
-  * [Sample:](dialcode-context.md#sample:)
-  * [references:](dialcode-context.md#references:)
-  * [Solution 1:](dialcode-context.md#solution-1:)
-    * [APIs:](dialcode-context.md#apis:-)
-    * [Generate DIAL code API](dialcode-context.md#generate-dial-code-api)
-    * [Update DIAL code API](dialcode-context.md#update-dial-code-api)
-    * [Read DIAL code API](dialcode-context.md#read-dial-code-api)
-  * [Solution 2:](dialcode-context.md#solution-2:)
+* [Introduction:](dialcode-context-1.md#introduction:)
+* [Background:](dialcode-context-1.md#background:)
+* [Problem Statement:](dialcode-context-1.md#problem-statement:)
+* [Key design problems:](dialcode-context-1.md#key-design-problems:)
+* [Design:](dialcode-context-1.md#design:)
+  * [How to define JSON-LD schema?](dialcode-context-1.md#how-to-define-json-ld-schema?)
+* [JSON-LD Samples](dialcode-context-1.md#json-ld-samples)
+  * [Textbook](dialcode-context-1.md#textbook)
+  * [Certificate](dialcode-context-1.md#certificate)
+  * [Pros:](dialcode-context-1.md#pros:)
+  * [Cons:](dialcode-context-1.md#cons:)
+  * [Textbook](dialcode-context-1.md#textbook)
+  * [Certificate](dialcode-context-1.md#certificate)
+  * [Pros:](dialcode-context-1.md#pros:)
+  * [Cons:](dialcode-context-1.md#cons:)
+  * [JSON-LD Frame](dialcode-context-1.md#json-ld-frame)
+  * [JSON-LS Input](dialcode-context-1.md#json-ls-input)
+  * [Sample:](dialcode-context-1.md#sample:)
+  * [references:](dialcode-context-1.md#references:)
+  * [Solution 1:](dialcode-context-1.md#solution-1:)
+    * [APIs:](dialcode-context-1.md#apis:-)
+    * [Generate DIAL code API](dialcode-context-1.md#generate-dial-code-api)
+    * [Update DIAL code API](dialcode-context-1.md#update-dial-code-api)
+    * [Read DIAL code API](dialcode-context-1.md#read-dial-code-api)
+  * [Solution 2:](dialcode-context-1.md#solution-2:)
     *
-    * [Get: DIAL code context](dialcode-context.md#get:-dial-code-context)
-  * [Reference links:](dialcode-context.md#reference-links:)
-  * [MOM:](dialcode-context.md#mom:)
+    * [Get: DIAL code context](dialcode-context-1.md#get:-dial-code-context)
+  * [Reference links:](dialcode-context-1.md#reference-links:)
+  * [MOM:](dialcode-context-1.md#mom:)
 
 ### Introduction:
 
@@ -558,7 +558,7 @@ Sample test in playground tool
 * Add context while Generating the dialcodes(if it is common for all dialcodes which are generting)
 * Restrict the context infomation to max(1000 characters).
 
-![](<../../../../.gitbook/assets/dialcode\_context\_cassandra (1).png>)
+![](<../../../.gitbook/assets/dialcode\_context\_cassandra (1).png>)
 
 #### APIs:
 
@@ -719,11 +719,11 @@ Separate DIAL code context information from dial-service metadata DB.
 
 #### Post: DIAL code context
 
-![](<../../../../.gitbook/assets/dialcode\_context\_Neo4J\_ES (1).png>)
+![](<../../../.gitbook/assets/dialcode\_context\_Neo4J\_ES (1).png>)
 
 #### Get: DIAL code context
 
-![](<../../../../.gitbook/assets/dialcode\_context\_ES (1).png>)
+![](<../../../.gitbook/assets/dialcode\_context\_ES (1).png>)
 
 **Pros:**
 
