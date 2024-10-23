@@ -1,5 +1,5 @@
 ---
-icon: desktop-arrow-down
+icon: sun-dust
 ---
 
 # Sunbird InQuiry

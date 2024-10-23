@@ -1,4 +1,5 @@
 ---
+icon: album
 coverY: 0
 ---
 

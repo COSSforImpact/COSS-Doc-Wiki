@@ -1,5 +1,5 @@
 ---
-icon: dungeon
+icon: xmark-to-slot
 ---
 
 # Sunbird Lern
