@@ -404,7 +404,7 @@
       * [EQB Presentation](sunbird-knowledge-hub/readme/additional-resources/tech-resources/eqb-presentation.md)
       * [Extended Schooling Micro-services](sunbird-knowledge-hub/readme/additional-resources/tech-resources/extended-schooling-micro-services.md)
       * [Generalizing Tracking & Credentials](sunbird-knowledge-hub/readme/additional-resources/tech-resources/generalizing-tracking-and-credentials.md)
-      * [Groups & Plugins Architectur](sunbird-knowledge-hub/readme/additional-resources/tech-resources/groups-and-plugins-architectur.md)
+      * [Groups & Plugins Architecture](sunbird-knowledge-hub/readme/additional-resources/tech-resources/groups-and-plugins-architecture.md)
       * [Solutions Implemented using DPGs](sunbird-knowledge-hub/readme/additional-resources/tech-resources/solutions-implemented-using-dpgs.md)
       * [SSO, Registry & Data Overview](sunbird-knowledge-hub/readme/additional-resources/tech-resources/sso-registry-and-data-overview.md)
       * [Sunbird Documentation Website](sunbird-knowledge-hub/readme/additional-resources/tech-resources/sunbird-documentation-website.md)
@@ -1696,5 +1696,8 @@
 
 * [Sunbird Videos](sunbird-media-hub/sunbird-videos/README.md)
   * [Knowledge Transfer](sunbird-media-hub/sunbird-videos/knowledge-transfer/README.md)
-    * [Sunbird ED QA](sunbird-media-hub/sunbird-videos/knowledge-transfer/sunbird-ed-qa.md)
+    * [Sunbird Lern - KT Session Recordings](sunbird-media-hub/sunbird-videos/knowledge-transfer/sunbird-lern-kt-session-recordings.md)
+    * [Sunbird ED QA - KT Session Recordings](sunbird-media-hub/sunbird-videos/knowledge-transfer/sunbird-ed-qa-kt-session-recordings/README.md)
+      * [Load Testing](sunbird-media-hub/sunbird-videos/knowledge-transfer/sunbird-ed-qa-kt-session-recordings/load-testing.md)
+    * [Sunbird CoKreate](sunbird-media-hub/sunbird-videos/knowledge-transfer/sunbird-cokreate.md)
 * [Sunbird Events](sunbird-media-hub/sunbird-events.md)
