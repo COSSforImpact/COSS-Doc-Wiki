@@ -439,6 +439,6 @@ To be Updated
 
 ### **Build and Deploy process** <a href="#txxze1kaqmy7" id="txxze1kaqmy7"></a>
 
-![](<../../../../../.gitbook/assets/9 (1).png>)
+![](<../../../../../.gitbook/assets/9 (1) (1).png>)
 
 1. Will be detailed in next version ↑

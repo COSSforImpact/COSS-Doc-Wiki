@@ -328,7 +328,7 @@ Refs: [**https://askubuntu.com/questions/1001223/sudo-apt-get-install-tcl8-5-dev
    2. **Keys \***
    3. ![](<../../../../../.gitbook/assets/0 (8).png>)
 
-![](<../../../../../.gitbook/assets/1 (3).png>)
+![](<../../../../../.gitbook/assets/1 (3) (1).png>)
 
 1. **Document Refs of Restore redis dump:** [**https://www.digitalocean.com/community/tutorials/how-to-back-up-and-restore-your-redis-data-on-ubuntu-14-04**](https://www.digitalocean.com/community/tutorials/how-to-back-up-and-restore-your-redis-data-on-ubuntu-14-04)
 
@@ -344,11 +344,11 @@ Restoring VM
 
 ES-LSM: Prod
 
-![](<../../../../../.gitbook/assets/4 (1).png>)
+![](<../../../../../.gitbook/assets/4 (1) (1).png>)
 
 Es-lms: Restore Data:
 
-![](<../../../../../.gitbook/assets/5 (1).png>)
+![](<../../../../../.gitbook/assets/5 (1) (1).png>)
 
 | Date            | Nov 30th | Nov 29th | Nov 28th | Nov 27th | Nov 26th | Nov 25th | Nov 24th |
 | --------------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |

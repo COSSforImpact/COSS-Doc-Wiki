@@ -126,9 +126,9 @@ UI changes are required in both portal and content editor.
 
 UI changes in Portal:&#x20;
 
-![](<../../../../../.gitbook/assets/2 (1).png>)
+![](<../../../../../.gitbook/assets/2 (1) (1).png>)
 
-UI changes in the content editor:![](<../../../../../.gitbook/assets/3 (1).png>)
+UI changes in the content editor:![](<../../../../../.gitbook/assets/3 (1) (1).png>)
 
 ### Limitation:&#x20;
 

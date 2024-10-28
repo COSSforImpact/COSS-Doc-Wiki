@@ -8,7 +8,7 @@ BackgroundThe page wise reviewer comments for a resource content should be displ
 
 Key design problemsShow the reviewer's comments, name, reviewer's profile icon and date for each stage.
 
-![](<../../../../.gitbook/assets/3 (1).png>)
+![](<../../../../.gitbook/assets/3 (1) (1).png>)
 
 Solution 1:
 

@@ -11,7 +11,7 @@ icon: elementor
 
 Select ADD PROJETS → Select Repo → Set Up Project
 
-![](<../../../../../.gitbook/assets/0 (1).png>)
+![](<../../../../../.gitbook/assets/0 (1) (1).png>)
 
 1. Add Circleci config file in github Repo
 
@@ -29,7 +29,7 @@ Create a folder named .circleci and add a file config.yml (so that the filepath 
 
 **Only build pull requests**
 
-![](../../../../../.gitbook/assets/1.png)
+![](<../../../../../.gitbook/assets/1 (3).png>)
 
 1. Add Environment variables. Environment Variable(under Build Setting) → Add new variable (eg: CODACY\_PROJECT\_TOKEN)
 2. Start Building (Add Projects → Set Up Project → Start Building)
