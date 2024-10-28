@@ -11,7 +11,7 @@ icon: elementor
 
 Select ADD PROJETS → Select Repo → Set Up Project
 
-![](<../../../../../.gitbook/assets/0 (1) (1).png>)
+![](<../../../../../.gitbook/assets/0 (1) (1) (1).png>)
 
 1. Add Circleci config file in github Repo
 

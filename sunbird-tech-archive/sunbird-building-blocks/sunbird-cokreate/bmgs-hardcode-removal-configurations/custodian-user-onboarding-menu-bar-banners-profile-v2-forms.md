@@ -6,7 +6,7 @@ icon: elementor
 
 User Onboarding:
 
-When user Opens the Sunbird Portal, User onboarding will be shown ![](<../../../../.gitbook/assets/0 (2).png>)
+When user Opens the Sunbird Portal, User onboarding will be shown ![](<../../../../.gitbook/assets/0 (2) (1).png>)
 
 Form:
 

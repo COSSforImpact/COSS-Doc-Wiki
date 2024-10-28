@@ -206,7 +206,7 @@ Leveraging Federated Registries alongside existing and familiar digital systems 
 * Ensure users do not have to remember multiple IDs, and can use commonly used national IDs and infrastructure to access details and get a unified view.
 * explore and explode the power of trusted, verified and reliable data.
 
-![](<../../../.gitbook/assets/1 (2) (1).png>)
+![](<../../../.gitbook/assets/1 (2) (1) (1).png>)
 
 Federated Registries that are Issuers on Digilocker - thereby allowing users the convenience of leveraging their existing Digilocker accounts to get a unified view of all their credentials from one location. (Edu locker)
 

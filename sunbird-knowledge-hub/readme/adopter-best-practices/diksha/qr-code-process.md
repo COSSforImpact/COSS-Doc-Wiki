@@ -14,7 +14,7 @@ Implementation Team
 
 ### **Load QR Codes** <a href="#pr6d58tbktcb" id="pr6d58tbktcb"></a>
 
-![](<../../../../.gitbook/assets/0 (1).png>)
+![](<../../../../.gitbook/assets/0 (1) (1).png>)
 
 ### &#x20;Steps <a href="#s3b4fba3i86y" id="s3b4fba3i86y"></a>
 
@@ -40,7 +40,7 @@ Implementation Team
 
 ### **QR Code Delivery** <a href="#wrumg2lbsuf6" id="wrumg2lbsuf6"></a>
 
-![](<../../../../.gitbook/assets/1 (1).png>)
+![](<../../../../.gitbook/assets/1 (1) (1).png>)
 
 ### Steps  <a href="#b1gh4lz5ue91" id="b1gh4lz5ue91"></a>
 
@@ -57,7 +57,7 @@ Implementation Team
 
 ### **QR Code Reverse Verification** <a href="#ihsx2mkeb7aw" id="ihsx2mkeb7aw"></a>
 
-![](<../../../../.gitbook/assets/2 (1).png>)
+![](<../../../../.gitbook/assets/2 (1) (1).png>)
 
 ### Steps <a href="#dwkgujog1mwg" id="dwkgujog1mwg"></a>
 

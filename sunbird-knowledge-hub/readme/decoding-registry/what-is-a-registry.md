@@ -12,7 +12,7 @@ This document discusses what a registry is and is not. This document articulates
 
 Ledgers and spreadsheets of master data always existed in some form. These were updated for record keeping purposes and were available only at the hands of the administrator. Then they were made viewable to users via web portals. Even then, these were still closed to edits and programmatic access for inter-department consumptions. When a need arose, a copy was taken and the data was duplicated. What we are about to discuss is the Type 4 of this evolution.
 
-![](<../../../.gitbook/assets/0 (2) (1).png>)
+![](<../../../.gitbook/assets/0 (2) (1) (1).png>)
 
 Until Type-3, it was the ‘closed’ access and ‘control’ that prevented these data from being ‘up-to-date’. After a while, these data became outdated, losing credibility. Once the truth got lost, the usage of such data was lost along, simply because there was no ‘good’ data to verify or there were doubts lingering about its credibility.
 
@@ -26,7 +26,7 @@ A registry is a datastore of highly usable master data, that is always maintaine
 
 A registry is generally realized using a database. The converse isn’t true. To state in other words, a) not all databases become a registry and b) registry is not just a database.
 
-[![](<../../../.gitbook/assets/1 (1) (1).png>)](https://www.draw.io/?page-id=E1IasIYdq2JkT9DUw1qI\&scale=auto#G1v8cZNkKmXRfrN8yHOGKbYk2PB0UX862l)
+[![](<../../../.gitbook/assets/1 (1) (1) (1).png>)](https://www.draw.io/?page-id=E1IasIYdq2JkT9DUw1qI\&scale=auto#G1v8cZNkKmXRfrN8yHOGKbYk2PB0UX862l)
 
 A registry is a datastore of irrefutable master data. Conceptually, there can be no two registries claiming they are the owners of the ‘same’ master data. There could only be a federation of such registries.
 

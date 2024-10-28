@@ -8,15 +8,15 @@ Step1: Configure the Framework for Custodian and Default Channels
 
 1. Make a read call of channel
 
-![](../../../../.gitbook/assets/0.png)
+![](<../../../../.gitbook/assets/0 (2).png>)
 
 1. Create Framework
 
-![](../../../../.gitbook/assets/1.png)
+![](<../../../../.gitbook/assets/1 (2).png>)
 
 3\. Create Framework Categories (Its based on your framework, If user want to give 6 categories, can create 6 Categories by using same API)
 
-![](../../../../.gitbook/assets/2.png)
+![](<../../../../.gitbook/assets/2 (1).png>)
 
 4\. Create Framework category terms
 

@@ -163,7 +163,7 @@ Master is the ‘main’ branch and has release tags created with format “rele
 
 A pictorial representation is given below.
 
-![](<../../../../.gitbook/assets/1 (2).png>)
+![](<../../../../.gitbook/assets/1 (2) (1).png>)
 
 * _**Story lifecycle**_
 
