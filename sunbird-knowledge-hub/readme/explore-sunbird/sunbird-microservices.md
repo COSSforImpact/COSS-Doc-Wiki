@@ -4,13 +4,11 @@ icon: elementor
 
 # Sunbird Microservices
 
-
-
 {% embed url="https://docs.google.com/presentation/d/1p8OOrmjdinrP6zNfYpNTYf5eleTKZyXXktsRh2l21v8/edit?usp=sharing" %}
 
-### Slide Overview:-
+### Overview:-
 
-These slides discusses the architecture and implementation of microservices in the Sunbird platform. Here's a summary of the key points:
+This page discusses the architecture and implementation of microservices in the Sunbird platform. Here's a summary of the key points:
 
 1. Microservices Overview: A microservice serves a specific program function, such as content management, and is accessed through APIs. Each API has a defined contract, which is an agreement on its capabilities, ensuring clear communication between services.
 2. Microservice Features:
@@ -57,8 +55,6 @@ managing reports for the platform.
 centralized system for authentication, attestation, and consent-based data access.
 
 The overall theme revolves around the modularity, scalability, and interoperability of Sunbird's microservice architecture, ensuring that various educational and administrative tasks can be efficiently managed and extended across different ecosystems.
-
-
 
 ### Key Questions Answered:-
 

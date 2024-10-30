@@ -4,13 +4,11 @@ icon: elementor
 
 # Overview of Sunbird Building Blocks
 
-
-
 {% embed url="https://docs.google.com/presentation/d/1jp16Ud0ufizkEgvGwnRmUXmZ5BajJGq24xq8AE_Lrxg/edit?usp=sharing" %}
 
 ### Slide Overview:-
 
-The document titled "Sunbird Building Blocks Overview" provides an overview of the Sunbird framework, highlighting various modules and use cases across sectors like education, urban planning, and legal systems. Key aspects include:
+This page provides an overview of the Sunbird framework, highlighting various modules and use cases across sectors like education, urban planning, and legal systems. Key aspects include:
 
 1. Modular Architecture: Sunbird is described as a modular, extendable, and interoperable framework designed for scalability across different platforms and stakeholders.
 2. Education Initiatives: Projects like DIKSHA and NISHTHA are showcased for their success in providing continuous learning during COVID-19, training millions of teachers, and digitizing assessment data. For example, the NISHTHA online training initiative for teachers was described as a world-record effort, training over 4 million teachers at primary and upper primary levels.
@@ -25,8 +23,6 @@ The document titled "Sunbird Building Blocks Overview" provides an overview of t
 5. Other Applications: The framework also supports organ donor registries, assisted language learning, capacity building for civil servants, and solutions for farmers, showcasing its versatility in various domains.
 
 Overall, the document emphasizes the Sunbird framework's ability to integrate AI and data-driven solutions into multiple sectors to improve efficiency, learning, and accessibility.
-
-
 
 ### Key Questions Answered:-
 

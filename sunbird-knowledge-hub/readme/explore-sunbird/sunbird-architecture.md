@@ -4,13 +4,11 @@ icon: elementor
 
 # Sunbird Architecture
 
-
-
 {% embed url="https://docs.google.com/presentation/d/1MQtwSdWxTPJQME0B1jPHyI4c8AK6cGwxTdICm5xdYuk/edit?usp=sharing" %}
 
-### Slide Overview:-
+### Overview:-
 
-The document titled Sunbird Architecture & Infrastructure outlines the core components, approaches, and architectural design of the Sunbird platform. Here is a summary of the key points:
+This page outlines the core components, approaches, and architectural design of the Sunbird platform. Here is a summary of the key points:
 
 Core Architecture Principles:
 

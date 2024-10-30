@@ -4,13 +4,11 @@ icon: elementor
 
 # Sunbird Building Blocks Explained
 
-
-
 {% embed url="https://docs.google.com/presentation/d/1KkL9GzI-pKhRsQkkOiUzhraaLlUovVarqHONecU4gNY/edit?usp=sharing" %}
 
-### Slide Overview:-
+### Overview:-
 
-The document titled "Sunbird Building Blocks Explained" outlines the Sunbird platform, which provides a set of open-source, digital public goods designed to address large-scale societal problems across various sectors, including education, health, and professional learning. Sunbird offers reusable, modular digital building blocks that can be leveraged, reused, extended, and contributed to by a broad ecosystem.
+The page outlines the Sunbird platform, which provides a set of open-source, digital public goods designed to address large-scale societal problems across various sectors, including education, health, and professional learning. Sunbird offers reusable, modular digital building blocks that can be leveraged, reused, extended, and contributed to by a broad ecosystem.
 
 Key Features:
 

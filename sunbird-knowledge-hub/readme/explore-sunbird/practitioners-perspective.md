@@ -4,13 +4,11 @@ icon: elementor
 
 # Practitioner's Perspective
 
-
-
 {% embed url="https://docs.google.com/presentation/d/1tm_gCN6oyaN0kRrLXeGhDvI7heWJdRvZi2H6jrlzQ0Y/edit?usp=sharing" %}
 
-Slide Overview:-
+Overview:-
 
-These slides provide insights into the architecture and development of the Sunbird platform. It explores various strategies, methodologies, and technologies used to build scalable, resilient, and modular systems. Here's a summary of the key topics:
+This page provides an insights into the architecture and development of the Sunbird platform. It explores various strategies, methodologies, and technologies used to build scalable, resilient, and modular systems. Here's a summary of the key topics:
 
 1. Approaches to Problem Solving:
 
@@ -47,8 +45,6 @@ These slides provide insights into the architecture and development of the Sunbi
 * Adoption of a multi-language technology stack to support diverse and scalable development efforts.
 
 The document emphasizes modularity, interoperability, and open standards in building large-scale, sustainable platforms with a focus on societal innovation and scalable technologies.
-
-
 
 ### Key Questions Answered:-
 

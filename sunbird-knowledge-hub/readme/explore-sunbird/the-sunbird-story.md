@@ -4,13 +4,11 @@ icon: elementor
 
 # The Sunbird Story
 
-
-
 {% embed url="https://docs.google.com/presentation/d/1H91W_5PEnaKX0atmzTlxlylUfdfSFlI1te22Rjdo-Dc/edit?usp=sharing" %}
 
-### Slide Overview:-
+### Overview:-
 
-These slides presents an overview of Sunbird, a collective of people, organizations, and technological tools united by the goal of solving societal problems through technology. Sunbird, initiated by the EkStep Foundation, focuses on building and leveraging digital public goods (DPGs) that are modular, interoperable, reusable, and scalable.
+This page gives an overview of Sunbird, a collective of people, organizations, and technological tools united by the goal of solving societal problems through technology. Sunbird, initiated by the EkStep Foundation, focuses on building and leveraging digital public goods (DPGs) that are modular, interoperable, reusable, and scalable.
 
 Key components of Sunbird include a range of digital building blocks like:
 
@@ -26,8 +24,6 @@ These tools provide solutions across various sectors, including education, healt
 The document also highlights Sunbird's growing partner network, its adoption worldwide, and the importance of its building block communities in enabling digital transformation. It encourages community involvement in creating, contributing, and spreading awareness about the digital tools and solutions Sunbird offers.
 
 For more detailed information on the tools, architecture, and sandbox environments, users are directed to microsites linked from Sunbird.org.
-
-
 
 ### Key Questions Answered:-
 

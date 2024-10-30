@@ -4,13 +4,11 @@ icon: elementor
 
 # Sunbird Tech Architechture
 
-
-
 {% embed url="https://docs.google.com/presentation/d/1Yg80oJxqA9SyI46FoSA9fFAu6PF_v7jbc-WQ7aa0Wkk/edit?usp=sharing" %}
 
-### Slide Overview:-
+### Overview:-
 
-The document you provided is titled "Sunbird - Tech Architecture" and offers an overview of Sunbird's technical infrastructure, designed to facilitate knowledge sharing. Key elements of the architecture include:
+This page gives an overview of Sunbird's technical infrastructure, designed to facilitate knowledge sharing. Key elements of the architecture include:
 
 1. Subsystems & Services: Sunbird operates using various subsystems such as microservices, a data pipeline, and a reporting architecture.
 2. Layered Platform: It consists of several layers, including mobile apps, portals, content management, taxonomy, user and organization services, and recommendation systems. This layered structure allows flexibility for different types of users like learners, teachers, and administrators.
@@ -19,8 +17,6 @@ The document you provided is titled "Sunbird - Tech Architecture" and offers an 
 5. Reporting Architecture: Sunbird also has a robust reporting system that integrates analytics and data summarization. This architecture supports scalability and high throughput, processing up to 1.5 billion events per day across clusters managed with Apache Kafka, Flink, Spark, and Druid.
 
 In essence, Sunbird's technical architecture is built around scalability, modular services, and a robust data pipeline to support large-scale data collection and analysis.
-
-
 
 ### Key Questions Answered:-
 

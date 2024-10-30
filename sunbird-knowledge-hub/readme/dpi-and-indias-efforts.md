@@ -15,13 +15,11 @@ layout:
 
 # DPI and India's Efforts
 
-
-
 {% embed url="https://docs.google.com/presentation/d/1eHantftZO1QAz9rKeudn7uUve5bOI-I9-DIUxk4yYa8/edit?usp=sharing" %}
 
-### Slide Overview:-
+### Overview:-
 
-These slides emphasizes the role of Digital Public Infrastructure (DPI) in driving large-scale innovation and inclusion. DPI refers to a set of shared digital utilities powered by interoperable standards and operated under enabling laws, aimed at providing equal access and addressing sovereignty. These infrastructures are built on digital building blocks, fostering competition, inclusion, and innovation, and operate with open and transparent governance.
+This page emphasizes the role of Digital Public Infrastructure (DPI) in driving large-scale innovation and inclusion. DPI refers to a set of shared digital utilities powered by interoperable standards and operated under enabling laws, aimed at providing equal access and addressing sovereignty. These infrastructures are built on digital building blocks, fostering competition, inclusion, and innovation, and operate with open and transparent governance.
 
 The document highlights India's success story with DPI, focusing on the country's journey to address access, choice, and equity at scale. Some of the major components of India's DPI initiatives include:
 
@@ -33,8 +31,6 @@ The document highlights India's success story with DPI, focusing on the country'
 data for accessing loans and other services, enhancing credit access for small businesses.
 
 India's DPI approach has promoted inclusion, innovation, and sovereignty, offering a model for other nations. The document also advocates for a global financial internet (Finternet) led by G20 members, where each country can have its own sovereign, interoperable real-time financial network.
-
-
 
 ### Key Questions Answered:-
 
