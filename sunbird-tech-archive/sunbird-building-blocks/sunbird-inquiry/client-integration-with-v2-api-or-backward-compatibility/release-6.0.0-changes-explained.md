@@ -57,442 +57,715 @@ V1 (Editor/Player/Microservice) will be deprecated in 6 months post the release 
 
 While the below table is a summary of changes, the details can be referenced from the below confluence pages
 
-* [QuML 1.1 changes](broken-reference)
+* [QuML 1.1 changes](broken-reference/)
 * [Editor and Player changes](https://project-sunbird.atlassian.net/wiki/spaces/QB/pages/3317628929/QuML+compliance+implementation+changes+for+editor+and+player)
 
-| **Attribute Name**                                                                                                                                                                                                                                                                                                                                                                              | **Change summary**                                                                                                                                                                                                                                                                                                                                                                                                    | **QuML 1.0 format**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **QuML 1.1 format**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| responseDeclaration                                                                                                                                                                                                                                                                                                                                                                             | <p>Changes are as follow,</p><ul><li><p>maxScore</p><ul><li>Now part of outcomeDeclaration</li></ul></li><li><p>mapping</p><ul><li>Is a JSON Object with keys as Value and Score</li></ul></li></ul><p>Changes are applicable to Multiple Choice Question and Multi-select MCQ</p><p>Not applicable for subjective question, hence no changes</p>                                                                     | <h4 id="release6.0.0changesexplained-multiplechoicequestion">Multiple Choice Question</h4><pre><code>"responseDeclaration": {
-    "response1": {
-        "maxScore": 1,
-        "cardinality": "single",
-        "type": "integer",
-        "correctResponse": {
-            "value": "0",
-            "outcomes": {
-                "SCORE": 1
-            }
-        },
-        "mapping": [
-            {
-                "response": 0,
-                "outcomes": {
-                    "score": 1
-                }
-            }
-        ]
-    }
-}
-</code></pre><h4 id="release6.0.0changesexplained-multi-selectmcq">Multi-select MCQ</h4><pre><code>"responseDeclaration": {
-    "response1": {
-        "maxScore": 1,
-        "cardinality": "multiple",
-        "type": "integer",
-        "correctResponse": {
-            "value": [1,0],
-            "outcomes": {
-                "SCORE": 1
-            }
-        },
-        "mapping": [
-            {
-                "response": 1,
-                "outcomes": {
-                    "score": 0.5
-                }
-            },
-            {
-                "response": 0,
-                "outcomes": {
-                    "score": 0.5
-                }
-            }
-      ]
-    }
-}
-</code></pre> | <h4 id="release6.0.0changesexplained-multiplechoicequestion.1">Multiple Choice Question</h4><pre><code>"responseDeclaration": {
-    "response1": {
-      "cardinality": "single",
-      "type": "integer",
-      "correctResponse": {
-        "value": 0
-      },
-      "mapping": [
-        {
-          "value": 0,
-          "score": 1
+| **Attribute Name**  | **Change summary**                                                                                                                                                                                                                                                                                                                                | **QuML 1.0 format**                                                                               | **QuML 1.1 format** |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------- |
+| responseDeclaration | <p>Changes are as follow,</p><ul><li><p>maxScore</p><ul><li>Now part of outcomeDeclaration</li></ul></li><li><p>mapping</p><ul><li>Is a JSON Object with keys as Value and Score</li></ul></li></ul><p>Changes are applicable to Multiple Choice Question and Multi-select MCQ</p><p>Not applicable for subjective question, hence no changes</p> | <p><strong>Multiple Choice Question</strong></p><pre><code>"responseDeclaration": {
+</code></pre> |                     |
+
+```
+"response1": {
+    "maxScore": 1,
+    "cardinality": "single",
+    "type": "integer",
+    "correctResponse": {
+        "value": "0",
+        "outcomes": {
+            "SCORE": 1
         }
-      ]
-    }
-},
-"outcomeDeclaration": {
-    "maxScore": {
-      "cardinality": "single",
-      "type": "integer",
-      "defaultValue": 1
-    }
-}
-</code></pre><h4 id="release6.0.0changesexplained-multi-selectmcq.1">Multi-select MCQ</h4><pre><code>"responseDeclaration": {
-    "response1": {
-      "cardinality": "multiple",
-      "type": "integer",
-      "correctResponse": {
-        "value": [1,0]
-      },
-      "mapping": [
-        {
-          "value": 1,
-          "score": 0.5
-        },
-        {
-          "value": 0,
-          "score": 0.5
-        }
-      ]
-    }
-},
-"outcomeDeclaration": {
-    "maxScore": {
-      "cardinality": "multiple",
-      "type": "integer",
-      "defaultValue": 1
-    }
-  }
-  
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| timeLimits                                                                                                                                                                                                                                                                                                                                                                                      | <p>Changes are as follow,</p><ul><li><p>warningTime</p><ul><li>Removed as it is not part of specification</li></ul></li><li><p>maxTime</p><ul><li>Renamed to match the specification</li></ul></li><li><a href="https://project-sunbird.atlassian.net/wiki/spaces/QB/pages/3317628929/QuML+compliance+implementation+changes+for+editor+and+player#timeLimits">Details are available here for referance</a></li></ul> | <pre><code>timeLimits: {
-   "maxTime": "240",
-   "warningTime": "60"
-}
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | <pre><code>{
-    “timeLimits”: {
-        “questionSet”: { // time limits for the question set and for any member sets
-            “min”: &#x3C;seconds>,
-            “max”: &#x3C;seconds>
-        },
-        “question”: { // time limits for the questions in the question set
-            “min”: &#x3C;seconds>,
-            “max”: &#x3C;seconds>
-        }
-    }
-}
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| maxScore                                                                                                                                                                                                                                                                                                                                                                                        | <p>Changes are as follow,</p><ul><li><p>maxScore</p><ul><li>Now part of outcomeDeclaration</li></ul></li></ul>                                                                                                                                                                                                                                                                                                        | <h4 id="release6.0.0changesexplained-question">Question</h4><pre><code>{
-  maxScore: 1,
-  "responseDeclaration": {
-    "response1": {
-        "maxScore": 1,
-        .....
-    }     
-  } 
-}
-
-
-
-
-
-
-
-</code></pre><h4 id="release6.0.0changesexplained-questionset">QuestionSet</h4><pre><code>{
-  ...
-  maxScore: 10,
-  ...
-}
-
-
-
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | <h4 id="release6.0.0changesexplained-questionlevel">Question level</h4><pre><code>{
-  "outcomeDeclaration": {
-    "maxScore": {
-      "cardinality": "single",
-      "type": "integer",
-      "defaultValue": 1
-    }
-  }
-}
-
-
-
-
-
-
-
-</code></pre><h4 id="release6.0.0changesexplained-questionset.1">QuestionSet</h4><pre><code>{
-  "outcomeDeclaration": {
-    "maxScore": {
-      "cardinality": "single",
-      "type": "integer",
-      "defaultValue": 1
-    }
-  }
-}
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| <p>answer</p><ul><li>There is adopter specific use case where the answer property is non-mandatory, like the Survey, Observation. Considering this case, the answer is non-mandatory in 6.0.0 release. This will need further enhancement to override answer property as mandatory or not at the QuestionSet level. Tentative time line for this change to affect is in release 6.2.0</li></ul> | <p>Changes are as follow,</p><ul><li><p>answer</p><ul><li>is mandatory for all types of questions</li><li>answers will be concatenated together under an HTML element</li><li>supports multi-lingual</li><li><a href="https://project-sunbird.atlassian.net/wiki/spaces/QB/pages/3317628929/QuML+compliance+implementation+changes+for+editor+and+player#answer">More details here</a></li></ul></li></ul>            | <pre><code>"answer": "&#x3C;p>This is test data&#x3C;/p>"
-</code></pre><p>Only used for Subjective</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | <h4 id="release6.0.0changesexplained-subjective">Subjective</h4><p><strong>Single Language:</strong></p><pre><code>anwser: '&#x3C;div class="anwser-container">
-    &#x3C;div class="anwser-body">
-        &#x3C;p>Delhi&#x3C;/p>
-    &#x3C;/div>    
-&#x3C;/div>'
-</code></pre><p><strong>Multi Language:</strong></p><pre><code>answer: {
-  en: "&#x3C;div class="anwser-container">
-          &#x3C;div class="anwser-body">
-              &#x3C;p>Delhi&#x3C;/p>
-          &#x3C;/div>    
-       &#x3C;/div>",
-  hi: "&#x3C;div class="anwser-container">
-          &#x3C;div class="anwser-body">
-              &#x3C;p>दिल्ली&#x3C;/p>
-          &#x3C;/div>    
-       &#x3C;/div>"
-}
-</code></pre><h4 id="release6.0.0changesexplained-mcq">MCQ</h4><p><strong>Single Language:</strong></p><pre><code>anwser: `&#x3C;div class="anwser-container">
-    &#x3C;div class="anwser-body">
-        &#x3C;p>Delhi&#x3C;/p>
-    &#x3C;/div>    
-&#x3C;/div>'
-</code></pre><p><strong>Multi Language:</strong></p><pre><code>answer: {
-  en: "&#x3C;div class="anwser-container">
-          &#x3C;div class="anwser-body">
-              &#x3C;p>Delhi&#x3C;/p>
-          &#x3C;/div>    
-       &#x3C;/div>",
-  hi: "&#x3C;div class="anwser-container">
-          &#x3C;div class="anwser-body">
-              &#x3C;p>दिल्ली&#x3C;/p>
-          &#x3C;/div>    
-       &#x3C;/div>"
-}
-</code></pre><h4 id="release6.0.0changesexplained-mmcq">MMCQ</h4><p><strong>Single Language:</strong></p><pre><code>anwser: `&#x3C;div class="anwser-container">
-    &#x3C;div class="anwser-body">
-        &#x3C;p>Delhi&#x3C;/p>
-    &#x3C;/div>
-    &#x3C;div class="anwser-body">
-        &#x3C;p>Bangalore&#x3C;/p>
-    &#x3C;/div>
-&#x3C;/div>'
-</code></pre><p><strong>Multi Language:</strong></p><pre><code>answer: {
-  en: "&#x3C;div class="anwser-container">
-          &#x3C;div class="anwser-body">
-              &#x3C;p>Delhi&#x3C;/p>
-          &#x3C;/div>
-          &#x3C;div class="anwser-body">
-              &#x3C;p>bangalore&#x3C;/p>
-          &#x3C;/div>    
-       &#x3C;/div>",
-  hi: "&#x3C;div class="anwser-container">
-          &#x3C;div class="anwser-body">
-              &#x3C;p>दिल्ली&#x3C;/p>
-          &#x3C;/div> 
-          &#x3C;div class="anwser-body">
-              &#x3C;p>बैंगलोर&#x3C;/p>
-          &#x3C;/div>   
-       &#x3C;/div>"
-} 
-</code></pre> |
-| interactions                                                                                                                                                                                                                                                                                                                                                                                    | <p>Changes are as follows,</p><ul><li><p>validation</p><ul><li>Moved under response&#x3C;1> attribute</li></ul></li></ul>                                                                                                                                                                                                                                                                                             | <pre><code>"interactions": {
-    "response1": {
-        "type": "choice",
-        "options": [
-            {
-                "label": "&#x3C;p>New Delhi&#x3C;/p>",
-                "value": 0
-            },
-            {
-                "label": "&#x3C;p>Mumbai&#x3C;/p>",
-                "value": 1
-            }
-        ]
     },
-    "validation": {
-        "required": "Yes"
-    }
-}
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | <pre><code>"interactions": {
-    "response1": {
-        "type": "choice",
-        "options": [
-            {
-                "label": "&#x3C;p>New Delhi&#x3C;/p>",
-                "value": 0
-            },
-            {
-                "label": "&#x3C;p>Mumbai&#x3C;/p>",
-                "value": 1
+    "mapping": [
+        {
+            "response": 0,
+            "outcomes": {
+                "score": 1
             }
-        ],
-        "validation": {
-          "required": "Yes"
         }
-    }
+    ]
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| solutions                                                                                                                                                                                                                                                                                                                                                                                       | <p>Changes are as follows,</p><ul><li><p>solutions</p><ul><li>Change of type from array to object</li><li>supports multi-lingual</li></ul></li></ul>                                                                                                                                                                                                                                                                  | <h4 id="release6.0.0changesexplained-imagetext">Image + Text</h4><pre><code>"solutions": [
-    {
-        "id": "7015c7e4-461a-4032-b29e-fbb7e8155e44",
-        "type": "html",
-        "value": "&#x3C;figure class=\"image\">&#x3C;img src=\"/assets/public/content/assets/do_2137916546057256961374/indiagate.jpeg\" alt=\"indiaGate\" data-asset-variable=\"do_2137916546057256961374\">&#x3C;/figure>"
-    }
-]
-</code></pre><h4 id="release6.0.0changesexplained-video">Video</h4><pre><code>"solutions": [
-    {
-        "id": "70c82bf5-9459-4c43-8897-0e58b7e1da62",
-        "type": "video",
-        "value": "do_2137930190247526401388"
-    }
-]
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | <h4 id="release6.0.0changesexplained-imagetext.1">Image + Text</h4><pre><code>"solutions": {
-    "7015c7e4-461a-4032-b29e-fbb7e8155e44": "&#x3C;figure class=\"image\">&#x3C;img src=\"/assets/public/content/assets/do_2137916546057256961374/indiagate.jpeg\" alt=\"indiaGate\" data-asset-variable=\"do_2137916546057256961374\">&#x3C;/figure>",
+```
+
 }
 
+#### Multi-select MCQ <a href="#release6.0.0changesexplained-multi-selectmcq" id="release6.0.0changesexplained-multi-selectmcq"></a>
 
+```
+"responseDeclaration": {
+"response1": {
+"maxScore": 1,
+"cardinality": "multiple",
+"type": "integer",
+"correctResponse": {
+"value": [1,0],
+"outcomes": {
+"SCORE": 1
+}
+},
+"mapping": [
+{
+"response": 1,
+"outcomes": {
+"score": 0.5
+}
+},
+{
+"response": 0,
+"outcomes": {
+"score": 0.5
+}
+}
+]
+}
+}
+```
 
+|
+
+#### Multiple Choice Question <a href="#release6.0.0changesexplained-multiplechoicequestion.1" id="release6.0.0changesexplained-multiplechoicequestion.1"></a>
+
+```
+"responseDeclaration": {
+"response1": {
+"cardinality": "single",
+"type": "integer",
+"correctResponse": {
+"value": 0
+},
+"mapping": [
+{
+"value": 0,
+"score": 1
+}
+]
+}
+},
+"outcomeDeclaration": {
+"maxScore": {
+"cardinality": "single",
+"type": "integer",
+"defaultValue": 1
+}
+}
+```
+
+#### Multi-select MCQ <a href="#release6.0.0changesexplained-multi-selectmcq.1" id="release6.0.0changesexplained-multi-selectmcq.1"></a>
+
+```
+"responseDeclaration": {
+"response1": {
+"cardinality": "multiple",
+"type": "integer",
+"correctResponse": {
+"value": [1,0]
+},
+"mapping": [
+{
+"value": 1,
+"score": 0.5
+},
+{
+"value": 0,
+"score": 0.5
+}
+]
+}
+},
+"outcomeDeclaration": {
+"maxScore": {
+"cardinality": "multiple",
+"type": "integer",
+"defaultValue": 1
+}
+}
+```
+
+\| | timeLimits |
+
+Changes are as follow,
+
+* warningTime
+  * Removed as it is not part of specification
+* maxTime
+  * Renamed to match the specification
+* [Details are available here for referance](https://project-sunbird.atlassian.net/wiki/spaces/QB/pages/3317628929/QuML+compliance+implementation+changes+for+editor+and+player#timeLimits)
+
+|
+
+```
+timeLimits: {
+"maxTime": "240",
+"warningTime": "60"
+}
+```
+
+|
+
+```
+{
+“timeLimits”: {
+“questionSet”: { // time limits for the question set and for any member sets
+“min”: <seconds>,
+“max”: <seconds>
+},
+“question”: { // time limits for the questions in the question set
+“min”: <seconds>,
+“max”: <seconds>
+}
+}
+}
+```
+
+\| | maxScore |
+
+Changes are as follow,
+
+* maxScore
+  * Now part of outcomeDeclaration
+
+|
+
+#### Question <a href="#release6.0.0changesexplained-question" id="release6.0.0changesexplained-question"></a>
+
+```
+{
+maxScore: 1,
+"responseDeclaration": {
+"response1": {
+"maxScore": 1,
+.....
+}
+
+}
+}
+```
+
+#### QuestionSet <a href="#release6.0.0changesexplained-questionset" id="release6.0.0changesexplained-questionset"></a>
+
+```
+{
+...
+maxScore: 10,
+...
+}
+```
+
+|
+
+#### Question level <a href="#release6.0.0changesexplained-questionlevel" id="release6.0.0changesexplained-questionlevel"></a>
+
+```
+{
+"outcomeDeclaration": {
+"maxScore": {
+"cardinality": "single",
+"type": "integer",
+"defaultValue": 1
+}
+}
+}
+```
+
+#### QuestionSet <a href="#release6.0.0changesexplained-questionset.1" id="release6.0.0changesexplained-questionset.1"></a>
+
+```
+{
+"outcomeDeclaration": {
+"maxScore": {
+"cardinality": "single",
+"type": "integer",
+"defaultValue": 1
+}
+}
+}
+```
+
+\| |
+
+answer
+
+* There is adopter specific use case where the answer property is non-mandatory, like the Survey, Observation. Considering this case, the answer is non-mandatory in 6.0.0 release. This will need further enhancement to override answer property as mandatory or not at the QuestionSet level. Tentative time line for this change to affect is in release 6.2.0
+
+|
+
+Changes are as follow,
+
+* answer
+  * is mandatory for all types of questions
+  * answers will be concatenated together under an HTML element
+  * supports multi-lingual
+  * [More details here](https://project-sunbird.atlassian.net/wiki/spaces/QB/pages/3317628929/QuML+compliance+implementation+changes+for+editor+and+player#answer)
+
+|
+
+```
+"answer": "<p>This is test data</p>"
+```
+
+Only used for Subjective
+
+|
+
+#### Subjective <a href="#release6.0.0changesexplained-subjective" id="release6.0.0changesexplained-subjective"></a>
+
+**Single Language:**
+
+```
+anwser: '<div class="anwser-container">
+<div class="anwser-body">
+<p>Delhi</p>
+</div>
+
+</div>'
+```
+
+**Multi Language:**
+
+```
+answer: {
+en: "<div class="anwser-container">
+<div class="anwser-body">
+<p>Delhi</p>
+</div>
+
+</div>",
+hi: "<div class="anwser-container">
+<div class="anwser-body">
+<p>दिल्ली</p>
+</div>
+
+</div>"
+}
+```
+
+#### MCQ <a href="#release6.0.0changesexplained-mcq" id="release6.0.0changesexplained-mcq"></a>
+
+**Single Language:**
+
+```
+anwser: &#x3C;div class="anwser-container">     &#x3C;div class="anwser-body">         &#x3C;p>Delhi&#x3C;/p>     &#x3C;/div>     &#x3C;/div>' </code></pre><p><strong>Multi Language:</strong></p><pre><code>answer: {   en: "&#x3C;div class="anwser-container">           &#x3C;div class="anwser-body">               &#x3C;p>Delhi&#x3C;/p>           &#x3C;/div>            &#x3C;/div>",   hi: "&#x3C;div class="anwser-container">           &#x3C;div class="anwser-body">               &#x3C;p>दिल्ली&#x3C;/p>           &#x3C;/div>            &#x3C;/div>" } </code></pre><h4 id="release6.0.0changesexplained-mmcq">MMCQ</h4><p><strong>Single Language:</strong></p><pre><code>anwser: <div class="anwser-container">
+<div class="anwser-body">
+<p>Delhi</p>
+</div>
+<div class="anwser-body">
+<p>Bangalore</p>
+</div>
+</div>'
+```
+
+**Multi Language:**
+
+```
+answer: {
+en: "<div class="anwser-container">
+<div class="anwser-body">
+<p>Delhi</p>
+</div>
+<div class="anwser-body">
+<p>bangalore</p>
+</div>
+
+</div>",
+hi: "<div class="anwser-container">
+<div class="anwser-body">
+<p>दिल्ली</p>
+</div>
+<div class="anwser-body">
+<p>बैंगलोर</p>
+</div>
+
+</div>"
+}
+```
+
+\| | interactions |
+
+Changes are as follows,
+
+* validation
+  * Moved under response<1> attribute
+
+|
+
+```
+"interactions": {
+"response1": {
+"type": "choice",
+"options": [
+{
+"label": "<p>New Delhi</p>",
+"value": 0
+},
+{
+"label": "<p>Mumbai</p>",
+"value": 1
+}
+]
+},
+"validation": {
+"required": "Yes"
+}
+}
+```
+
+|
+
+```
+"interactions": {
+"response1": {
+"type": "choice",
+"options": [
+{
+"label": "<p>New Delhi</p>",
+"value": 0
+},
+{
+"label": "<p>Mumbai</p>",
+"value": 1
+}
+],
+"validation": {
+"required": "Yes"
+}
+}
+}
+```
+
+\| | solutions |
+
+Changes are as follows,
+
+* solutions
+  * Change of type from array to object
+  * supports multi-lingual
+
+|
+
+#### Image + Text <a href="#release6.0.0changesexplained-imagetext" id="release6.0.0changesexplained-imagetext"></a>
+
+```
+"solutions": [
+{
+"id": "7015c7e4-461a-4032-b29e-fbb7e8155e44",
+"type": "html",
+"value": "<figure class="image"><img src="/assets/public/content/assets/do_2137916546057256961374/indiagate.jpeg" alt="indiaGate" data-asset-variable="do_2137916546057256961374"></figure>"
+}
+]
+```
+
+#### Video <a href="#release6.0.0changesexplained-video" id="release6.0.0changesexplained-video"></a>
+
+```
+"solutions": [
+{
+"id": "70c82bf5-9459-4c43-8897-0e58b7e1da62",
+"type": "video",
+"value": "do_2137930190247526401388"
+}
+]
+```
+
+|
+
+#### Image + Text <a href="#release6.0.0changesexplained-imagetext.1" id="release6.0.0changesexplained-imagetext.1"></a>
+
+```
+"solutions": {
+"7015c7e4-461a-4032-b29e-fbb7e8155e44": "<figure class="image"><img src="/assets/public/content/assets/do_2137916546057256961374/indiagate.jpeg" alt="indiaGate" data-asset-variable="do_2137916546057256961374"></figure>",
+}
 // Key = UUID / Solution ID
-</code></pre><h4 id="release6.0.0changesexplained-video.1">Video</h4><pre><code>"solutions": {
-    "70c82bf5-9459-4c43-8897-0e58b7e1da62": "&#x3C;video data-asset-variable="do_2137930187513200641386" width="400" controls="" poster="/assets/public/content/assets/do_2137930188655902721387/gateway-of-india.jpg"> &#x3C;source type="video/mp4" src="/assets/public/content/assets/do_2137980528723230721410/sample-5s.mp4"> &#x3C;source type="video/webm" src="/assets/public/content/assets/do_2137980528723230721410/sample-5s.mp4"> &#x3C;/video>",
+```
+
+#### Video <a href="#release6.0.0changesexplained-video.1" id="release6.0.0changesexplained-video.1"></a>
+
+```
+"solutions": {
+"70c82bf5-9459-4c43-8897-0e58b7e1da62": "<video data-asset-variable="do_2137930187513200641386" width="400" controls="" poster="/assets/public/content/assets/do_2137930188655902721387/gateway-of-india.jpg"> <source type="video/mp4" src="/assets/public/content/assets/do_2137980528723230721410/sample-5s.mp4"> <source type="video/webm" src="/assets/public/content/assets/do_2137980528723230721410/sample-5s.mp4"> </video>",
 }
-
-
-
 // Key = UUID
-</code></pre><h4 id="release6.0.0changesexplained-multilanguage">Multi Language</h4><pre><code>{
-  "solutions": {
-    "solution_1": {
-      "en": "&#x3C;div>...&#x3C;/div>",
-      "hi": "&#x3C;div>...&#x3C;/div>"
-    },
-    "solution_2": {
-      "en": "&#x3C;div>...&#x3C;/div>",
-      "hi": "&#x3C;div>...&#x3C;/div>"
-    }
-  }
-}
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| feedback                                                                                                                                                                                                                                                                                                                                                                                        | <p>Changes are as follows,</p><ul><li><p>feedback</p><ul><li>mapping as part of outcomeDeclaration</li><li>supports multi-lingual</li></ul></li></ul>                                                                                                                                                                                                                                                                 | Currently not used in inQuiry                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | <pre><code>“feedback”: {
-  “70c82bf5-9459-4c43-8897-0e58b7e1da62”: “&#x3C;h1>Well done!!!&#x3C;/h1>”,
-  “70c82bf5-9459-4c43-8897-0e58b7e1da63”: “&#x3C;h1>Better luck next time!!!&#x3C;/h1>”
-  “70c82bf5-9459-4c43-8897-0e58b7e1da64”: “&#x3C;h1>You need to work harder!!!&#x3C;/h1>”
-}
+```
 
+#### Multi Language <a href="#release6.0.0changesexplained-multilanguage" id="release6.0.0changesexplained-multilanguage"></a>
+
+```
+{
+"solutions": {
+"solution_1": {
+"en": "<div>...</div>",
+"hi": "<div>...</div>"
+},
+"solution_2": {
+"en": "<div>...</div>",
+"hi": "<div>...</div>"
+}
+}
+}
+```
+
+\| | feedback |
+
+Changes are as follows,
+
+* feedback
+  * mapping as part of outcomeDeclaration
+  * supports multi-lingual
+
+\| Currently not used in inQuiry |
+
+```
+“feedback”: {
+“70c82bf5-9459-4c43-8897-0e58b7e1da62”: “<h1>Well done!!!</h1>”,
+“70c82bf5-9459-4c43-8897-0e58b7e1da63”: “<h1>Better luck next time!!!</h1>”
+“70c82bf5-9459-4c43-8897-0e58b7e1da64”: “<h1>You need to work harder!!!</h1>”
+}
 // key = UUID
-
 // Referenced from outcomeDeclaration
 "outcomeDeclaration": {
-   "feedback": {
-    "cardinality": "single",
-       "type": "string",
-        "defaultValue": "70c82bf5-9459-4c43-8897-0e58b7e1da62"
-   }
+"feedback": {
+"cardinality": "single",
+"type": "string",
+"defaultValue": "70c82bf5-9459-4c43-8897-0e58b7e1da62"
 }
-</code></pre><h4 id="release6.0.0changesexplained-multilanguage.1">Multi Language</h4><pre><code>{
-  "feedback": {
-    "feedback_1": {
-      "en": "&#x3C;div>...&#x3C;/div>",
-      "hi": "&#x3C;div>...&#x3C;/div>"
-    },
-    "feedback_2": {
-      "en": "&#x3C;div>...&#x3C;/div>",
-      "hi": "&#x3C;div>...&#x3C;/div>"
-    }
-  }
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| hints                                                                                                                                                                                                                                                                                                                                                                                           | <p>Changes are as follows,</p><ul><li><p>hints</p><ul><li>mapping as part of outcomeDeclaration</li><li>supports multi-lingual</li></ul></li></ul>                                                                                                                                                                                                                                                                    | <pre><code>// Question Metadata
-{ 
-  hints: { 
-    en : "string"
-  }
+```
+
+#### Multi Language <a href="#release6.0.0changesexplained-multilanguage.1" id="release6.0.0changesexplained-multilanguage.1"></a>
+
+```
+{
+"feedback": {
+"feedback_1": {
+"en": "<div>...</div>",
+"hi": "<div>...</div>"
+},
+"feedback_2": {
+"en": "<div>...</div>",
+"hi": "<div>...</div>"
 }
-
-
-
-
-
-
-
-
-
-
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | <pre><code>“hints”: {
-  “70c82bf5-9459-4c43-8897-0e58b7e1da62”: “&#x3C;HTML>...&#x3C;/HTML>”,
-  “70c82bf5-9459-4c43-8897-0e58b7e1da63”: “&#x3C;HTML>...&#x3C;/HTML>”
-  “70c82bf5-9459-4c43-8897-0e58b7e1da64”: “&#x3C;HTML>...&#x3C;/HTML>”
 }
+}
+```
 
+\| | hints |
+
+Changes are as follows,
+
+* hints
+  * mapping as part of outcomeDeclaration
+  * supports multi-lingual
+
+|
+
+```
+// Question Metadata
+{
+hints: {
+en : "string"
+}
+}
+```
+
+|
+
+```
+“hints”: {
+“70c82bf5-9459-4c43-8897-0e58b7e1da62”: “<HTML>...</HTML>”,
+“70c82bf5-9459-4c43-8897-0e58b7e1da63”: “<HTML>...</HTML>”
+“70c82bf5-9459-4c43-8897-0e58b7e1da64”: “<HTML>...</HTML>”
+}
 // key = UUID
-
 // Referenced from outcomeDeclaration
 "outcomeDeclaration": {
-   "hint": {
-    "cardinality": "single",
-       "type": "string",
-        "defaultValue": "70c82bf5-9459-4c43-8897-0e58b7e1da62"
-   }
+"hint": {
+"cardinality": "single",
+"type": "string",
+"defaultValue": "70c82bf5-9459-4c43-8897-0e58b7e1da62"
 }
-</code></pre><h4 id="release6.0.0changesexplained-multilanguage.2">Multi Language</h4><pre><code>{
-  "hints": {
+}
+```
 
-    "hint_1": "&#x3C;div>...&#x3C;/div>",
+#### Multi Language <a href="#release6.0.0changesexplained-multilanguage.2" id="release6.0.0changesexplained-multilanguage.2"></a>
 
-    "hint_2": {
-      "en": "&#x3C;div>...&#x3C;/div>",
-      "hi": "&#x3C;div>...&#x3C;/div>"
-    }
-  }
+```
+{
+"hints": {
+"hint_1": "&#x3C;div>...&#x3C;/div>","hint_2": {  "en": "&#x3C;div>...&#x3C;/div>",  "hi": "&#x3C;div>...&#x3C;/div>"}
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| instructions                                                                                                                                                                                                                                                                                                                                                                                    | <p>Changes are as follows,</p><ul><li><p>instructions</p><ul><li>Change of type from object to string</li><li>supports multi-lingual</li></ul></li></ul>                                                                                                                                                                                                                                                              | <h4 id="release6.0.0changesexplained-question.1">Question</h4><pre><code>{ 
-  instructions: { 
-    en : "&#x3C;html>...&#x3C;/html>"
-  }
 }
-</code></pre><h4 id="release6.0.0changesexplained-questionset.2">QuestionSet</h4><pre><code>{ 
-  instructions: { 
-    default : "&#x3C;html>...&#x3C;/html>"
-  }
-}
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | <h4 id="release6.0.0changesexplained-question.2">Question</h4><pre><code>instructions:  : "&#x3C;html>"
+```
 
+\| | instructions |
 
+Changes are as follows,
 
-</code></pre><h4 id="release6.0.0changesexplained-questionset.3">QuestionSet</h4><pre><code>instructions:  : "&#x3C;html>"
+* instructions
+  * Change of type from object to string
+  * supports multi-lingual
 
+|
 
+#### Question <a href="#release6.0.0changesexplained-question.1" id="release6.0.0changesexplained-question.1"></a>
 
-</code></pre><h4 id="release6.0.0changesexplained-multilingual">Multi Lingual</h4><pre><code>{ 
-  instructions: { 
-    en : "&#x3C;html>...&#x3C;/html>"
-  }
+```
+{
+instructions: {
+en : "<html>...</html>"
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| showSolutions                                                                                                                                                                                                                                                                                                                                                                                   | <p>Changes are as follows,</p><ul><li><p>showSolutions</p><ul><li>Change of type from string to boolean</li></ul></li></ul>                                                                                                                                                                                                                                                                                           | <pre><code>{ 
-  showSolutions: "Yes"
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | <pre><code>{ 
-  showSolutions: true
+```
+
+#### QuestionSet <a href="#release6.0.0changesexplained-questionset.2" id="release6.0.0changesexplained-questionset.2"></a>
+
+```
+{
+instructions: {
+default : "<html>...</html>"
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| showTimer                                                                                                                                                                                                                                                                                                                                                                                       | <p>Changes are as follows,</p><ul><li><p>showTimer</p><ul><li>Change of type from string to boolean</li></ul></li></ul>                                                                                                                                                                                                                                                                                               | <pre><code>{ 
-  showTimer: "Yes"
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | <pre><code>{ 
-  showTimer: true
+```
+
+|
+
+#### Question <a href="#release6.0.0changesexplained-question.2" id="release6.0.0changesexplained-question.2"></a>
+
+```
+instructions:  : "<html>"
+```
+
+#### QuestionSet <a href="#release6.0.0changesexplained-questionset.3" id="release6.0.0changesexplained-questionset.3"></a>
+
+```
+instructions:  : "<html>"
+```
+
+#### Multi Lingual <a href="#release6.0.0changesexplained-multilingual" id="release6.0.0changesexplained-multilingual"></a>
+
+```
+{
+instructions: {
+en : "<html>...</html>"
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| showFeedback                                                                                                                                                                                                                                                                                                                                                                                    | <p>Changes are as follows,</p><ul><li><p>showFeedback</p><ul><li>Change of type from string to boolean</li></ul></li></ul>                                                                                                                                                                                                                                                                                            | <pre><code>{ 
-  showFeedback: "Yes"
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | <pre><code>{ 
-  showFeedback: true
+```
+
+\| | showSolutions |
+
+Changes are as follows,
+
+* showSolutions
+  * Change of type from string to boolean
+
+|
+
+```
+{
+showSolutions: "Yes"
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| showHints                                                                                                                                                                                                                                                                                                                                                                                       | <p>Changes are as follows,</p><ul><li><p>showHints</p><ul><li>Change of type from string to boolean</li></ul></li></ul>                                                                                                                                                                                                                                                                                               | <pre><code>{ 
-  showHints: "Yes"
+```
+
+|
+
+```
+{
+showSolutions: true
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | <pre><code>{ 
-  showHints: true
+```
+
+\| | showTimer |
+
+Changes are as follows,
+
+* showTimer
+  * Change of type from string to boolean
+
+|
+
+```
+{
+showTimer: "Yes"
 }
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| bloomsLevel                                                                                                                                                                                                                                                                                                                                                                                     | <p>Changes are as follows,</p><ul><li><p>bloomsLevel</p><ul><li>renamed to complexityLevel</li><li>Change of type from string to array</li></ul></li></ul>                                                                                                                                                                                                                                                            | <pre><code>bloomsLevel: "apply"
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | <pre><code>complexityLevel: ["apply"]
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| media                                                                                                                                                                                                                                                                                                                                                                                           | <p>Changes are as follows,</p><ul><li><p>media</p><ul><li>this is a spec updation only and no changes in editor / player / api</li></ul></li></ul>                                                                                                                                                                                                                                                                    | No changes to the format                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | No changes to the format                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+```
+
+|
+
+```
+{
+showTimer: true
+}
+```
+
+\| | showFeedback |
+
+Changes are as follows,
+
+* showFeedback
+  * Change of type from string to boolean
+
+|
+
+```
+{
+showFeedback: "Yes"
+}
+```
+
+|
+
+```
+{
+showFeedback: true
+}
+```
+
+\| | showHints |
+
+Changes are as follows,
+
+* showHints
+  * Change of type from string to boolean
+
+|
+
+```
+{
+showHints: "Yes"
+}
+```
+
+|
+
+```
+{
+showHints: true
+}
+```
+
+\| | bloomsLevel |
+
+Changes are as follows,
+
+* bloomsLevel
+  * renamed to complexityLevel
+  * Change of type from string to array
+
+|
+
+```
+bloomsLevel: "apply"
+```
+
+|
+
+```
+complexityLevel: ["apply"]
+```
+
+\| | media |
+
+Changes are as follows,
+
+* media
+  * this is a spec updation only and no changes in editor / player / api
+
+\| No changes to the format | No changes to the format |

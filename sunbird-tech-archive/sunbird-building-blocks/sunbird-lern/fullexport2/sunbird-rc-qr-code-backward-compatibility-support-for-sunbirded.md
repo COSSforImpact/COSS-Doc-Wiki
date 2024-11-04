@@ -20,34 +20,21 @@ So, we should have a QR code from Sunbird RC in the printable credential object 
 
 The below table explains the details about the QR code from existing implementation and from Sunbird RC.
 
-| **Context**           | **Format**           | **Details**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Context**           | **Format**           | **Details**                                                                                                                                                                             |
+| --------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Existing Sunbird Lern | URL                  | <p>A URL with unique identifier will be used to scan and verify. Below is the example.</p><pre><code>https://dev.sunbirded.org/certs/8e57723e-4541-11eb-b378-0242ac130002
-</code></pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Sunbird RC            | W3C VC object (JSON) | <p>The W3C VC object is used for the QR Code. Below is the example.</p><pre><code>{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://gist.githubusercontent.com/dileepbapat/eb932596a70f75016411cc871113a789/raw/498e5af1d94784f114b32c1ab827f951a8a24def/skill"
-  ],
-  "type": [
-    "VerifiableCredential"
-  ],
-  "issuanceDate": "2021-08-27T10:57:57.237Z",
-  "credentialSubject": {
-    "type": "Person",
-    "name": "Sunbird Learner",
-    "trainedOn": "Sunbird RC Certificate Module"
-  },
-  "issuer": "did:web:sunbirdrc.dev/vc/skill",
-  "proof": {
-    "type": "Ed25519Signature2018",
-    "created": "2022-02-17T16:56:51Z",
-    "verificationMethod": "did:india",
-    "proofPurpose": "assertionMethod",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..NJOK8YrkkucvYFwcf_P6-0CIg3Lbhu5GnAtPwbjkuSLRlhwFKGk8oHkZszs7RxwCcz1DG-hCIispLvDx_0aSCA"
-  }
-}
 </code></pre> |
+|                       |                      |                                                                                                                                                                                         |
+| Sunbird RC            | W3C VC object (JSON) | <p>The W3C VC object is used for the QR Code. Below is the example.</p><pre><code>{
+</code></pre>                                                                                       |
+| "@context": \[        |                      |                                                                                                                                                                                         |
+
+```
+"https://www.w3.org/2018/credentials/v1",
+"https://gist.githubusercontent.com/dileepbapat/eb932596a70f75016411cc871113a789/raw/498e5af1d94784f114b32c1ab827f951a8a24def/skill"
+```
+
+], "type": \[ "VerifiableCredential" ], "issuanceDate": "2021-08-27T10:57:57.237Z", "credentialSubject": { "type": "Person", "name": "Sunbird Learner", "trainedOn": "Sunbird RC Certificate Module" }, "issuer": "did:web:sunbirdrc.dev/vc/skill", "proof": { "type": "Ed25519Signature2018", "created": "2022-02-17T16:56:51Z", "verificationMethod": "did:india", "proofPurpose": "assertionMethod", "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..NJOK8YrkkucvYFwcf\_P6-0CIg3Lbhu5GnAtPwbjkuSLRlhwFKGk8oHkZszs7RxwCcz1DG-hCIispLvDx\_0aSCA" } } |
 
 ### Design: <a href="#sunbirdrcqrcodebackwardcompatibilitysupportforsunbirded-design" id="sunbirdrcqrcodebackwardcompatibilitysupportforsunbirded-design"></a>
 

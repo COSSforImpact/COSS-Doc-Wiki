@@ -75,17 +75,16 @@ Telemetry Assess Event Expand source
 }
 ```
 
-\
-
+\\
 
 **Interpretation of Data:**
 
 * edata.pass => User/Student is result after attempting the question (Yes/No)
 * edata.index => Position/Order of the question in the question-set
 * edata.score => User/Student score after attempting the question(For the questions which has partial answer enabled, edata.score will be < edata.item.maxscore if user/student answered partially).
-* edata.resvalues => user selected option/answer of  the question
+* edata.resvalues => user selected option/answer of the question
 
-edata.resvalues is an array of objects/maps \[ {}, {}, ..].&#x20;
+edata.resvalues is an array of objects/maps \[ {}, {}, ..].
 
 Each object/map will have only one key & value pair. With reference to the above in resvalues, "option0"(option{option index position}) is key & "\<p>आठ\</p>\n"(HTML Text) is value.
 
@@ -157,8 +156,7 @@ Telemetry Assess Event Expand source
 }
 ```
 
-\
-
+\\
 
 **Interpretation of Data :**
 
@@ -167,16 +165,15 @@ Telemetry Assess Event Expand source
 * edata.score => User/Student score after attempting the question(For the questions which has partial answer enabled, edata.score will be < edata.item.maxscore if user/student answered partially).
 * edata.resvalues => user entered answers using keyboard(native/custom)
 
-edata.resvalues is an array of objects/maps \[ {}, {}, ..].&#x20;
+edata.resvalues is an array of objects/maps \[ {}, {}, ..].
 
 With reference to the above example in resvalues, "key"(common name used for all options) is key & "JUPITER" or "Mercury" is values entered by the User/Student.
 
-\
-
+\\
 
 ### **3. MTF Question Type** <a href="#question-settelemetryassessevent-3.mtfquestiontype" id="question-settelemetryassessevent-3.mtfquestiontype"></a>
 
-The question of type MTF, will have LHS(left had side) & rhs(right had side) options. User/Student can drag & drop only RHS options to map to the respective LHS option.&#x20;
+The question of type MTF, will have LHS(left had side) & rhs(right had side) options. User/Student can drag & drop only RHS options to map to the respective LHS option.
 
 Telemetry Assess Event Expand source
 
@@ -302,8 +299,7 @@ Telemetry Assess Event Expand source
 }
 ```
 
-\
-
+\\
 
 **Interpretation of Data :**
 
@@ -312,7 +308,7 @@ Telemetry Assess Event Expand source
 * edata.score => User/Student score after attempting the question(For the questions which has partial answer enabled, edata.score will be < edata.item.maxscore if user/student answered partially).
 * edata.resvalues => final reordered LHS & RHS options
 
-edata.resvalues is an array of objects\[ {}, {}, ..].&#x20;
+edata.resvalues is an array of objects\[ {}, {}, ..].
 
 The object structure inside resvalues is complex. This can be simplified(TBD).
 
@@ -324,8 +320,7 @@ LHS array has object structure.
 
 **"index": 1** => The position/index of the option in the LHS options array(rendered position)
 
-\
-
+\\
 
 RHS array has below object stucture
 
@@ -333,8 +328,7 @@ RHS array has below object stucture
 
 **"mapIndex": 2** => This option which is rendered in the first position(RHS side) is drag & drop(mapped) to 2 option of the LHS
 
-\
-
+\\
 
 ### **4. Sequence Question Type** <a href="#question-settelemetryassessevent-4.sequencequestiontype" id="question-settelemetryassessevent-4.sequencequestiontype"></a>
 
@@ -446,8 +440,7 @@ Telemetry Assess Event Expand source
 }
 ```
 
-\
-
+\\
 
 **Interpretation of Data :**
 
@@ -456,14 +449,13 @@ Telemetry Assess Event Expand source
 * edata.score => User/Student score after attempting the question(For the questions which has partial answer enabled, edata.score will be < edata.item.maxscore if user/student answered partially).
 * edata.resvalues => Order of the options while evaluation
 
-edata.resvalues is an array of objects\[ {}, {}, ..].&#x20;
+edata.resvalues is an array of objects\[ {}, {}, ..].
 
-\
-
+\\
 
 ### **5. ReOrder Question Type** <a href="#question-settelemetryassessevent-5.reorderquestiontype" id="question-settelemetryassessevent-5.reorderquestiontype"></a>
 
-The question of type reorder&#x20;
+The question of type reorder
 
 Telemetry Assess Event
 
@@ -522,16 +514,14 @@ Telemetry Assess Event
 }
 ```
 
-\
-
+\\
 
 **Interpretation of Data :**
 
 To Be Updated(TBU)\
-&#x20;
 
-\
 
+\\
 
 ### Related articles <a href="#question-settelemetryassessevent-relatedarticles" id="question-settelemetryassessevent-relatedarticles"></a>
 
@@ -541,7 +531,6 @@ To Be Updated(TBU)\
 * Page:Request traceability across multiple sub-systems
 * Page:User onboarding for crowdsourcing
 
-\
+\\
 
-
-\
+\\

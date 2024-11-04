@@ -58,36 +58,44 @@ Context is an optional property for player config, if we want to send the contex
 }
 ```
 
-|    | **Property name** | **Description**                                                                                                                     | **Optional/Required**                                                                     | **Without field**                                | **Comment**                                                                                                                                                   | **Default**                                                        | **Code changes required** |
-| -- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------- |
-| 1  | `channel`         | it is an `string` containing unique channel name.                                                                                   | <p>Required</p><p><code>minLength=1</code></p>                                            | telemetry validation error                       | Default can be set from player side. _Telemetry sdk will set by default_ `“in.ekstep"`                                                                        | `"in.ekstep"`                                                      | Yes                       |
-| 2  | `env`             | It is an `string` containing Unique environment where the event has occurred                                                        | Required                                                                                  | telemetry validation error                       | Content player set it by default to `“contentplayer"`                                                                                                         | `"contentplayer"`                                                  | No                        |
-| 3  | `pdata`           | Producer data. It is an `object` containing id, version and pid.                                                                    | <p>Required</p><pre><code>{
-	id: "in.ekstep",
-	ver ? : "1.0",
-	pid ? : ""
+|   | **Property name** | **Description**                                                              | **Optional/Required**                          | **Without field**          | **Comment**                                                                            | **Default**       | **Code changes required** |
+| - | ----------------- | ---------------------------------------------------------------------------- | ---------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------- | ----------------- | ------------------------- |
+| 1 | `channel`         | it is an `string` containing unique channel name.                            | <p>Required</p><p><code>minLength=1</code></p> | telemetry validation error | Default can be set from player side. _Telemetry sdk will set by default_ `“in.ekstep"` | `"in.ekstep"`     | Yes                       |
+| 2 | `env`             | It is an `string` containing Unique environment where the event has occurred | Required                                       | telemetry validation error | Content player set it by default to `“contentplayer"`                                  | `"contentplayer"` | No                        |
+| 3 | `pdata`           | Producer data. It is an `object` containing id, version and pid.             | <p>Required</p><pre><code>{
+</code></pre>      |                            |                                                                                        |                   |                           |
+
+```
+id: "in.ekstep",
+ver ? : "1.0",
+pid ? : ""
+```
+
+} | telemetry validation error | Default can be set from player side. _Telemetry sdk will set by default_`{ id: "in.ekstep", ver: "1.0", pid: "" }` | `{ id: "in.ekstep", ver: "1.0", pid: "" }` | Yes | | 4 | `mode` | To identify preview used by the user to play/edit/preview | Optional | `"play"` | _Telemetry sdk will set by default_ as `"play"` | `"play"` | No | | 5 | `sid` | It is an `string` containing user session id. | Optional | `sid = uid` | _Telemetry sdk will set by default_ as `"uid"` | `"uid"` | No | | 6 | `did` | It is an `string` containing unique device id. | Optional | It will generate from telemetry sdk | _Telemetry sdk will set by default_ using fingerPrintJs | [fingerPrintjs2](https://github.com/Valve/fingerprintjs2) | No | | 7 | `uid` | It is an `string` containing user id. | Optional | `actor.id = did ? did : "anonymous"` | _Telemetry sdk will use_ `did` _as default_ | `"anonymous"` | No | | 8 | `authToken` | It is an `string` to send telemetry to given endpoint (API uses for authentication) | Optional | `show warning in console` | Player will set default `""` | `""` | Yes | | 9 | `contextRollup` | Defines the content rollup data | Optional | `{}` | Its a optional field in telemetry | `{}` | No | | 10 | `objectRollup` | Defines the content object data | Optional | `{}` | Its a optional field in telemetry | `{}` | No | | 11 | `tags` | It is an `array`. It can be used to tag devices so that summaries/metrics can be derived via specific tags. Helpful during analysis | Optional | `[]` | Its a optional tags data | `[]` | No | | 12 | `cdata` | It is an `array`. Correlation data. Can be used to correlate multiple events. Generally used to track user flow |
+
+Optional
+
+```
+[ {"type", "id"}]
+```
+
+\| `[]` | This is an optional but - if we are passing the `type` and `id` is required. | `[]` | No | | 13 | `host` | It is an `string` containing API endpoint host. | Optional | `""` | Content Player set it as `""` and _Telemetry sdk will set by default_ as `“https://api.ekstep.in"` | “`https://api.ekstep.in`“ | No | | 14 | `endpoint` | It defines the endpoint | Optional | `""` | Content Player set it as “`/data/v3/telemetry`“ | `/data/v3/telemetry` | No | | 15 | `userData` | Defines the user first name and last name | Optional | User first and lastname will not show in endpage | Default can be set from player side. |
+
+```
+{ "firstName": "anoymous","lastName": ""}
+```
+
+\| Yes | | 16 | `dispatcher` | Dispatcher is required to receive the player events. . | Optional | The parent will not see the player events. |
+
+```
+dispatcher: {
+dispatch(event) {
+console.log(Events from dispatcher: ${JSON.stringify(event)});
 }
-</code></pre> | telemetry validation error                       | Default can be set from player side. _Telemetry sdk will set by default_`{ id: "in.ekstep", ver: "1.0", pid: "" }`                                            | `{ id: "in.ekstep", ver: "1.0", pid: "" }`                         | Yes                       |
-| 4  | `mode`            | To identify preview used by the user to play/edit/preview                                                                           | Optional                                                                                  | `"play"`                                         | _Telemetry sdk will set by default_ as `"play"`                                                                                                               | `"play"`                                                           | No                        |
-| 5  | `sid`             | It is an `string` containing user session id.                                                                                       | Optional                                                                                  | `sid = uid`                                      | _Telemetry sdk will set by default_ as `"uid"`                                                                                                                | `"uid"`                                                            | No                        |
-| 6  | `did`             | It is an `string` containing unique device id.                                                                                      | Optional                                                                                  | It will generate from telemetry sdk              | _Telemetry sdk will set by default_ using fingerPrintJs                                                                                                       | [fingerPrintjs2](https://github.com/Valve/fingerprintjs2)          | No                        |
-| 7  | `uid`             | It is an `string` containing user id.                                                                                               | Optional                                                                                  | `actor.id = did ? did : "anonymous"`             | _Telemetry sdk will use_ `did` _as default_                                                                                                                   | `"anonymous"`                                                      | No                        |
-| 8  | `authToken`       | It is an `string` to send telemetry to given endpoint (API uses for authentication)                                                 | Optional                                                                                  | `show warning in console`                        | Player will set default `""`                                                                                                                                  | `""`                                                               | Yes                       |
-| 9  | `contextRollup`   | Defines the content rollup data                                                                                                     | Optional                                                                                  | `{}`                                             | Its a optional field in telemetry                                                                                                                             | `{}`                                                               | No                        |
-| 10 | `objectRollup`    | Defines the content object data                                                                                                     | Optional                                                                                  | `{}`                                             | Its a optional field in telemetry                                                                                                                             | `{}`                                                               | No                        |
-| 11 | `tags`            | It is an `array`. It can be used to tag devices so that summaries/metrics can be derived via specific tags. Helpful during analysis | Optional                                                                                  | `[]`                                             | Its a optional tags data                                                                                                                                      | `[]`                                                               | No                        |
-| 12 | `cdata`           | It is an `array`. Correlation data. Can be used to correlate multiple events. Generally used to track user flow                     | <p>Optional</p><pre><code>[ {"type", "id"}] 
-</code></pre>                                | `[]`                                             | This is an optional but - if we are passing the `type` and `id` is required.                                                                                  | `[]`                                                               | No                        |
-| 13 | `host`            | It is an `string` containing API endpoint host.                                                                                     | Optional                                                                                  | `""`                                             | Content Player set it as `""` and _Telemetry sdk will set by default_ as `“https://api.ekstep.in"`                                                            | “`https://api.ekstep.in`“                                          | No                        |
-| 14 | `endpoint`        | It defines the endpoint                                                                                                             | Optional                                                                                  | `""`                                             | Content Player set it as “`/data/v3/telemetry`“                                                                                                               | `/data/v3/telemetry`                                               | No                        |
-| 15 | `userData`        | Defines the user first name and last name                                                                                           | Optional                                                                                  | User first and lastname will not show in endpage | Default can be set from player side.                                                                                                                          | <pre><code>{ "firstName": "anoymous","lastName": ""}
-</code></pre> | Yes                       |
-| 16 | `dispatcher`      | Dispatcher is required to receive the player events. .                                                                              | Optional                                                                                  | The parent will not see the player events.       | <pre><code>dispatcher: {
-        dispatch(event) {
-          console.log(`Events from dispatcher: ${JSON.stringify(event)}`);
-        }
-      }
-</code></pre> | `""`                                                               | No                        |
+}
+```
+
+\| `""` | No |
 
 ***
 

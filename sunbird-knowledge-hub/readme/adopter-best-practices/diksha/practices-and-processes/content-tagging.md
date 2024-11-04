@@ -8,10 +8,6 @@ Content Tagging to a Curriculum
 
 Product Primer
 
-### What is tagging <a href="#tzakbtjer84c" id="tzakbtjer84c"></a>
-
-Kamesh to add here
-
 ### Benefits Tagging? <a href="#hp2ebrknmiir" id="hp2ebrknmiir"></a>
 
 Tagging content is essential for discovery of content by users, relevant to their context and needs. It provides information about what the content is and who can use it. A teacher creates or uploads a content that is related to certain topics in a curriculum. Tagging allows specifying that information so that anyone searching for the content related to those topics can find it. A content tagged correctly with the information has chance for more usage. It ensures that users use the platform more often because they find the most relevant & high quality content for their needs, with ease. Tagging enables following two areas of Curation:
@@ -32,15 +28,15 @@ Following fields provide information about the curriculum and topics, with incre
 * Sub Topics - Narrower subtopics within the topics to which the content is related to.
 * Keywords - Keywords related to the topics that can provide a more specific context of the content
 
-![](../../../../.gitbook/assets/0.png)
+![](../../../../../.gitbook/assets/0.png)
 
 ### Where do the Tags come from? <a href="#id-6ptgtmgorh4w" id="id-6ptgtmgorh4w"></a>
 
 The values for the tags come from a taxonomy that is part of the platform. The taxonomy defines set of tags and their values. Following figure depicts the structure of the taxonomy.
 
-![](../../../../.gitbook/assets/1.png)
+![](../../../../../.gitbook/assets/1.png)
 
-![](../../../../.gitbook/assets/2.png)
+![](../../../../../.gitbook/assets/2.png)
 
 Each state can define its own taxonomy or use a common taxonomy such as NCERT.
 

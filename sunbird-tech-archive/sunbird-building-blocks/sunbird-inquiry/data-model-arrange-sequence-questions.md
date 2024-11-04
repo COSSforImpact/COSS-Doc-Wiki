@@ -239,241 +239,287 @@ editor state of question
 
 MCQ body vs ASQ body
 
-| **MCQ Body**                                                                                                                                                                                                                                                                                        | **ASQ Body**                                                                                                                                                                                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **MCQ Body**                                                            | **ASQ Body** |
+| ----------------------------------------------------------------------- | ------------ |
 | <pre><code>&#x3C;div class='question-body' tabindex='-1'>
-    &#x3C;div class='mcq-title' tabindex='0'>
-        &#x3C;p>Which of the fruits is red in colour?&#x3C;/p>
-    &#x3C;/div>
-    &#x3C;div data-choice-interaction='response1' class='mcq-vertical'>&#x3C;/div>
+</code></pre> |              |
+
+```
+&#x3C;div class='mcq-title' tabindex='0'>
+    &#x3C;p>Which of the fruits is red in colour?&#x3C;/p>
 &#x3C;/div>
-</code></pre> | <pre><code>&#x3C;div class='question-body' tabindex='-1'>
-    &#x3C;div class='asq-title' tabindex='0'>
-        &#x3C;p>Arrange the fruits in alphabetic order&#x3C;/p>
-    &#x3C;/div>
-    &#x3C;div data-order-interaction='response1' class='asq-vertical/asq-horizontal'>&#x3C;/div>
-&#x3C;/div>
-</code></pre> |
+&#x3C;div data-choice-interaction='response1' class='mcq-vertical'>&#x3C;/div>
+```
+
+\</div> |
+
+```
+<div class='question-body' tabindex='-1'>
+<div class='asq-title' tabindex='0'>
+<p>Arrange the fruits in alphabetic order</p>
+</div>
+<div data-order-interaction='response1' class='asq-vertical/asq-horizontal'></div>
+</div>
+```
+
+|
 
 **Compare MCQ interactions with ASQ interactions**
 
 MCQ interactions vs ASQ interactions
 
-| **MCQ interactions**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **ASQ interactions**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **MCQ interactions**       | **ASQ interactions** |
+| -------------------------- | -------------------- |
 | <pre><code>{
-    "response1": {
-        "type": "choice",
-        "options": [
-            {
-                "label": "&#x3C;p>Apple&#x3C;/p>",
-                "value": 0
-            },
-            {
-                "label": "&#x3C;p>Banana&#x3C;/p>",
-                "value": 1
-            },
-            {
-                "label": "&#x3C;p>Grapes&#x3C;/p>",
-                "value": 2
-            },
-            {
-                "label": "&#x3C;p>Orange&#x3C;/p>",
-                "value": 3
-            }
-        ],
-        "validation": {
-            "required": "Yes"
+</code></pre> |                      |
+
+```
+"response1": {
+    "type": "choice",
+    "options": [
+        {
+            "label": "&#x3C;p>Apple&#x3C;/p>",
+            "value": 0
+        },
+        {
+            "label": "&#x3C;p>Banana&#x3C;/p>",
+            "value": 1
+        },
+        {
+            "label": "&#x3C;p>Grapes&#x3C;/p>",
+            "value": 2
+        },
+        {
+            "label": "&#x3C;p>Orange&#x3C;/p>",
+            "value": 3
         }
+    ],
+    "validation": {
+        "required": "Yes"
     }
 }
-</code></pre> | <pre><code>{
-    "response1": {
-        "type": "order",
-        "options": [
-            {
-                "label": "&#x3C;p>Apple&#x3C;/p>",
-                "value": 0
-            },
-            {
-                "label": "&#x3C;p>Banana&#x3C;/p>",
-                "value": 1
-            },
-            {
-                "label": "&#x3C;p>Grapes&#x3C;/p>",
-                "value": 2
-            },
-            {
-                "label": "&#x3C;p>Orange&#x3C;/p>",
-                "value": 3
-            }
-        ],
-        "validation": {
-            "required": "Yes"
-        }
-    }
+```
+
+} |
+
+```
+{
+"response1": {
+"type": "order",
+"options": [
+{
+"label": "<p>Apple</p>",
+"value": 0
+},
+{
+"label": "<p>Banana</p>",
+"value": 1
+},
+{
+"label": "<p>Grapes</p>",
+"value": 2
+},
+{
+"label": "<p>Orange</p>",
+"value": 3
 }
-</code></pre> |
+],
+"validation": {
+"required": "Yes"
+}
+}
+}
+```
+
+|
 
 **Compare MCQ responseDeclaration with MTF responseDeclaration**
 
 MCQ responseDeclaration vs MTF responseDeclaration
 
-| **MCQ responseDeclaration (multi choice)**                                                                                                                                                                                                                                                                                                                                                       | **ASQ responseDeclaration**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **MCQ responseDeclaration (multi choice)** | **ASQ responseDeclaration** |
+| ------------------------------------------ | --------------------------- |
 | <pre><code>{
-    "response1": {
-        "cardinality": "multiple",
-        "type": "integer",
-        "correctResponse": {
-            "value": [0,3]
+</code></pre>                 |                             |
+
+```
+"response1": {
+    "cardinality": "multiple",
+    "type": "integer",
+    "correctResponse": {
+        "value": [0,3]
+    },
+    "mapping": [
+        {
+            "value": 0,
+            "score": 0.5
         },
-        "mapping": [
-            {
-                "value": 0,
-                "score": 0.5
-            },
-            {
-                "value": 3,
-                "score": 0.5
-            }
-        ]
-    }
+        {
+            "value": 3,
+            "score": 0.5
+        }
+    ]
 }
-</code></pre> | <pre><code>{
-    "response1": {
-        "cardinality": "ordered",
-        "type": "integer",
-        "correctResponse": {
-            "value": [0,1,2,3]
-        },
-        "mapping": [
-            {
-                "value": 0,
-                "score": 0.25
-            },
-            {
-                "value": 1,
-                "score": 0.25
-            },
-            {
-                "value": 2,
-                "score": 0.25
-            },
-            {
-                "value": 3,
-                "score": 0.25
-            }
-        ]
-    }
+```
+
+} |
+
+```
+{
+"response1": {
+"cardinality": "ordered",
+"type": "integer",
+"correctResponse": {
+"value": [0,1,2,3]
+},
+"mapping": [
+{
+"value": 0,
+"score": 0.25
+},
+{
+"value": 1,
+"score": 0.25
+},
+{
+"value": 2,
+"score": 0.25
+},
+{
+"value": 3,
+"score": 0.25
 }
-</code></pre> |
+]
+}
+}
+```
+
+|
 
 **Compare MCQ outcomeDeclaration with ASQ outcomeDeclaration**
 
 MCQ outcomeDeclaration vs ASQ outcomeDeclaration
 
-| MCQ outcomeDeclaration                                                                                                                                               | ASQ outcomeDeclaration                                                                                                                                              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MCQ outcomeDeclaration     | ASQ outcomeDeclaration |
+| -------------------------- | ---------------------- |
 | <pre><code>{
-        "maxScore": {
-            "cardinality": "multiple",
-            "type": "integer",
-            "defaultValue": 1
-        }
+</code></pre> |                        |
+
+```
+    "maxScore": {
+        "cardinality": "multiple",
+        "type": "integer",
+        "defaultValue": 1
     }
-</code></pre> | <pre><code>{
-        "maxScore": {
-            "cardinality": "ordered",
-            "type": "integer",
-            "defaultValue": 1
-        }
-    }
-</code></pre> |
+}
+```
+
+|
+
+```
+{
+"maxScore": {
+"cardinality": "ordered",
+"type": "integer",
+"defaultValue": 1
+}
+}
+```
+
+|
 
 **Compare MCQ editorState with MTF editorState**
 
 MCQ editorState vs MTF editorState
 
-| MCQ editorState                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | MTF editorState                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| MCQ editorState            | MTF editorState |
+| -------------------------- | --------------- |
 | <pre><code>{
-    "options": [
-        {
-            "answer": true,
-            "value": {
-                "body": "&#x3C;p>Apple&#x3C;/p>",
-                "value": 0
-            }
-        },
-        {
-            "answer": false,
-            "value": {
-                "body": "&#x3C;p>Banana&#x3C;/p>",
-                "value": 1
-            }
-        },
-        {
-            "answer": false,
-            "value": {
-                "body": "&#x3C;p>Grapes&#x3C;/p>",
-                "value": 2
-            }
-        },
-        {
-            "answer": true,
-            "value": {
-                "body": "&#x3C;p>Strawberry&#x3C;/p>",
-                "value": 3
-            }
+</code></pre> |                 |
+
+```
+"options": [
+    {
+        "answer": true,
+        "value": {
+            "body": "&#x3C;p>Apple&#x3C;/p>",
+            "value": 0
         }
-    ],
-    "question": "&#x3C;p>Which of the fruits is red in colour?&#x3C;/p>",
-    "solutions": [
-        {
-            "id": "71efa845-2856-4a82-b493-101facfddd26",
-            "type": "html",
-            "value": "&#x3C;p>Apple is red in colour&#x3C;/p>"
+    },
+    {
+        "answer": false,
+        "value": {
+            "body": "&#x3C;p>Banana&#x3C;/p>",
+            "value": 1
         }
-    ]
+    },
+    {
+        "answer": false,
+        "value": {
+            "body": "&#x3C;p>Grapes&#x3C;/p>",
+            "value": 2
+        }
+    },
+    {
+        "answer": true,
+        "value": {
+            "body": "&#x3C;p>Strawberry&#x3C;/p>",
+            "value": 3
+        }
+    }
+],
+"question": "&#x3C;p>Which of the fruits is red in colour?&#x3C;/p>",
+"solutions": [
+    {
+        "id": "71efa845-2856-4a82-b493-101facfddd26",
+        "type": "html",
+        "value": "&#x3C;p>Apple is red in colour&#x3C;/p>"
+    }
+]
+```
+
+} |
+
+```
+{
+"options": [
+{
+"value": {
+"body": "<p>Apple</p>",
+"value": 0
 }
-</code></pre> | <pre><code>{
-    "options": [
-        {
-            "value": {
-                "body": "&#x3C;p>Apple&#x3C;/p>",
-                "value": 0
-            }
-        },
-        {
-            "value": {
-                "body": "&#x3C;p>Banana&#x3C;/p>",
-                "value": 1
-            }
-        },
-        {
-            "value": {
-                "body": "&#x3C;p>Grapes&#x3C;/p>",
-                "value": 2
-            }
-        },
-        {
-            "value": {
-                "body": "&#x3C;p>Orange&#x3C;/p>",
-                "value": 3
-            }
-        }
-    ],
-    "question": "&#x3C;p>Arrange the fruits names in alphabetical order&#x3C;/p>",
-    "solutions": [
-        {
-            "id": "71efa845-2856-4a82-b493-101facfddd26",
-            "type": "html",
-            "value": "&#x3C;p>Proper order is Apple, Banana, Grapes, Orange&#x3C;/p>"
-        }
-    ]
+},
+{
+"value": {
+"body": "<p>Banana</p>",
+"value": 1
 }
-</code></pre> |
+},
+{
+"value": {
+"body": "<p>Grapes</p>",
+"value": 2
+}
+},
+{
+"value": {
+"body": "<p>Orange</p>",
+"value": 3
+}
+}
+],
+"question": "<p>Arrange the fruits names in alphabetical order</p>",
+"solutions": [
+{
+"id": "71efa845-2856-4a82-b493-101facfddd26",
+"type": "html",
+"value": "<p>Proper order is Apple, Banana, Grapes, Orange</p>"
+}
+]
+}
+```
+
+|
 
 ***
 

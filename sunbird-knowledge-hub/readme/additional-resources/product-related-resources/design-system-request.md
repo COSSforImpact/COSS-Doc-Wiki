@@ -1,5 +1,6 @@
 ---
 icon: elementor
+hidden: true
 ---
 
 # Design System Request
