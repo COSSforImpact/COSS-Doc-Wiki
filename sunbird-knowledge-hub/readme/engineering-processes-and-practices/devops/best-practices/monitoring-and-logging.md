@@ -4,6 +4,8 @@ icon: elementor
 
 # Monitoring & Logging
 
+{% embed url="https://drive.google.com/file/d/1tL4Fb9T5t9V65CPnDAafHVunp-LI8wlr/view?usp=sharing" %}
+
 ## **Overview**
 
 * **Sunbird Subsystems:** Covers various functional areas like content management, collaboration tools, user authentication, data analytics, and DevOps automation.
@@ -133,5 +135,3 @@ The document also provides repository links and emphasizes the community-driven 
 ***
 
 These questions cover the technical implementation and operational insights into monitoring, logging, scaling, and infrastructure management for the Sunbird platform.
-
-{% embed url="https://drive.google.com/file/d/1tL4Fb9T5t9V65CPnDAafHVunp-LI8wlr/view?usp=sharing" %}
