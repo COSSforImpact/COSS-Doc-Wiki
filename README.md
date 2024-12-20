@@ -1,5 +1,6 @@
 ---
 icon: book-atlas
+cover: .gitbook/assets/COSS-Banner2-01.png
 coverY: 0
 layout:
   cover:

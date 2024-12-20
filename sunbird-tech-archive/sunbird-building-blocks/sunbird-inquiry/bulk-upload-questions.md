@@ -44,7 +44,7 @@ The goal is to upload questions with its associate media (images)
 
 ### Explanation of Bulk Upload Question format <a href="#bulkuploadquestions-explanationofbulkuploadquestionformat" id="bulkuploadquestions-explanationofbulkuploadquestionformat"></a>
 
-[https://docs.google.com/spreadsheets/d/1ndzapGGV6q8698x-NQzK\_ufln4YX1HQ09jsFsC7kA60/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1ndzapGGV6q8698x-NQzK\_ufln4YX1HQ09jsFsC7kA60/edit?usp=sharing)
+[https://docs.google.com/spreadsheets/d/1ndzapGGV6q8698x-NQzK\_ufln4YX1HQ09jsFsC7kA60/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1ndzapGGV6q8698x-NQzK_ufln4YX1HQ09jsFsC7kA60/edit?usp=sharing)
 
 #### Details to be provided by contributor using CSV format <a href="#bulkuploadquestions-detailstobeprovidedbycontributorusingcsvformat" id="bulkuploadquestions-detailstobeprovidedbycontributorusingcsvformat"></a>
 
@@ -121,7 +121,7 @@ The goal is to upload questions with its associate media (images)
 
 #### Details to be pre-filled / derived by system <a href="#bulkuploadquestions-detailstobepre-filled-derivedbysystem" id="bulkuploadquestions-detailstobepre-filled-derivedbysystem"></a>
 
-1. **Question Category** will be _Multiple Choice Question_ for this version_._
+1. **Question Category** will be _Multiple Choice Question_ for this version\_.\_
    1. Mandatory: Yes
    2. Default: MCQ
    3. Validation: If anything other than MCQ, reject the question
@@ -163,7 +163,7 @@ As a **contributor** I should be able to bulk upload questions for a question se
 3. User will see an option to “Bulk Upload Question” in the question set similar to “QR codes” in the collection/question set editor.
 4. Clicking “Bulk Upload Question” option, Bulk Upload Question screen should open up. The screen should have following options
    1. Option to select a Bulk Upload Question (metadata) file from local folder (of user’s system)\
-      _Assumption: the metadata file will have publicly accessible URLs to the question related files_
+      &#xNAN;_&#x41;ssumption: the metadata file will have publicly accessible URLs to the question related files_
    2. There is a link to sample metadata file: “Sample Bulk Upload Question metadata file”
    3. User selects metadata file, user clicks “Upload”. System provides a message “Validating file”
    4. The system should first validate metadata file against the selected files. Following are the validations:

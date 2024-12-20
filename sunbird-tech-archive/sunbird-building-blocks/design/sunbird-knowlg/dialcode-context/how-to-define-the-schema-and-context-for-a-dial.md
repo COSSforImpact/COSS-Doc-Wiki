@@ -71,7 +71,7 @@ icon: elementor
     }
     ```
 3.  Upload schema and context in blob storage using jenkins job\
-    _Deploy/Kubernetes/DialUploadSchemas_ - Configure the _**schemas**_ folder path in jenkins job to upload all the available schema and context to blob storage.\
+    &#xNAN;_&#x44;eploy/Kubernetes/DialUploadSchemas_ - Configure the _**schemas**_ folder path in jenkins job to upload all the available schema and context to blob storage.\
     \
     Configure the _**dial\_plugin\_container\_name**_ in devops private repo. e.g.
 

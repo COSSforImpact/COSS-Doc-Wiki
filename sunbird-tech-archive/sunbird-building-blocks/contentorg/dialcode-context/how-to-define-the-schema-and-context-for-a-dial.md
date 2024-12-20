@@ -15,8 +15,6 @@ icon: elementor
 1. Create the new folder inside _**schemas**_ folder with the _**context-name.**_ e.g. we have the context name content and collection.
 2.  Create the file _**context.json**_ and _**schema.json**_ inside context folder.
 
-
-
     \
     **Sample schema.json**
 
@@ -71,7 +69,7 @@ icon: elementor
     }
     ```
 3.  Upload schema and context in blob storage using jenkins job\
-    _Deploy/Kubernetes/DialUploadSchemas_ - Configure the _**schemas**_ folder path in jenkins job to upload all the available schema and context to blob storage.\
+    &#xNAN;_&#x44;eploy/Kubernetes/DialUploadSchemas_ - Configure the _**schemas**_ folder path in jenkins job to upload all the available schema and context to blob storage.\
     \
     Configure the _**dial\_plugin\_container\_name**_ in devops private repo. e.g.
 
