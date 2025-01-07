@@ -1,4 +1,4 @@
-# Contributing Sunbird Documentation (2021)
+# 📒 Contributing Sunbird Documentation (2021)
 
 ### Overview
 

@@ -1,4 +1,4 @@
-# Contributing to Building Blocks (2021)
+# 🧊 Contributing to Building Blocks (2021)
 
 ### Overview
 

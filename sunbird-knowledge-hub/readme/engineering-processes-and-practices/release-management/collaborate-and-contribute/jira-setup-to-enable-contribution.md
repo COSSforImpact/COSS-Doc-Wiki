@@ -1,4 +1,4 @@
-# JIRA Setup for Latest Contribution Process
+# 🪄 JIRA Setup to enable Contribution
 
 ### JIRA Setup Details <a href="#id-1xx3tiqxobbs" id="id-1xx3tiqxobbs"></a>
 
@@ -28,7 +28,7 @@
 
 ### 1.0 Introduction <a href="#uzsymfdawvik" id="uzsymfdawvik"></a>
 
-To support the Community Contribution Practice, a new project template has been created in JIRA. This template includes predefined issue types and workflows aligned with the [contribution practice](https://docs.google.com/document/d/1zPDg6hlVm5rewU6dDh3CdOq6d6hdG\_hRLhnKJdoSjKU/edit?usp=drive\_link), enabling the rapid creation of JIRA projects for new building blocks.
+To support the Community Contribution Practice, a new project template has been created in JIRA. This template includes predefined issue types and workflows aligned with the [contribution practice](https://docs.google.com/document/d/1zPDg6hlVm5rewU6dDh3CdOq6d6hdG_hRLhnKJdoSjKU/edit?usp=drive_link), enabling the rapid creation of JIRA projects for new building blocks.
 
 This document provides a comprehensive overview of all the components within the template project. It serves as a reference for JIRA administrators to facilitate maintenance, enhancements, and a thorough understanding of the setup for future changes.
 
@@ -57,7 +57,7 @@ This document provides a comprehensive overview of all the components within the
 
 #### 3.1 Issue Types <a href="#id-1cyh06760jdu" id="id-1cyh06760jdu"></a>
 
-This template project includes the below mentioned issue types, as detailed in the [contribution practice document](https://docs.google.com/document/d/1zPDg6hlVm5rewU6dDh3CdOq6d6hdG\_hRLhnKJdoSjKU/edit?usp=drive\_link). The issue type are assigned to the project using the scheme:- **BBT: Scrum Issue Type Scheme**
+This template project includes the below mentioned issue types, as detailed in the [contribution practice document](https://docs.google.com/document/d/1zPDg6hlVm5rewU6dDh3CdOq6d6hdG_hRLhnKJdoSjKU/edit?usp=drive_link). The issue type are assigned to the project using the scheme:- **BBT: Scrum Issue Type Scheme**
 
 Level-1
 
